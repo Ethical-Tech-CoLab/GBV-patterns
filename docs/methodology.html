@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology and Limits</title>
+<meta name="description" content="How the GBV Patterns project collects, codes and presents data on femicide and gender-based violence in New York, and what it cannot claim.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero{padding:calc(var(--header-h) + 3rem) 24px 3rem}
+.page-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.04;letter-spacing:-.03em;font-weight:600;margin:0;max-width:18ch}
+.page-hero p{color:var(--fg-muted);max-width:60ch;font-size:1.1rem}
+.prose{max-width:68ch}
+.prose h3{font-size:1.2rem;font-weight:600;margin:2rem 0 .5rem}
+.prose p,.prose li{color:var(--fg-muted);font-size:16px}
+.prose ul{padding-left:1.2rem}
+.prose li{margin-bottom:.5rem}
+.prose code{font-family:var(--mono);font-size:13px;background:var(--bg-alt);border:1px solid var(--border);border-radius:5px;padding:1px 6px}
+table{border-collapse:collapse;width:100%;margin-top:1.4rem;font-size:14.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-weight:600}
+td:first-child{white-space:nowrap;font-family:var(--mono);font-size:13px}
+.lim{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:2rem}
+@media (max-width:860px){.lim{grid-template-columns:1fr}}
+.lim div{border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.lim h4{margin:0 0 .4rem;font-size:1.05rem;font-weight:600}
+.lim p{margin:0;color:var(--fg-muted);font-size:15px}
+.lim .sev{display:inline-block;font-size:12px;border-radius:999px;padding:2px 9px;border:1px solid var(--border);color:var(--fg-subtle);margin-bottom:10px}
+.lim .sev.high{background:var(--gap);color:#1d2919;border-color:var(--gap)}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html"><img src="assets/etc-logo.jpg" alt="Ethical Tech CoLab"><span>GBV Patterns</span></a>
+  <nav aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="patterns.html">Patterns</a>
+    <a href="context.html">Context</a>
+    <a href="methodology.html" aria-current="page">Methodology</a>
+    <a href="sources.html">Sources</a>
+  </nav>
+  <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>How this was built, and what it cannot claim</h1>
+    <p>Every number on this site has a public source. This page says where each one comes from, how the project will code the case-level data, and the limits a careful reader, or a hostile one, should hold against it.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="lede"><h2>Scope</h2><p>Region, period and definitions.</p></div>
+    <div class="prose">
+      <p>The study region is New York State, with New York City broken out because the city and state publish on different systems that do not reconcile. National and global figures appear only as context for the state. The core period is 2023 to 2024 for official statistics, because those are the latest complete years, and 2016 to 2026 for case-level data, because Women Count USA's coverage is most complete from the year it began.</p>
+      <p>Femicide is used in the UNODC and UN Women sense: the intentional killing of a woman or girl because of her gender, operationalised in their estimate as killing by an intimate partner or family member. Women Count USA uses a broader rule, any woman or girl killed by a man or boy. New York law has no definition. CATW's proposal is that killings of women in prostitution and sex trafficking be recognised within it. This site keeps the three definitions visibly separate.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="lede"><h2>Data sources and what each can answer</h2><p>Official statistics are quoted exactly as published. Nothing is modelled or imputed.</p></div>
+    <table>
+      <thead><tr><th>Source</th><th>Covers</th><th>Used for</th><th>Known gaps</th></tr></thead>
+      <tbody>
+        <tr><td>ENDGBV fact sheet 2024</td><td>New York City, calendar 2023 and 2024</td><td>Homicides by borough and relationship, NYPD domestic incident reports, Family Justice Center visits, hotline calls</td><td>Incident reports count police responses, not people. Relationship unknown for 40,142 reports.</td></tr>
+        <tr><td>NYS GBV dashboard 2024</td><td>New York State, calendar 2024</td><td>Orders of protection, hotline calls, shelter admissions and denials, family offense petitions, intimate partner homicides outside the city</td><td>DCJS victim and homicide counts exclude New York City. City and non-city data cannot be summed.</td></tr>
+        <tr><td>UNODC and UN Women 2025</td><td>117 countries, 2024</td><td>Global femicide rate for the clocks and the ten-figures section</td><td>Fewer countries report each year. Estimate, not a count.</td></tr>
+        <tr><td>Women Count USA</td><td>United States, 1950s to 2026</td><td>Case-level age, race, relationship, perpetrator, cause, location, status, sex-trade involvement</td><td>Built from media by one person. Coverage depends on what was reported. Entries at different stages of completion. Copyrighted.</td></tr>
+        <tr><td>CDC and NCHS</td><td>United States</td><td>Per-victim lifetime costs, female life expectancy</td><td>Cost figures in 2014 dollars; not New York specific.</td></tr>
+        <tr><td>NYS Comptroller, ACS 2023</td><td>New York State</td><td>Median earnings for women working full time, for the lost-earnings calculator</td><td>Median, not the victim's own earnings. No discounting or growth applied.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="lede"><h2>How the case-level data will be coded</h2><p>The rules below are written down before any aggregation runs, so they can be reviewed by Women Count USA and CATW first.</p></div>
+    <div class="prose">
+      <h3>Access</h3>
+      <p>The fifteen databases are read through the public share links on womencountusa.org using <code>analysis/fetch_wcusa.py</code>. Raw exports stay on the analyst's machine and are never committed. Only coded fields and counts would be published, and only with permission.</p>
+      <h3>Fields read</h3>
+      <p>Date, state, city, her age, her race, relationship, his age, his race, cause of death, location type, case status, keywords, additional details, single or multiple victim, murder-suicide. Names, photographs, narratives, addresses and source links are not read by the coding script.</p>
+      <h3>Groupings</h3>
+      <ul>
+        <li><strong>Relationship</strong>: intimate partner (husband, boyfriend, domestic partner, fiancé, and their ex and estranged forms); family (father, son, brother, grandfather, cousin, caregiver and their step and in-law forms); commercial sexual exploiter; stranger; acquaintance or other known (acquaintance, neighbour, landlord, coworker, classmate, client, service provider, hitman); unknown.</li>
+        <li><strong>Age</strong>: under 18, 18 to 24, 25 to 34, 35 to 44, 45 to 54, 55 to 64, 65 and over. Infants recorded in months or weeks are coded as age 0.</li>
+        <li><strong>Sex-trade involvement</strong>: true when the relationship is "commercial sexual exploiter" or the additional details include "commercial sexual exploitation / prostitution" or "killed during commercial sex encounter". No free-text matching, so this is a floor, not a count.</li>
+        <li><strong>Cause</strong>: firearm, sharp force, asphyxiation, blunt force, other, unknown.</li>
+      </ul>
+      <h3>Presentation</h3>
+      <p>Counts below five in any cell are suppressed in public charts. No chart identifies an individual. Maps stop at county level.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="limitations">
+  <div class="wrap">
+    <div class="lede"><h2>Limitations</h2><p>Ordered by how much they could change a conclusion.</p></div>
+    <div class="lim">
+      <div><span class="sev high">High</span><h4>Not every case is in the system, and not every case in the system is called femicide</h4><p>Official counts rely on a reported crime with a recorded relationship. Women Count USA relies on a news story existing. A woman killed in the sex trade can be missing from both: filed as an overdose, an accident, an unknown relationship, or never reported. Any count here is a floor.</p></div>
+      <div><span class="sev high">High</span><h4>The region is one state, and its two halves do not add up</h4><p>New York City and the rest of the state report through different systems. The state's own dashboard warns that the two cannot be combined or compared. Findings for New York do not transfer to other states, and national rates are not a benchmark for the city.</p></div>
+      <div><span class="sev high">High</span><h4>Media-sourced data inherits media bias</h4><p>Cases involving white, young, middle-class victims receive more coverage and so more complete records. Cases involving women in prostitution, undocumented women, Black and Native women and trans women are more likely to be missing or thinly recorded. Demographic patterns from the database partly measure who gets written about.</p></div>
+      <div><span class="sev">Medium</span><h4>Definitions differ across sources</h4><p>UN estimates count partner and family killings. Women Count USA counts any killing by a man. New York counts domestic violence, not femicide. Numbers from different sources are placed side by side, never summed.</p></div>
+      <div><span class="sev">Medium</span><h4>Rising counts can mean rising reporting</h4><p>More incident reports, hotline calls or orders of protection can reflect better outreach and trust rather than more violence. Homicide counts are the least affected by this. The hypotheses page treats this as a question, not an assumption.</p></div>
+      <div><span class="sev">Medium</span><h4>The economic figures are illustrative</h4><p>Lost earnings use a state median, assume work to 65 and apply no discount rate, wage growth or unpaid-work value. Per-victim costs are national and in 2014 dollars. They show scale, not a budget line.</p></div>
+      <div><span class="sev">Medium</span><h4>Small numbers by borough</h4><p>Borough homicide counts are in the single digits. A change from 3 to 8 is real for those families and statistically fragile. Year-on-year borough comparisons should not be read as trends.</p></div>
+      <div><span class="sev">Low</span><h4>Live databases change</h4><p>Women Count USA is edited daily. The share links on the patterns page always show the current version, so a figure quoted from it today may differ tomorrow. The methodology records the date of any snapshot used.</p></div>
+      <div><span class="sev">Low</span><h4>Global clock rates are annual averages</h4><p>The counters spread yearly estimates evenly across seconds. They convey scale, not timing.</p></div>
+      <div><span class="sev">Low</span><h4>Causation is not shown anywhere on this site</h4><p>Correlations between representation, economic stress, social media and violence are posed as hypotheses. Countries with more women in office are also richer, older democracies; any leadership-impact claim needs that confound addressed before it is made.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="lede"><h2>Ethics and privacy</h2><p>Patterns, not profiles.</p></div>
+    <div class="prose">
+      <ul>
+        <li>No victim or perpetrator is named on this site. Case-level data is shown only through the owner's own published views.</li>
+        <li>Aggregation of Women Count USA will proceed only with written agreement from Dawn Wilcox and CATW on what may be published.</li>
+        <li>Perpetrator analysis uses age, race and relationship to the victim, never names, consistent with CATW's stated priority.</li>
+        <li>The site carries a content warning on the home page and links to support resources in New York.</li>
+        <li>Code and coding rules are open in the <a href="https://github.com/Ethical-Tech-CoLab/GBV-patterns">repository</a> so that every figure can be reproduced.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logos">
+        <img class="etc" src="assets/etc-logo.jpg" alt="Ethical Tech CoLab">
+        <img class="catw-light" src="assets/catw-logo.png" alt="Coalition Against Trafficking in Women">
+        <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
+      </div>
+      <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Prototype, October 2026.</p>
+    </div>
+    <div>
+      <h4>On this site</h4>
+      <ol>
+        <li><a href="index.html">Home: New York counts</a></li>
+        <li><a href="patterns.html">Patterns: the Women Count USA databases</a></li>
+        <li><a href="context.html">Context: backlash, diplomacy, the economics</a></li>
+        <li><a href="sources.html">All sources</a></li>
+      </ol>
+    </div>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

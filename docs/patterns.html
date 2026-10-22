@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Femicide Patterns</title>
+<meta name="description" content="Who was killed, by whom, where and when: the Women Count USA femicide databases, with the questions this project asks of them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero{padding:calc(var(--header-h) + 3rem) 24px 3rem}
+.page-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.04;letter-spacing:-.03em;font-weight:600;margin:0;max-width:18ch}
+.page-hero p{color:var(--fg-muted);max-width:60ch;font-size:1.1rem}
+.dbgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:2rem}
+@media (max-width:900px){.dbgrid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:520px){.dbgrid{grid-template-columns:repeat(2,1fr)}}
+.dbgrid button{border:1px solid var(--border);border-radius:12px;background:transparent;padding:14px 12px;text-align:left}
+.dbgrid button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.dbgrid .y{font-family:var(--mono);font-size:1.15rem}
+.dbgrid .s{font-size:12.5px;color:var(--fg-subtle);margin-top:2px}
+.dbgrid button[aria-pressed="true"] .s{color:color-mix(in srgb,var(--bg) 70%,transparent)}
+.frame{margin-top:14px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--bg-alt)}
+.frame iframe{display:block;width:100%;height:620px;border:0;background:transparent}
+.frame .cap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 16px;font-size:13.5px;color:var(--fg-muted);border-top:1px solid var(--border)}
+.qgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:2rem}
+@media (max-width:860px){.qgrid{grid-template-columns:1fr}}
+.q{border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.q h3{margin:0 0 .4rem;font-size:1.15rem;font-weight:600}
+.q p{margin:0;color:var(--fg-muted);font-size:15px}
+.q .field{display:inline-block;font-family:var(--mono);font-size:12.5px;border:1px solid var(--border);border-radius:6px;padding:2px 7px;margin:8px 6px 0 0;color:var(--fg-muted)}
+.q .plan{margin-top:12px;font-size:14px;color:var(--fg-subtle)}
+.mapnote{margin-top:2rem;border:1px dashed var(--gap);border-radius:var(--radius);padding:22px}
+.mapnote h3{margin:0 0 .4rem;font-size:1.15rem}
+.mapnote p{margin:0;color:var(--fg-muted);font-size:15px}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html"><img src="assets/etc-logo.jpg" alt="Ethical Tech CoLab"><span>GBV Patterns</span></a>
+  <nav aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="patterns.html" aria-current="page">Patterns</a>
+    <a href="context.html">Context</a>
+    <a href="methodology.html">Methodology</a>
+    <a href="sources.html">Sources</a>
+  </nav>
+  <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>Who was killed, by whom, where and when</h1>
+    <p>Women Count USA is the only systematic record in the country of women and girls killed by men and boys. Dawn Wilcox has built it by hand since 2016 from news reports, court records, social media and obituaries. It runs from the 1950s to this year, in fifteen working databases. They are shown here exactly as she publishes them, not copied.</p>
+  </div>
+</section>
+
+<section class="block" id="databases">
+  <div class="wrap">
+    <div class="lede">
+      <h2>The databases, year by year</h2>
+      <p>Pick a year. The table opens inside this page with every column Dawn Wilcox records: her age, her race, the relationship, his age, cause of death, location type, case status and the sources for each case. Filter and sort inside the table.</p>
+    </div>
+    <div class="dbgrid" id="dbgrid"></div>
+    <div class="frame">
+      <iframe id="dbframe" title="Women Count USA database" loading="lazy" referrerpolicy="no-referrer"></iframe>
+      <div class="cap"><span id="dbcap"></span><a id="dblink" href="#" target="_blank" rel="noopener">Open in Airtable</a></div>
+    </div>
+    <p class="src">Source: Women Count USA: Femicide Accountability Project, Dawn Wilcox, <a href="https://womencountusa.org/the-databases">womencountusa.org/the-databases</a>. Copyrighted material, embedded with the share links she publishes. Entries are at different stages of completion.</p>
+  </div>
+</section>
+
+<section class="block" id="questions">
+  <div class="wrap">
+    <div class="lede">
+      <h2>The questions we are asking of the data</h2>
+      <p>Each card names a question, the columns that answer it, and how the answer will be shown once aggregation is agreed with Women Count USA and CATW. Until then the embedded tables above are the analysis surface.</p>
+    </div>
+    <div class="qgrid">
+      <div class="q"><h3>How old were they?</h3><p>Age at death, in bands, for all victims and for New York. Girls under 18 separately.</p><span class="field">HER AGE</span><span class="field">DATE</span><span class="field">STATE</span><div class="plan">Shown as: a histogram you can switch between the whole country and New York, with the median marked.</div></div>
+      <div class="q"><h3>Who was the perpetrator?</h3><p>Relationship to the victim grouped into intimate partner, family, acquaintance, stranger, commercial sexual exploiter and unknown. His age and race where recorded.</p><span class="field">RELATIONSHIP</span><span class="field">HIS AGE</span><span class="field">HIS RACE / ETH</span><div class="plan">Shown as: a relationship wheel. Click a segment to see age and case-status breakdowns for that group.</div></div>
+      <div class="q"><h3>Where were they?</h3><p>State and city for every case; the database also keeps an address field for mapping.</p><span class="field">STATE</span><span class="field">CITY</span><span class="field">ADDRESS FOR MAPPING</span><div class="plan">Shown as: a map of New York State with one point per case, clustered by county, and a national comparison by state rate per 100,000 women.</div></div>
+      <div class="q"><h3>Were they killed in the sex trade?</h3><p>The database codes commercial sexual exploitation as a relationship type and as an additional detail. These are the cases New York does not count anywhere.</p><span class="field">RELATIONSHIP</span><span class="field">ADDITIONAL DETAILS</span><span class="field">KEYWORDS</span><div class="plan">Shown as: a count by year and state, and how each case was described in the press.</div></div>
+      <div class="q"><h3>What patterns repeat?</h3><p>Prior protective orders, strangulation history, threats to kill, break-ups in the weeks before, murder-suicide, firearms.</p><span class="field">KEYWORDS</span><span class="field">CAUSE OF DEATH</span><span class="field">MURDER-SUICIDE</span><div class="plan">Shown as: a co-occurrence grid. Which warning signs appear together, and how often the system had already been warned.</div></div>
+      <div class="q"><h3>What happened to the case?</h3><p>Conviction, pending, suspect deceased, unsolved, declined indictment, mishandled.</p><span class="field">CASE STATUS / DETAILS</span><span class="field">SENTENCE</span><div class="plan">Shown as: outcomes for sex-trade cases against all other cases.</div></div>
+    </div>
+    <div class="mapnote">
+      <h3>Why the aggregated charts are not live yet</h3>
+      <p>Women Count USA is copyrighted material built by one person. Before this project copies, re-codes and republishes it as an open dataset, Dawn Wilcox and CATW need to agree to the terms. The fetch script and coding rules are ready in the repository and described on the methodology page so they can be reviewed first.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logos">
+        <img class="etc" src="assets/etc-logo.jpg" alt="Ethical Tech CoLab">
+        <img class="catw-light" src="assets/catw-logo.png" alt="Coalition Against Trafficking in Women">
+        <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
+      </div>
+      <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Prototype, October 2026.</p>
+    </div>
+    <div>
+      <h4>On this site</h4>
+      <ol>
+        <li><a href="index.html">Home: New York counts</a></li>
+        <li><a href="context.html">Context: backlash, diplomacy, the economics</a></li>
+        <li><a href="methodology.html">Methodology and limitations</a></li>
+        <li><a href="sources.html">All sources</a></li>
+      </ol>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script>
+const DBS=[
+  ['1950s to 1999','shrEg06uutMWb9zcf'],['2000 to 2009','appRvVlPj5DOScgdt/shrGdGJjMuvGkH2tl'],['2010 to 2014','shrUZ8hIy2FDtH5o1'],
+  ['2015','shrkpu2YEs0hsPZaS'],['2016','shrgXbMy3yJpyraN6'],['2017','shrMSGPox3r7bvsil'],['2018','shrQoIB5CerCSfQP2'],['2019','shr0yXAcLgjCgnw3x'],
+  ['2020','shrMieJidNcstBUJ3'],['2021','shrmCMNWakeP457rX'],['2022','shr6HrRDxsPuBSqBr'],['2023','shrhERKTyJcRbgMeV'],
+  ['2024','appiYYO2XvT0RInXN/shrQ0MOJtPlAcMTgy'],['2025','appvJSVKmBraqwF2b/shrslQFObSPa3SVIa'],['2026','appDBLL8ZnycYFBzn/shr1M1lnaV5bN9C4x']];
+const grid=document.getElementById('dbgrid'), fr=document.getElementById('dbframe'), cap=document.getElementById('dbcap'), link=document.getElementById('dblink');
+function show(i){const [label,share]=DBS[i];
+  fr.src='https://airtable.com/embed/'+share+'?backgroundColor=transparent&viewControls=on';
+  link.href='https://airtable.com/'+share; cap.textContent='Women Count USA, women and girls allegedly killed by men and boys, '+label+'. Working database; entries at various stages of completion.';
+  [...grid.children].forEach((b,j)=>b.setAttribute('aria-pressed',j===i));}
+DBS.forEach(([label],i)=>{const b=document.createElement('button');b.innerHTML=`<div class="y">${label}</div><div class="s">${i<3?'multi-year database':'one year'}</div>`;b.addEventListener('click',()=>show(i));grid.appendChild(b)});
+show(13);
+</script>
+</body>
+</html>
