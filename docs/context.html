@@ -91,8 +91,8 @@
 <section class="block" id="clocks">
   <div class="wrap">
     <div class="lede">
-      <h2>Since you opened this page</h2>
-      <p>Three counters run at the most recent global rates. They are estimates spread evenly over a year, which is not how violence happens, but it is how its scale becomes legible.</p>
+      <h2>Today so far</h2>
+      <p>Four counters run at the most recent global rates, counting from midnight in your time zone, with a countdown to the next. They are estimates spread evenly over a year, which is not how violence happens, but it is how its scale becomes legible.</p>
     </div>
     <div class="clocks">
       <div class="clock"><svg class="ring" viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="20"/><circle class="fg" id="r1" cx="23" cy="23" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6"/></svg><div class="n num" id="c1">0</div><div class="k">femicides: women and girls killed by a partner or family member</div><div class="rate">one every 10.5 minutes · 50,000 a year · UNODC and UN Women, 2024 data</div></div>
@@ -420,19 +420,6 @@ document.querySelectorAll('.tlwrap').forEach(w=>{
   const sync=()=>{const x=tl.scrollLeft+10;let idx=0;cards.forEach((c,i)=>{if(c.offsetLeft-tl.offsetLeft<=x)idx=i});[...years.children].forEach((b,i)=>b.classList.toggle('on',i===idx))};
   tl.addEventListener('scroll',sync,{passive:true}); sync();
 });
-// clocks
-(function(){
-  const start=performance.now(), Y=365.25*86400;
-  const rates=[50000/Y, 12e6/Y, 1.5e12/Y, 1/68];
-  const els=['c1','c2','c3','c4'].map(i=>document.getElementById(i));
-  const rings=['r1','r2','r3','r4'].map(i=>document.getElementById(i));
-  const fmt=n=>Math.floor(n).toLocaleString('en-US');
-  function tick(now){const s=(now-start)/1000;
-    els[0].textContent=fmt(s*rates[0]); els[1].textContent=fmt(s*rates[1]); els[2].textContent='$'+fmt(s*rates[2]); els[3].textContent=fmt(s*rates[3]);
-    rings.forEach((r,i)=>{const f=(s*rates[i])%1; r.style.strokeDashoffset=125.6*(1-f)});
-    requestAnimationFrame(tick)}
-  requestAnimationFrame(tick);
-})();
 // calculator
 (function(){
   const LE=81.1, EARN=62111, RET=65, N=66;

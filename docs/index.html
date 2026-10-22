@@ -14,14 +14,10 @@
 <header>
   <a class="brand" href="#top"><img src="assets/etc-logo.jpg" alt="Ethical Tech CoLab"><span>GBV Patterns</span></a>
   <nav aria-label="Primary">
-    <a href="#figures">Ten women</a>
-    <a href="#pulse">The pace</a>
-    <a href="#clocks">Clocks</a>
-    <a href="#city">The city</a>
-    <a href="#ledger">The ledger</a>
-    <a href="#state">The state</a>
-    <a href="#gap">The gap</a>
-    <a href="#catw">CATW</a>
+    <a class="sec" href="#figures">Ten women</a>
+    <a class="sec" href="#clocks">Clocks</a>
+    <a class="sec" href="#city">New York</a>
+    <a class="sec" href="#gap">The gap</a>
     <a href="patterns.html">Patterns</a>
     <a href="context.html">Context</a>
     <a href="methodology.html">Methodology</a>
@@ -84,7 +80,7 @@
       </div>
       <div class="tally" id="tally" aria-hidden="true"></div>
     </div>
-    <div class="lede" id="clocks" style="margin-top:3.5rem"><h2>Three clocks</h2><p>Killings, child marriages, and money. The third is the one budget committees read.</p></div>
+    <div class="lede" id="clocks" style="margin-top:3.5rem"><h2>Four clocks</h2><p>Killings, child marriages, money, and sexual assault. Counting from midnight, local time. The third is the one budget committees read.</p></div>
     <div class="clocks">
       <div class="clock"><svg class="ring" viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="20"/><circle class="fg" id="r1" cx="23" cy="23" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6"/></svg><div class="n num" id="c1">0</div><div class="k">femicides: women and girls killed by a partner or family member</div><div class="rate">one every 10.5 minutes · 50,000 a year · UNODC and UN Women, 2024 data</div></div>
       <div class="clock"><svg class="ring" viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="20"/><circle class="fg" id="r2" cx="23" cy="23" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6"/></svg><div class="n num" id="c2">0</div><div class="k">girls married before their eighteenth birthday</div><div class="rate">one every 2.6 seconds · 12 million a year · UNICEF estimate</div></div>
@@ -100,7 +96,7 @@
   <div class="wrap">
     <div class="lede">
       <h2>The case study: New York City, five boroughs, one year</h2>
-      <p>Choose a borough to see what the police recorded there. The yellow fill shows each borough's share of the city's intimate partner incident reports. Switch years to see what moved.</p>
+      <p>Choose a borough to see what the police recorded there. The red fill shows each borough's share of the city's intimate partner incident reports. Switch years to see what moved.</p>
     </div>
     <div class="toggle" role="group" aria-label="Year">
       <button data-year="2023" aria-pressed="false">2023</button>
@@ -331,15 +327,6 @@ requestAnimationFrame(()=>document.querySelectorAll('.reveal').forEach((el,i)=>s
   document.getElementById('pulseDay').addEventListener('click',()=>{dayMode=true;clearInterval(dayTimer);shown=-1;
     let i=0;dayTimer=setInterval(()=>{i++;render(i,'in one day, at the 2024 global rate. Each dot is one woman or girl.');if(i>=DOTS)clearInterval(dayTimer)},18);});
   document.getElementById('pulseReset').addEventListener('click',()=>{clearInterval(dayTimer);dayMode=false;paused=false;pauseBtn.textContent='Pause';pauseBtn.setAttribute('aria-pressed','false');start=performance.now();shown=-1;render(0,'killed by a partner or relative since you opened this page');});
-})();
-
-// ---------- clocks ----------
-(function(){
-  const start=performance.now(), Y=365.25*86400, rates=[50000/Y,12e6/Y,1.5e12/Y,1/68];
-  const els=['c1','c2','c3','c4'].map(i=>document.getElementById(i)), rings=['r1','r2','r3','r4'].map(i=>document.getElementById(i));
-  const f=n=>Math.floor(n).toLocaleString('en-US');
-  (function tick(now){const s=(now-start)/1000;els[0].textContent=f(s*rates[0]);els[1].textContent=f(s*rates[1]);els[2].textContent='$'+f(s*rates[2]);els[3].textContent=f(s*rates[3]);
-    rings.forEach((r,i)=>{r.style.strokeDashoffset=125.6*(1-((s*rates[i])%1))});requestAnimationFrame(tick)})(performance.now());
 })();
 
 // ---------- boroughs ----------

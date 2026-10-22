@@ -53,7 +53,10 @@ nav a:hover,nav a:focus-visible{background:color-mix(in srgb,var(--fg) 7%,transp
 .partners .x{font-size:20px;color:var(--fg-subtle)}
 
 /* sections */
-section.block{padding:6rem 24px;border-top:1px solid var(--border)}
+section.block{padding:6rem 24px;border-top:1px solid var(--border);scroll-margin-top:var(--header-h)}
+.lede[id]{scroll-margin-top:calc(var(--header-h) + 1rem)}
+nav{flex-wrap:nowrap;white-space:nowrap}
+@media (max-width:1180px){nav a.sec{display:none}}
 .wrap{max-width:1100px;margin:0 auto}
 .lede{max-width:60ch}
 .lede h2{font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1.1;letter-spacing:-.03em;font-weight:600;margin:0 0 .8rem}
@@ -190,10 +193,11 @@ footer h4{margin:0 0 .6rem;font-size:14px;font-weight:600}
 .clocks{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:2.4rem}
 @media (max-width:900px){.clocks{grid-template-columns:1fr}}
 .clock{border:1px solid var(--border);border-radius:var(--radius);padding:22px;position:relative;overflow:hidden}
-.clock .n{font-family:var(--mono);font-size:clamp(2rem,3.6vw,3rem);letter-spacing:-.04em;line-height:1;padding-right:64px}
+.clock .n{font-family:var(--mono);font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-.04em;line-height:1;padding-right:56px}
+.clock .next{font-family:var(--mono);font-size:12px;color:var(--accent);margin-top:8px}
 .clock .k{color:var(--fg-muted);font-size:15px;margin-top:8px;max-width:30ch}
 .clock .rate{font-size:13px;color:var(--fg-subtle);margin-top:14px;font-family:var(--mono)}
-.clock .ring{position:absolute;right:18px;top:18px;width:46px;height:46px}
+.clock .ring{position:absolute;right:16px;top:16px;width:40px;height:40px}
 .clock .ring circle{fill:none;stroke-width:3}
 .clock .ring .bg{stroke:var(--border)}
 .clock .ring .fg{stroke:var(--fg);stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%}
