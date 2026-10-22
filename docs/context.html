@@ -159,6 +159,32 @@
   </div>
 </section>
 
+<section class="block" id="politics">
+  <div class="wrap">
+    <div class="lede">
+      <h2>The backlash in politics, year by year</h2>
+      <p>The same decade seen from inside American and New York politics. Purple marks the moments that moved against women's rights or cut the systems that count and protect. Entries marked to verify are from secondary reporting.</p>
+    </div>
+    <div class="tl">
+      <div><div class="y">October 2017</div><h4>#MeToo</h4><p>Sexual violence becomes a mass political subject. Reporting rises in the years after, which the hypotheses page treats as a measurement problem as much as a change in violence.</p></div>
+      <div><div class="y">2018</div><h4>New York creates the crime of sex trafficking of a child</h4><p>S5988A removes the need to prove force, fraud or coercion when the victim is under 18. Delaware and New Jersey become the first states to ban child marriage.</p></div>
+      <div><div class="y">2019</div><h4>New York Child Victims Act</h4><p>Opens a look-back window for civil claims by survivors of childhood sexual abuse.</p></div>
+      <div class="back"><div class="y">2020</div><h4>The pandemic</h4><p>Lockdowns trap women with abusers. New York City's domestic violence homicides rise from 62 in 2021 to 71 in 2022 and 73 in 2023, and have not returned to the earlier level.</p></div>
+      <div><div class="y">2021</div><h4>New York bans marriage under 18, no exceptions</h4><p>Rhode Island follows the same year.</p></div>
+      <div class="back"><div class="y">June 2022</div><h4>Dobbs</h4><p>The Supreme Court ends the federal right to abortion. Reproductive coercion is one of the keywords Women Count USA codes in femicide cases.</p></div>
+      <div><div class="y">November 2022</div><h4>New York Adult Survivors Act</h4><p>A one-year window for adult survivors of sexual offences to sue regardless of the statute of limitations. The window closed in November 2023.</p></div>
+      <div class="back"><div class="y">2024</div><h4>One in four governments report a backlash</h4><p>UN Women's Beijing+30 review. In the United States, the election returns an administration that campaigns against "gender ideology".</p></div>
+      <div class="back"><div class="y">January to March 2025</div><h4>Executive orders and aid cuts</h4><p>Executive orders restrict federal recognition of gender; the United States withdraws from the World Health Organization and dismantles most foreign assistance, including programmes against gender-based violence. To verify against the specific orders and the programme list.</p></div>
+      <div><div class="y">March 2025</div><h4>Beijing+30 declaration</h4><p>Adopted at CSW69 after difficult negotiations; see the diplomacy timeline above.</p></div>
+      <div><div class="y">2025</div><h4>New York: child sex buyer felony; S8723 clears committee</h4><p>Buying sex from 15 to 17 year olds becomes a felony. Senator Myrie's bill to extend the no-force standard to mentally disabled adults passes committee unanimously but lacks an Assembly companion. To verify current status.</p></div>
+      <div><div class="y">2025 to 2026</div><h4>More states ban child marriage</h4><p>Washington DC, Maine, Oregon and Missouri in 2025, Oklahoma in 2026. Thirty-three states still permit it with conditions.</p></div>
+      <div><div class="y">November 2025</div><h4>Femicides in 2024</h4><p>UNODC and UN Women publish the first global estimate. One woman or girl every ten minutes.</p></div>
+      <div><div class="y">20 November 2026</div><h4>Ethical Tech Summit</h4><p>This prototype is shown. The ask: a femicide definition in New York law that counts women killed in the sex trade.</p></div>
+    </div>
+    <p class="src">Legislative items from the New York State Senate and the sources page. The plan to measure the backlash rather than narrate it, by counting gender and violence-against-women bills and speeches by year, is on the backlog.</p>
+  </div>
+</section>
+
 <section class="block" id="economics">
   <div class="wrap">
     <div class="lede">
@@ -176,12 +202,24 @@
         <p class="src">Earnings: $62,111 median for New York women working full time, year round (American Community Survey 2023, via the NYS Comptroller). Life expectancy: 81.1 years for US women in 2023 (CDC NCHS).</p>
       </div>
       <div class="panel dark">
-        <label>Lifetime earnings she will not make</label>
-        <div class="big num" id="earn">$2,173,885</div>
+        <label for="cohort">A ledger of lost life and lost earnings for</label>
+        <select id="cohort" style="width:100%;padding:10px;border-radius:10px;border:1px solid color-mix(in srgb,var(--bg) 30%,transparent);background:transparent;color:inherit;font:inherit;margin-bottom:12px">
+          <option value="66">New York City, 66 domestic violence homicide victims, 2024</option>
+          <option value="33">New York City, 33 intimate partner homicide victims, 2024</option>
+          <option value="32">Rest of New York State, 32 women killed by partners, 2024</option>
+          <option value="2400">United States, 2,400+ women killed by men, 2023</option>
+          <option value="725">Kenya, 725 femicides, 2024</option>
+          <option value="50000">World, 50,000 killed by partner or family, 2024</option>
+          <option value="custom">A number you counted in the Women Count USA table</option>
+        </select>
+        <input type="number" id="cohortN" min="1" value="66" style="display:none;width:100%;padding:10px;border-radius:10px;border:1px solid color-mix(in srgb,var(--bg) 30%,transparent);background:transparent;color:inherit;font:inherit;margin-bottom:12px" aria-label="Number of women">
+        <div class="big num" id="earnC">$0</div>
+        <div class="k" style="margin-top:6px">lifetime earnings they will not make, at New York's median for women, if each died at the age on the slider</div>
         <div class="out">
-          <div><div class="n num" id="earn66">$0</div><div class="k">for the 66 women and girls, partners and relatives, New York City counted in 2024, if each were this age</div></div>
-          <div><div class="n num">$103,767</div><div class="k">lifetime cost per female victim of intimate partner violence who survives (CDC, 2014 dollars)</div></div>
+          <div><div class="n num" id="lifeC">0</div><div class="k">years of life lost across the group</div></div>
+          <div><div class="n num" id="earn1">$0</div><div class="k">per woman</div></div>
         </div>
+        <div class="k" style="margin-top:14px;font-size:13px">To use the database: open the <a href="patterns.html" style="color:inherit">patterns page</a>, filter a year's table by state, relationship or keyword, read the record count at the bottom of the table, and type it here. The count stays on Dawn Wilcox's side; only the arithmetic happens here.</div>
       </div>
     </div>
     <div class="costs">
@@ -296,10 +334,17 @@
   const LE=81.1, EARN=62111, RET=65, N=66;
   const age=document.getElementById('age');
   const money=n=>'$'+Math.round(n).toLocaleString('en-US');
+  const cohort=document.getElementById('cohort'), cohortN=document.getElementById('cohortN');
+  function count(){return cohort.value==='custom'?Math.max(1,+cohortN.value||1):+cohort.value}
   function upd(){const a=+age.value;document.getElementById('ageV').textContent=a;
-    document.getElementById('yrs').textContent=Math.max(0,LE-a).toFixed(1);
+    const life=Math.max(0,LE-a); document.getElementById('yrs').textContent=life.toFixed(1);
     const w=Math.max(0,RET-Math.max(a,18)); document.getElementById('wyrs').textContent=w;
-    document.getElementById('earn').textContent=money(w*EARN); document.getElementById('earn66').textContent=money(w*EARN*N);}
+    document.getElementById('earn').textContent=money(w*EARN);
+    const n=count(); document.getElementById('earnC').textContent=money(w*EARN*n);
+    document.getElementById('lifeC').textContent=Math.round(life*n).toLocaleString('en-US');
+    document.getElementById('earn1').textContent=money(w*EARN);}
+  cohort.addEventListener('change',()=>{cohortN.style.display=cohort.value==='custom'?'block':'none';upd()});
+  cohortN.addEventListener('input',upd);
   age.addEventListener('input',upd); upd();
 })();
 </script>
