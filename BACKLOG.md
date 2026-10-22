@@ -4,7 +4,7 @@ Everything asked for that is not yet built, or that needs a human. Nothing gets 
 
 ## Needs Carolina (blocked for the agent)
 
-- **Make the repo public and turn on Pages.** Both were refused by the permission classifier. Run:
+- ~~Make the repo public and turn on Pages.~~ Done 22 October 2026. Site: https://ethical-tech-colab.github.io/GBV-patterns/ Original note:
   ```bash
   gh repo edit Ethical-Tech-CoLab/GBV-patterns --visibility public --accept-visibility-change-consequences
   gh api -X POST repos/Ethical-Tech-CoLab/GBV-patterns/pages -f 'source[branch]=main' -f 'source[path]=/docs'
@@ -42,3 +42,9 @@ Everything asked for that is not yet built, or that needs a human. Nothing gets 
 - **More evidence and data** requested in general: expand every section with primary-source figures; add CDC WISQARS female homicide series, FBI SHR, NYS DCJS county-level domestic violence counts, NYPD precinct-level complaints 2025.
 - **Design direction confirmed**: black and white, formal, grey scale, dark red accent, 3D futuristic. Dark is now the default theme and the hero is a rotating 3D point globe. Remaining: 3D treatment for charts (depth, parallax), presenter mode.
 - **Dataset aggregation script**: build_dataset.py was drafted but could not be saved because the agent's permission layer refused to process the copyrighted database into a derived file. The coding rules are on the methodology page. Once Dawn Wilcox and CATW agree, Carolina can write the script by hand from those rules or re-run the agent with the restriction lifted.
+
+## Worked 22 October 2026, later still
+
+- Done: CATW section on the home page (focus areas, Equality Model, five New York asks). Representation section now carries the verified IPU 27.5% figure. Rights-over-time section with the World Bank series 2009 to 2024. Child marriage section with New York's 2021 ban and state counts. Leadership evidence with the randomised India study.
+- Still open from those: CAWP Congress and Fortune 500 figures (verify); 1970 World Bank value and V-Dem series as a chart; Pew count of countries permitting under-18 marriage (could not verify 117); S8723 status and Assembly companion; bill number for the Epstein estate loophole; chapter number for the child sex buyer felony law; Garikipati and Kambhampati 2021 and Post and Byron 2015 (not found in search, verify by DOI); the "when did gender policy peak" bill-count chart.
+- **How many countries do not treat child marriage as forced marriage**: needs the Pew or Girls Not Brides legal atlas. Add as a world-map layer when the country map is built.
