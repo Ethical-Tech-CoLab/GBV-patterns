@@ -99,6 +99,18 @@
       </div>
     </div>
     <p class="src">All figures from the CATW report, chapter on New York City. For the women's side of the same market, see the <a href="new-york.html#cases">Penn Track cases</a> on the New York page.</p>
+    <div class="lede" style="margin-top:3.5rem"><h2>Time served: sex crimes against white-collar crimes</h2><p>The comparison people expect is that rapists get off lightly against tax evaders. The federal numbers say the opposite, and that is the point: when a sexual abuser is sentenced, the sentence is long. He is almost never sentenced. Impunity is not in the courtroom; it is in the thousand cases that never reach one.</p></div>
+    <div class="ledger2">
+      <div class="chart"><h3>Average federal sentence, fiscal year 2024</h3><div class="sub">Months. US Sentencing Commission. Probation counts as zero; sentences capped at 470 months.</div><svg id="chSent" viewBox="0 0 520 230"></svg></div>
+      <div class="costs" style="margin-top:0;grid-template-columns:1fr">
+        <div><div class="n num">99.2% vs 66%</div><div class="k">share sentenced to prison: federal sexual abuse offenders against federal tax offenders. Of fraud, theft and embezzlement offenders the median sentence is 12 months.</div></div>
+        <div><div class="n num">1,395 vs 5,312</div><div class="k">federal sexual abuse cases sentenced in 2024 against fraud cases. Tax: 440. The system prosecutes money far more often than it prosecutes rape.</div></div>
+        <div><div class="n num">25 of 1,000</div><div class="k">sexual assaults that end in a prison sentence, by RAINN's funnel. Sentencing a convicted rapist to 18 years means nothing to the 975 who are never charged.</div></div>
+        <div><div class="n num">?</div><div class="k">typical sentence for a domestic violence conviction in New York, where most charges are misdemeanours. Not published in a comparable form; on the backlog with the state's court data.</div></div>
+      </div>
+    </div>
+    <p class="src">US Sentencing Commission, <a href="https://www.ussc.gov/sites/default/files/pdf/research-and-publications/quick-facts/Sexual_Abuse_FY24.pdf">Sexual Abuse quick facts FY2024</a>, <a href="https://www.ussc.gov/sites/default/files/pdf/research-and-publications/quick-facts/Tax_Fraud_FY24.pdf">Tax Fraud quick facts FY2024</a>, <a href="https://www.ussc.gov/sites/default/files/pdf/research-and-publications/annual-reports-and-sourcebooks/2024/2024_Sourcebook.pdf">2024 Sourcebook</a>. State courts: the last BJS series, 1998, put the mean maximum sentence for rape at 125 months and sexual assault at 94; a current state series does not exist. Federal cases are a small, severe slice of all sex crimes; most are prosecuted, or not, in state court.</p>
+
   </div>
 </section>
 
@@ -174,6 +186,9 @@
   (function(){const d=[['2018',279],['2019',82],['2020',28]],W=520,H=200,L=20,bw=(W-L*2)/3;let s='';
     d.forEach(([y,n],i)=>{const h=n/279*(H-60),x=L+i*bw+bw*.2;s+=`<rect x="${x}" y="${H-30-h}" width="${bw*.6}" height="${h}" fill="${i===2?accent:'#f2f2f2'}"/><text x="${x+bw*.3}" y="${H-30-h-8}" text-anchor="middle" fill="#f2f2f2" font-size="13" font-family="JetBrains Mono,monospace">${n}</text><text x="${x+bw*.3}" y="${H-10}" text-anchor="middle" fill="#999" font-size="12" font-family="JetBrains Mono,monospace">${y}</text>`});
     document.getElementById('chBk').innerHTML=s})();
+  (function(){const d=[['Criminal sexual abuse (rape)',229],['Sexual abuse, all',221],['Fraud, theft, embezzlement',21],['Tax fraud',15]],W=520,H=230,L=230,rowH=(H-20)/d.length;let s='';
+    d.forEach(([k,n],i)=>{const y=10+i*rowH,w=n/229*(W-L-60);s+=`<rect x="${L}" y="${y+8}" width="${w}" height="${rowH-16}" fill="${i<2?accent:'#f2f2f2'}"/><text x="${L-8}" y="${y+rowH/2+4}" text-anchor="end" fill="#f2f2f2" font-size="12" font-family="inherit">${k}</text><text x="${L+w+6}" y="${y+rowH/2+4}" fill="#999" font-size="12" font-family="JetBrains Mono,monospace">${n} mo</text>`});
+    document.getElementById('chSent').innerHTML=s})();
 })();
 </script>
 </body>
