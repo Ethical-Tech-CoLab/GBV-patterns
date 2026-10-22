@@ -24,14 +24,25 @@
 @media (max-width:760px){.hyp .body{grid-template-columns:1fr}}
 .hyp .body h4{margin:0 0 .3rem;font-size:14px;color:var(--fg)}
 .hyp .body p{margin:0}
-/* timeline */
-.tl{margin-top:2.4rem;border-left:2px solid var(--fg);padding-left:22px;display:flex;flex-direction:column;gap:18px}
-.tl div{position:relative}
-.tl div::before{content:"";position:absolute;left:-28px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--fg)}
+/* timeline: horizontal, scroll-snap, with arrows */
+.tlwrap{position:relative;margin-top:2.4rem}
+.tl{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:26px 4px 12px;border-top:2px solid var(--fg);scrollbar-width:thin}
+.tl::-webkit-scrollbar{height:6px}.tl::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.tl > div{position:relative;flex:0 0 300px;scroll-snap-align:start;border:1px solid var(--border);border-radius:var(--radius);padding:18px;background:var(--bg-alt)}
+@media (max-width:520px){.tl > div{flex-basis:82vw}}
+.tl > div::before{content:"";position:absolute;left:18px;top:-33px;width:12px;height:12px;border-radius:50%;background:var(--fg);border:2px solid var(--bg)}
 .tl .y{font-family:var(--mono);font-size:13px;color:var(--fg-subtle)}
-.tl h4{margin:2px 0 4px;font-size:1.05rem;font-weight:600}
-.tl p{margin:0;color:var(--fg-muted);font-size:15px;max-width:70ch}
-.tl div.back::before{background:var(--gap)}
+.tl h4{margin:4px 0 6px;font-size:1.05rem;font-weight:600;line-height:1.2}
+.tl p{margin:0;color:var(--fg-muted);font-size:14.5px}
+.tl > div.back{border-color:var(--gap)}
+.tl > div.back::before{background:var(--gap)}
+.tlnav{display:flex;gap:8px;justify-content:space-between;align-items:center;margin-top:10px;font-size:13px;color:var(--fg-subtle)}
+.tlnav div{display:flex;gap:8px}
+.tlnav button{border:1px solid var(--border);background:transparent;border-radius:999px;width:38px;height:38px;font-size:18px;line-height:1}
+.tlnav button:hover{border-color:var(--fg)}
+.tlyears{display:flex;gap:6px;flex-wrap:wrap}
+.tlyears button{width:auto;height:auto;padding:4px 10px;font-size:12.5px;font-family:var(--mono)}
+.tlyears button.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 /* calculator */
 .calc{margin-top:2.4rem;display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media (max-width:860px){.calc{grid-template-columns:1fr}}
@@ -65,6 +76,7 @@
     <a href="context.html" aria-current="page">Context</a>
     <a href="methodology.html">Methodology</a>
     <a href="sources.html">Sources</a>
+    <a href="progress.html">Progress</a>
   </nav>
   <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
 </header>
@@ -205,7 +217,7 @@
       <h2>Thirty years of saying it at the United Nations</h2>
       <p>The world has agreed, in writing, to end violence against women many times. The question for 2026 is whether the language is getting stronger or being traded away. Purple marks the moments of pushback.</p>
     </div>
-    <div class="tl">
+    <div class="tlwrap"><div class="tl">
       <div><div class="y">1979</div><h4>CEDAW adopted</h4><p>The Convention on the Elimination of All Forms of Discrimination against Women. The United States signed in 1980 and has never ratified it.</p></div>
       <div><div class="y">1993</div><h4>Declaration on the Elimination of Violence against Women</h4><p>The General Assembly defines violence against women for the first time, including violence in the family, in the community and condoned by the state.</p></div>
       <div><div class="y">1995</div><h4>Beijing Declaration and Platform for Action</h4><p>189 governments adopt twelve critical areas of concern. Violence against women is one. Trafficking and prostitution are named inside it.</p></div>
@@ -219,6 +231,7 @@
       <div><div class="y">November 2025</div><h4>Femicides in 2024</h4><p>UNODC and UN Women publish the first global femicide estimate built from 117 countries. One woman or girl every ten minutes. Fewer countries are reporting than before.</p></div>
       <div><div class="y">2026</div><h4>New York</h4><p>No femicide definition in state law. This project, with CATW, builds the case for one.</p></div>
     </div>
+    <div class="tlnav"><div class="tlyears"></div><div><button class="prev" aria-label="Earlier">‹</button><button class="next" aria-label="Later">›</button></div></div></div>
     <div class="gapcard" style="margin-top:2rem">
       <h3>Why the Security Council does not address femicide</h3>
       <p>The Council's mandate is international peace and security. Its gender agenda, Women, Peace and Security, covers women in armed conflict and conflict-related sexual violence, not killings in peacetime. Femicide is handled as crime and human rights by the General Assembly's Third Committee, the Commission on the Status of Women, UNODC, UN Women, the CEDAW Committee and the Special Rapporteur on violence against women. The Council is also the one body where a single veto blocks a new agenda item, and several permanent members have resisted widening its gender work. The practical venues for New York's case are therefore the General Assembly femicide resolutions and CSW, with the Council's trafficking resolutions as the one point of contact.</p>
@@ -233,7 +246,7 @@
       <h2>The backlash in politics, year by year</h2>
       <p>The same decade seen from inside American and New York politics. Purple marks the moments that moved against women's rights or cut the systems that count and protect. Entries marked to verify are from secondary reporting.</p>
     </div>
-    <div class="tl">
+    <div class="tlwrap"><div class="tl">
       <div><div class="y">October 2017</div><h4>#MeToo</h4><p>Sexual violence becomes a mass political subject. Reporting rises in the years after, which the hypotheses page treats as a measurement problem as much as a change in violence.</p></div>
       <div><div class="y">2018</div><h4>New York creates the crime of sex trafficking of a child</h4><p>S5988A removes the need to prove force, fraud or coercion when the victim is under 18. Delaware and New Jersey become the first states to ban child marriage.</p></div>
       <div><div class="y">2019</div><h4>New York Child Victims Act</h4><p>Opens a look-back window for civil claims by survivors of childhood sexual abuse.</p></div>
@@ -249,6 +262,7 @@
       <div><div class="y">November 2025</div><h4>Femicides in 2024</h4><p>UNODC and UN Women publish the first global estimate. One woman or girl every ten minutes.</p></div>
       <div><div class="y">20 November 2026</div><h4>Ethical Tech Summit</h4><p>This prototype is shown. The ask: a femicide definition in New York law that counts women killed in the sex trade.</p></div>
     </div>
+    <div class="tlnav"><div class="tlyears"></div><div><button class="prev" aria-label="Earlier">‹</button><button class="next" aria-label="Later">›</button></div></div></div>
     <p class="src">Legislative items from the New York State Senate and the sources page. The plan to measure the backlash rather than narrate it, by counting gender and violence-against-women bills and speeches by year, is on the backlog.</p>
   </div>
 </section>
@@ -384,6 +398,17 @@
 
 <script src="site.js"></script>
 <script>
+// timelines: arrows, year jump, keyboard
+document.querySelectorAll('.tlwrap').forEach(w=>{
+  const tl=w.querySelector('.tl'), cards=[...tl.children], years=w.querySelector('.tlyears');
+  const step=()=>cards[0].getBoundingClientRect().width+16;
+  w.querySelector('.prev').addEventListener('click',()=>tl.scrollBy({left:-step()*2}));
+  w.querySelector('.next').addEventListener('click',()=>tl.scrollBy({left:step()*2}));
+  cards.forEach((c,i)=>{const y=(c.querySelector('.y')||{}).textContent||'';const m=y.match(/\d{4}/);if(!m)return;const b=document.createElement('button');b.textContent=m[0];b.addEventListener('click',()=>tl.scrollTo({left:c.offsetLeft-tl.offsetLeft}));years.appendChild(b)});
+  tl.tabIndex=0; tl.addEventListener('keydown',e=>{if(e.key==='ArrowRight')tl.scrollBy({left:step()});if(e.key==='ArrowLeft')tl.scrollBy({left:-step()})});
+  const sync=()=>{const x=tl.scrollLeft+10;let idx=0;cards.forEach((c,i)=>{if(c.offsetLeft-tl.offsetLeft<=x)idx=i});[...years.children].forEach((b,i)=>b.classList.toggle('on',i===idx))};
+  tl.addEventListener('scroll',sync,{passive:true}); sync();
+});
 // clocks
 (function(){
   const start=performance.now(), Y=365.25*86400;

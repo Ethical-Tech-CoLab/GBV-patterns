@@ -53,3 +53,5 @@ Everything asked for that is not yet built, or that needs a human. Nothing gets 
 
 - **Dedicated New York page** (`docs/new-york.html`): move the borough explorer, the incident ledger, the state flip cards and the CATW asks there, so the home page stays global (pulse, ten figures, clocks, girls, gap) and New York reads as the first case study. Add NYS DCJS county counts, NYPD precinct complaints 2025, and the New York legislation timeline.
 - Done this session: global hero framing; tally tool on the patterns page (browser-stored counts by database, chart, CSV export, handoff to the cohort ledger).
+
+- Done: Progress page (CATW five outcomes with status, coverage table, not-yet-researched table). Timelines on the context page are now horizontal with arrows, year jump buttons and keyboard scrolling.
