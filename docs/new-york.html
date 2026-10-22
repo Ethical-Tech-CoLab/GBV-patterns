@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New York Case</title>
+<meta name="description" content="New York as the first case for naming femicide in law: live NYPD domestic violence data by age, relationship and borough, a decade of fatality reviews, real cases from the sex trade, and the asks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero{padding:calc(var(--header-h) + 3rem) 24px 3rem}
+.page-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.04;letter-spacing:-.03em;font-weight:600;margin:0;max-width:18ch}
+.page-hero p{color:var(--fg-muted);max-width:60ch;font-size:1.1rem}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:2rem}
+@media (max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.kpi .n{font-family:var(--mono);font-size:2.2rem;letter-spacing:-.04em;line-height:1}
+.kpi .k{font-size:13.5px;color:var(--fg-muted);margin-top:6px}
+.live{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;color:var(--fg-subtle);margin-top:1rem}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--fg-subtle)}
+.live.on i{background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 30%,transparent)}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:2rem}
+@media (max-width:860px){.charts{grid-template-columns:1fr}}
+.chart{border:1px solid var(--border);border-radius:var(--radius);padding:18px;background:var(--bg-alt)}
+.chart h3{margin:0 0 4px;font-size:1.05rem;font-weight:600}
+.chart .sub{font-size:13px;color:var(--fg-subtle);margin-bottom:10px}
+.chart svg{width:100%;height:auto;display:block}
+.chart .leg{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--fg-muted);margin-top:8px}
+.chart .leg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.chart.wide{grid-column:1/-1}
+.pick{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.pick button{border:1px solid var(--border);background:transparent;border-radius:999px;padding:4px 10px;font-size:12.5px}
+.pick button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.decade{display:grid;grid-template-columns:1.1fr 1fr;gap:2rem;margin-top:2rem;align-items:start}
+@media (max-width:860px){.decade{grid-template-columns:1fr}}
+.cases2{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:2rem}
+@media (max-width:900px){.cases2{grid-template-columns:1fr}}
+.casecard{border:1px solid var(--border);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:8px}
+.casecard h3{margin:0;font-size:1.1rem;font-weight:600}
+.casecard .where{font-family:var(--mono);font-size:12.5px;color:var(--fg-subtle)}
+.casecard p{margin:0;color:var(--fg-muted);font-size:14.5px}
+.casecard .how{border-top:1px solid var(--border);padding-top:10px;font-size:13.5px}
+.casecard .how b{color:var(--accent);font-weight:600}
+.tag2{display:inline-block;font-size:12px;border-radius:999px;padding:2px 9px;border:1px solid var(--border);color:var(--fg-subtle)}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html"><img src="assets/etc-logo.jpg" alt="Ethical Tech CoLab"><span>GBV Patterns</span></a>
+  <nav aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="new-york.html" aria-current="page">New York</a>
+    <a href="patterns.html">Patterns</a>
+    <a href="context.html">Context</a>
+    <a href="methodology.html">Methodology</a>
+    <a href="sources.html">Sources</a>
+    <a href="progress.html">Progress</a>
+  </nav>
+  <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>New York: the first case for naming femicide in law</h1>
+    <p>No US state defines femicide. New York has the data, the courts and the advocates to be first. This page is the case: who is killed and by whom, what the city already knows and refuses to count, and what the law would change.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="n num">66</div><div class="k">domestic violence homicides in New York City in 2024: 33 by intimate partners, 33 by family. ENDGBV.</div></div>
+      <div class="kpi"><div class="n num">612</div><div class="k">victims of domestic violence homicide in the city over 2014 to 2023, 16.5% of all homicides. Fatality Review Committee.</div></div>
+      <div class="kpi"><div class="n num">2.5×</div><div class="k">the risk for Black women of being killed in domestic violence, against other groups. Fatality Review Committee, 2024 report.</div></div>
+      <div class="kpi"><div class="n num">0</div><div class="k">women killed in the sex trade counted by any New York agency. Not zero deaths; zero ledgers.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="live">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Who, by whom, where: the city's own records</h2>
+      <p>The NYPD publishes every domestic violence incident report, felony assault and rape from 2020 and 2021 with the victim's age, sex and race, the suspect's age and sex, whether they were intimate partners, and the borough. About 484,000 records. The charts below query that dataset live from NYC Open Data, with a saved snapshot if the city's API is down. This is CATW's first outcome, demographics of victims and perpetrators, from public data.</p>
+      <div class="live" id="liveflag"><i></i><span>connecting to data.cityofnewyork.us</span></div>
+    </div>
+    <div class="charts">
+      <div class="chart"><h3>Age of women reported as victims of intimate partner incidents</h3><div class="sub">Domestic incident reports, female victims, intimate relationship, 2020 to 2021. Most common age shown in red.</div><svg id="chAge" viewBox="0 0 520 220"></svg></div>
+      <div class="chart"><h3>Age of the suspect in those same incidents</h3><div class="sub">Suspect reported age where recorded. The two curves sit a few years apart.</div><svg id="chSusp" viewBox="0 0 520 220"></svg></div>
+      <div class="chart"><h3>Share of female-victim incidents that were intimate partner, by borough</h3><div class="sub">Yes, no or missing relationship flag. The missing share is the ledger's blind spot.</div><svg id="chBoro" viewBox="0 0 520 220"></svg><div class="leg"><span><i style="background:var(--fg)"></i>Intimate partner</span><span><i style="background:color-mix(in srgb,var(--fg) 45%,var(--bg))"></i>Not intimate partner</span><span><i style="background:var(--accent)"></i>Missing</span></div></div>
+      <div class="chart"><h3>Female victims by recorded race</h3><div class="sub">As recorded on the incident report. The city's own fatality review puts Black women at 2.5 times the homicide risk.</div><svg id="chRace" viewBox="0 0 520 220"></svg></div>
+      <div class="chart"><h3>Rapes reported as domestic violence, by relationship</h3><div class="sub">1,245 rapes in the dataset. Two thirds by an intimate partner.</div><svg id="chRape" viewBox="0 0 520 160"></svg></div>
+      <div class="chart"><h3>Who the suspect is when the victim is a woman</h3><div class="sub">Suspect sex across all female-victim records.</div><svg id="chSusex" viewBox="0 0 520 160"></svg></div>
+      <div class="chart wide"><h3>Records by year and offence</h3><div class="pick" id="pickOff"></div><svg id="chYear" viewBox="0 0 1040 200"></svg></div>
+    </div>
+    <p class="src">Source: NYC Mayor's Office to End Domestic and Gender-Based Violence, <a href="https://data.cityofnewyork.us/Public-Safety/ENDGBV-The-Intersection-of-Domestic-Violence-Race-/2rb7-7eqa">ENDGBV: The Intersection of Domestic Violence, Race/Ethnicity and Sex</a>, NYC Open Data, dataset 2rb7-7eqa, incident-level NYPD data for 2020 and 2021. Counts are incidents, not people. Race and age are as reported on the form. A relationship flag of "missing" means the officer did not record one.</p>
+  </div>
+</section>
+
+<section class="block" id="decade">
+  <div class="wrap">
+    <div class="lede">
+      <h2>A decade of fatality reviews</h2>
+      <p>New York City has reviewed every domestic violence homicide since 2005. The committee's 2024 report covers ten years. Its findings are the strongest local evidence that these deaths are patterned and predictable.</p>
+    </div>
+    <div class="decade">
+      <div class="costs" style="margin-top:0;grid-template-columns:1fr 1fr">
+        <div><div class="n num">564</div><div class="k">domestic violence homicide incidents in the city, 2014 to 2023, with 612 victims.</div></div>
+        <div><div class="n num">47.2%</div><div class="k">of victims were killed by an intimate partner: 289 of 612.</div></div>
+        <div><div class="n num">61</div><div class="k">average domestic violence homicides a year across the decade.</div></div>
+        <div><div class="n num">16.5%</div><div class="k">of all homicides in the city were domestic violence homicides.</div></div>
+        <div><div class="n num">2.5×</div><div class="k">Black women's risk of being a domestic violence homicide victim, against other groups.</div></div>
+        <div><div class="n num">&gt; 60%</div><div class="k">of people murdered by an intimate partner had no prior contact with police, shelters, courts or a city agency, per Urban Resource Institute's reading of the report. To verify in the report.</div></div>
+      </div>
+      <div>
+        <div class="gapcard"><h3>What this means for a femicide law</h3><p>The city can already tell you the relationship, the borough and the race of every domestic violence homicide victim for a decade. What it cannot tell you is how many women were killed by buyers or exploiters, because those deaths are not domestic violence under the current definition and no other category exists. A femicide definition does not create new deaths. It creates a column.</p><p style="margin-top:10px">Six in ten intimate partner victims had never touched the system before they were killed. Prevention that depends on a prior report misses most of them. Counting all femicides, including those outside the home, is the first step to finding the rest.</p></div>
+      </div>
+    </div>
+    <p class="src">NYC Domestic Violence Fatality Review Committee, <a href="https://a860-gpp.nyc.gov/concern/nyc_government_publications/1n79h798q">2024 Annual Report</a>, published 30 December 2024. Urban Resource Institute, <a href="https://urinyc.org/download/every-death-was-preventable-nyc-must-do-more-to-safeguard-survivors-and-end-the-cycle-of-violence/">Every Death Was Preventable</a>. Decade figures quoted via secondary summaries and marked for verification against the PDF.</p>
+  </div>
+</section>
+
+<section class="block" id="cases">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Real cases, and how each was named</h2>
+      <p>Three New York cases from the public record. For each, what happened, and the words the system used. The naming is the evidence for CATW's fifth outcome.</p>
+    </div>
+    <div class="cases2">
+      <div class="casecard"><span class="tag2">Federal court, Brooklyn, 2025 to 2026</span><h3>The Penn Track</h3><div class="where">East New York, Brooklyn</div><p>An open-air sex market along the Long Island Rail Road's Penn line. Police estimate as many as 350 pimps operate along the corridor and link nearly half of the shootings recorded there to the sex trade. Omari Scott, known as "Prince", was convicted in June 2025 of sex trafficking and of murder in the course of sex trafficking, for orchestrating the killing of a rival pimp, and sentenced to 50 years. Joel Forney, "Sirbar", was convicted in August 2025 of trafficking two women there, beating them and threatening to kill them when they refused.</p><div class="how"><b>How it was named:</b> "sex trafficking", "murder in the course of sex trafficking". The victim counted in the murder charge is a pimp. The women are witnesses. To verify sentence date against the DOJ release.</div></div>
+      <div class="casecard"><span class="tag2">Federal court, Long Island, 2025 to 2026</span><h3>Sayville Motor Lodge</h3><div class="where">Sayville, Suffolk County</div><p>Michael Johnson was convicted in October 2025 after a two-week trial and sentenced in April 2026 to 22 years for sex trafficking women out of a motel. Prosecutions like this one establish the pattern CATW describes: coercion, drugs, violence, a motel room, and women who appear in the record only as "victims" of the trafficking count, not as people with ages, histories and, in some cases, deaths.</p><div class="how"><b>How it was named:</b> "sex trafficking of women". No femicide category exists to receive the women in these operations who die of overdose, exposure or a buyer's violence.</div></div>
+      <div class="casecard"><span class="tag2">Suffolk County, charges from July 2023</span><h3>Gilgo Beach</h3><div class="where">Ocean Parkway, Long Island</div><p>Rex Heuermann was arrested in July 2023 and charged with the murders of women whose remains were found along Gilgo Beach, several of whom had advertised as escorts online. For more than a decade the case was reported through the lens of the women's work. Women Count USA records them by name. The media record is the one CATW's word map will measure.</p><div class="how"><b>How it was named:</b> "the Gilgo Beach killings", "sex workers", "escorts", "the Craigslist killer". Rarely "women", rarely "femicide". Charge count and trial status to verify at the time of reading.</div></div>
+    </div>
+    <p class="src">US Attorney's Office, Eastern District of New York, press releases on <a href="https://www.justice.gov/usao-edny/pr/brooklyn-man-sentenced-50-years-prison-sex-trafficking-and-murder-course-sex">Omari Scott</a>, <a href="https://www.justice.gov/usao-edny/pr/defendant-convicted-sex-trafficking-women-notorious-penn-track-brooklyn-and-coercion">Joel Forney</a> and <a href="https://www.justice.gov/usao-edny/pr/defendant-sentenced-22-years-imprisonment-sex-trafficking-women-sayville-motor-lodge">Michael Johnson</a>. Penn Track police estimates via <a href="https://hoodline.com/2026/09/brooklyn-man-charged-in-east-new-york-s-notorious-penn-track-sex-trafficking-operation/">Hoodline</a>, secondary. Gilgo Beach: Suffolk County District Attorney filings, public record.</p>
+  </div>
+</section>
+
+<section class="block" id="asks">
+  <div class="wrap">
+    <div class="lede">
+      <h2>What New York can do, in order</h2>
+      <p>Five steps, from the cheapest to the one this project exists for. Each has a precedent.</p>
+    </div>
+    <div class="why" style="grid-template-columns:repeat(5,1fr)">
+      <div><h3>1. Add a column</h3><p>Record "commercial sexual exploitation" as a relationship type on the domestic incident report, as Women Count USA already does. Cost: a form change.</p></div>
+      <div><h3>2. Review every death</h3><p>Extend the Fatality Review Committee's mandate to women killed outside the home by buyers, pimps and traffickers. Precedent: the committee itself, since 2005.</p></div>
+      <div><h3>3. Finish the 2018 law</h3><p>Pass S8723 so the no-force standard covers mentally disabled adults, then every adult. Precedent: New York did it for children in 2018.</p></div>
+      <div><h3>4. Close the estate gap</h3><p>Let survivors claim punitive damages from a deceased abuser's estate, the gap Epstein's survivors named. Precedent: the Adult Survivors Act window of 2022.</p></div>
+      <div><h3>5. Name femicide</h3><p>Define it in the penal law, including killings in the sex trade, with a reporting duty. Precedent: about three dozen countries, and the Cotton Field judgment's database order.</p></div>
+    </div>
+    <p class="src">See the <a href="index.html#catw">CATW section</a> for the organisation's own framing, and the <a href="context.html#politics">politics timeline</a> for the legislative record.</p>
+  </div>
+</section>
+
+<section class="block" id="help">
+  <div class="wrap">
+    <div class="lede"><h2>If you need help now</h2><p>New York City 24-hour HOPE hotline: 1-800-621-4673. National Domestic Violence Hotline: 1-800-799-7233. Family Justice Centers in every borough, Monday to Friday, 9 to 5. CATW's <a href="https://catwinternational.org/get-help/">global resource list</a> for leaving the sex trade.</p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logos">
+        <img class="etc" src="assets/etc-logo.jpg" alt="Ethical Tech CoLab">
+        <img class="catw-light" src="assets/catw-logo.png" alt="Coalition Against Trafficking in Women">
+        <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
+      </div>
+      <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Prototype, October 2026.</p>
+    </div>
+    <div>
+      <h4>On this site</h4>
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="patterns.html">Patterns</a></li>
+        <li><a href="context.html">Context</a></li>
+        <li><a href="methodology.html">Methodology</a></li>
+        <li><a href="sources.html">Sources</a></li>
+        <li><a href="progress.html">Progress</a></li>
+      </ol>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script>
+(async function(){
+  const API='https://data.cityofnewyork.us/resource/2rb7-7eqa.json?';
+  const Q={
+    years:"$select=date_trunc_y(report_date) as y,offense_type,count(*) as n&$group=y,offense_type&$order=y",
+    age_f_ipv:"$select=victim_reported_age,count(*) as n&$where=victim_sex='FEMALE' AND upper(intimate_relationship_flag)='YES'&$group=victim_reported_age&$limit=200",
+    susp_age:"$select=suspect_reported_age,count(*) as n&$where=victim_sex='FEMALE' AND upper(intimate_relationship_flag)='YES'&$group=suspect_reported_age&$limit=200",
+    boro:"$select=borough_name,upper(intimate_relationship_flag) as rel,count(*) as n&$where=victim_sex='FEMALE'&$group=borough_name,rel",
+    race:"$select=victim_race_dir,count(*) as n&$where=victim_sex='FEMALE'&$group=victim_race_dir&$order=n DESC",
+    susp:"$select=suspect_sex,count(*) as n&$where=victim_sex='FEMALE'&$group=suspect_sex",
+    offense_rel:"$select=offense_type,upper(intimate_relationship_flag) as rel,victim_sex,count(*) as n&$where=offense_type in('RAPE','FELONY ASSAULT')&$group=offense_type,rel,victim_sex",
+  };
+  const flag=document.getElementById('liveflag');
+  let data=null, live=false;
+  try{
+    const res=await Promise.all(Object.entries(Q).map(async([k,q])=>{const r=await fetch(API+q.replace(/ /g,'%20'));if(!r.ok)throw 0;const j=await r.json();if(!Array.isArray(j))throw 0;return [k,j]}));
+    data=Object.fromEntries(res); live=true;
+  }catch(e){
+    try{data=await (await fetch('data/nypd_dv_snapshot.json')).json()}catch(e2){}
+  }
+  if(!data){flag.querySelector('span').textContent='data unavailable';return}
+  flag.classList.toggle('on',live); flag.querySelector('span').textContent=live?'live from NYC Open Data, dataset 2rb7-7eqa':'NYC Open Data unavailable; showing snapshot from '+(data.fetched||'October 2026');
+  const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const FG=css('--fg'),AC=css('--accent'),MUTED='color-mix(in srgb,'+FG+' 45%,'+css('--bg')+')',SUB=css('--fg-subtle');
+  const N=x=>+x||0, fmt=n=>n.toLocaleString('en-US');
+  const txt=(x,y,s,o={})=>`<text x="${x}" y="${y}" fill="${o.fill||SUB}" font-size="${o.size||11}" font-family="${o.mono?'JetBrains Mono,monospace':'inherit'}" text-anchor="${o.anchor||'start'}">${s}</text>`;
+  function hist(id,rows,key,label){
+    const by={};rows.forEach(r=>{const a=parseInt(r[key]);if(!isNaN(a)&&a>=10&&a<=90)by[a]=(by[a]||0)+N(r.n)});
+    const ages=Object.keys(by).map(Number).sort((a,b)=>a-b),max=Math.max(...ages.map(a=>by[a]));const mode=ages.reduce((m,a)=>by[a]>by[m]?a:m,ages[0]);
+    const W=520,H=220,L=36,B=30,bw=(W-L-10)/(90-10+1);
+    const med=(()=>{let tot=ages.reduce((s,a)=>s+by[a],0),acc=0;for(const a of ages){acc+=by[a];if(acc>=tot/2)return a}})();
+    let s='';ages.forEach(a=>{const h=by[a]/max*(H-B-30),x=L+(a-10)*bw;s+=`<rect x="${x}" y="${H-B-h}" width="${Math.max(1,bw-1)}" height="${h}" fill="${a===mode?AC:FG}" opacity="${a===mode?1:.75}"><title>Age ${a}: ${fmt(by[a])}</title></rect>`});
+    [10,20,30,40,50,60,70,80,90].forEach(a=>s+=txt(L+(a-10)*bw,H-10,a,{mono:true}));
+    s+=txt(L+(mode-10)*bw,H-B-(H-B-30)-6,'most common: '+mode,{fill:AC,mono:true});
+    s+=txt(W-6,16,'median age '+med+' · '+label,{anchor:'end',mono:true});
+    document.getElementById(id).innerHTML=s;
+  }
+  hist('chAge',data.age_f_ipv,'victim_reported_age','female victims');
+  hist('chSusp',data.susp_age,'suspect_reported_age','suspects');
+  (function(){const b={};data.boro.forEach(r=>{if(!r.borough_name)return;const k=r.borough_name;b[k]=b[k]||{YES:0,NO:0,MISSING:0};b[k][r.rel==='YES'?'YES':r.rel==='NO'?'NO':'MISSING']+=N(r.n)});
+    const ks=Object.keys(b).sort(),W=520,H=220,L=100,rowH=(H-20)/ks.length;let s='';
+    ks.forEach((k,i)=>{const t=b[k].YES+b[k].NO+b[k].MISSING,y=10+i*rowH;let x=L;[['YES',FG],['NO',MUTED],['MISSING',AC]].forEach(([f,c])=>{const w=b[k][f]/t*(W-L-10);s+=`<rect x="${x}" y="${y+4}" width="${w}" height="${rowH-10}" fill="${c}"><title>${k} ${f}: ${fmt(b[k][f])}</title></rect>`;x+=w});
+      s+=txt(L-8,y+rowH/2+4,k.charAt(0)+k.slice(1).toLowerCase(),{anchor:'end',fill:FG,size:12});s+=txt(L+4,y+rowH/2+4,Math.round(b[k].YES/t*100)+'%',{fill:css('--bg'),mono:true});});
+    document.getElementById('chBoro').innerHTML=s})();
+  (function(){const rows=data.race.filter(r=>r.victim_race_dir).slice(0,7),max=N(rows[0].n),W=520,H=220,L=170,rowH=(H-10)/rows.length;let s='';
+    rows.forEach((r,i)=>{const y=5+i*rowH,w=N(r.n)/max*(W-L-70);const lab=r.victim_race_dir.replace('AMERICAN INDIAN/ALASKAN NATIVE','Native American').replace('ASIAN / PACIFIC ISLANDER','Asian / Pacific Isl.');s+=`<rect x="${L}" y="${y+4}" width="${w}" height="${rowH-10}" fill="${i===0?AC:FG}"/>`+txt(L-8,y+rowH/2+4,lab.charAt(0)+lab.slice(1).toLowerCase(),{anchor:'end',fill:FG,size:12})+txt(L+w+6,y+rowH/2+4,fmt(N(r.n)),{mono:true})});
+    document.getElementById('chRace').innerHTML=s})();
+  (function(){const r={};data.offense_rel.filter(x=>x.offense_type==='RAPE'&&x.victim_sex==='FEMALE').forEach(x=>r[x.rel]=(r[x.rel]||0)+N(x.n));const t=(r.YES||0)+(r.NO||0)+(r.MISSING||0),W=520;let s='',x=20;
+    [['YES','intimate partner',FG],['NO','other relative or household',MUTED],['MISSING','not recorded',AC]].forEach(([k,l,c])=>{const n=r[k]||0;if(!n)return;const w=n/t*(W-40);s+=`<rect x="${x}" y="30" width="${w}" height="56" fill="${c}"/>`+txt(x+6,62,fmt(n)+' · '+Math.round(n/t*100)+'%',{fill:css('--bg'),mono:true})+txt(x,110,l,{fill:FG,size:12});x+=w});
+    s+=txt(20,140,'female victims of rape reported as domestic violence, 2020 to 2021: '+fmt(t),{mono:true});document.getElementById('chRape').innerHTML=s})();
+  (function(){const r={};data.susp.forEach(x=>r[x.suspect_sex||'not recorded']=N(x.n));const t=Object.values(r).reduce((a,b)=>a+b,0),W=520;let s='',x=20;
+    [['MALE','male suspect',FG],['FEMALE','female suspect',MUTED],['not recorded','not recorded',AC]].forEach(([k,l,c])=>{const n=r[k]||0;if(!n)return;const w=n/t*(W-40);s+=`<rect x="${x}" y="30" width="${w}" height="56" fill="${c}"/>`+txt(x+6,62,Math.round(n/t*100)+'%',{fill:css('--bg'),mono:true})+txt(x,110,l,{fill:FG,size:12});x+=w});
+    s+=txt(20,140,'all records with a female victim: '+fmt(t),{mono:true});document.getElementById('chSusex').innerHTML=s})();
+  (function(){const by={};data.years.forEach(r=>{const y=(r.y||'').slice(0,4);if(y<'2020')return;by[r.offense_type]=by[r.offense_type]||{};by[r.offense_type][y]=N(r.n)});
+    const offs=Object.keys(by),pick=document.getElementById('pickOff');let cur=offs[0];
+    function draw(){const yrs=Object.keys(by[cur]).sort(),max=Math.max(...yrs.map(y=>by[cur][y])),W=1040,H=200,L=20,bw=(W-L*2)/yrs.length;let s='';
+      yrs.forEach((y,i)=>{const h=by[cur][y]/max*(H-60),x=L+i*bw+bw*.2;s+=`<rect x="${x}" y="${H-30-h}" width="${bw*.6}" height="${h}" fill="${FG}"/>`+txt(x+bw*.3,H-30-h-8,fmt(by[cur][y]),{anchor:'middle',fill:FG,mono:true})+txt(x+bw*.3,H-10,y,{anchor:'middle',mono:true})});
+      document.getElementById('chYear').innerHTML=s;[...pick.children].forEach(b=>b.setAttribute('aria-pressed',b.textContent===cur))}
+    offs.forEach(o=>{const b=document.createElement('button');b.textContent=o;b.addEventListener('click',()=>{cur=o;draw()});pick.appendChild(b)});draw()})();
+})();
+</script>
+</body>
+</html>

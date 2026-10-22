@@ -53,6 +53,7 @@
   <a class="brand" href="index.html"><img src="assets/etc-logo.jpg" alt="Ethical Tech CoLab"><span>GBV Patterns</span></a>
   <nav aria-label="Primary">
     <a href="index.html">Home</a>
+    <a href="new-york.html">New York</a>
     <a href="patterns.html">Patterns</a>
     <a href="context.html">Context</a>
     <a href="methodology.html">Methodology</a>
@@ -128,7 +129,7 @@
 <script>
 const OUTCOMES=[
   {n:1,title:'Demographics of victims and perpetrators',status:'part',
-   have:['Age, relationship, perpetrator age and race columns visible in every Women Count USA table on the <a href="patterns.html#databases">patterns page</a>','Coding rules for age bands, relationship groups and cause on the <a href="methodology.html">methodology page</a>','Age at first rape and partner violence, and New York\'s own partner violence rate, from the CDC on the <a href="context.html#rape">context page</a>','Borough-level homicide and incident counts for 2023 and 2024 on the <a href="index.html#city">home page</a>'],
+   have:['Live charts from NYPD incident data, 2020 to 2021, about 484,000 records: victim age, suspect age, borough, race, suspect sex, rape by relationship, on the <a href="new-york.html#live">New York page</a>','Age, relationship, perpetrator age and race columns visible in every Women Count USA table on the <a href="patterns.html#databases">patterns page</a>','Coding rules for age bands, relationship groups and cause on the <a href="methodology.html">methodology page</a>','Age at first rape and partner violence, and New York\'s own partner violence rate, from the CDC on the <a href="context.html#rape">context page</a>','Borough-level homicide and incident counts for 2023 and 2024 on the <a href="index.html#city">home page</a>'],
    miss:['Aggregated charts from the database: age histogram, relationship wheel, perpetrator age by year','Race and ethnicity of victims and perpetrators','Sex-trade cases broken out by every demographic'],
    blocker:'Aggregating Women Count USA needs written agreement from Dawn Wilcox and CATW. The fetch script is ready; the counting can start the day the agreement lands. Until then the tally tool lets anyone count by hand.'},
   {n:2,title:'Mapping of where deaths occurred, and where the women came from',status:'todo',
@@ -149,6 +150,10 @@ const OUTCOMES=[
    blocker:'Needs the source links from the database, which are part of the copyrighted material, and a reading pass over each article. Once agreed, this is a scripted job: fetch, extract headline, count terms.'},
 ];
 const COVERAGE=[
+  ['new-york.html#live','New York: who, by whom, where (live NYC Open Data)','NYPD dataset 2rb7-7eqa','1','done'],
+  ['new-york.html#decade','New York: a decade of fatality reviews','Fatality Review Committee 2024','1','done'],
+  ['new-york.html#cases','New York: real cases and how each was named','DOJ EDNY, Suffolk DA','3, 5','part'],
+  ['new-york.html#asks','New York: what the state can do, in order','CATW, NY Senate','All','done'],
   ['index.html#figures','Of every ten women','WHO, UN Women, UNICEF, CDC, ENDGBV','Context for all five','done'],
   ['index.html#pulse','The pace, and four clocks','UNODC and UN Women, UNICEF, UN cost estimate, RAINN','4','done'],
   ['index.html#city','New York City by borough','ENDGBV 2024 fact sheet','1, 2','done'],
@@ -183,7 +188,7 @@ const TODO=[
   ['Country map with women\'s rights history','Global comparison on one screen','World Bank WBL, V-Dem, OECD SIGI data; country pages'],
   ['Women\'s leadership impact','Whether representation changes outcomes','Literature review with confounds and effect sizes'],
   ['Countries that permit marriage under 18','Forced marriage as GBV worldwide','Pew or Girls Not Brides legal atlas'],
-  ['Dedicated New York page','Keeps the home page global','Move the NY sections; add county and precinct data'],
+  ['New York county and precinct data','Finer map than boroughs','NYS DCJS county counts; NYPD precinct complaints'],
   ['Presenter mode for 20 November','Summit demo','Keyboard-driven section stepping, large type'],
 ];
 const LABEL={done:'Built',part:'Partial',todo:'Not started'};
