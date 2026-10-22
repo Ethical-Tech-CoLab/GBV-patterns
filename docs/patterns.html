@@ -34,6 +34,19 @@
 .mapnote{margin-top:2rem;border:1px dashed var(--gap);border-radius:var(--radius);padding:22px}
 .mapnote h3{margin:0 0 .4rem;font-size:1.15rem}
 .mapnote p{margin:0;color:var(--fg-muted);font-size:15px}
+.tallyform{display:grid;grid-template-columns:1fr 2fr auto auto;gap:12px;align-items:end;margin-top:2rem}
+@media (max-width:860px){.tallyform{grid-template-columns:1fr}}
+.tallyform label{display:flex;flex-direction:column;gap:6px;font-size:13.5px;color:var(--fg-subtle)}
+.tallyform input,.tallyform select{padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:transparent;color:inherit;font:inherit}
+.tallyout{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:1.6rem;align-items:start}
+@media (max-width:860px){.tallyout{grid-template-columns:1fr}}
+#tallyChart{width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius)}
+#tallyTable{width:100%;border-collapse:collapse;font-size:14px}
+#tallyTable th,#tallyTable td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+#tallyTable td:nth-child(3){font-family:var(--mono)}
+#tallyTable button{border:0;background:transparent;color:var(--fg-subtle);cursor:pointer}
+.tallyctl{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tallyctl a.chip{text-decoration:none}
 </style>
 </head>
 <body>
@@ -68,6 +81,33 @@
       <div class="cap"><span id="dbcap"></span><a id="dblink" href="#" target="_blank" rel="noopener">Open in Airtable</a></div>
     </div>
     <p class="src">Source: Women Count USA: Femicide Accountability Project, Dawn Wilcox, <a href="https://womencountusa.org/the-databases">womencountusa.org/the-databases</a>. Copyrighted material, embedded with the share links she publishes. Entries are at different stages of completion.</p>
+  </div>
+</section>
+
+<section class="block" id="tally">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Your tally</h2>
+      <p>Filter any table above, read the record count at the bottom of the grid, and log it here with the filter you used. The counts stay in your browser, chart by year, export as a file, and carry into the lost-earnings ledger. The database is never copied; the counting is yours.</p>
+    </div>
+    <form id="tallyForm" class="tallyform">
+      <label>Database<select id="tYear"></select></label>
+      <label>Filter you applied<input id="tFilter" placeholder="STATE is NY, RELATIONSHIP is Commercial sexual exploiter" required></label>
+      <label>Records<input id="tCount" type="number" min="0" required></label>
+      <button class="btn primary" type="submit">Log count</button>
+    </form>
+    <div class="tallyout">
+      <svg id="tallyChart" viewBox="0 0 640 220" aria-label="Logged counts by database year"></svg>
+      <div>
+        <table id="tallyTable"><thead><tr><th>Database</th><th>Filter</th><th>Records</th><th></th></tr></thead><tbody></tbody></table>
+        <div class="tallyctl">
+          <button class="chip" id="tExport">Export CSV</button>
+          <a class="chip" id="tLedger" href="context.html#economics">Send total to the ledger</a>
+          <button class="chip" id="tClear">Clear all</button>
+        </div>
+      </div>
+    </div>
+    <p class="src">Counts are stored only in this browser. Record what you counted and the date on the methodology page's terms: a count is a floor, entries are at various stages of completion, and the live tables change daily.</p>
   </div>
 </section>
 
@@ -128,6 +168,29 @@ function show(i){const [label,share]=DBS[i];
   [...grid.children].forEach((b,j)=>b.setAttribute('aria-pressed',j===i));}
 DBS.forEach(([label],i)=>{const b=document.createElement('button');b.innerHTML=`<div class="y">${label}</div><div class="s">${i<3?'multi-year database':'one year'}</div>`;b.addEventListener('click',()=>show(i));grid.appendChild(b)});
 show(13);
+
+// ---------- tally ----------
+(function(){
+  const KEY='gbv-tally'; let rows=[]; try{rows=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){}
+  const yearSel=document.getElementById('tYear'); DBS.forEach(([l],i)=>{const o=document.createElement('option');o.value=l;o.textContent=l;if(i===13)o.selected=true;yearSel.appendChild(o)});
+  const tb=document.querySelector('#tallyTable tbody'), svg=document.getElementById('tallyChart'), ledger=document.getElementById('tLedger');
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(rows))}catch(e){}}
+  function render(){
+    tb.innerHTML=rows.map((r,i)=>`<tr><td>${esc(r.db)}</td><td>${esc(r.filter)}<div style="color:var(--fg-subtle);font-size:12px">${esc(r.date)}</div></td><td>${Number(r.n).toLocaleString('en-US')}</td><td><button aria-label="Remove" data-i="${i}">×</button></td></tr>`).join('')||'<tr><td colspan="4" style="color:var(--fg-subtle)">No counts logged yet.</td></tr>';
+    tb.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{rows.splice(+b.dataset.i,1);save();render()}));
+    const total=rows.reduce((a,r)=>a+Number(r.n),0); ledger.href='context.html?n='+total+'#economics'; ledger.textContent='Send total ('+total.toLocaleString('en-US')+') to the ledger';
+    const by={}; rows.forEach(r=>{by[r.db]=(by[r.db]||0)+Number(r.n)}); const keys=DBS.map(d=>d[0]).filter(k=>by[k]);
+    const fg=getComputedStyle(document.documentElement).getPropertyValue('--fg').trim(), ac=getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+    if(!keys.length){svg.innerHTML=`<text x="320" y="115" text-anchor="middle" fill="${fg}" opacity=".5" font-size="13" font-family="inherit">Your counts by database will chart here</text>`;return}
+    const max=Math.max(...keys.map(k=>by[k])), W=640,H=220,pad=36,bw=(W-pad*2)/keys.length;
+    svg.innerHTML=keys.map((k,i)=>{const h=(by[k]/max)*(H-70),x=pad+i*bw+bw*.15,y=H-40-h;return `<rect x="${x}" y="${y}" width="${bw*.7}" height="${h}" fill="${ac}"/><text x="${x+bw*.35}" y="${y-6}" text-anchor="middle" fill="${fg}" font-size="12" font-family="JetBrains Mono,monospace">${by[k]}</text><text x="${x+bw*.35}" y="${H-22}" text-anchor="middle" fill="${fg}" opacity=".7" font-size="11" font-family="inherit">${esc(k).replace(' to ','–')}</text>`}).join('');
+  }
+  document.getElementById('tallyForm').addEventListener('submit',e=>{e.preventDefault();rows.push({db:yearSel.value,filter:document.getElementById('tFilter').value.trim(),n:+document.getElementById('tCount').value,date:new Date().toISOString().slice(0,10)});save();render();e.target.reset();yearSel.value=DBS[13][0]});
+  document.getElementById('tExport').addEventListener('click',()=>{const csv='database,filter,records,logged\n'+rows.map(r=>[r.db,'"'+String(r.filter).replace(/"/g,'""')+'"',r.n,r.date].join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='gbv-tally.csv';a.click()});
+  document.getElementById('tClear').addEventListener('click',()=>{if(confirm('Remove all logged counts from this browser?')){rows=[];save();render()}});
+  render();
+})();
 </script>
 </body>
 </html>

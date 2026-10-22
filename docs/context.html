@@ -370,6 +370,7 @@
     const n=count(); document.getElementById('earnC').textContent=money(w*EARN*n);
     document.getElementById('lifeC').textContent=Math.round(life*n).toLocaleString('en-US');
     document.getElementById('earn1').textContent=money(w*EARN);}
+  const qn=+(new URLSearchParams(location.search).get('n')||0); if(qn>0){cohort.value='custom';cohortN.value=qn;cohortN.style.display='block'}
   cohort.addEventListener('change',()=>{cohortN.style.display=cohort.value==='custom'?'block':'none';upd()});
   cohortN.addEventListener('input',upd);
   age.addEventListener('input',upd); upd();
