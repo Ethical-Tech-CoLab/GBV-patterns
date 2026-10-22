@@ -130,6 +130,27 @@
   </div>
 </section>
 
+<section class="block" id="rape">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Rape and sexual violence</h2>
+      <p>The CDC's 2023 to 2024 survey is the first national measure since 2016. It is a survey of what people say happened to them, which makes it the opposite of the police figures below: the survey counts what is rarely reported, and the police count what was.</p>
+    </div>
+    <div class="costs">
+      <div><div class="n num">21.0%</div><div class="k">of US women have experienced completed or attempted rape in their lifetime, about 26.8 million women. CDC NISVS 2023 to 2024.</div></div>
+      <div><div class="n num">45.1%</div><div class="k">of US women have experienced contact sexual violence: rape, sexual coercion (20.3%) or unwanted sexual contact (39.0%). For men, 16.9%, with 3.2% reporting rape.</div></div>
+      <div><div class="n num">5.5%</div><div class="k">of US women experienced contact sexual violence in the past twelve months; 1.1% completed or attempted rape. That is the annual rate the clocks run at.</div></div>
+      <div><div class="n num">10.3%</div><div class="k">of adult women experienced technology-facilitated sexual violence in the past year, the first time the survey measured it. 6.9% of men.</div></div>
+      <div><div class="n num">68 seconds</div><div class="k">between sexual assaults of Americans aged 12 and over. Every nine minutes the victim is a child. RAINN, from the National Crime Victimization Survey.</div></div>
+      <div><div class="n num">1,000 → 25</div><div class="k">of every thousand sexual assaults, about 50 lead to an arrest, 28 to a felony conviction and 25 to a prison sentence. RAINN analysis of federal data, cited by the Arizona Department of Public Safety. To verify against RAINN's current page.</div></div>
+      <div><div class="n num">&lt; 25%</div><div class="k">of rapes are reported to law enforcement, by Bureau of Justice Statistics figures; other summaries say about a third. Estimates differ by year and method. To verify.</div></div>
+      <div><div class="n num">+24.9%</div><div class="k">rape complaints in New York City, January to April 2025 against the same period of 2024: 606 against 485. Manhattan North and South were up about 27% by late October. NYPD CompStat. A year-end 2025 total is not yet published.</div></div>
+      <div><div class="n num">$122,461</div><div class="k">estimated lifetime cost per rape victim: medical care, lost work, criminal justice, property loss. CDC, 2017. Multiply by the survey's 26.8 million women and the sum is about $3.1 trillion.</div></div>
+    </div>
+    <p class="src">CDC, <a href="https://www.cdc.gov/nisvs/media/pdfs/sexualviolence-brief.pdf">NISVS 2023/2024 Sexual Violence Data Brief</a>; NSVRC, <a href="https://nsvrc.org/?p=23842">CDC releases new sexual violence data</a>. RAINN, <a href="https://rainn.org/statistics">Statistics</a>. NYPD, <a href="https://www.nyc.gov/assets/nypd/downloads/pdf/crime_statistics/cs-en-us-city.pdf">CompStat citywide report</a>. The survey excluded people under 18, transgender and nonbinary people, people in institutions and people experiencing homelessness, which are among the groups most exposed. Rising complaints can reflect rising reporting; see the hypotheses below.</p>
+  </div>
+</section>
+
 <section class="block" id="hypotheses">
   <div class="wrap">
     <div class="lede">
@@ -335,12 +356,12 @@
 // clocks
 (function(){
   const start=performance.now(), Y=365.25*86400;
-  const rates=[50000/Y, 12e6/Y, 1.5e12/Y];
-  const els=[document.getElementById('c1'),document.getElementById('c2'),document.getElementById('c3')];
-  const rings=[document.getElementById('r1'),document.getElementById('r2'),document.getElementById('r3')];
+  const rates=[50000/Y, 12e6/Y, 1.5e12/Y, 1/68];
+  const els=['c1','c2','c3','c4'].map(i=>document.getElementById(i));
+  const rings=['r1','r2','r3','r4'].map(i=>document.getElementById(i));
   const fmt=n=>Math.floor(n).toLocaleString('en-US');
   function tick(now){const s=(now-start)/1000;
-    els[0].textContent=fmt(s*rates[0]); els[1].textContent=fmt(s*rates[1]); els[2].textContent='$'+fmt(s*rates[2]);
+    els[0].textContent=fmt(s*rates[0]); els[1].textContent=fmt(s*rates[1]); els[2].textContent='$'+fmt(s*rates[2]); els[3].textContent=fmt(s*rates[3]);
     rings.forEach((r,i)=>{const f=(s*rates[i])%1; r.style.strokeDashoffset=125.6*(1-f)});
     requestAnimationFrame(tick)}
   requestAnimationFrame(tick);

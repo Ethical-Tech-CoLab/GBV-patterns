@@ -187,7 +187,7 @@ footer h4{margin:0 0 .6rem;font-size:14px;font-weight:600}
 .warn{border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--fg-muted);max-width:70ch;margin:0 auto 2rem}
 
 /* clocks (shared) */
-.clocks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:2.4rem}
+.clocks{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:2.4rem}
 @media (max-width:900px){.clocks{grid-template-columns:1fr}}
 .clock{border:1px solid var(--border);border-radius:var(--radius);padding:22px;position:relative;overflow:hidden}
 .clock .n{font-family:var(--mono);font-size:clamp(2rem,3.6vw,3rem);letter-spacing:-.04em;line-height:1;padding-right:64px}

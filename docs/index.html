@@ -88,6 +88,7 @@
       <div class="clock"><svg class="ring" viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="20"/><circle class="fg" id="r1" cx="23" cy="23" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6"/></svg><div class="n num" id="c1">0</div><div class="k">women and girls killed by a partner or family member</div><div class="rate">one every 10.5 minutes · 50,000 a year · UNODC and UN Women, 2024 data</div></div>
       <div class="clock"><svg class="ring" viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="20"/><circle class="fg" id="r2" cx="23" cy="23" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6"/></svg><div class="n num" id="c2">0</div><div class="k">girls married before their eighteenth birthday</div><div class="rate">one every 2.6 seconds · 12 million a year · UNICEF estimate</div></div>
       <div class="clock"><svg class="ring" viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="20"/><circle class="fg" id="r3" cx="23" cy="23" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6"/></svg><div class="n num" id="c3">$0</div><div class="k">of global output lost to violence against women</div><div class="rate">about $47,500 a second · roughly 2% of world GDP, about $1.5 trillion · UN estimate</div></div>
+      <div class="clock"><svg class="ring" viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="20"/><circle class="fg" id="r4" cx="23" cy="23" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6"/></svg><div class="n num" id="c4">0</div><div class="k">Americans aged 12 and over sexually assaulted</div><div class="rate">one every 68 seconds · RAINN, from the National Crime Victimization Survey</div></div>
     </div>
     <p class="src">Rates spread evenly over a year. See the <a href="context.html#economics">economics section</a> for what a single life costs in lost earnings, and the country comparisons.</p>
     <p class="src">Source: UNODC and UN Women, <a href="https://www.unwomen.org/en/digital-library/publications/2025/11/femicides-in-2024-global-estimates-of-intimate-partner-family-member-femicides">Femicides in 2024: global estimates of intimate partner and family member femicides</a> (November 2025), based on data from 117 countries.</p>
@@ -289,6 +290,7 @@ requestAnimationFrame(()=>document.querySelectorAll('.reveal').forEach((el,i)=>s
 (function(){
   const STATS=[
     {n:3,l:'have experienced physical or sexual violence in their lifetime, worldwide',s:'WHO, Violence against women prevalence estimates 2018, published 2021: about one in three women.',red:false},
+    {n:2,l:'US women have experienced completed or attempted rape in their lifetime: 21%, about 26.8 million',s:'CDC National Intimate Partner and Sexual Violence Survey 2023 to 2024. Nearly half, 45.1%, experienced some contact sexual violence.',red:true},
     {n:6,l:'of the women and girls intentionally killed in 2024 were killed by a partner or a relative',s:'UNODC and UN Women, Femicides in 2024: about 60% of all intentional killings of women and girls.',red:true},
     {n:5,l:'of the 66 domestic violence homicide victims New York City counted in 2024 were killed by an intimate partner',s:'ENDGBV 2024 fact sheet: 33 intimate partner and 33 family homicides.',red:true},
     {n:2,l:'young women alive today were married before they turned 18, worldwide',s:'UNICEF child marriage data: about one in five young women aged 20 to 24. Girls variant of the figures below.',red:false,girl:true},
@@ -332,10 +334,10 @@ requestAnimationFrame(()=>document.querySelectorAll('.reveal').forEach((el,i)=>s
 
 // ---------- clocks ----------
 (function(){
-  const start=performance.now(), Y=365.25*86400, rates=[50000/Y,12e6/Y,1.5e12/Y];
-  const els=['c1','c2','c3'].map(i=>document.getElementById(i)), rings=['r1','r2','r3'].map(i=>document.getElementById(i));
+  const start=performance.now(), Y=365.25*86400, rates=[50000/Y,12e6/Y,1.5e12/Y,1/68];
+  const els=['c1','c2','c3','c4'].map(i=>document.getElementById(i)), rings=['r1','r2','r3','r4'].map(i=>document.getElementById(i));
   const f=n=>Math.floor(n).toLocaleString('en-US');
-  (function tick(now){const s=(now-start)/1000;els[0].textContent=f(s*rates[0]);els[1].textContent=f(s*rates[1]);els[2].textContent='$'+f(s*rates[2]);
+  (function tick(now){const s=(now-start)/1000;els[0].textContent=f(s*rates[0]);els[1].textContent=f(s*rates[1]);els[2].textContent='$'+f(s*rates[2]);els[3].textContent=f(s*rates[3]);
     rings.forEach((r,i)=>{r.style.strokeDashoffset=125.6*(1-((s*rates[i])%1))});requestAnimationFrame(tick)})(performance.now());
 })();
 
