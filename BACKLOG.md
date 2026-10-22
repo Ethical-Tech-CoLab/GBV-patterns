@@ -48,3 +48,8 @@ Everything asked for that is not yet built, or that needs a human. Nothing gets 
 - Done: CATW section on the home page (focus areas, Equality Model, five New York asks). Representation section now carries the verified IPU 27.5% figure. Rights-over-time section with the World Bank series 2009 to 2024. Child marriage section with New York's 2021 ban and state counts. Leadership evidence with the randomised India study.
 - Still open from those: CAWP Congress and Fortune 500 figures (verify); 1970 World Bank value and V-Dem series as a chart; Pew count of countries permitting under-18 marriage (could not verify 117); S8723 status and Assembly companion; bill number for the Epstein estate loophole; chapter number for the child sex buyer felony law; Garikipati and Kambhampati 2021 and Post and Byron 2015 (not found in search, verify by DOI); the "when did gender policy peak" bill-count chart.
 - **How many countries do not treat child marriage as forced marriage**: needs the Pew or Girls Not Brides legal atlas. Add as a world-map layer when the country map is built.
+
+## Added later on 22 October 2026
+
+- **Dedicated New York page** (`docs/new-york.html`): move the borough explorer, the incident ledger, the state flip cards and the CATW asks there, so the home page stays global (pulse, ten figures, clocks, girls, gap) and New York reads as the first case study. Add NYS DCJS county counts, NYPD precinct complaints 2025, and the New York legislation timeline.
+- Done this session: global hero framing; tally tool on the patterns page (browser-stored counts by database, chart, CSV export, handoff to the cohort ledger).
