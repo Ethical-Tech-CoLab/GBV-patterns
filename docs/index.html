@@ -151,11 +151,22 @@
         <p>Most are in Latin America and Europe. Naming the crime is what makes it countable, and counting is what makes it a policy problem rather than a series of private tragedies.</p>
       </div>
       <div class="gapcard">
-        <div class="n gap">0</div>
-        <h3>Official counts of women killed in the sex trade in New York</h3>
-        <p>Not zero deaths. Zero ledgers. The only systematic record in the country is a volunteer database, Women Count USA, built from news reports, social media and obituaries.</p>
+        <div class="n gap">?</div>
+        <h3>Women killed in the sex trade in New York: unknown, because uncounted</h3>
+        <p>The number is not zero and it is not small. It is unknown, because no agency records it. The only systematic record in the country is a volunteer database, Women Count USA, built from news reports, social media and obituaries. This project exists to replace the question mark with a count.</p>
       </div>
     </div>
+    <div class="gapwrap" style="margin-top:12px">
+      <div class="gapcard">
+        <h3>The demand is documented, even if the deaths are not</h3>
+        <p>Jeffrey Epstein was indicted in federal court in Manhattan in July 2019 for sex trafficking of minors; Ghislaine Maxwell was convicted in December 2021. The files released since name the buyers' side of the trade at its wealthiest. In East New York, police estimate as many as 350 pimps work the Penn Track and tie nearly half of its shootings to the sex trade. New York made buying sex from a 15 to 17 year old a felony because the buying was happening. What the state has never done is count the women who did not survive it.</p>
+      </div>
+      <div class="gapcard">
+        <h3>What we can say, and what we cannot</h3>
+        <p>We can say that women are killed by buyers, pimps and traffickers in New York: the cases on the New York page are in federal court records. We can say the city's incident reports have no box for them, and that 40,142 reports in 2024 carried no relationship at all. We cannot say how many, and neither can the state. That is the gap, and it is the state's to close.</p>
+      </div>
+    </div>
+    <p class="src">Epstein and Maxwell: US Attorney's Office, Southern District of New York. Penn Track estimates: NYPD via Hoodline, secondary. The Epstein files release legislation and its status are on the backlog to verify.</p>
     <div class="gapcard" style="margin-top:12px">
       <h3>How a femicide disappears from the record</h3>
       <p>Each step below is a place where a death can be reclassified, softened or dropped. Open one to see what the record says and what it could say instead.</p>
@@ -292,7 +303,7 @@ requestAnimationFrame(()=>document.querySelectorAll('.reveal').forEach((el,i)=>s
     {n:5,l:'of the 66 domestic violence homicide victims New York City counted in 2024 were killed by an intimate partner',s:'ENDGBV 2024 fact sheet: 33 intimate partner and 33 family homicides.',red:true},
     {n:2,l:'young women alive today were married before they turned 18, worldwide',s:'UNICEF child marriage data: about one in five young women aged 20 to 24. Girls variant of the figures below.',red:false,girl:true},
     {n:2,l:'girls and women alive today experienced sexual violence in childhood, contact or non-contact: 650 million, one in five',s:'UNICEF, October 2024, first global estimate, 120 countries, 2010 to 2022. One in eight, 370 million, experienced rape or sexual assault.',red:true,girl:true},
-    {n:0,l:'women killed in the sex trade are counted by any New York agency. Not zero deaths; zero ledgers.',s:'No official count exists. See the gap section and the patterns page.',red:true},
+    {n:0,l:'of the women killed in the sex trade in New York appear in any official count. The deaths happen; the counting does not.',s:'No agency records killings by buyers, pimps or traffickers as a category. See the gap section and the New York page.',red:true},
   ];
   const row=document.getElementById('figrow'),chips=document.getElementById('figchips');
   const W='<svg viewBox="0 0 40 100"><circle cx="20" cy="11" r="8"/><path d="M13 23h14l8 40h-7l-2 34h-12l-2-34h-7z"/></svg>';
@@ -364,7 +375,7 @@ requestAnimationFrame(()=>document.querySelectorAll('.reveal').forEach((el,i)=>s
     {k:'ipv',cls:'seg-ipv',n:CITY.ipv,h:'Intimate partner',p:'Reports where the parties are current or former partners. This is the category most femicide definitions start from, and the one the city tracks most closely: 33 intimate partner homicides in 2024, up from 30 in 2023.'},
     {k:'fam',cls:'seg-fam',n:CITY.fam,h:'Family',p:'Parents, children, siblings and other relatives. Family homicides fell from 43 in 2023 to 33 in 2024. Together with intimate partner cases they make up the 66 domestic violence homicides the city counts.'},
     {k:'unk',cls:'seg-unk',n:CITY.unk,h:'Relationship unknown',p:'One in six reports. A death at the hands of a buyer, a pimp or a trafficker has no box to go in, so if it is recorded at all it lands here or outside the domestic ledger entirely.'},
-    {k:'gap',cls:'seg-gap',n:null,h:'Killed in the sex trade',p:'There is no official count in New York or nationally. The width of this segment is a placeholder. This project, with CATW and the Women Count USA archive, is building the first ledger for it.'},
+    {k:'gap',cls:'seg-gap',n:null,h:'Killed in the sex trade',p:'Unknown. There is no official count in New York or nationally, so the width of this segment is a placeholder, not a measurement. The deaths are documented case by case in court records and in Women Count USA. This project, with CATW, is building the first ledger for them.'},
   ];
   let sel='ipv';
   function build(){
@@ -372,7 +383,7 @@ requestAnimationFrame(()=>document.querySelectorAll('.reveal').forEach((el,i)=>s
     segs.forEach(s=>{const b=document.createElement('button');b.className=s.cls;b.setAttribute('aria-pressed',s.k===sel);b.setAttribute('aria-label',s.h);
       b.style.flex=s.n?String(s.n):'22000';b.addEventListener('click',()=>{sel=s.k;build()});bar.appendChild(b)});
     const s=segs.find(x=>x.k===sel);
-    det.innerHTML=`<div class="n num ${s.n?'':'gap'}">${s.n?fmt(s.n):'—'}</div><div><h3>${s.h}</h3><p>${s.p}</p></div>`;
+    det.innerHTML=`<div class="n num ${s.n?'':'gap'}">${s.n?fmt(s.n):'?'}</div><div><h3>${s.h}</h3><p>${s.p}</p></div>`;
   }
   build();
 })();

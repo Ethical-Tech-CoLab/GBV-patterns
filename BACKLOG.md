@@ -55,3 +55,4 @@ Everything asked for that is not yet built, or that needs a human. Nothing gets 
 - Done this session: global hero framing; tally tool on the patterns page (browser-stored counts by database, chart, CSV export, handoff to the cohort ledger).
 
 - Done: Progress page (CATW five outcomes with status, coverage table, not-yet-researched table). Timelines on the context page are now horizontal with arrows, year jump buttons and keyboard scrolling.
+- **Epstein files**: verify the Epstein Files Transparency Act (2025) status and what the released files document about demand in New York; add to the demand card with a primary link.
