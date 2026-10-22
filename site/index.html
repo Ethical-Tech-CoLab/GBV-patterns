@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Counting Femicide</title>
+<meta name="description" content="Patterns of femicide and gender-based violence in New York, built for the people who can change the law. Ethical Tech CoLab × Coalition Against Trafficking in Women.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#efedcd; --bg-alt:#f6f4df; --deep:#1d2919;
+  --fg:#1d2919; --fg-muted:#444a3c; --fg-subtle:#7d8168;
+  --border:#d3d0ad; --accent:#ffe614; --accent-ink:#1d2919;
+  --gap:#cd61ff; --up:#9a2b1a; --down:#2f6b2a;
+  --font:"Hanken Grotesk",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --radius:14px; --header-h:72px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1d2919; --bg-alt:#263422; --deep:#efedcd;
+    --fg:#efedcd; --fg-muted:#c9c7a6; --fg-subtle:#999e82;
+    --border:#efedcd38; --up:#ff9d8a; --down:#a6e39a;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1d2919; --bg-alt:#263422; --deep:#efedcd;
+  --fg:#efedcd; --fg-muted:#c9c7a6; --fg-subtle:#999e82;
+  --border:#efedcd38; --up:#ff9d8a; --down:#a6e39a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.catw-dark{display:none}
+html.dark .catw-dark{display:block}
+html.dark .catw-light{display:none}
+
+/* header */
+header{position:sticky;top:0;z-index:20;height:var(--header-h);display:flex;align-items:center;justify-content:space-between;padding:0 24px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:600;letter-spacing:-.01em}
+.brand img{height:34px;width:34px;border-radius:8px;object-fit:cover}
+.brand span{font-size:15px}
+nav{display:flex;gap:2px;padding:5px;border:1px solid color-mix(in srgb,var(--fg) 15%,transparent);border-radius:999px;backdrop-filter:blur(18px);background:color-mix(in srgb,var(--bg) 70%,transparent)}
+nav a{padding:7px 14px;border-radius:999px;font-size:14px;font-weight:500;text-decoration:none;transition:background .15s}
+nav a:hover,nav a:focus-visible{background:color-mix(in srgb,var(--fg) 7%,transparent)}
+@media (max-width:760px){nav{display:none}}
+.theme{border:1px solid color-mix(in srgb,var(--fg) 15%,transparent);background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(18px);border-radius:999px;width:38px;height:38px;display:grid;place-items:center}
+
+/* hero */
+.hero{position:relative;min-height:100dvh;margin-top:calc(var(--header-h) * -1);padding:calc(var(--header-h) + 2rem) 24px 3rem;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .inner{position:relative;max-width:1100px;margin:0 auto;text-align:center}
+.hero h1{font-size:clamp(2.6rem,7vw,5.4rem);line-height:1.02;letter-spacing:-.035em;font-weight:600;margin:0 auto;max-width:14ch;text-wrap:balance}
+.hero p{font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--fg-muted);max-width:42ch;margin:1.4rem auto 0;text-wrap:balance}
+.hero .ctas{margin-top:2.4rem;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.reveal{opacity:0;filter:blur(12px);transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),filter .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;filter:blur(0);transform:none}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent-ink)}
+.btn.ghost{border-color:color-mix(in srgb,var(--fg) 25%,transparent)}
+.partners{position:relative;margin:4rem auto 0;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;color:var(--fg-subtle);font-size:14px}
+.partners img{height:30px;object-fit:contain}
+.partners img.etc{height:36px;width:36px;border-radius:8px}
+.partners .x{font-size:20px;color:var(--fg-subtle)}
+
+/* sections */
+section.block{padding:6rem 24px;border-top:1px solid var(--border)}
+.wrap{max-width:1100px;margin:0 auto}
+.lede{max-width:60ch}
+.lede h2{font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1.1;letter-spacing:-.03em;font-weight:600;margin:0 0 .8rem}
+.lede p{color:var(--fg-muted);margin:0;font-size:1.05rem}
+.src{font-size:13px;color:var(--fg-subtle);margin-top:1.4rem;max-width:80ch}
+.src a{text-decoration-color:color-mix(in srgb,var(--fg) 35%,transparent)}
+
+/* pulse */
+.pulse{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center;margin-top:3rem}
+@media (max-width:860px){.pulse{grid-template-columns:1fr}}
+.bignum{font-family:var(--mono);font-size:clamp(4rem,12vw,9rem);line-height:.95;letter-spacing:-.04em;font-weight:500}
+.bignum small{display:block;font-family:var(--font);font-size:1.05rem;letter-spacing:0;color:var(--fg-muted);margin-top:.8rem;font-weight:400;max-width:34ch}
+.tally{display:flex;flex-wrap:wrap;gap:6px;max-width:420px}
+.tally i{width:14px;height:14px;border-radius:50%;background:var(--fg);opacity:.18;transition:opacity .4s,transform .4s,background .4s}
+.tally i.on{opacity:1;background:var(--accent);transform:scale(1.15);box-shadow:0 0 0 1px var(--fg) inset}
+.pulse .ctrl{margin-top:1rem;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.chip{border:1px solid var(--border);background:transparent;border-radius:999px;padding:7px 14px;font-size:14px;font-weight:500;transition:background .15s,border-color .15s}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.chip:hover{border-color:var(--fg)}
+
+/* boroughs */
+.toggle{display:inline-flex;border:1px solid var(--border);border-radius:999px;padding:4px;margin-top:1.6rem;gap:2px}
+.toggle button{border:0;background:transparent;border-radius:999px;padding:6px 14px;font-weight:500;font-size:14px}
+.toggle button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.boro-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:2rem}
+@media (max-width:860px){.boro-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.boro-grid{grid-template-columns:1fr}}
+.boro{position:relative;border:1px solid var(--border);border-radius:var(--radius);padding:18px 16px 16px;text-align:left;background:transparent;overflow:hidden;min-height:150px;transition:border-color .15s}
+.boro:hover{border-color:var(--fg)}
+.boro[aria-pressed="true"]{border-color:var(--fg);background:var(--bg-alt)}
+.boro .name{font-weight:600;font-size:15px}
+.boro .v{font-family:var(--mono);font-size:2rem;letter-spacing:-.03em;margin-top:18px;line-height:1}
+.boro .l{font-size:12.5px;color:var(--fg-subtle);margin-top:4px}
+.boro .fill{position:absolute;left:0;right:0;bottom:0;height:0;background:var(--accent);opacity:.9;transition:height .7s cubic-bezier(.2,.7,.2,1)}
+.boro .inner{position:relative}
+.detail{margin-top:1.4rem;border:1px solid var(--border);border-radius:var(--radius);padding:22px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;background:var(--bg-alt)}
+@media (max-width:860px){.detail{grid-template-columns:repeat(2,1fr)}}
+.detail .k{font-size:13px;color:var(--fg-subtle)}
+.detail .n{font-family:var(--mono);font-size:1.7rem;letter-spacing:-.02em;line-height:1.1;margin-top:4px}
+.detail .d{font-size:13px;margin-top:4px;color:var(--fg-muted)}
+.detail .d.up{color:var(--up)}.detail .d.down{color:var(--down)}
+.detail .title{grid-column:1/-1;font-weight:600;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.detail .title span{font-weight:400;color:var(--fg-subtle);font-size:14px}
+
+/* ledger */
+.ledger{margin-top:2.4rem}
+.bar{display:flex;height:64px;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.bar button{border:0;padding:0;position:relative;transition:filter .15s;min-width:4px}
+.bar button:hover{filter:brightness(1.08)}
+.bar button[aria-pressed="true"]::after{content:"";position:absolute;inset:0;border:3px solid var(--accent);pointer-events:none}
+.seg-ipv{background:var(--fg)}
+.seg-fam{background:color-mix(in srgb,var(--fg) 55%,var(--bg))}
+.seg-unk{background:color-mix(in srgb,var(--fg) 25%,var(--bg))}
+.seg-gap{background:repeating-linear-gradient(45deg,transparent 0 6px,color-mix(in srgb,var(--gap) 55%,transparent) 6px 8px);border-left:1px dashed var(--gap)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:var(--fg-muted)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.ledger-detail{margin-top:1.2rem;border:1px solid var(--border);border-radius:var(--radius);padding:22px;background:var(--bg-alt);display:grid;grid-template-columns:auto 1fr;gap:6px 28px;align-items:baseline}
+@media (max-width:640px){.ledger-detail{grid-template-columns:1fr}}
+.ledger-detail .n{font-family:var(--mono);font-size:2.4rem;letter-spacing:-.03em;line-height:1}
+.ledger-detail .n.gap{color:var(--gap)}
+.ledger-detail p{margin:0;color:var(--fg-muted);max-width:60ch}
+.ledger-detail h3{margin:0 0 4px;font-size:1.1rem;font-weight:600}
+
+/* state cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:2.4rem}
+@media (max-width:860px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.cards{grid-template-columns:1fr}}
+.card{perspective:1200px;min-height:200px}
+.card button{width:100%;height:100%;min-height:200px;border:0;background:transparent;padding:0;text-align:left;position:relative;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.card button[aria-pressed="true"]{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border:1px solid var(--border);border-radius:var(--radius);padding:20px;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:space-between}
+.face.back{transform:rotateY(180deg);background:var(--fg);color:var(--bg);font-size:14px;line-height:1.45}
+.face .n{font-family:var(--mono);font-size:2.3rem;letter-spacing:-.03em;line-height:1}
+.face .k{font-size:14.5px;color:var(--fg-muted);margin-top:8px}
+.face .flip{font-size:12.5px;color:var(--fg-subtle)}
+.face.back .flip{color:color-mix(in srgb,var(--bg) 70%,transparent)}
+
+/* gap section */
+.gapwrap{margin-top:2.4rem;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:860px){.gapwrap{grid-template-columns:1fr}}
+.gapcard{border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.gapcard h3{margin:0 0 .5rem;font-size:1.15rem;font-weight:600}
+.gapcard p{margin:0;color:var(--fg-muted)}
+.gapcard.dark{background:var(--fg);color:var(--bg)}
+.gapcard.dark p{color:color-mix(in srgb,var(--bg) 80%,transparent)}
+.gapcard .n{font-family:var(--mono);font-size:3rem;letter-spacing:-.03em;line-height:1;margin-bottom:.6rem}
+.gapcard .n.gap{color:var(--gap)}
+.cases{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.case{border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.case summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:500}
+.case summary::-webkit-details-marker{display:none}
+.case summary .tag{font-size:12.5px;padding:3px 10px;border-radius:999px;border:1px solid var(--border);color:var(--fg-subtle);white-space:nowrap}
+.case[open] summary .tag{background:var(--gap);color:#1d2919;border-color:var(--gap)}
+.case .body{padding:0 16px 16px;color:var(--fg-muted);font-size:15px}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:2.4rem}
+@media (max-width:860px){.why{grid-template-columns:1fr}}
+.why div{border-top:2px solid var(--fg);padding-top:14px}
+.why h3{margin:0 0 .4rem;font-size:1.05rem;font-weight:600}
+.why p{margin:0;color:var(--fg-muted);font-size:15px}
+
+/* footer */
+footer{border-top:1px solid var(--border);padding:4rem 24px 3rem}
+footer .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:2.5rem}
+@media (max-width:860px){footer .wrap{grid-template-columns:1fr}}
+footer .logos{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+footer .logos img{height:36px;object-fit:contain}
+footer .logos img.etc{width:44px;height:44px;border-radius:10px}
+footer p{color:var(--fg-muted);font-size:15px;max-width:52ch}
+footer ol{margin:0;padding-left:1.2rem;font-size:13.5px;color:var(--fg-muted);line-height:1.6}
+footer li{margin-bottom:6px}
+footer h4{margin:0 0 .6rem;font-size:14px;font-weight:600}
+:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+@media (prefers-reduced-motion: reduce){
+  .reveal{transition:none;opacity:1;filter:none;transform:none}
+  .boro .fill,.card button{transition:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="#top"><img src="assets/etc-logo.jpg" alt="Ethical Tech CoLab"><span>GBV Patterns</span></a>
+  <nav aria-label="Primary">
+    <a href="#pulse">The pace</a>
+    <a href="#city">The city</a>
+    <a href="#ledger">The ledger</a>
+    <a href="#state">The state</a>
+    <a href="#gap">The gap</a>
+  </nav>
+  <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
+</header>
+
+<section class="hero" id="top">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="inner">
+    <h1 class="reveal">What New York counts, and what it doesn't</h1>
+    <p class="reveal">Patterns of femicide and gender-based violence in New York, built for the people who can change the law.</p>
+    <div class="ctas reveal">
+      <a class="btn primary" href="#pulse">Explore the numbers</a>
+      <a class="btn ghost" href="#gap">Start with the gap</a>
+    </div>
+    <div class="partners reveal">
+      <img class="etc" src="assets/etc-logo.jpg" alt="Ethical Tech CoLab">
+      <span class="x">×</span>
+      <img class="catw-light" src="assets/catw-logo.png" alt="Coalition Against Trafficking in Women">
+      <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
+    </div>
+  </div>
+</section>
+
+<section class="block" id="pulse">
+  <div class="wrap">
+    <div class="lede">
+      <h2>One woman or girl every ten minutes</h2>
+      <p>In 2024, around 50,000 women and girls were killed by an intimate partner or family member worldwide. That is about 137 a day. The dots below light up at that pace, starting from the moment you opened this page.</p>
+    </div>
+    <div class="pulse">
+      <div>
+        <div class="bignum"><span id="pulseN" class="num">0</span><small id="pulseL">killed by a partner or relative since you opened this page</small></div>
+        <div class="ctrl">
+          <button class="chip" id="pulsePause" aria-pressed="false">Pause</button>
+          <button class="chip" id="pulseDay">Show one day</button>
+          <button class="chip" id="pulseReset">Reset</button>
+        </div>
+      </div>
+      <div class="tally" id="tally" aria-hidden="true"></div>
+    </div>
+    <p class="src">Source: UNODC and UN Women, <a href="https://www.unwomen.org/en/digital-library/publications/2025/11/femicides-in-2024-global-estimates-of-intimate-partner-family-member-femicides">Femicides in 2024: global estimates of intimate partner and family member femicides</a> (November 2025), based on data from 117 countries.</p>
+  </div>
+</section>
+
+<section class="block" id="city">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Five boroughs, one year</h2>
+      <p>Choose a borough to see what the police recorded there. The yellow fill shows each borough's share of the city's intimate partner incident reports. Switch years to see what moved.</p>
+    </div>
+    <div class="toggle" role="group" aria-label="Year">
+      <button data-year="2023" aria-pressed="false">2023</button>
+      <button data-year="2024" aria-pressed="true">2024</button>
+    </div>
+    <div class="boro-grid" id="boroGrid"></div>
+    <div class="detail" id="boroDetail"></div>
+    <p class="src">Source: NYC Mayor's Office to End Domestic and Gender-Based Violence, <a href="https://www.nyc.gov/site/ocdv/press-resources/annual-reports-and-fact-sheets.page">2024 Annual Fact Sheet</a>. Domestic incident reports are NYPD responses, not unique people. Family Justice Center visits are civil-side client visits.</p>
+  </div>
+</section>
+
+<section class="block" id="ledger">
+  <div class="wrap">
+    <div class="lede">
+      <h2>The ledger, and the line nobody keeps</h2>
+      <p>The NYPD filed 249,077 domestic incident reports in 2024. Each report is sorted by the relationship between the people involved. Click a segment. Then click the striped one.</p>
+    </div>
+    <div class="ledger">
+      <div class="bar" id="ledgerBar" role="group" aria-label="Domestic incident reports by relationship"></div>
+      <div class="legend">
+        <span><i class="seg-ipv"></i>Intimate partner</span>
+        <span><i class="seg-fam"></i>Family</span>
+        <span><i class="seg-unk"></i>Relationship unknown</span>
+        <span><i class="seg-gap"></i>Killed in the sex trade</span>
+      </div>
+      <div class="ledger-detail" id="ledgerDetail"></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="state">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Across the state</h2>
+      <p>New York's 2024 gender-based violence dashboard pulls from courts, hotlines, shelters and the criminal justice system. Flip a card to read where its number comes from and what it leaves out.</p>
+    </div>
+    <div class="cards" id="cards"></div>
+    <p class="src">Source: NYS Office for the Prevention of Domestic Violence, <a href="https://opdv.ny.gov/2024-new-york-state-gender-based-violence-dashboard">2024 New York State Gender-Based Violence Dashboard</a>. DCJS victim and homicide figures exclude New York City, which had not provided data at publication.</p>
+  </div>
+</section>
+
+<section class="block" id="gap">
+  <div class="wrap">
+    <div class="lede">
+      <h2>The gap this project exists to close</h2>
+      <p>Roughly three dozen countries define femicide in their criminal codes. The United States and New York State do not. No agency counts the women killed in the sex trade. When those deaths are reported at all, the language used often hides what happened.</p>
+    </div>
+    <div class="gapwrap">
+      <div class="gapcard dark">
+        <div class="n">~36</div>
+        <h3>Countries that name femicide in law</h3>
+        <p>Most are in Latin America and Europe. Naming the crime is what makes it countable, and counting is what makes it a policy problem rather than a series of private tragedies.</p>
+      </div>
+      <div class="gapcard">
+        <div class="n gap">0</div>
+        <h3>Official counts of women killed in the sex trade in New York</h3>
+        <p>Not zero deaths. Zero ledgers. The only systematic record in the country is a volunteer database, Women Count USA, built from news reports, social media and obituaries.</p>
+      </div>
+    </div>
+    <div class="gapcard" style="margin-top:12px">
+      <h3>How a femicide disappears from the record</h3>
+      <p>Each step below is a place where a death can be reclassified, softened or dropped. Open one to see what the record says and what it could say instead.</p>
+      <div class="cases">
+        <details class="case"><summary>The relationship is marked unknown<span class="tag">40,142 reports in 2024</span></summary><div class="body">One in six NYC domestic incident reports in 2024 had no recorded relationship between the parties. A buyer, a pimp or a trafficker is not a partner or a relative, so these cases fall outside both categories the city tracks.</div></details>
+        <details class="case"><summary>The headline says "sex worker", not "woman"<span class="tag">Media framing</span></summary><div class="body">Describing a victim by the circumstances of her exploitation shifts the reader's attention from the person who killed her to the life she was living. CATW's review of coverage looks for this pattern case by case.</div></details>
+        <details class="case"><summary>The death is filed as an overdose or an accident<span class="tag">Cause of death</span></summary><div class="body">Deaths in the sex trade often involve drugs, exposure or injury. When a medical examiner records only the proximate cause, the coercion behind it is never entered anywhere.</div></details>
+        <details class="case"><summary>The perpetrator's relationship is never recorded<span class="tag">Data model</span></summary><div class="body">Age, race and relationship to the victim are what make patterns visible across cases. CATW's priority for this project is to capture those fields for perpetrators, not names.</div></details>
+      </div>
+    </div>
+    <p class="src">The count of countries recognising femicide is an approximate figure from CATW's project brief. Women Count USA is maintained by Dawn Wilcox at <a href="https://womencountusa.org/">womencountusa.org</a>.</p>
+  </div>
+</section>
+
+<section class="block" id="why">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Why a page, not a PDF</h2>
+      <p>Technology can reach new audiences. For New York policymakers it can reach the same audience in a different way: a number they can press, a borough they can pick, a gap they can see.</p>
+    </div>
+    <div class="why">
+      <div><h3>Open data, updated</h3><p>Every figure here traces to a public source. The database and framework behind it will be open source and refreshed as new reports land.</p></div>
+      <div><h3>Patterns, not profiles</h3><p>The project works from aggregated demographics and relationship data. No victim is identified. No individual is tracked.</p></div>
+      <div><h3>Built for the hearing room</h3><p>First shown at the Ethical Tech Summit on 20 November 2026, then refined with CATW toward the case for naming femicide in New York law.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logos">
+        <img class="etc" src="assets/etc-logo.jpg" alt="Ethical Tech CoLab">
+        <img class="catw-light" src="assets/catw-logo.png" alt="Coalition Against Trafficking in Women">
+        <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
+      </div>
+      <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Prototype, October 2026.</p>
+    </div>
+    <div>
+      <h4>Sources</h4>
+      <ol>
+        <li>UNODC and UN Women. Femicides in 2024: global estimates of intimate partner and family member femicides. November 2025.</li>
+        <li>NYC Mayor's Office to End Domestic and Gender-Based Violence. 2024 Annual Fact Sheet. October 2025.</li>
+        <li>NYS Office for the Prevention of Domestic Violence. 2024 New York State Gender-Based Violence Dashboard. November 2025.</li>
+        <li>Women Count USA, Dawn Wilcox. Ongoing.</li>
+      </ol>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ---------- data (all figures from the sources listed in the footer) ----------
+const BOROS = [
+  {k:'Bronx',         ipvH:{2023:5, 2024:5},  famH:{2023:13,2024:12}, ipvD:{2023:31286,2024:30440}, famD:{2023:25209,2024:25994}, fjc:{2023:11033,2024:10844}},
+  {k:'Brooklyn',      ipvH:{2023:14,2024:11}, famH:{2023:15,2024:10}, ipvD:{2023:33708,2024:33324}, famD:{2023:26424,2024:26441}, fjc:{2023:10492,2024:12860}},
+  {k:'Manhattan',     ipvH:{2023:3, 2024:8},  famH:{2023:3, 2024:3},  ipvD:{2023:17928,2024:18064}, famD:{2023:13024,2024:13705}, fjc:{2023:8931, 2024:11003}},
+  {k:'Queens',        ipvH:{2023:5, 2024:8},  famH:{2023:11,2024:6},  ipvD:{2023:27579,2024:27981}, famD:{2023:19687,2024:21257}, fjc:{2023:11906,2024:13421}},
+  {k:'Staten Island', ipvH:{2023:3, 2024:1},  famH:{2023:1, 2024:2},  ipvD:{2023:6377, 2024:6242},  famD:{2023:4879, 2024:5487},  fjc:{2023:6801, 2024:9528}},
+];
+const CITY = {dir:249077, ipv:116051, fam:92884, unk:40142};
+const fmt = n => n.toLocaleString('en-US');
+
+// ---------- theme ----------
+const root=document.documentElement;
+const mq=matchMedia('(prefers-color-scheme: dark)');
+function isDark(){return root.dataset.theme ? root.dataset.theme==='dark' : mq.matches}
+function applyTheme(){root.classList.toggle('dark',isDark())}
+try{const t=localStorage.getItem('gbv-theme'); if(t) root.dataset.theme=t;}catch(e){}
+applyTheme(); mq.addEventListener('change',applyTheme);
+document.getElementById('themeBtn').addEventListener('click',()=>{
+  root.dataset.theme = isDark()?'light':'dark';
+  try{localStorage.setItem('gbv-theme',root.dataset.theme)}catch(e){}
+  applyTheme();
+});
+
+// ---------- hero reveal ----------
+requestAnimationFrame(()=>document.querySelectorAll('.reveal').forEach((el,i)=>setTimeout(()=>el.classList.add('in'),120+i*160)));
+
+// ---------- hero field: each dot is one counted case, the mouse disturbs the field ----------
+(function(){
+  const c=document.getElementById('field'), ctx=c.getContext('2d');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W,H,pts=[],mouse={x:-9999,y:-9999},t0=performance.now();
+  const css=v=>getComputedStyle(root).getPropertyValue(v).trim();
+  function resize(){
+    const dpr=Math.min(devicePixelRatio||1,2);
+    W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    const n=Math.round(W*H/5200);
+    pts=Array.from({length:n},(_,i)=>({x:Math.random()*W,y:Math.random()*H,r:1.2+Math.random()*1.6,ph:Math.random()*6.28,sp:.15+Math.random()*.25,lit:i%37===0}));
+  }
+  resize();addEventListener('resize',resize);
+  addEventListener('pointermove',e=>{const b=c.getBoundingClientRect();mouse={x:e.clientX-b.left,y:e.clientY-b.top}});
+  addEventListener('pointerleave',()=>mouse={x:-9999,y:-9999});
+  function draw(now){
+    const fg=css('--fg'), ac=css('--accent'); const t=(now-t0)/1000;
+    ctx.clearRect(0,0,W,H);
+    ctx.lineWidth=.6;
+    for(let i=0;i<pts.length;i++){const p=pts[i];
+      for(let j=i+1;j<i+6&&j<pts.length;j++){const q=pts[j];const dx=p.x-q.x,dy=p.y-q.y,d=dx*dx+dy*dy;
+        if(d<9000){ctx.globalAlpha=(1-d/9000)*.18;ctx.strokeStyle=fg;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}}}
+    for(const p of pts){
+      if(!reduce){p.y-=p.sp*.35;p.x+=Math.sin(t*.4+p.ph)*.25;if(p.y<-4){p.y=H+4;p.x=Math.random()*W}
+        const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.hypot(dx,dy);if(d<140&&d>0){const f=(140-d)/140;p.x+=dx/d*f*3.2;p.y+=dy/d*f*3.2}}
+      const pulse=p.lit?(.6+.4*Math.sin(t*2+p.ph)):1;
+      ctx.globalAlpha=p.lit?.95*pulse:.22;ctx.fillStyle=p.lit?ac:fg;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.lit?p.r*1.8:p.r,0,6.283);ctx.fill();
+      if(p.lit){ctx.strokeStyle=fg;ctx.globalAlpha=.6;ctx.lineWidth=.8;ctx.stroke();}
+    }
+    ctx.globalAlpha=1;
+    if(!reduce) requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+
+// ---------- pulse ----------
+(function(){
+  const PER_YEAR=50000, perSec=PER_YEAR/(365.25*86400);
+  const n=document.getElementById('pulseN'), l=document.getElementById('pulseL'), tally=document.getElementById('tally');
+  const DOTS=137; for(let i=0;i<DOTS;i++){tally.appendChild(document.createElement('i'))}
+  let start=performance.now(), paused=false, pausedAt=0, dayMode=false, shown=-1, dayTimer=null;
+  const pauseBtn=document.getElementById('pulsePause');
+  function render(count,label){
+    const c=Math.floor(count); if(c!==shown){shown=c;n.textContent=fmt(c);
+      [...tally.children].forEach((d,i)=>d.classList.toggle('on',i<Math.min(c,DOTS)));}
+    l.textContent=label;
+  }
+  function tick(now){
+    if(!dayMode&&!paused){render(((now-start)/1000)*perSec,'killed by a partner or relative since you opened this page, at the 2024 global rate');}
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+  pauseBtn.addEventListener('click',()=>{paused=!paused;pauseBtn.setAttribute('aria-pressed',paused);pauseBtn.textContent=paused?'Resume':'Pause';
+    if(paused)pausedAt=performance.now(); else start+=performance.now()-pausedAt;});
+  document.getElementById('pulseDay').addEventListener('click',()=>{dayMode=true;clearInterval(dayTimer);shown=-1;
+    let i=0;dayTimer=setInterval(()=>{i++;render(i,'in one day, at the 2024 global rate. Each dot is one woman or girl.');if(i>=DOTS)clearInterval(dayTimer)},18);});
+  document.getElementById('pulseReset').addEventListener('click',()=>{clearInterval(dayTimer);dayMode=false;paused=false;pauseBtn.textContent='Pause';pauseBtn.setAttribute('aria-pressed','false');start=performance.now();shown=-1;render(0,'killed by a partner or relative since you opened this page');});
+})();
+
+// ---------- boroughs ----------
+(function(){
+  let year=2024, sel='Brooklyn';
+  const grid=document.getElementById('boroGrid'), det=document.getElementById('boroDetail');
+  const toggle=document.querySelectorAll('.toggle button');
+  const totalIpvD=y=>BOROS.reduce((a,b)=>a+b.ipvD[y],0);
+  function build(){
+    grid.innerHTML='';
+    BOROS.forEach(b=>{
+      const btn=document.createElement('button');btn.className='boro';btn.setAttribute('aria-pressed',b.k===sel);
+      btn.innerHTML=`<div class="fill"></div><div class="inner"><div class="name">${b.k}</div><div class="v num">${b.ipvH[year]+b.famH[year]}</div><div class="l">domestic violence homicides, ${year}</div></div>`;
+      btn.addEventListener('click',()=>{sel=b.k;build()});
+      grid.appendChild(btn);
+      requestAnimationFrame(()=>requestAnimationFrame(()=>btn.querySelector('.fill').style.height=(b.ipvD[year]/totalIpvD(year)*160)+'%'));
+    });
+    const b=BOROS.find(x=>x.k===sel), prev=year===2024?2023:null;
+    const delta=(cur,old)=>{if(old==null)return '';const d=cur-old;if(d===0)return '<div class="d">no change from 2023</div>';return `<div class="d ${d>0?'up':'down'}">${d>0?'+':''}${fmt(d)} from 2023</div>`};
+    const row=(k,v,o)=>`<div><div class="k">${k}</div><div class="n num">${fmt(v)}</div>${delta(v,o)}</div>`;
+    det.innerHTML=`<div class="title">${b.k}, ${year}<span>${((b.ipvD[year]/totalIpvD(year))*100).toFixed(0)}% of the city's intimate partner incident reports</span></div>`+
+      row('Intimate partner homicides',b.ipvH[year],prev&&b.ipvH[prev])+
+      row('Family homicides',b.famH[year],prev&&b.famH[prev])+
+      row('Intimate partner incident reports',b.ipvD[year],prev&&b.ipvD[prev])+
+      row('Family Justice Center visits',b.fjc[year],prev&&b.fjc[prev]);
+  }
+  toggle.forEach(t=>t.addEventListener('click',()=>{year=+t.dataset.year;toggle.forEach(x=>x.setAttribute('aria-pressed',x===t));build()}));
+  build();
+})();
+
+// ---------- ledger ----------
+(function(){
+  const bar=document.getElementById('ledgerBar'), det=document.getElementById('ledgerDetail');
+  const segs=[
+    {k:'ipv',cls:'seg-ipv',n:CITY.ipv,h:'Intimate partner',p:'Reports where the parties are current or former partners. This is the category most femicide definitions start from, and the one the city tracks most closely: 33 intimate partner homicides in 2024, up from 30 in 2023.'},
+    {k:'fam',cls:'seg-fam',n:CITY.fam,h:'Family',p:'Parents, children, siblings and other relatives. Family homicides fell from 43 in 2023 to 33 in 2024. Together with intimate partner cases they make up the 66 domestic violence homicides the city counts.'},
+    {k:'unk',cls:'seg-unk',n:CITY.unk,h:'Relationship unknown',p:'One in six reports. A death at the hands of a buyer, a pimp or a trafficker has no box to go in, so if it is recorded at all it lands here or outside the domestic ledger entirely.'},
+    {k:'gap',cls:'seg-gap',n:null,h:'Killed in the sex trade',p:'There is no official count in New York or nationally. The width of this segment is a placeholder. This project, with CATW and the Women Count USA archive, is building the first ledger for it.'},
+  ];
+  let sel='ipv';
+  function build(){
+    bar.innerHTML='';
+    segs.forEach(s=>{const b=document.createElement('button');b.className=s.cls;b.setAttribute('aria-pressed',s.k===sel);b.setAttribute('aria-label',s.h);
+      b.style.flex=s.n?String(s.n):'22000';b.addEventListener('click',()=>{sel=s.k;build()});bar.appendChild(b)});
+    const s=segs.find(x=>x.k===sel);
+    det.innerHTML=`<div class="n num ${s.n?'':'gap'}">${s.n?fmt(s.n):'—'}</div><div><h3>${s.h}</h3><p>${s.p}</p></div>`;
+  }
+  build();
+})();
+
+// ---------- state cards ----------
+(function(){
+  const cards=[
+    {n:'241,351',k:'orders of protection entered in the state registry',b:'Orders required for entry in the NYS Unified Court System Domestic Violence Registry during 2024. An order is a legal event, not a person: one survivor may hold several.'},
+    {n:'254,968',k:'hotline calls to domestic violence programs',b:'87,417 calls to New York City programs and 167,551 to programs elsewhere in the state. Separate from the 8,289 calls to the state hotline and 11,676 New York calls logged by the National Domestic Violence Hotline.'},
+    {n:'24,635',k:'people denied shelter',b:'12,696 adults and 11,939 children turned away from residential programs. Residential programs admitted 10,227 people statewide in the same year.'},
+    {n:'115 days',k:'average shelter stay in New York City',b:'Against 44 days in the rest of the state. Length of stay tracks how hard it is to find safe housing after leaving.'},
+    {n:'38',k:'intimate partner homicides outside New York City',b:'32 of the victims were women, 4 were men, 2 unknown. New York City had not reported to DCJS at publication, so this figure excludes the city\'s 33 intimate partner homicides.'},
+    {n:'67,934',k:'family offense petitions filed',b:'Civil petitions in Family Court alleging abuse by a family or household member. Another route to protection that never appears in criminal statistics.'},
+  ];
+  const el=document.getElementById('cards');
+  cards.forEach(c=>{const d=document.createElement('div');d.className='card';
+    d.innerHTML=`<button aria-pressed="false"><div class="face front"><div><div class="n num">${c.n}</div><div class="k">${c.k}</div></div><div class="flip">Flip for the source</div></div><div class="face back"><div>${c.b}</div><div class="flip">New York State 2024 dashboard</div></div></button>`;
+    const b=d.querySelector('button');b.addEventListener('click',()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true'));el.appendChild(d)});
+})();
+</script>
+</body>
+</html>
