@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sex Buyers Map</title>
+<meta name="description" content="Where sex buyers in New York State review the women they buy, region by region, and how rarely they are arrested: CATW's map of demand and impunity, rebuilt as an open layer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero{padding:calc(var(--header-h) + 3rem) 24px 2rem}
+.page-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.04;letter-spacing:-.03em;font-weight:600;margin:0;max-width:18ch}
+.page-hero p{color:var(--fg-muted);max-width:60ch;font-size:1.1rem}
+.mapwrap{display:grid;grid-template-columns:1fr 340px;gap:14px;margin-top:2rem}
+@media (max-width:900px){.mapwrap{grid-template-columns:1fr}}
+#map{height:620px;border:1px solid var(--border);border-radius:var(--radius);background:#0b0b0b}
+@media (max-width:900px){#map{height:460px}}
+.panel{border:1px solid var(--border);border-radius:var(--radius);padding:20px;background:var(--bg-alt);display:flex;flex-direction:column;gap:12px}
+.panel h3{margin:0;font-size:1.2rem;font-weight:600}
+.panel .n{font-family:var(--mono);font-size:2.6rem;letter-spacing:-.04em;line-height:1}
+.panel .k{font-size:13.5px;color:var(--fg-muted)}
+.panel p{margin:0;font-size:14px;color:var(--fg-muted)}
+.panel .regions{display:flex;flex-wrap:wrap;gap:6px}
+.panel .regions button{border:1px solid var(--border);background:transparent;border-radius:999px;padding:4px 10px;font-size:12.5px}
+.panel .regions button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.fig{width:18px;height:28px;display:block}
+.fig svg{width:100%;height:100%;fill:var(--accent);stroke:#000;stroke-width:1.5}
+.leaflet-container{font-family:var(--font)}
+.leaflet-popup-content-wrapper{background:var(--bg-alt);color:var(--fg);border:1px solid var(--border);border-radius:10px;font-size:13px}
+.leaflet-popup-tip{background:var(--bg-alt)}
+.leaflet-control-attribution{background:rgba(0,0,0,.6)!important;color:#aaa!important;font-size:10px}
+.leaflet-control-attribution a{color:#ccc!important}
+.ledger2{display:grid;grid-template-columns:1.2fr 1fr;gap:14px;margin-top:2rem}
+@media (max-width:900px){.ledger2{grid-template-columns:1fr}}
+.chart{border:1px solid var(--border);border-radius:var(--radius);padding:18px;background:var(--bg-alt)}
+.chart h3{margin:0 0 4px;font-size:1.05rem;font-weight:600}
+.chart .sub{font-size:13px;color:var(--fg-subtle);margin-bottom:10px}
+.chart svg{width:100%;height:auto;display:block}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html"><img src="assets/etc-logo.jpg" alt="Ethical Tech CoLab"><span>GBV Patterns</span></a>
+  <nav aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="new-york.html">New York</a>
+    <a href="buyers.html" aria-current="page">Buyers</a>
+    <a href="patterns.html">Patterns</a>
+    <a href="context.html">Context</a>
+    <a href="methodology.html">Methodology</a>
+    <a href="sources.html">Sources</a>
+    <a href="progress.html">Progress</a>
+  </nav>
+  <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>The buyers are visible. The arrests are not.</h1>
+    <p>In 2022 CATW read hundreds of posts on "hobby boards" where sex buyers across New York State review the women they bought, and placed each one on a map. The demand side of the sex trade is not hidden; it writes reviews. This page rebuilds that map as an open layer and sets it against the arrest record, which is the measure of impunity.</p>
+    <div class="warn" style="margin:1.5rem 0 0">Content warning: the original reviews are violent, racist and degrading. They are not reproduced here. Each point marks only where a review was posted from. The full report, with the quotes, is linked below.</div>
+  </div>
+</section>
+
+<section class="block" id="mapsec">
+  <div class="wrap">
+    <div class="lede"><h2>Where the reviews come from</h2><p>Ten regions, 141 geolocated reviews. Click a region to see its count and what the report found about enforcement there. Click a figure to see its region.</p></div>
+    <div class="mapwrap">
+      <div id="map" role="application" aria-label="Map of sex buyer review locations across New York State"></div>
+      <div class="panel" id="panel">
+        <h3 id="pTitle">New York State</h3>
+        <div><div class="n num" id="pN">141</div><div class="k" id="pK">sex-buyer reviews geolocated by CATW across ten regions</div></div>
+        <p id="pText">Select a region on the map or below.</p>
+        <div class="regions" id="pRegions"></div>
+        <p style="font-size:12.5px;color:var(--fg-subtle)">Points are review locations, not where a woman was harmed, and not the buyer's home. Counts show where buyers post, which tracks population and the online markets they use.</p>
+      </div>
+    </div>
+    <div class="lede" style="margin-top:3rem"><h2>CATW's original map</h2><p>The same data as CATW publishes it. Click a figure to open the review it points to, on CATW's own map. The content warning above applies.</p></div>
+    <div class="frame" style="margin-top:14px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden"><iframe src="https://www.google.com/maps/d/embed?mid=1Zfa0bwwSOevKJo4GRq45TAKcGeQkJkHw&ehbc=2E312F" width="100%" height="520" style="display:block;border:0" title="Sex Buyers of New York, CATW, Google My Maps" loading="lazy" referrerpolicy="no-referrer"></iframe></div>
+    <p class="src">Source: Coalition Against Trafficking in Women, <a href="https://catwinternational.org/publication/from-impunity-to-accountability-deterring-sex-buyers-in-new-york-state-and-beyond/">From Impunity to Accountability: Deterring Sex Buyers in New York State and Beyond</a> (2022), and its <a href="https://www.google.com/maps/d/viewer?mid=1Zfa0bwwSOevKJo4GRq45TAKcGeQkJkHw">Google My Maps layer</a>, Sex Buyers of New York. Region boundaries and point locations reproduced with review text and images removed. Basemap: CARTO and OpenStreetMap contributors.</p>
+  </div>
+</section>
+
+<section class="block" id="impunity">
+  <div class="wrap">
+    <div class="lede"><h2>Impunity, in numbers</h2><p>The report's own measure: how many buyers there are, against how many are ever arrested.</p></div>
+    <div class="ledger2">
+      <div class="chart"><h3>Brooklyn: arrests for patronizing, 2018 to 2020</h3><div class="sub">Brooklyn's DA stopped prosecuting prostitution in 2021 but kept prosecuting patronizing. Arrests had already collapsed. Pimping arrests fell from 36 to 7 over the same years.</div><svg id="chBk" viewBox="0 0 520 200"></svg></div>
+      <div class="costs" style="margin-top:0;grid-template-columns:1fr">
+        <div><div class="n num">16%</div><div class="k">of American men report having paid for sex at least once. Globally, 99% of sex buyers are men. CATW report, citing survey research.</div></div>
+        <div><div class="n num">0.29%</div><div class="k">of Swedish men reported buying sex in a six-month period, the lowest measured, under a law that holds buyers accountable. The Equality Model CATW proposes for New York.</div></div>
+        <div><div class="n num">107 vs 400+</div><div class="k">sex-buyer arrests in Manhattan in 2011 against Nashville, Tennessee, a city with a third of Manhattan's population.</div></div>
+        <div><div class="n num">156 in 3 days</div><div class="k">buyers arrested in Operation Losing Proposition, 30 May to 1 June 2013, with 32 vehicles seized. Over 900 arrests and 200 vehicles since 2013. Proof the arrests are possible when ordered.</div></div>
+      </div>
+    </div>
+    <p class="src">All figures from the CATW report, chapter on New York City. For the women's side of the same market, see the <a href="new-york.html#cases">Penn Track cases</a> on the New York page.</p>
+  </div>
+</section>
+
+<section class="block" id="next">
+  <div class="wrap">
+    <div class="lede"><h2>What this layer makes possible</h2><p>Three overlays, in order of readiness, that turn the map from a picture of demand into a measure of impunity.</p></div>
+    <div class="why">
+      <div><h3>Arrests per review, by region</h3><p>Add patronizing and promoting arrests by county from the New York State Division of Criminal Justice Services, and show arrests per hundred reviews. The regions with the most reviews and the fewest arrests are the impunity map.</p></div>
+      <div><h3>Deaths on the same map</h3><p>Once Women Count USA aggregation is agreed, place women killed in the sex trade on this layer. The buyers' reviews and the women's deaths occupy the same streets.</p></div>
+      <div><h3>Reviews over time</h3><p>Recrawl the boards by year to show whether demand moved after the 2021 prosecution policy changes, and after the 2025 buyer felony law for minors.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logos">
+        <img class="etc" src="assets/etc-logo.jpg" alt="Ethical Tech CoLab">
+        <img class="catw-light" src="assets/catw-logo.png" alt="Coalition Against Trafficking in Women">
+        <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
+      </div>
+      <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Prototype, October 2026.</p>
+    </div>
+    <div>
+      <h4>On this site</h4>
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="new-york.html">New York</a></li>
+        <li><a href="patterns.html">Patterns</a></li>
+        <li><a href="context.html">Context</a></li>
+        <li><a href="methodology.html">Methodology</a></li>
+        <li><a href="sources.html">Sources</a></li>
+        <li><a href="progress.html">Progress</a></li>
+      </ol>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(async function(){
+  const NOTES={
+    'New York City':'The largest market and the largest gap. Brooklyn patronizing arrests fell from 279 in 2018 to 28 in 2020. Manhattan made 107 buyer arrests in 2011 against more than 400 in Nashville. A 2018 NYPD officer ran a $2 million-a-year ring across Queens, Brooklyn and Long Island; 49 men were arrested in Operation Zap. Flushing\'s illicit massage parlours are named in the report as a centre of demand.',
+    'Long Island':'Sayville Motor Lodge and Gilgo Beach are both here. The 2018 Operation Zap ring extended onto the island. Reviews cluster along the Nassau and Suffolk corridors.',
+    'Hudson Valley':'In 2021 a Hudson Valley police officer was arrested for an eight-year sex trafficking and bribery operation between Mexico, Queens and Brewster. An Orange County sting arrested four women and three buyers.',
+    'Capital Region':'Safe Inc. in Schenectady reports that 90% of the roughly 1,000 homeless young people it works with each year have been approached by a pimp or exploiter. Five arrests in Saratoga Springs in the FBI\'s Operation Cross Country, 2013.',
+    'Western New York':'Buffalo and Jamestown. In 2017 Rochester police arrested 15 men for patronizing after a "Dear John" billboard campaign pressed them to enforce Section 230 of the Penal Law.',
+    'Finger Lakes':'Rochester\'s "Dear John" campaign posted buyers\' pictures on billboards. The region is also where Arthur Shawcross killed women in prostitution; the report cites it as history that was never named as femicide.',
+    'Central New York':'Syracuse police ran a reverse sting online and arrested 20 buyers, many from out of town. In 2020 three men were arrested, one for luring a 12-year-old on social media.',
+    'Mohawk Valley':'Utica: arrests of women in prostitution in 2015 and 2016, with no recorded arrests of sex buyers found by the report.',
+    'North Country':'Interstate 87 between Montreal and New York City raises trafficking risk. State police arrested 5 buyers in Calcium in 2014 and 10 men for solicitation in 2016. Plattsburgh officials reported rising child exploitation tied to the opiate crisis.',
+    'Southern Tier':'Binghamton and Elmira. Few reviews, and the report finds few enforcement actions to set against them.',
+  };
+  const gj=await (await fetch('data/catw_sex_buyers_map.geojson')).json();
+  const pts=gj.features.filter(f=>f.properties.kind==='review'), polys=gj.features.filter(f=>f.properties.kind==='region');
+  const counts={};pts.forEach(p=>counts[p.properties.region]=(counts[p.properties.region]||0)+1);
+  const regions=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]);
+  const map=L.map('map',{scrollWheelZoom:false}).setView([42.2,-75.3],7);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',subdomains:'abcd',maxZoom:18}).addTo(map);
+  const accent=getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+  const layers={};
+  L.geoJSON(polys,{style:()=>({color:'#f2f2f2',weight:1,opacity:.6,fillColor:'#f2f2f2',fillOpacity:.06}),onEachFeature:(f,l)=>{const r=f.properties.region;(layers[r]=layers[r]||[]).push(l);l.on('click',()=>select(r));l.bindTooltip(r+': '+(counts[r]||0)+' reviews',{sticky:true});}}).addTo(map);
+  const icon=L.divIcon({className:'',html:'<span class="fig"><svg viewBox="0 0 40 100"><circle cx="20" cy="11" r="8"/><path d="M13 23h14l6 40h-6l-1 34h-12l-1-34h-6z"/></svg></span>',iconSize:[18,28],iconAnchor:[9,28]});
+  L.geoJSON(pts,{pointToLayer:(f,ll)=>L.marker(ll,{icon}),onEachFeature:(f,l)=>{l.bindPopup('<b>'+f.properties.region+'</b><br>'+(f.properties.name||'')+'<br><span style="color:#999">One sex-buyer review, geolocated by CATW</span>');l.on('click',()=>select(f.properties.region,false));}}).addTo(map);
+  const pT=document.getElementById('pTitle'),pN=document.getElementById('pN'),pK=document.getElementById('pK'),pX=document.getElementById('pText'),pR=document.getElementById('pRegions');
+  function select(r,fit=true){Object.entries(layers).forEach(([k,ls])=>ls.forEach(l=>l.setStyle({fillOpacity:k===r?.22:.06,color:k===r?accent:'#f2f2f2',weight:k===r?2:1,opacity:k===r?1:.6})));
+    pT.textContent=r;pN.textContent=counts[r];pK.textContent='reviews geolocated in '+r+', '+Math.round(counts[r]/pts.length*100)+'% of the state';pX.textContent=NOTES[r]||'';
+    [...pR.children].forEach(b=>b.setAttribute('aria-pressed',b.textContent.startsWith(r)));
+    if(fit&&layers[r]){map.fitBounds(L.featureGroup(layers[r]).getBounds().pad(.2));}}
+  regions.forEach(r=>{const b=document.createElement('button');b.textContent=r+' · '+counts[r];b.addEventListener('click',()=>select(r));pR.appendChild(b)});
+  (function(){const d=[['2018',279],['2019',82],['2020',28]],W=520,H=200,L=20,bw=(W-L*2)/3;let s='';
+    d.forEach(([y,n],i)=>{const h=n/279*(H-60),x=L+i*bw+bw*.2;s+=`<rect x="${x}" y="${H-30-h}" width="${bw*.6}" height="${h}" fill="${i===2?accent:'#f2f2f2'}"/><text x="${x+bw*.3}" y="${H-30-h-8}" text-anchor="middle" fill="#f2f2f2" font-size="13" font-family="JetBrains Mono,monospace">${n}</text><text x="${x+bw*.3}" y="${H-10}" text-anchor="middle" fill="#999" font-size="12" font-family="JetBrains Mono,monospace">${y}</text>`});
+    document.getElementById('chBk').innerHTML=s})();
+})();
+</script>
+</body>
+</html>
