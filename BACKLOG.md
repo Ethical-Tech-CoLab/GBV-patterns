@@ -56,3 +56,6 @@ Everything asked for that is not yet built, or that needs a human. Nothing gets 
 
 - Done: Progress page (CATW five outcomes with status, coverage table, not-yet-researched table). Timelines on the context page are now horizontal with arrows, year jump buttons and keyboard scrolling.
 - **Epstein files**: verify the Epstein Files Transparency Act (2025) status and what the released files document about demand in New York; add to the demand card with a primary link.
+
+- Done: Buyers page rebuilding CATW's Sex Buyers of New York map as an open Leaflet layer (docs/data/catw_sex_buyers_map.geojson, review text removed) with an impunity ledger from the 2022 report.
+- **Impunity overlays**: DCJS patronizing and promoting arrests by county per hundred reviews; deaths on the same map once Women Count USA aggregation is agreed; recrawl of hobby boards by year (with CATW, given the content).
