@@ -13,17 +13,6 @@
 .page-hero{padding:calc(var(--header-h) + 3rem) 24px 3rem}
 .page-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.04;letter-spacing:-.03em;font-weight:600;margin:0;max-width:18ch}
 .page-hero p{color:var(--fg-muted);max-width:60ch;font-size:1.1rem}
-/* clocks */
-.clocks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:2.4rem}
-@media (max-width:900px){.clocks{grid-template-columns:1fr}}
-.clock{border:1px solid var(--border);border-radius:var(--radius);padding:22px;position:relative;overflow:hidden}
-.clock .n{font-family:var(--mono);font-size:clamp(2.6rem,5vw,4rem);letter-spacing:-.04em;line-height:1}
-.clock .k{color:var(--fg-muted);font-size:15px;margin-top:8px;max-width:30ch}
-.clock .rate{font-size:13px;color:var(--fg-subtle);margin-top:14px;font-family:var(--mono)}
-.clock .ring{position:absolute;right:18px;top:18px;width:46px;height:46px}
-.clock .ring circle{fill:none;stroke-width:3}
-.clock .ring .bg{stroke:var(--border)}
-.clock .ring .fg{stroke:var(--fg);stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%}
 /* hypotheses */
 .hyp{margin-top:2.4rem;display:flex;flex-direction:column;gap:10px}
 .hyp details{border:1px solid var(--border);border-radius:12px}

@@ -185,3 +185,15 @@ footer h4{margin:0 0 .6rem;font-size:14px;font-weight:600}
 .figstat small{display:block;font-family:var(--font);font-size:1.05rem;letter-spacing:0;color:var(--fg-muted);margin-top:.8rem;font-weight:400;max-width:36ch}
 .figchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.4rem}
 .warn{border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--fg-muted);max-width:70ch;margin:0 auto 2rem}
+
+/* clocks (shared) */
+.clocks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:2.4rem}
+@media (max-width:900px){.clocks{grid-template-columns:1fr}}
+.clock{border:1px solid var(--border);border-radius:var(--radius);padding:22px;position:relative;overflow:hidden}
+.clock .n{font-family:var(--mono);font-size:clamp(2rem,3.6vw,3rem);letter-spacing:-.04em;line-height:1;padding-right:64px}
+.clock .k{color:var(--fg-muted);font-size:15px;margin-top:8px;max-width:30ch}
+.clock .rate{font-size:13px;color:var(--fg-subtle);margin-top:14px;font-family:var(--mono)}
+.clock .ring{position:absolute;right:18px;top:18px;width:46px;height:46px}
+.clock .ring circle{fill:none;stroke-width:3}
+.clock .ring .bg{stroke:var(--border)}
+.clock .ring .fg{stroke:var(--fg);stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%}
