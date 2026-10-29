@@ -53,12 +53,12 @@
   <a class="brand" href="index.html"><img src="assets/etc-logo.jpg" alt="Ethical Tech CoLab"><span>GBV Patterns</span></a>
   <nav aria-label="Primary">
     <a href="index.html">Home</a>
+    <a href="sex-trade.html">Femicide in the Sex Trade</a>
     <a href="new-york.html">New York</a>
-    <a href="patterns.html">Patterns</a>
-    <a href="context.html">Context</a>
-    <a href="methodology.html">Methodology</a>
-    <a href="sources.html">Sources</a>
-    <a href="progress.html" aria-current="page">Progress</a>
+    <a href="numbers.html">By the Numbers</a>
+    <a href="economic-impact.html">Economic Impact</a>
+    <a href="what-if.html">What if…?</a>
+    <a href="about-catw.html">About CATW</a>
   </nav>
   <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
 </header>
@@ -110,16 +110,21 @@
         <img class="catw-light" src="assets/catw-logo.png" alt="Coalition Against Trafficking in Women">
         <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
       </div>
-      <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Prototype, October 2026.</p>
+      <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Version 2, October 2026. <a href="v1/index.html">Version 1</a> is archived.</p>
     </div>
     <div>
       <h4>On this site</h4>
       <ol>
         <li><a href="index.html">Home</a></li>
-        <li><a href="patterns.html">Patterns</a></li>
-        <li><a href="context.html">Context</a></li>
-        <li><a href="methodology.html">Methodology</a></li>
+        <li><a href="sex-trade.html">Femicide in the Sex Trade</a></li>
+        <li><a href="new-york.html">New York</a></li>
+        <li><a href="numbers.html">By the Numbers</a></li>
+        <li><a href="economic-impact.html">Economic Impact</a></li>
+        <li><a href="what-if.html">What if…?</a></li>
+        <li><a href="about-catw.html">About CATW</a></li>
+        <li><a href="methodology.html">Methodology and limitations</a></li>
         <li><a href="sources.html">Sources</a></li>
+        <li><a href="progress.html">Progress</a></li>
       </ol>
     </div>
   </div>
@@ -129,7 +134,7 @@
 <script>
 const OUTCOMES=[
   {n:1,title:'Demographics of victims and perpetrators',status:'part',
-   have:['Live charts from NYPD incident data, 2020 to 2021, about 484,000 records: victim age, suspect age, borough, race, suspect sex, rape by relationship, on the <a href="new-york.html#live">New York page</a>','Age, relationship, perpetrator age and race columns visible in every Women Count USA table on the <a href="patterns.html#databases">patterns page</a>','Coding rules for age bands, relationship groups and cause on the <a href="methodology.html">methodology page</a>','Age at first rape and partner violence, and New York\'s own partner violence rate, from the CDC on the <a href="context.html#rape">context page</a>','Borough-level homicide and incident counts for 2023 and 2024 on the <a href="index.html#city">home page</a>'],
+   have:['Live charts from NYPD incident data, 2020 to 2021, about 484,000 records: victim age, suspect age, borough, race, suspect sex, rape by relationship, on the <a href="new-york.html#live">New York page</a>','Age, relationship, perpetrator age and race columns visible in every Women Count USA table on the <a href="numbers.html#databases">patterns page</a>','Coding rules for age bands, relationship groups and cause on the <a href="methodology.html">methodology page</a>','Age at first rape and partner violence, and New York\'s own partner violence rate, from the CDC on the <a href="v1/context.html#rape">context page</a>','Borough-level homicide and incident counts for 2023 and 2024 on the <a href="index.html#city">home page</a>'],
    miss:['Aggregated charts from the database: age histogram, relationship wheel, perpetrator age by year','Race and ethnicity of victims and perpetrators','Sex-trade cases broken out by every demographic'],
    blocker:'Aggregating Women Count USA needs written agreement from Dawn Wilcox and CATW. The fetch script is ready; the counting can start the day the agreement lands. Until then the tally tool lets anyone count by hand.'},
   {n:2,title:'Mapping of where deaths occurred, and where the women came from',status:'todo',
@@ -141,7 +146,7 @@ const OUTCOMES=[
    miss:['Mortality studies of women in prostitution: all-cause and cause-specific death rates against the general population','HIV, AIDS and STI prevalence among women in the sex trade in the United States and New York','Overdose deaths linked to the sex trade, from medical examiner data'],
    blocker:'Not yet researched. Candidate starting points: the Potterat and colleagues mortality cohort, CDC HIV surveillance by transmission category, New York City medical examiner overdose reports. Each needs reading before any figure goes on the site.'},
   {n:4,title:'Financial lens: economic impact of sex-trade related femicide',status:'part',
-   have:['Lost-life and lost-earnings ledger for any count, including a count read from the database, on the <a href="context.html#economics">context page</a>','Per-victim lifetime costs of partner violence and rape from the CDC','Country cost comparisons: IDB on Latin America, Spain, Argentina; Kenya\'s taskforce'],
+   have:['Lost-life and lost-earnings ledger for any count, including a count read from the database, on the <a href="economic-impact.html#ledger">context page</a>','Per-victim lifetime costs of partner violence and rape from the CDC','Country cost comparisons: IDB on Latin America, Spain, Argentina; Kenya\'s taskforce'],
    miss:['Costs specific to sex-trade femicide: investigation, prosecution, unidentified-victim handling, children left behind','The French report on the cost of prostitution to society, once CATW sends it','New York hospital and medication costs after rape and assault'],
    blocker:'The French report and New York cost data are inputs CATW and the state hold. The ledger is ready to take them.'},
   {n:5,title:'Media mapping: how the media misrepresents violence in the sex trade (word map)',status:'todo',
@@ -165,18 +170,18 @@ const COVERAGE=[
   ['index.html#catw','The work this builds on','CATW, NY Senate','All','done'],
   ['patterns.html#databases','Fifteen Women Count USA databases, embedded','Women Count USA','1, 2, 3, 5','part'],
   ['patterns.html#tally','Your tally','Browser-stored counts','1, 4','done'],
-  ['context.html#clocks','Four clocks','As above','4','done'],
-  ['context.html#evidence','The evidence so far','VPC, World Bank, UN Women','1','done'],
-  ['context.html#girls','Girls','UNICEF 2024','1','done'],
-  ['context.html#rape','Rape and sexual violence, age at first rape','CDC NISVS, RAINN, NYPD','1','done'],
-  ['context.html#dv','Domestic violence, measured by asking','CDC NISVS 2023/24, New York row','1','done'],
-  ['context.html#online','Misogyny online, and how it reaches children','EIU, UN Women, CDC, Common Sense Media, ACAMH review','Context, 5','part'],
-  ['context.html#hypotheses','Five hypotheses about the backlash','Stated, not yet tested','1','part'],
-  ['context.html#diplomacy','Thirty years at the UN','UN resolutions','Context','done'],
-  ['context.html#politics','The backlash in politics','NY Senate, press','Context','part'],
-  ['context.html#economics','Lost life, lost earnings; country costs','CDC, NYS Comptroller, IDB, Kenya','4','part'],
-  ['context.html#representation','Who is in the room; does it change the outcome','IPU, Econometrica','Context','part'],
-  ['context.html#trajectory','Rights over time; child marriage','World Bank, UNICEF, state law','Context','part'],
+  ['v1/context.html#clocks','Four clocks','As above','4','done'],
+  ['v1/context.html#evidence','The evidence so far','VPC, World Bank, UN Women','1','done'],
+  ['v1/context.html#girls','Girls','UNICEF 2024','1','done'],
+  ['v1/context.html#rape','Rape and sexual violence, age at first rape','CDC NISVS, RAINN, NYPD','1','done'],
+  ['v1/context.html#dv','Domestic violence, measured by asking','CDC NISVS 2023/24, New York row','1','done'],
+  ['v1/context.html#online','Misogyny online, and how it reaches children','EIU, UN Women, CDC, Common Sense Media, ACAMH review','Context, 5','part'],
+  ['v1/context.html#hypotheses','Five hypotheses about the backlash','Stated, not yet tested','1','part'],
+  ['v1/context.html#diplomacy','Thirty years at the UN','UN resolutions','Context','done'],
+  ['v1/context.html#politics','The backlash in politics','NY Senate, press','Context','part'],
+  ['economic-impact.html#ledger','Lost life, lost earnings; country costs','CDC, NYS Comptroller, IDB, Kenya','4','part'],
+  ['v1/context.html#representation','Who is in the room; does it change the outcome','IPU, Econometrica','Context','part'],
+  ['v1/context.html#trajectory','Rights over time; child marriage','World Bank, UNICEF, state law','Context','part'],
   ['methodology.html','Methodology and limitations','Written','All','done'],
   ['sources.html','Every source','Linked','All','done'],
 ];

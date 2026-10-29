@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About CATW</title>
+<meta name="description" content="The Coalition Against Trafficking in Women: what it does, its legacy of impact since 1988, and what it is asking New York to do.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero{padding:calc(var(--header-h) + 3rem) 24px 3rem}
+.page-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.04;letter-spacing:-.03em;font-weight:600;margin:0;max-width:18ch}
+.page-hero p{color:var(--fg-muted);max-width:60ch;font-size:1.1rem}
+.ph{border:1px dashed var(--accent);border-radius:var(--radius);padding:18px 20px;color:var(--fg-muted);font-size:15px;margin-top:1.4rem}
+.ph b{color:var(--accent);font-family:var(--mono);font-size:12.5px;display:block;margin-bottom:6px}
+/* timeline: horizontal, scroll-snap, with arrows */
+.tlwrap{position:relative;margin-top:2.4rem}
+.tl{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:26px 4px 12px;border-top:2px solid var(--fg);scrollbar-width:thin}
+.tl::-webkit-scrollbar{height:6px}.tl::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.tl > div{position:relative;flex:0 0 300px;scroll-snap-align:start;border:1px solid var(--border);border-radius:var(--radius);padding:18px;background:var(--bg-alt)}
+@media (max-width:520px){.tl > div{flex-basis:82vw}}
+.tl > div::before{content:"";position:absolute;left:18px;top:-33px;width:12px;height:12px;border-radius:50%;background:var(--fg);border:2px solid var(--bg)}
+.tl .y{font-family:var(--mono);font-size:13px;color:var(--fg-subtle)}
+.tl h4{margin:4px 0 6px;font-size:1.05rem;font-weight:600;line-height:1.2}
+.tl p{margin:0;color:var(--fg-muted);font-size:14.5px}
+.tl > div.back{border-color:var(--gap)}
+.tl > div.back::before{background:var(--gap)}
+.tlnav{display:flex;gap:8px;justify-content:space-between;align-items:center;margin-top:10px;font-size:13px;color:var(--fg-subtle)}
+.tlnav div{display:flex;gap:8px}
+.tlnav button{border:1px solid var(--border);background:transparent;border-radius:999px;width:38px;height:38px;font-size:18px;line-height:1}
+.tlnav button:hover{border-color:var(--fg)}
+.tlyears{display:flex;gap:6px;flex-wrap:wrap}
+.tlyears button{width:auto;height:auto;padding:4px 10px;font-size:12.5px;font-family:var(--mono)}
+.tlyears button.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html"><img src="assets/etc-logo.jpg" alt="Ethical Tech CoLab"><span>GBV Patterns</span></a>
+  <nav aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="sex-trade.html">Femicide in the Sex Trade</a>
+    <a href="new-york.html">New York</a>
+    <a href="numbers.html">By the Numbers</a>
+    <a href="economic-impact.html">Economic Impact</a>
+    <a href="what-if.html">What if…?</a>
+    <a href="about-catw.html" aria-current="page">About CATW</a>
+  </nav>
+  <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
+</header>
+<section class="page-hero">
+  <div class="wrap">
+    <h1>About CATW</h1>
+    <p>The Coalition Against Trafficking in Women has worked since 1988 to end the trafficking and sexual exploitation of women and girls. It is the partner behind this platform.</p>
+    <div class="ph"><b>PLACEHOLDER · CATW blurb</b>CATW to confirm or replace the description below with its own text.</div>
+  </div>
+</section>
+
+<section class="block" id="catw">
+  <div class="wrap">
+    <div class="lede">
+      <h2>What CATW does</h2>
+      <p>The Coalition Against Trafficking in Women has worked since 1988 to end the trafficking and sexual exploitation of women and girls. Its position is that prostitution and sex trafficking are gender-based violence, and that the law should target the demand, not the women. This site is the data arm of that argument for New York.</p>
+    </div>
+    <div class="why">
+      <div><h3>Advocating for strong laws</h3><p>Laws that provide access to justice, target demand and ensure women and girls are free from the violence of the sex trade. CATW calls this the Equality Model. <a href="https://catwinternational.org/home/advocating-for-strong-laws/">Read more</a></p></div>
+      <div><h3>Raising public awareness</h3><p>Presenting trafficking and sexual exploitation as sex-based and gender-based violence, and mobilising the public to press policymakers. <a href="https://catwinternational.org/raising-public-awareness/">Read more</a></p></div>
+      <div><h3>Supporting survivor leadership</h3><p>Partnering with survivors on prevention and protection policy, so the people with the most knowledge lead. <a href="https://catwinternational.org/our-work/supporting-survivor-leadership/">Read more</a></p></div>
+    </div>
+    <div class="gapcard" style="margin-top:2rem">
+      <h3>What CATW is asking New York to do</h3>
+      <div class="cases">
+        <details class="case"><summary>Name femicide in state law, and include women killed in the sex trade<span class="tag">This project</span></summary><div class="body">About three dozen countries define femicide in their criminal codes. No US state does. CATW's brief proposes that New York codify sex trafficking and prostitution as forms of femicide, so the deaths are counted and the pattern becomes a policy problem.</div></details>
+        <details class="case"><summary>Close the gap survivors call the Epstein loophole<span class="tag">Civil justice</span></summary><div class="body">Epstein survivors have told New York legislators that his estate argues the statute of limitations makes their claims worth nothing, and that current law bars punitive damages against a deceased abuser's estate. CATW works with survivors pressing to close this.</div></details>
+        <details class="case"><summary>Pass the Sex Trade Survivors Justice and Equality Act<span class="tag">Introduced 2021</span></summary><div class="body">The Equality Model bill for New York, developed with survivors and introduced in 2021: decriminalise the people sold, hold buyers and exploiters accountable, fund exit services. Maine passed the first state version in June 2023. New Yorkers for the Equality Model, with CATW, has carried it since 2019.</div></details>
+        <details class="case"><summary>Finish what the 2018 law started<span class="tag">S5988A, S8723</span></summary><div class="body">In 2018 New York created the crime of sex trafficking of a child, removing the need to prove force, fraud or coercion for anyone under 18. Senator Myrie's S8723 would extend that to adults who are mentally disabled or incapacitated. The force, fraud or coercion test still applies to every other adult.</div></details>
+        <details class="case"><summary>Make buying sex from a minor a felony everywhere<span class="tag">Passed</span></summary><div class="body">New York's Victims Protection and Child Sex Buyer Accountability Act made buying sex from 15 to 17 year olds a felony rather than a misdemeanour, closing a gap with federal law and other states.</div></details>
+        <details class="case"><summary>Count the cost, the way France did<span class="tag">Economics</span></summary><div class="body">CATW points to a French report on the cost of prostitution to society that persuaded lawmakers there. The economics page on this site starts that accounting for New York.</div></details>
+      </div>
+    </div>
+    <p class="src">CATW, <a href="https://www.catwinternational.org/">catwinternational.org</a>; <a href="https://catwinternational.org/read-our-2023-2024-impact-report/">2023 to 2024 Impact Report</a>; <a href="https://catwinternational.org/failed-promises-the-history-of-legal-prostitution-and-sex-trafficking-the-kingdom-of-the-netherlands/">Failed Promises</a>, on legal prostitution in the Netherlands. Need help now: <a href="https://catwinternational.org/get-help/">CATW's global resource list</a>. Legislative details on the <a href="sources.html">sources page</a>.</p>
+  </div>
+</section>
+<section class="block" id="catw-timeline">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Legacy of impact, 1988 to 2026</h2>
+      <p>Our partner's own record, from its founding to the law New York is being asked to pass. Red marks the New York entries.</p>
+    </div>
+    <div class="tlwrap"><div class="tl">
+      <div><div class="y">1988</div><h4>CATW is founded</h4><p>The First USA Conference on International Trafficking in Women launches the Coalition Against Trafficking in Women.</p></div>
+      <div><div class="y">1995</div><h4>Beijing: Violence Against Women Caucus</h4><p>CATW chairs the caucus at the Fourth World Conference on Women.</p></div>
+      <div><div class="y">1999</div><h4>Sweden bans the purchase of sex</h4><p>The first law to decriminalise prostituted women while holding buyers accountable. CATW supported the Swedish partners.</p></div>
+      <div><div class="y">2000</div><h4>UN Trafficking in Persons Protocol</h4><p>The Palermo Protocol adopts a comprehensive definition of trafficking, after advocacy by the network CATW organised.</p></div>
+      <div><div class="y">2001</div><h4>First US sex trafficking report</h4><p>Interviews with 40 women trafficked and prostituted in the United States.</p></div>
+      <div class="back"><div class="y">2007</div><h4>New York State Human Trafficking Act</h4><p>Passes after a joint campaign.</p></div>
+      <div><div class="y">2008 to 2009</div><h4>Iceland and Norway adopt the model</h4><p>The Swedish model becomes the Nordic Model.</p></div>
+      <div><div class="y">2010</div><h4>Craigslist closes Adult Services</h4><p>After CATW's Global Campaign for a Sex Trafficking Free Internet.</p></div>
+      <div class="back"><div class="y">2015</div><h4>Federal and New York victims' laws</h4><p>The Justice for Victims of Trafficking Act and New York's Trafficking Victims Protection and Justice Act are signed.</p></div>
+      <div><div class="y">2016</div><h4>France: the strongest law of its kind</h4><p>The French Act Against Prostitution, after proceedings CATW Europe began in the early 2000s.</p></div>
+      <div><div class="y">2017</div><h4>Ireland: the model becomes the Equality Model</h4><p>Criminal Law (Sexual Offences) Act 2015 enters force.</p></div>
+      <div><div class="y">2018</div><h4>FOSTA-SESTA</h4><p>Websites knowingly facilitating sex trafficking can be held accountable.</p></div>
+      <div class="back"><div class="y">2019</div><h4>New Yorkers for the Equality Model</h4><p>A survivor-led alliance of more than 30 advocates and organisations, CATW among them, begins work to bring the Equality Model to New York State.</p></div>
+      <div class="back"><div class="y">2021</div><h4>Sex Trade Survivors Justice and Equality Act</h4><p>Developed with survivors and advocates, introduced to the New York State Legislature. Still not passed.</p></div>
+      <div><div class="y">2023</div><h4>Maine passes Equality Model legislation</h4><p>The first US state to adopt the framework, in June 2023.</p></div>
+      <div><div class="y">2024</div><h4>UN Special Rapporteur's report on prostitution</h4><p>Reem Alsalem calls on governments to understand the system of prostitution as exploitation and a human rights abuse. The Special Rapporteur Carolina and Yorke met at Apne Aap in October 2026.</p></div>
+      <div><div class="y">2026</div><h4>France marks ten years</h4><p>Survivors and advocates gather in Paris for a decade of the abolitionist law.</p></div>
+    </div>
+    <div class="tlnav"><div class="tlyears"></div><div><button class="prev" aria-label="Earlier">‹</button><button class="next" aria-label="Later">›</button></div></div></div>
+    <p class="src">Source: CATW, <a href="https://www.catwinternational.org/about/">Legacy of Impact</a>, about page, read 22 October 2026. Selected entries; the full timeline has 36.</p>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logos">
+        <img class="etc" src="assets/etc-logo.jpg" alt="Ethical Tech CoLab">
+        <img class="catw-light" src="assets/catw-logo.png" alt="Coalition Against Trafficking in Women">
+        <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
+      </div>
+      <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Version 2, October 2026. <a href="v1/index.html">Version 1</a> is archived.</p>
+    </div>
+    <div>
+      <h4>On this site</h4>
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sex-trade.html">Femicide in the Sex Trade</a></li>
+        <li><a href="new-york.html">New York</a></li>
+        <li><a href="numbers.html">By the Numbers</a></li>
+        <li><a href="economic-impact.html">Economic Impact</a></li>
+        <li><a href="what-if.html">What if…?</a></li>
+        <li><a href="about-catw.html">About CATW</a></li>
+        <li><a href="methodology.html">Methodology and limitations</a></li>
+        <li><a href="sources.html">Sources</a></li>
+        <li><a href="progress.html">Progress</a></li>
+      </ol>
+    </div>
+  </div>
+</footer>
+<script src="site.js"></script>
+<script>
+// timelines: arrows, year jump, keyboard
+document.querySelectorAll('.tlwrap').forEach(w=>{
+  const tl=w.querySelector('.tl'), cards=[...tl.children], years=w.querySelector('.tlyears');
+  const step=()=>cards[0].getBoundingClientRect().width+16;
+  w.querySelector('.prev').addEventListener('click',()=>tl.scrollBy({left:-step()*2}));
+  w.querySelector('.next').addEventListener('click',()=>tl.scrollBy({left:step()*2}));
+  cards.forEach((c,i)=>{const y=(c.querySelector('.y')||{}).textContent||'';const m=y.match(/\d{4}/);if(!m)return;const b=document.createElement('button');b.textContent=m[0];b.addEventListener('click',()=>tl.scrollTo({left:c.offsetLeft-tl.offsetLeft}));years.appendChild(b)});
+  tl.tabIndex=0; tl.addEventListener('keydown',e=>{if(e.key==='ArrowRight')tl.scrollBy({left:step()});if(e.key==='ArrowLeft')tl.scrollBy({left:-step()})});
+  const sync=()=>{const x=tl.scrollLeft+10;let idx=0;cards.forEach((c,i)=>{if(c.offsetLeft-tl.offsetLeft<=x)idx=i});[...years.children].forEach((b,i)=>b.classList.toggle('on',i===idx))};
+  tl.addEventListener('scroll',sync,{passive:true}); sync();
+});
+</script>
+</body>
+</html>

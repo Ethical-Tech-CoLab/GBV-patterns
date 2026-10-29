@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Economic Impact</title>
+<meta name="description" content="The economic impact of femicide and the sex trade: the French study, the cost of a life in lost earnings, and what other countries have measured.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero{padding:calc(var(--header-h) + 3rem) 24px 3rem}
+.page-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.04;letter-spacing:-.03em;font-weight:600;margin:0;max-width:18ch}
+.page-hero p{color:var(--fg-muted);max-width:60ch;font-size:1.1rem}
+.ph{border:1px dashed var(--accent);border-radius:var(--radius);padding:18px 20px;color:var(--fg-muted);font-size:15px;margin-top:1.4rem}
+.ph b{color:var(--accent);font-family:var(--mono);font-size:12.5px;display:block;margin-bottom:6px}
+/* timeline: horizontal, scroll-snap, with arrows */
+.tlwrap{position:relative;margin-top:2.4rem}
+.tl{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:26px 4px 12px;border-top:2px solid var(--fg);scrollbar-width:thin}
+.tl::-webkit-scrollbar{height:6px}.tl::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.tl > div{position:relative;flex:0 0 300px;scroll-snap-align:start;border:1px solid var(--border);border-radius:var(--radius);padding:18px;background:var(--bg-alt)}
+@media (max-width:520px){.tl > div{flex-basis:82vw}}
+.tl > div::before{content:"";position:absolute;left:18px;top:-33px;width:12px;height:12px;border-radius:50%;background:var(--fg);border:2px solid var(--bg)}
+.tl .y{font-family:var(--mono);font-size:13px;color:var(--fg-subtle)}
+.tl h4{margin:4px 0 6px;font-size:1.05rem;font-weight:600;line-height:1.2}
+.tl p{margin:0;color:var(--fg-muted);font-size:14.5px}
+.tl > div.back{border-color:var(--gap)}
+.tl > div.back::before{background:var(--gap)}
+.tlnav{display:flex;gap:8px;justify-content:space-between;align-items:center;margin-top:10px;font-size:13px;color:var(--fg-subtle)}
+.tlnav div{display:flex;gap:8px}
+.tlnav button{border:1px solid var(--border);background:transparent;border-radius:999px;width:38px;height:38px;font-size:18px;line-height:1}
+.tlnav button:hover{border-color:var(--fg)}
+.tlyears{display:flex;gap:6px;flex-wrap:wrap}
+.tlyears button{width:auto;height:auto;padding:4px 10px;font-size:12.5px;font-family:var(--mono)}
+.tlyears button.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+/* calculator */
+.calc{margin-top:2.4rem;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:860px){.calc{grid-template-columns:1fr}}
+.calc .panel{border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.calc label{display:block;font-size:14px;color:var(--fg-muted);margin-bottom:6px}
+.calc input[type=range]{width:100%;accent-color:var(--fg)}
+.calc .out{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.calc .out .n{font-family:var(--mono);font-size:1.8rem;letter-spacing:-.03em;line-height:1.05}
+.calc .out .k{font-size:13px;color:var(--fg-subtle);margin-top:4px}
+.calc .big{font-family:var(--mono);font-size:clamp(2.4rem,5vw,3.6rem);letter-spacing:-.04em;line-height:1}
+.calc .panel.dark{background:var(--fg);color:var(--bg)}
+.calc .panel.dark .k,.calc .panel.dark label{color:color-mix(in srgb,var(--bg) 75%,transparent)}
+.costs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+@media (max-width:860px){.costs{grid-template-columns:1fr}}
+.costs div{border:1px solid var(--border);border-radius:12px;padding:18px}
+.costs .n{font-family:var(--mono);font-size:1.7rem;letter-spacing:-.03em;line-height:1}
+.costs .k{font-size:14px;color:var(--fg-muted);margin-top:6px}
+
+.costs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+@media (max-width:860px){.costs{grid-template-columns:1fr}}
+.costs div{border:1px solid var(--border);border-radius:12px;padding:18px}
+.costs .n{font-family:var(--mono);font-size:1.7rem;letter-spacing:-.03em;line-height:1}
+.costs .k{font-size:14px;color:var(--fg-muted);margin-top:6px}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html"><img src="assets/etc-logo.jpg" alt="Ethical Tech CoLab"><span>GBV Patterns</span></a>
+  <nav aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="sex-trade.html">Femicide in the Sex Trade</a>
+    <a href="new-york.html">New York</a>
+    <a href="numbers.html">By the Numbers</a>
+    <a href="economic-impact.html" aria-current="page">Economic Impact</a>
+    <a href="what-if.html">What if…?</a>
+    <a href="about-catw.html">About CATW</a>
+  </nav>
+  <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
+</header>
+<section class="page-hero">
+  <div class="wrap">
+    <h1>Economic impact</h1>
+    <p>If lives do not move a legislature, money might. France was persuaded by a cost study. This page summarises it, then counts what New York loses.</p>
+  </div>
+</section>
+
+<section class="block" id="france">
+  <div class="wrap">
+    <div class="lede"><h2>The French study</h2><p>The report on the cost of prostitution to French society that preceded the 2016 law.</p></div>
+    <div class="ph"><b>PLACEHOLDER · summary with visuals, to discuss Thursday</b>Headline cost to society, its components (health, justice, lost productivity, support to victims), the method, and the figure that moved lawmakers. CATW to send the report; charts drawn from its tables once received.</div>
+    <div class="costs">
+      <div><div class="n num">€ —</div><div class="k">total annual cost to French society. Placeholder.</div></div>
+      <div><div class="n num">—</div><div class="k">share borne by the public purse. Placeholder.</div></div>
+      <div><div class="n num">2016</div><div class="k">the year France adopted the Equality Model law, after the study.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="ledger">
+  <div class="wrap">
+    <div class="lede">
+      <h2>What a life costs, in lost earnings</h2>
+      <p>A woman killed at thirty in New York loses fifty-one years of life and thirty-five years of work. Move the slider. The figures use the state's median earnings for women working full time and United States life expectancy for women, without discounting or wage growth, so they are conservative.</p>
+    </div>
+    <div class="calc">
+      <div class="panel">
+        <label for="age">Her age at death: <strong id="ageV">30</strong></label>
+        <input type="range" id="age" min="0" max="80" value="30">
+        <div class="out">
+          <div><div class="n num" id="yrs">51.1</div><div class="k">years of life lost, against a life expectancy of 81.1</div></div>
+          <div><div class="n num" id="wyrs">35</div><div class="k">working years lost, to age 65</div></div>
+        </div>
+        <p class="src">Earnings: $62,111 median for New York women working full time, year round (American Community Survey 2023, via the NYS Comptroller). Life expectancy: 81.1 years for US women in 2023 (CDC NCHS).</p>
+      </div>
+      <div class="panel dark">
+        <label for="cohort">A ledger of lost life and lost earnings for</label>
+        <select id="cohort" style="width:100%;padding:10px;border-radius:10px;border:1px solid color-mix(in srgb,var(--bg) 30%,transparent);background:transparent;color:inherit;font:inherit;margin-bottom:12px">
+          <option value="66">New York City, 66 domestic violence homicide victims, 2024</option>
+          <option value="33">New York City, 33 intimate partner homicide victims, 2024</option>
+          <option value="32">Rest of New York State, 32 women killed by partners, 2024</option>
+          <option value="2400">United States, 2,400+ women killed by men, 2023</option>
+          <option value="725">Kenya, 725 femicides, 2024</option>
+          <option value="50000">World, 50,000 killed by partner or family, 2024</option>
+          <option value="custom">A number you counted in the Women Count USA table</option>
+        </select>
+        <input type="number" id="cohortN" min="1" value="66" style="display:none;width:100%;padding:10px;border-radius:10px;border:1px solid color-mix(in srgb,var(--bg) 30%,transparent);background:transparent;color:inherit;font:inherit;margin-bottom:12px" aria-label="Number of women">
+        <div class="big num" id="earnC">$0</div>
+        <div class="k" style="margin-top:6px">lifetime earnings they will not make, at New York's median for women, if each died at the age on the slider</div>
+        <div class="out">
+          <div><div class="n num" id="lifeC">0</div><div class="k">years of life lost across the group</div></div>
+          <div><div class="n num" id="earn1">$0</div><div class="k">per woman</div></div>
+        </div>
+        <div class="k" style="margin-top:14px;font-size:13px">To use the database: open the <a href="numbers.html" style="color:inherit">patterns page</a>, filter a year's table by state, relationship or keyword, read the record count at the bottom of the table, and type it here. The count stays on Dawn Wilcox's side; only the arithmetic happens here.</div>
+      </div>
+    </div>
+    <div class="costs">
+      <div><div class="n num">$3.6 trillion</div><div class="k">lifetime economic burden of intimate partner violence across the US population, in 2014 dollars. Medical costs, lost productivity, criminal justice, other.</div></div>
+      <div><div class="n num">$122,461</div><div class="k">estimated lifetime cost per rape victim, including medical care, lost work, criminal justice and property loss (CDC, 2017).</div></div>
+      <div><div class="n num">~2% of GDP</div><div class="k">what violence against women costs the world each year by the UN's own estimate. New York's share is on the backlog; so is the French report on the cost of prostitution to society.</div></div>
+    </div>
+    <p class="src">Peterson et al., <a href="https://www.ajpmonline.org/article/S0749-3797(18)31904-4/fulltext">Lifetime Economic Burden of Intimate Partner Violence Among U.S. Adults</a>, American Journal of Preventive Medicine, 2018. Peterson et al., <a href="https://www.ajpmonline.org/article/S0749-3797(16)30615-8/fulltext">Lifetime Economic Burden of Rape Among U.S. Adults</a>, 2017. Hospital and medication costs after rape in New York specifically are on the backlog.</p>
+    <div class="lede" style="margin-top:3.5rem"><h2>What other countries have put a number on</h2><p>Where governments and development banks have costed violence against women, the figures land between a third of a percent and a tenth of GDP, depending on what is counted. None of these studies is directly comparable with another, and each says its estimate is conservative.</p></div>
+    <div class="costs">
+      <div><div class="n num">0.31% of GDP</div><div class="k">cost of killings of women in Latin America, more than double the global average of 0.12%. Inter-American Development Bank, October 2026.</div></div>
+      <div><div class="n num">5.12% / 4.3%</div><div class="k">of GDP: cost of violence against women in Paraguay and Ecuador, combined-methodology estimates cited by the IDB.</div></div>
+      <div><div class="n num">€4,933 million</div><div class="k">Spain, 0.37% of GDP: health, labour-productive and legal-police costs borne by women, families, the state, business and civil society.</div></div>
+      <div><div class="n num">0.8% to 2.1%</div><div class="k">of GDP in Argentina, bottom-up accounting of domestic violence in the last 12 months only. Excludes femicide, under-18s, over-65s and violence outside the home.</div></div>
+      <div><div class="n num">Sh41 billion</div><div class="k">lost by Kenya every year to gender-based violence including femicide, with GDP losses put at 7.8% to 10%. Kenya's 2025 presidential taskforce, from Kenyatta University's Women's Economic Empowerment Hub.</div></div>
+      <div><div class="n num">725</div><div class="k">femicides recorded in Kenya in 2024, 2.66 per 100,000 women, about 47 a week, three quarters by someone the victim knew. Cited from UNODC by the Daily Nation.</div></div>
+      <div><div class="n num">1.2% to 3.7%</div><div class="k">of GDP lost to violence against women in developing countries, the global range cited by the Kenyan taskforce. South Africa's own estimate is 0.9% to 1.3%.</div></div>
+      <div><div class="n num">Sh109,551</div><div class="k">average cost of care per survivor and family in Nakuru County, Kenya: medical bills, property damage, lost income, missed work and school days. The kind of per-case figure New York does not yet publish.</div></div>
+      <div><div class="n num">1.1% of GDP</div><div class="k">Kenya's earlier 2016 estimate: Sh46 billion a year, of which Sh10 billion out-of-pocket medical costs and Sh33 billion lost productivity. National Gender and Equality Commission.</div></div>
+    </div>
+    <p class="src">Saldarriaga Jimenez and Kantor, <a href="https://www.iadb.org/en/blog/gender-and-diversity/what-economic-cost-violence-against-women">What is the Economic Cost of Violence Against Women?</a>, IDB, 7 October 2026. Maichuhie, <a href="https://nation.africa/kenya/news/gender/economic-toll-of-gbv-kenya-loses-sh41-billion-annually-taskforce-finds-5085996">Economic toll of GBV: Kenya loses Sh41 billion annually, taskforce finds</a>, Daily Nation, 19 June 2025. The IDB blog notes that most studies exclude femicide itself, intangible costs and long-term effects on children, so every figure here is a floor.</p>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logos">
+        <img class="etc" src="assets/etc-logo.jpg" alt="Ethical Tech CoLab">
+        <img class="catw-light" src="assets/catw-logo.png" alt="Coalition Against Trafficking in Women">
+        <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
+      </div>
+      <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Version 2, October 2026. <a href="v1/index.html">Version 1</a> is archived.</p>
+    </div>
+    <div>
+      <h4>On this site</h4>
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sex-trade.html">Femicide in the Sex Trade</a></li>
+        <li><a href="new-york.html">New York</a></li>
+        <li><a href="numbers.html">By the Numbers</a></li>
+        <li><a href="economic-impact.html">Economic Impact</a></li>
+        <li><a href="what-if.html">What if…?</a></li>
+        <li><a href="about-catw.html">About CATW</a></li>
+        <li><a href="methodology.html">Methodology and limitations</a></li>
+        <li><a href="sources.html">Sources</a></li>
+        <li><a href="progress.html">Progress</a></li>
+      </ol>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script>
+// calculator
+(function(){
+  const LE=81.1, EARN=62111, RET=65, N=66;
+  const age=document.getElementById('age');
+  const money=n=>'$'+Math.round(n).toLocaleString('en-US');
+  const cohort=document.getElementById('cohort'), cohortN=document.getElementById('cohortN');
+  function count(){return cohort.value==='custom'?Math.max(1,+cohortN.value||1):+cohort.value}
+  function upd(){const a=+age.value;document.getElementById('ageV').textContent=a;
+    const life=Math.max(0,LE-a); document.getElementById('yrs').textContent=life.toFixed(1);
+    const w=Math.max(0,RET-Math.max(a,18)); document.getElementById('wyrs').textContent=w;
+    const n=count(); document.getElementById('earnC').textContent=money(w*EARN*n);
+    document.getElementById('lifeC').textContent=Math.round(life*n).toLocaleString('en-US');
+    document.getElementById('earn1').textContent=money(w*EARN);}
+  const qn=+(new URLSearchParams(location.search).get('n')||0); if(qn>0){cohort.value='custom';cohortN.value=qn;cohortN.style.display='block'}
+  cohort.addEventListener('change',()=>{cohortN.style.display=cohort.value==='custom'?'block':'none';upd()});
+  cohortN.addEventListener('input',upd);
+  age.addEventListener('input',upd); upd();
+})();
+</script>
+</body>
+</html>
