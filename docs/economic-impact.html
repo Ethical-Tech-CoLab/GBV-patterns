@@ -57,6 +57,43 @@
 .costs div{border:1px solid var(--border);border-radius:12px;padding:18px}
 .costs .n{font-family:var(--mono);font-size:1.7rem;letter-spacing:-.03em;line-height:1}
 .costs .k{font-size:14px;color:var(--fg-muted);margin-top:6px}
+
+/* ProstCost-style visuals */
+.pc-hero{display:grid;grid-template-columns:1.1fr 1fr;gap:2rem;align-items:center;margin-top:2rem}
+@media (max-width:900px){.pc-hero{grid-template-columns:1fr}}
+.pc-big{font-family:var(--mono);font-size:clamp(3.4rem,9vw,7rem);letter-spacing:-.05em;line-height:.95}
+.pc-big small{display:block;font-family:var(--font);font-size:1.15rem;letter-spacing:0;color:var(--fg-muted);margin-top:.8rem;max-width:34ch;font-weight:400}
+.donut{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:center}
+@media (max-width:520px){.donut{grid-template-columns:1fr}}
+.donut svg{width:100%;height:auto}
+.donut ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;font-size:13.5px}
+.donut li{display:flex;gap:8px;align-items:baseline}
+.donut li i{width:10px;height:10px;border-radius:2px;flex:0 0 10px;transform:translateY(1px)}
+.donut li b{font-family:var(--mono);font-weight:500;min-width:72px}
+.pc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:2rem}
+@media (max-width:900px){.pc-grid{grid-template-columns:1fr}}
+.pc-card{border:1px solid var(--border);border-radius:var(--radius);padding:20px;background:var(--bg-alt)}
+.pc-card h3{margin:0 0 2px;font-size:1.05rem;font-weight:600}
+.pc-card .tot{font-family:var(--mono);font-size:2rem;letter-spacing:-.04em;line-height:1;margin:4px 0 12px}
+.ratios{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:2rem}
+@media (max-width:900px){.ratios{grid-template-columns:repeat(2,1fr)}}
+.ratio{border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-align:center}
+.ratio .n{font-family:var(--mono);font-size:3rem;letter-spacing:-.05em;line-height:1;color:var(--accent)}
+.ratio .k{font-size:13.5px;color:var(--fg-muted);margin-top:8px}
+.flow{margin-top:2rem;border:1px solid var(--border);border-radius:var(--radius);padding:20px;background:var(--bg-alt)}
+.flow svg{width:100%;height:auto;display:block}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin-top:14px;border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+@media (max-width:640px){.vs{grid-template-columns:1fr}}
+.vs .n{font-family:var(--mono);font-size:2.2rem;letter-spacing:-.04em;line-height:1}
+.vs .k{font-size:13.5px;color:var(--fg-muted);margin-top:6px}
+.vs .x{font-family:var(--mono);color:var(--accent);font-size:1.2rem}
+.memoriam{margin-top:2rem;border-left:3px solid var(--accent);padding-left:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 24px}
+@media (max-width:760px){.memoriam{grid-template-columns:1fr}}
+.memoriam div{font-size:14px;color:var(--fg-muted)}
+.memoriam b{display:block;color:var(--fg);font-family:var(--mono);font-size:12.5px;font-weight:500;margin-bottom:2px}
+.pc-pop{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;max-width:420px;margin-top:10px}
+.pc-pop svg{width:100%;height:auto;fill:var(--fg);opacity:.9}
+.pc-pop svg.m{opacity:.4}
 </style>
 </head>
 <body>
@@ -82,13 +119,46 @@
 
 <section class="block" id="france">
   <div class="wrap">
-    <div class="lede"><h2>The French study</h2><p>The report on the cost of prostitution to French society that preceded the 2016 law.</p></div>
-    <div class="ph"><b>PLACEHOLDER · summary with visuals, to discuss Thursday</b>Headline cost to society, its components (health, justice, lost productivity, support to victims), the method, and the figure that moved lawmakers. CATW to send the report; charts drawn from its tables once received.</div>
-    <div class="costs">
-      <div><div class="n num">€ —</div><div class="k">total annual cost to French society. Placeholder.</div></div>
-      <div><div class="n num">—</div><div class="k">share borne by the public purse. Placeholder.</div></div>
-      <div><div class="n num">2016</div><div class="k">the year France adopted the Equality Model law, after the study.</div></div>
+    <div class="lede">
+      <h2>The French study: ProstCost</h2>
+      <p>In 2015 the Mouvement du Nid and the social-science firm Psytel spent eighteen months costing the system of prostitution in France. They identified 29 cost items in six categories, published every calculation online, and called the result a floor. A year later France passed its Equality Model law.</p>
     </div>
+    <div class="pc-hero">
+      <div class="pc-big">€1.6 billion<small>a year. What prostitution costs French society, by the study's conservative estimate. The money "made" by the sex trade is counted as a cost: most of it never reaches the tax base.</small></div>
+      <div class="donut" id="dTotal"></div>
+    </div>
+    <div class="ratios">
+      <div class="ratio"><div class="n">37,000</div><div class="k">people in prostitution in France, full-time equivalent (range 30,000 to 44,000). 85% women, 10% men, 5% transgender. 62% online, 30% street, 8% indoor.</div></div>
+      <div class="ratio"><div class="n">6×</div><div class="k">more rape than the general population: at least 38% of people in prostitution have been raped, against 6.8% of women generally.</div></div>
+      <div class="ratio"><div class="n">12×</div><div class="k">the suicide rate of the general population. Nearly one in three thought of suicide in the past year.</div></div>
+      <div class="ratio"><div class="n">4.5×</div><div class="k">more likely to take sleeping pills: 31% against 7%. 51% suffered physical violence and 64% psychological violence in the past twelve months.</div></div>
+    </div>
+    <div class="pc-grid">
+      <div class="pc-card"><h3>Direct medical costs</h3><div class="tot num">€86 million</div><div class="donut" id="dMed"></div></div>
+      <div class="pc-card"><h3>Direct non-medical costs: police, courts, prisons</h3><div class="tot num">€35 million</div><div class="donut" id="dPol"></div></div>
+      <div class="pc-card"><h3>Direct social consequences</h3><div class="tot num">€58 million</div><div class="donut" id="dSoc"></div></div>
+      <div class="pc-card"><h3>Indirect social consequences</h3><div class="tot num">€306 million</div><div class="donut" id="dInd"></div></div>
+      <div class="pc-card"><h3>Human costs borne by the people in prostitution</h3><div class="tot num">€311 million</div><div class="donut" id="dHum"></div></div>
+      <div class="pc-card"><h3>Tax evasion on the money of prostitution</h3><div class="tot num">€853 million</div><div class="donut" id="dTax"></div></div>
+    </div>
+    <div class="flow">
+      <h3 style="margin:0 0 4px;font-size:1.05rem;font-weight:600">Where the money goes</h3>
+      <div style="font-size:13px;color:var(--fg-subtle);margin-bottom:10px">Buyers pay €3.2 billion a year. At least 45% leaves the country through pimping networks. If buyers spent that money on anything else, the state would recover at least €853 million in tax.</div>
+      <svg viewBox="0 0 900 230" id="flowSvg"></svg>
+    </div>
+    <div class="vs"><div><div class="n num">€2.4 million</div><div class="k">of state funds allocated to the associations that help people leave prostitution: €65 a year per person.</div></div><div class="x">vs</div><div><div class="n num">€3.2 billion</div><div class="k">annual turnover of prostitution in France. Social spending on people in prostitution is five times smaller than the human cost they bear.</div></div></div>
+    <div class="vs"><div><div class="n num">100 officers</div><div class="k">police and gendarmes assigned to dismantling the main networks across the whole country, about €6 million a year.</div></div><div class="x">vs</div><div><div class="n num">400 to 500</div><div class="k">convictions for pimping a year, against €853 million lost to tax evasion.</div></div></div>
+    <div class="lede" style="margin-top:3rem"><h3 style="font-size:1.3rem;margin:0 0 .4rem">In memoriam, 2014</h3><p>France keeps no official statistic on the homicide of people in prostitution. From its own delegations and the press, the Mouvement du Nid counted seven murders in 2014. The study priced the deaths at €189 million to €267 million. These are the ones it listed.</p></div>
+    <div class="memoriam">
+      <div><b>31 December 2014, Épinal</b>A 45-year-old woman from Brazil, stabbed 53 times by a 33-year-old buyer who told police he was "not satisfied with the service".</div>
+      <div><b>14 November 2014, Paris, Porte de Vincennes</b>A young woman killed with a blade. The killer is unknown.</div>
+      <div><b>5 September 2014, Lunel</b>An Albanian woman in her thirties found dead, naked, in a canal near Montpellier. The killer is unknown.</div>
+      <div><b>14 June 2014, Clichy-la-Garenne</b>Luz Maria, 32, from the Dominican Republic, stabbed repeatedly in a hotel. The suspect is a "regular client", 38.</div>
+      <div><b>19 May 2014, Châteauroux</b>A woman of 64, killed by blows to the head. The killer is unknown.</div>
+      <div><b>1 April 2014, Paris</b>A Chinese woman in her fifties, stabbed about ten times in a flat on rue Bichat. The suspect is a buyer.</div>
+      <div><b>March 2014, Haguenau</b>A woman of 51, stabbed at home by a "regular client". His DNA tied him to the strangling of a 59-year-old woman in Strasbourg in July 2013.</div>
+    </div>
+    <p class="src">Mouvement du Nid and Psytel, <a href="https://www.prostcost.org/">ProstCost: Estimation du coût économique et social de la prostitution en France</a>, synthesis, May 2015. Funded 90% by the European Commission's ISEC programme. Every cost sheet is public on the study's site. Mortality was estimated from Potterat et al., American Journal of Epidemiology, 2004. The authors state the estimate is a minimum: costs to families, to buyers' households and to property values were left out for lack of data.</p>
   </div>
 </section>
 
@@ -180,6 +250,32 @@
 
 <script src="site.js"></script>
 <script>
+// ProstCost donuts
+(function(){
+  const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const FG=css('--fg'),AC=css('--accent');
+  const shades=n=>Array.from({length:n},(_,i)=>i===0?AC:`color-mix(in srgb, ${FG} ${Math.max(18,78-i*12)}%, ${css('--bg')})`);
+  function donut(id,items,unit='M€'){
+    const el=document.getElementById(id); if(!el)return;
+    const tot=items.reduce((a,[,v])=>a+v,0), cols=shades(items.length); let a=-Math.PI/2, paths='';
+    items.forEach(([k,v],i)=>{const b=a+v/tot*2*Math.PI, r=48, R=90;
+      const p=(t,rad)=>[100+rad*Math.cos(t),100+rad*Math.sin(t)]; const [x1,y1]=p(a,R),[x2,y2]=p(b,R),[x3,y3]=p(b,r),[x4,y4]=p(a,r); const big=(b-a)>Math.PI?1:0;
+      paths+=`<path d="M${x1},${y1}A${R},${R},0,${big},1,${x2},${y2}L${x3},${y3}A${r},${r},0,${big},0,${x4},${y4}Z" fill="${cols[i]}"><title>${k}: ${v} ${unit}</title></path>`; a=b;});
+    el.innerHTML=`<svg viewBox="0 0 200 200">${paths}</svg><ul>${items.map(([k,v],i)=>`<li><i style="background:${cols[i]}"></i><b>${unit==='M€'?'€'+v+'M':v}</b><span>${k}</span></li>`).join('')}</ul>`;
+  }
+  donut('dTotal',[['Tax evasion',853],['Human costs',311],['Indirect social',306],['Direct medical',86],['Direct social',58],['Police, justice, prisons',35]]);
+  donut('dMed',[['Consultations',28.1],['Medicines',22.8],['Hospitalisation',12.9],['Tobacco',8.5],['Illicit drugs',5.4],['Emergency services',4.7],['Alcohol',3.4],['Abortions',0.36]]);
+  donut('dPol',[['Police and gendarmerie',18],['Prison administration',14],['Criminal justice',3]]);
+  donut('dSoc',[['Income support (RSA)',13],['Disability allowance',9.2],['Emergency housing',7.4],['Adapted housing',7.2],['State medical aid',6.0],['Asylum allowance',5.5],['Housing benefit',4.2],['Universal health cover',2.8],['Prevention and exit funds',2.4]]);
+  donut('dInd',[['Homicides and suicides',228],['Children taken into care',59],['Lost output from incarceration',19]]);
+  donut('dHum',[['Excess mortality',132],['Other physical violence',89],['Psychological violence',71],['Rape and attempted rape',19]]);
+  donut('dTax',[['Social contributions evaded',641],['Direct taxes evaded',212]]);
+  // flow
+  const s=document.getElementById('flowSvg'); if(s){const t=(x,y,str,o={})=>`<text x="${x}" y="${y}" fill="${o.c||FG}" font-size="${o.s||13}" font-family="${o.m?'JetBrains Mono,monospace':'inherit'}" text-anchor="${o.a||'start'}" font-weight="${o.w||400}">${str}</text>`;
+    const node=(x,y,l,sub)=>`<rect x="${x-70}" y="${y-28}" width="140" height="56" rx="12" fill="none" stroke="${FG}" opacity=".8"/>`+t(x,y-2,l,{a:'middle',w:600})+t(x,y+16,sub,{a:'middle',s:11,c:css('--fg-subtle')});
+    const arrow=(x1,y1,x2,y2,l)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${AC}" stroke-width="3" marker-end="url(#ah)"/>`+t((x1+x2)/2,(y1+y2)/2-10,l,{a:'middle',m:true,c:AC,w:500});
+    s.innerHTML=`<defs><marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0L10,5L0,10z" fill="${AC}"/></marker></defs>`+node(110,60,'Buyers','the demand')+arrow(180,60,320,60,'€3.2 billion')+node(390,60,'People in prostitution','37,000')+arrow(460,60,600,60,'€1.4 billion')+node(670,60,'Pimps and networks','at least 45% exported')+arrow(390,88,390,160,'€212M undeclared')+node(390,190,'Tax evasion','direct taxes')+arrow(670,88,670,160,'€641M evaded')+node(670,190,'Tax evasion','social contributions')+t(110,200,'If spent on anything else: +€853M in tax revenue',{s:12,c:css('--fg-subtle')});}
+})();
 // calculator
 (function(){
   const LE=81.1, EARN=62111, RET=65, N=66;

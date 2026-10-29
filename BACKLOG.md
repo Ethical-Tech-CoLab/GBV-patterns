@@ -65,7 +65,8 @@ Everything asked for that is not yet built, or that needs a human. Nothing gets 
 ## Version 2, 29 October 2026 (CATW feedback)
 
 - Done: nav reduced to Home | Femicide in the Sex Trade | New York | By the Numbers | Economic Impact | What if…? | About CATW. Context page retired; v1 archived at docs/v1/. Home reordered: definition, ten women (full sentences), gap (trimmed), pulse, single femicide clock, New York State by region (placeholder outside NYC), NYC boroughs. New York page: new title, DV stats and live records and fatality reviews removed (archived in v1; offer the DV data to Sanctuary for Families), cases as flip cards, five steps as placeholders. Copy deck at docs/copy/v2-copy.md and as a Google Doc for CATW edits.
-- **Waiting on CATW**: What is femicide text; Femicide in the Sex Trade page text and sources; other cases to spotlight; new text for the five steps; About CATW blurb; French study for Economic Impact; more What-if scenarios; buyers section update with Elly.
+- **Waiting on CATW**: What is femicide text; Femicide in the Sex Trade page text and sources; other cases to spotlight; new text for the five steps; About CATW blurb; more What-if scenarios; buyers section update with Elly.
+- Done 29 October: French ProstCost study on Economic Impact, in the study's visual style (headline total, six donuts, money flow, ratios, in memoriam). Next: a New York version of the same 29-line cost sheet, starting with the lines where New York data exists.
 - **Regional data for New York State**: county-level femicide, IPV homicide and orders of protection from NYS DCJS / OPDV, mapped to the ten regions.
 - **Dawn Wilcox data**: CATW is asking whether she can share it; charts on By the Numbers switch on when agreed.
 - **Hand-off**: the domestic violence evidence from v1 (CDC NISVS, fatality reviews, NYPD live data, online misogyny) could become a separate project with Sanctuary for Families.
