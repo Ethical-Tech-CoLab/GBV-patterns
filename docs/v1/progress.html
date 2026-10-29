@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Platform Progress</title>
+<meta name="description" content="What the GBV Patterns platform has addressed, what is partly built, and what has not been researched yet, measured against CATW's five desired outcomes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero{padding:calc(var(--header-h) + 3rem) 24px 2rem}
+.page-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.04;letter-spacing:-.03em;font-weight:600;margin:0;max-width:18ch}
+.page-hero p{color:var(--fg-muted);max-width:60ch;font-size:1.1rem}
+.meter{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:2rem}
+@media (max-width:760px){.meter{grid-template-columns:1fr}}
+.meter button{border:1px solid var(--border);border-radius:var(--radius);padding:18px;background:transparent;text-align:left}
+.meter button[aria-pressed="true"]{border-color:var(--fg);background:var(--bg-alt)}
+.meter .n{font-family:var(--mono);font-size:2.4rem;letter-spacing:-.03em;line-height:1}
+.meter .k{font-size:14px;color:var(--fg-muted);margin-top:6px}
+.bar{display:flex;height:10px;border-radius:999px;overflow:hidden;border:1px solid var(--border);margin-top:1.4rem}
+.bar i{display:block;height:100%}
+.bar .done{background:var(--fg)}.bar .part{background:color-mix(in srgb,var(--fg) 45%,var(--bg))}.bar .todo{background:transparent}
+.outcomes{display:flex;flex-direction:column;gap:12px;margin-top:2rem}
+.oc{border:1px solid var(--border);border-radius:var(--radius);padding:22px;display:grid;grid-template-columns:auto 1fr;gap:6px 20px}
+@media (max-width:640px){.oc{grid-template-columns:1fr}}
+.oc .num{font-family:var(--mono);font-size:1.6rem;letter-spacing:-.03em;color:var(--fg-subtle);line-height:1.1}
+.oc h3{margin:0;font-size:1.2rem;font-weight:600;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.st{font-size:12px;padding:3px 10px;border-radius:999px;border:1px solid var(--border);white-space:nowrap;font-weight:500}
+.st.done{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.st.part{background:color-mix(in srgb,var(--fg) 45%,var(--bg));color:var(--bg);border-color:transparent}
+.st.todo{background:var(--accent);color:#fff;border-color:var(--accent)}
+.oc .cols{grid-column:2;display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:10px}
+@media (max-width:760px){.oc .cols{grid-template-columns:1fr;grid-column:1/-1}}
+.oc h4{margin:0 0 6px;font-size:13.5px;color:var(--fg-subtle);font-weight:600}
+.oc ul{margin:0;padding-left:1.1rem;font-size:14.5px;color:var(--fg-muted)}
+.oc li{margin-bottom:4px}
+.oc .blocker{grid-column:2;margin-top:12px;font-size:13.5px;color:var(--fg-muted);border-left:3px solid var(--accent);padding-left:12px}
+@media (max-width:760px){.oc .blocker{grid-column:1/-1}}
+.oc.hide{display:none}
+.cov{width:100%;border-collapse:collapse;margin-top:2rem;font-size:14.5px}
+.cov th,.cov td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+.cov th{font-weight:600}
+.cov td:first-child a{text-decoration:none;font-weight:500}
+.cov td:first-child a:hover{text-decoration:underline}
+.terms{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.terms span{font-family:var(--mono);font-size:13px;border:1px solid var(--border);border-radius:6px;padding:3px 9px}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html"><img src="assets/etc-logo.jpg" alt="Ethical Tech CoLab"><span>GBV Patterns</span></a>
+  <nav aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="new-york.html">New York</a>
+    <a href="patterns.html">Patterns</a>
+    <a href="context.html">Context</a>
+    <a href="methodology.html">Methodology</a>
+    <a href="sources.html">Sources</a>
+    <a href="progress.html" aria-current="page">Progress</a>
+  </nav>
+  <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>What is built, what is partial, what has not been researched</h1>
+    <p>CATW set five desired outcomes for the platform. This page measures the site against them, names the blocker where there is one, and lists what is still unresearched. It is updated with every change to the site.</p>
+    <div class="meter" id="meter"></div>
+    <div class="bar" id="bar" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="block" id="outcomes">
+  <div class="wrap">
+    <div class="lede"><h2>CATW's five desired outcomes</h2><p>Click a status above to filter. Each card lists what is on the platform now, what is missing, and why.</p></div>
+    <div class="outcomes" id="outcomes"></div>
+    <p class="src">Key terms from CATW's brief, used for the media mapping outcome:</p>
+    <div class="terms"><span>sex work</span><span>sex workers</span><span>sex trade</span><span>prostitution</span><span>prostitute</span><span>sex trafficking</span></div>
+  </div>
+</section>
+
+<section class="block" id="coverage">
+  <div class="wrap">
+    <div class="lede"><h2>What the platform shows today</h2><p>Every section on the site, with its evidence and the outcome it serves.</p></div>
+    <table class="cov">
+      <thead><tr><th>Section</th><th>Evidence</th><th>Serves outcome</th><th>Status</th></tr></thead>
+      <tbody id="coverage"></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="block" id="unresearched">
+  <div class="wrap">
+    <div class="lede"><h2>Not yet researched</h2><p>Asked for, in scope, and not started. Full detail in the repository backlog.</p></div>
+    <table class="cov">
+      <thead><tr><th>Item</th><th>Why it matters</th><th>What it needs</th></tr></thead>
+      <tbody id="todo"></tbody>
+    </table>
+    <p class="src">Repository backlog: <a href="https://github.com/Ethical-Tech-CoLab/GBV-patterns/blob/main/BACKLOG.md">BACKLOG.md</a>. Nothing asked for is dropped; items move from this table to the one above as they are built.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logos">
+        <img class="etc" src="assets/etc-logo.jpg" alt="Ethical Tech CoLab">
+        <img class="catw-light" src="assets/catw-logo.png" alt="Coalition Against Trafficking in Women">
+        <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
+      </div>
+      <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Prototype, October 2026.</p>
+    </div>
+    <div>
+      <h4>On this site</h4>
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="patterns.html">Patterns</a></li>
+        <li><a href="context.html">Context</a></li>
+        <li><a href="methodology.html">Methodology</a></li>
+        <li><a href="sources.html">Sources</a></li>
+      </ol>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script>
+const OUTCOMES=[
+  {n:1,title:'Demographics of victims and perpetrators',status:'part',
+   have:['Live charts from NYPD incident data, 2020 to 2021, about 484,000 records: victim age, suspect age, borough, race, suspect sex, rape by relationship, on the <a href="new-york.html#live">New York page</a>','Age, relationship, perpetrator age and race columns visible in every Women Count USA table on the <a href="patterns.html#databases">patterns page</a>','Coding rules for age bands, relationship groups and cause on the <a href="methodology.html">methodology page</a>','Age at first rape and partner violence, and New York\'s own partner violence rate, from the CDC on the <a href="context.html#rape">context page</a>','Borough-level homicide and incident counts for 2023 and 2024 on the <a href="index.html#city">home page</a>'],
+   miss:['Aggregated charts from the database: age histogram, relationship wheel, perpetrator age by year','Race and ethnicity of victims and perpetrators','Sex-trade cases broken out by every demographic'],
+   blocker:'Aggregating Women Count USA needs written agreement from Dawn Wilcox and CATW. The fetch script is ready; the counting can start the day the agreement lands. Until then the tally tool lets anyone count by hand.'},
+  {n:2,title:'Mapping of where deaths occurred, and where the women came from',status:'todo',
+   have:['State and city columns, and an address-for-mapping column, visible in the embedded tables','Five-borough view of New York City homicides and incident reports'],
+   miss:['A map of New York State with a point or county cluster per case','National comparison by state rate per 100,000 women','Origin of victims: the database has no origin field, so this needs a new source or a per-case reading of the narratives'],
+   blocker:'Same agreement as outcome 1, plus geocoding of the address field. A world map with country-level women\'s rights data is a separate backlog item.'},
+  {n:3,title:'Lethality of prostitution: long-term effects, substance abuse, HIV and AIDS, STIs',status:'todo',
+   have:['The gap section on the home page states that no agency counts deaths in the sex trade','The patterns page explains how a death is reclassified as an overdose or accident'],
+   miss:['Mortality studies of women in prostitution: all-cause and cause-specific death rates against the general population','HIV, AIDS and STI prevalence among women in the sex trade in the United States and New York','Overdose deaths linked to the sex trade, from medical examiner data'],
+   blocker:'Not yet researched. Candidate starting points: the Potterat and colleagues mortality cohort, CDC HIV surveillance by transmission category, New York City medical examiner overdose reports. Each needs reading before any figure goes on the site.'},
+  {n:4,title:'Financial lens: economic impact of sex-trade related femicide',status:'part',
+   have:['Lost-life and lost-earnings ledger for any count, including a count read from the database, on the <a href="context.html#economics">context page</a>','Per-victim lifetime costs of partner violence and rape from the CDC','Country cost comparisons: IDB on Latin America, Spain, Argentina; Kenya\'s taskforce'],
+   miss:['Costs specific to sex-trade femicide: investigation, prosecution, unidentified-victim handling, children left behind','The French report on the cost of prostitution to society, once CATW sends it','New York hospital and medication costs after rape and assault'],
+   blocker:'The French report and New York cost data are inputs CATW and the state hold. The ledger is ready to take them.'},
+  {n:5,title:'Media mapping: how the media misrepresents violence in the sex trade (word map)',status:'todo',
+   have:['The framing problem is described in the home page gap section','CATW\'s six key terms are recorded on this page and in the methodology'],
+   miss:['A word map of headlines and first paragraphs from the source articles linked in the database, scored for the six terms','Counts of how often the victim is named by her exploitation rather than as a woman, by outlet and by year','Comparison of police and media language for the same case'],
+   blocker:'Needs the source links from the database, which are part of the copyrighted material, and a reading pass over each article. Once agreed, this is a scripted job: fetch, extract headline, count terms.'},
+];
+const COVERAGE=[
+  ['buyers.html#mapsec','New York › Sex buyers map: ten regions, 141 geolocated reviews (CATW layer rebuilt)','CATW, From Impunity to Accountability, 2022','2, 5','done'],
+  ['buyers.html#impunity','New York › Impunity in numbers: Brooklyn arrests, Manhattan vs Nashville, time served vs white-collar crime','CATW report, US Sentencing Commission, BJS','3, 4','done'],
+  ['new-york.html#live','New York: who, by whom, where (live NYC Open Data)','NYPD dataset 2rb7-7eqa','1','done'],
+  ['new-york.html#decade','New York: a decade of fatality reviews','Fatality Review Committee 2024','1','done'],
+  ['new-york.html#cases','New York: real cases and how each was named','DOJ EDNY, Suffolk DA','3, 5','part'],
+  ['new-york.html#asks','New York: what the state can do, in order','CATW, NY Senate','All','done'],
+  ['index.html#figures','Of every ten women','WHO, UN Women, UNICEF, CDC, ENDGBV','Context for all five','done'],
+  ['index.html#pulse','The pace, and four clocks','UNODC and UN Women, UNICEF, UN cost estimate, RAINN','4','done'],
+  ['index.html#city','New York City by borough','ENDGBV 2024 fact sheet','1, 2','done'],
+  ['index.html#ledger','The ledger and the uncounted line','ENDGBV 2024 fact sheet','1, 3','done'],
+  ['index.html#state','Across the state','NYS 2024 GBV dashboard','1','done'],
+  ['index.html#gap','The gap','CATW brief, Women Count USA','3, 5','part'],
+  ['index.html#catw','The work this builds on','CATW, NY Senate','All','done'],
+  ['patterns.html#databases','Fifteen Women Count USA databases, embedded','Women Count USA','1, 2, 3, 5','part'],
+  ['patterns.html#tally','Your tally','Browser-stored counts','1, 4','done'],
+  ['context.html#clocks','Four clocks','As above','4','done'],
+  ['context.html#evidence','The evidence so far','VPC, World Bank, UN Women','1','done'],
+  ['context.html#girls','Girls','UNICEF 2024','1','done'],
+  ['context.html#rape','Rape and sexual violence, age at first rape','CDC NISVS, RAINN, NYPD','1','done'],
+  ['context.html#dv','Domestic violence, measured by asking','CDC NISVS 2023/24, New York row','1','done'],
+  ['context.html#online','Misogyny online, and how it reaches children','EIU, UN Women, CDC, Common Sense Media, ACAMH review','Context, 5','part'],
+  ['context.html#hypotheses','Five hypotheses about the backlash','Stated, not yet tested','1','part'],
+  ['context.html#diplomacy','Thirty years at the UN','UN resolutions','Context','done'],
+  ['context.html#politics','The backlash in politics','NY Senate, press','Context','part'],
+  ['context.html#economics','Lost life, lost earnings; country costs','CDC, NYS Comptroller, IDB, Kenya','4','part'],
+  ['context.html#representation','Who is in the room; does it change the outcome','IPU, Econometrica','Context','part'],
+  ['context.html#trajectory','Rights over time; child marriage','World Bank, UNICEF, state law','Context','part'],
+  ['methodology.html','Methodology and limitations','Written','All','done'],
+  ['sources.html','Every source','Linked','All','done'],
+];
+const TODO=[
+  ['Lethality of prostitution (outcome 3)','The core claim that prostitution kills, beyond homicide','Mortality cohort studies, CDC HIV surveillance, NYC medical examiner data'],
+  ['Media word map (outcome 5)','Shows how the violence is hidden in language','Agreement to use database source links; scripted headline extraction'],
+  ['Map of deaths (outcome 2)','Policymakers ask where first','Agreement, geocoding of the address field'],
+  ['Victim origin (outcome 2)','Trafficking routes into New York','No field in the database; new source needed'],
+  ['Sex-trade femicide costs (outcome 4)','Money is the argument that moved France','French report from CATW; NY hospital and court cost data'],
+  ['Testing the five hypotheses','Separates more violence from more counting','CDC WISQARS and FBI series by year against NYC reports'],
+  ['Gender policy peak in politics','Shows the backlash as a curve, not a mood','Comparative Agendas Project, NY bill counts by year'],
+  ['Country map with women\'s rights history','Global comparison on one screen','World Bank WBL, V-Dem, OECD SIGI data; country pages'],
+  ['Women\'s leadership impact','Whether representation changes outcomes','Literature review with confounds and effect sizes'],
+  ['Countries that permit marriage under 18','Forced marriage as GBV worldwide','Pew or Girls Not Brides legal atlas'],
+  ['New York county and precinct data','Finer map than boroughs','NYS DCJS county counts; NYPD precinct complaints'],
+  ['Presenter mode for 20 November','Summit demo','Keyboard-driven section stepping, large type'],
+];
+const LABEL={done:'Built',part:'Partial',todo:'Not started'};
+let filter=null;
+function render(){
+  const counts={done:0,part:0,todo:0}; OUTCOMES.forEach(o=>counts[o.status]++);
+  const m=document.getElementById('meter'); m.innerHTML='';
+  ['done','part','todo'].forEach(s=>{const b=document.createElement('button');b.setAttribute('aria-pressed',filter===s);b.innerHTML=`<div class="n num">${counts[s]}<span style="font-size:1rem;color:var(--fg-subtle)"> / 5</span></div><div class="k">${LABEL[s]} of CATW's five outcomes</div>`;b.addEventListener('click',()=>{filter=filter===s?null:s;render()});m.appendChild(b)});
+  document.getElementById('bar').innerHTML=['done','part','todo'].map(s=>`<i class="${s}" style="width:${counts[s]/5*100}%"></i>`).join('');
+  document.getElementById('outcomes').innerHTML=OUTCOMES.map(o=>`<div class="oc${filter&&filter!==o.status?' hide':''}"><div class="num">${o.n}</div><h3>${o.title}<span class="st ${o.status}">${LABEL[o.status]}</span></h3><div class="cols"><div><h4>On the platform now</h4><ul>${o.have.map(x=>`<li>${x}</li>`).join('')}</ul></div><div><h4>Missing</h4><ul>${o.miss.map(x=>`<li>${x}</li>`).join('')}</ul></div></div><div class="blocker">${o.blocker}</div></div>`).join('');
+  document.getElementById('coverage').innerHTML=COVERAGE.map(r=>`<tr><td><a href="${r[0]}">${r[1]}</a></td><td>${r[2]}</td><td>${r[3]}</td><td><span class="st ${r[4]}">${LABEL[r[4]]}</span></td></tr>`).join('');
+  document.getElementById('todo').innerHTML=TODO.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('');
+}
+render();
+</script>
+</body>
+</html>

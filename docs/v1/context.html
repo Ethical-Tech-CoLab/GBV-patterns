@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Femicide Context</title>
+<meta name="description" content="The backlash, the hypotheses, the diplomacy and the economics behind gender-based violence in New York and the world.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero{padding:calc(var(--header-h) + 3rem) 24px 3rem}
+.page-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.04;letter-spacing:-.03em;font-weight:600;margin:0;max-width:18ch}
+.page-hero p{color:var(--fg-muted);max-width:60ch;font-size:1.1rem}
+/* hypotheses */
+.hyp{margin-top:2.4rem;display:flex;flex-direction:column;gap:10px}
+.hyp details{border:1px solid var(--border);border-radius:12px}
+.hyp summary{list-style:none;cursor:pointer;padding:16px 18px;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;font-weight:600}
+.hyp summary::-webkit-details-marker{display:none}
+.hyp summary .h{font-family:var(--mono);font-size:13px;color:var(--fg-subtle)}
+.hyp summary .verdict{font-size:12.5px;padding:3px 10px;border-radius:999px;border:1px solid var(--border);color:var(--fg-subtle);white-space:nowrap}
+.hyp .body{padding:0 18px 18px;color:var(--fg-muted);font-size:15px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:760px){.hyp .body{grid-template-columns:1fr}}
+.hyp .body h4{margin:0 0 .3rem;font-size:14px;color:var(--fg)}
+.hyp .body p{margin:0}
+/* timeline: horizontal, scroll-snap, with arrows */
+.tlwrap{position:relative;margin-top:2.4rem}
+.tl{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:26px 4px 12px;border-top:2px solid var(--fg);scrollbar-width:thin}
+.tl::-webkit-scrollbar{height:6px}.tl::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.tl > div{position:relative;flex:0 0 300px;scroll-snap-align:start;border:1px solid var(--border);border-radius:var(--radius);padding:18px;background:var(--bg-alt)}
+@media (max-width:520px){.tl > div{flex-basis:82vw}}
+.tl > div::before{content:"";position:absolute;left:18px;top:-33px;width:12px;height:12px;border-radius:50%;background:var(--fg);border:2px solid var(--bg)}
+.tl .y{font-family:var(--mono);font-size:13px;color:var(--fg-subtle)}
+.tl h4{margin:4px 0 6px;font-size:1.05rem;font-weight:600;line-height:1.2}
+.tl p{margin:0;color:var(--fg-muted);font-size:14.5px}
+.tl > div.back{border-color:var(--gap)}
+.tl > div.back::before{background:var(--gap)}
+.tlnav{display:flex;gap:8px;justify-content:space-between;align-items:center;margin-top:10px;font-size:13px;color:var(--fg-subtle)}
+.tlnav div{display:flex;gap:8px}
+.tlnav button{border:1px solid var(--border);background:transparent;border-radius:999px;width:38px;height:38px;font-size:18px;line-height:1}
+.tlnav button:hover{border-color:var(--fg)}
+.tlyears{display:flex;gap:6px;flex-wrap:wrap}
+.tlyears button{width:auto;height:auto;padding:4px 10px;font-size:12.5px;font-family:var(--mono)}
+.tlyears button.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+/* calculator */
+.calc{margin-top:2.4rem;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:860px){.calc{grid-template-columns:1fr}}
+.calc .panel{border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.calc label{display:block;font-size:14px;color:var(--fg-muted);margin-bottom:6px}
+.calc input[type=range]{width:100%;accent-color:var(--fg)}
+.calc .out{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.calc .out .n{font-family:var(--mono);font-size:1.8rem;letter-spacing:-.03em;line-height:1.05}
+.calc .out .k{font-size:13px;color:var(--fg-subtle);margin-top:4px}
+.calc .big{font-family:var(--mono);font-size:clamp(2.4rem,5vw,3.6rem);letter-spacing:-.04em;line-height:1}
+.calc .panel.dark{background:var(--fg);color:var(--bg)}
+.calc .panel.dark .k,.calc .panel.dark label{color:color-mix(in srgb,var(--bg) 75%,transparent)}
+.costs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+@media (max-width:860px){.costs{grid-template-columns:1fr}}
+.costs div{border:1px solid var(--border);border-radius:12px;padding:18px}
+.costs .n{font-family:var(--mono);font-size:1.7rem;letter-spacing:-.03em;line-height:1}
+.costs .k{font-size:14px;color:var(--fg-muted);margin-top:6px}
+.rep{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:2.4rem}
+@media (max-width:860px){.rep{grid-template-columns:1fr}}
+.rep div{border-top:2px solid var(--fg);padding-top:14px}
+.rep .n{font-family:var(--mono);font-size:2rem;letter-spacing:-.03em;line-height:1}
+.rep .k{font-size:14.5px;color:var(--fg-muted);margin-top:6px}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html"><img src="assets/etc-logo.jpg" alt="Ethical Tech CoLab"><span>GBV Patterns</span></a>
+  <nav aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="new-york.html">New York</a>
+    <a href="patterns.html">Patterns</a>
+    <a href="context.html" aria-current="page">Context</a>
+    <a href="methodology.html">Methodology</a>
+    <a href="sources.html">Sources</a>
+    <a href="progress.html">Progress</a>
+  </nav>
+  <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>Are we seeing more violence, or finally seeing it?</h1>
+    <p>Three clocks, five hypotheses, a thirty-year diplomatic timeline and the price of a life in lost earnings. This page holds the context a hearing room asks for after the numbers.</p>
+  </div>
+</section>
+
+<section class="block" id="clocks">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Today so far</h2>
+      <p>Four counters run at the most recent global rates, counting from midnight in your time zone, with a countdown to the next. They are estimates spread evenly over a year, which is not how violence happens, but it is how its scale becomes legible.</p>
+    </div>
+    <div class="clocks">
+      <div class="clock"><svg class="ring" viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="20"/><circle class="fg" id="r1" cx="23" cy="23" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6"/></svg><div class="n num" id="c1">0</div><div class="k">femicides: women and girls killed by a partner or family member</div><div class="rate">one every 10.5 minutes · 50,000 a year · UNODC and UN Women, 2024 data</div></div>
+      <div class="clock"><svg class="ring" viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="20"/><circle class="fg" id="r2" cx="23" cy="23" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6"/></svg><div class="n num" id="c2">0</div><div class="k">girls married before their eighteenth birthday</div><div class="rate">one every 2.6 seconds · 12 million a year · UNICEF estimate</div></div>
+      <div class="clock"><svg class="ring" viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="20"/><circle class="fg" id="r3" cx="23" cy="23" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6"/></svg><div class="n num" id="c3">$0</div><div class="k">of global output lost to violence against women</div><div class="rate">about $47,500 a second · roughly 2% of world GDP, about $1.5 trillion · UN estimate</div></div>
+      <div class="clock"><svg class="ring" viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="20"/><circle class="fg" id="r4" cx="23" cy="23" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6"/></svg><div class="n num" id="c4">0</div><div class="k">Americans aged 12 and over sexually assaulted</div><div class="rate">one every 68 seconds · RAINN, from the National Crime Victimization Survey</div></div>
+    </div>
+    <p class="src">Rates: UNODC and UN Women, <a href="https://www.unwomen.org/en/digital-library/publications/2025/11/femicides-in-2024-global-estimates-of-intimate-partner-family-member-femicides">Femicides in 2024</a>; UNICEF, <a href="https://data.unicef.org/topic/child-protection/child-marriage/">child marriage data</a>; UNDP and UN Women, <a href="https://www.undp.org/press-releases/international-day-elimination-violence-against-women">cost of violence against women</a>. The GDP figure is an older estimate the UN continues to cite and is marked for verification on the methodology page.</p>
+  </div>
+</section>
+
+<section class="block" id="evidence">
+  <div class="wrap">
+    <div class="lede">
+      <h2>The evidence so far</h2>
+      <p>What the strongest available national and global measures say, before any analysis of our own. Each figure links to its source on the sources page.</p>
+    </div>
+    <div class="costs">
+      <div><div class="n num">2,400+</div><div class="k">women and girls killed by men in the United States in 2023, in single-victim, single-offender cases. 89.9% knew their killer. 64.9% were shot. Violence Policy Center, 2025, from FBI data.</div></div>
+      <div><div class="n num">64%</div><div class="k">of the legal rights men have are held by women, averaged across 190 economies, once implementation is measured. Earlier estimates said 77%. World Bank, Women, Business and the Law 2024.</div></div>
+      <div><div class="n num">&lt; 40%</div><div class="k">of the systems needed to enforce those laws are in place on average. The gap between the law and its implementation is the same gap this project documents for New York. World Bank, 2024.</div></div>
+      <div><div class="n num">1 in 4</div><div class="k">governments reported a backlash against women's rights in 2024. UN Women, Beijing+30 review, March 2025.</div></div>
+      <div><div class="n num">51,100 → 50,000</div><div class="k">global partner and family femicide estimate, 2023 to 2024. The fall reflects fewer countries reporting, not fewer deaths. UNODC and UN Women.</div></div>
+      <div><div class="n num">No state table</div><div class="k">The 2025 When Men Murder Women report carries no state rankings for the first time, because the FBI's data transition left gaps. New York's rate cannot be benchmarked this year.</div></div>
+    </div>
+    <p class="src">A study of advance and regress in women's rights over time, and of when gender policy peaked in national politics, is on the backlog with candidate sources: World Bank Women, Business and the Law (1970 to present), V-Dem Women's Political Empowerment Index (1900 to present), the Comparative Agendas Project for bill counts by year.</p>
+  </div>
+</section>
+
+<section class="block" id="girls">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Girls, in UNICEF's most recent numbers</h2>
+      <p>In October 2024 UNICEF published its first global estimate of sexual violence against children, from 120 countries and territories over 2010 to 2022. Together with its child marriage data, this is the floor under everything else on this site: the violence starts before adulthood.</p>
+    </div>
+    <div class="costs">
+      <div><div class="n num">370 million</div><div class="k">girls and women alive today experienced rape or sexual assault before the age of 18. One in eight. UNICEF, October 2024.</div></div>
+      <div><div class="n num">650 million</div><div class="k">when non-contact sexual violence, such as online or verbal abuse, is included. One in five girls and women alive today.</div></div>
+      <div><div class="n num">410 to 530 million</div><div class="k">boys and men who experienced sexual violence in childhood, by the same estimate. The data for boys is thinner, hence the range.</div></div>
+      <div><div class="n num">1 in 6</div><div class="k">adolescent girls aged 15 to 19, about 50 million, have experienced physical or sexual violence. UNICEF Global Annual Results Report 2024. To cross-check against the underlying survey.</div></div>
+      <div><div class="n num">~640 to 650 million</div><div class="k">women and girls alive today were married before 18. UNICEF's data page gives 640 million in its 2023 analysis and 650 million in its current summary; the exact current figure is to be confirmed.</div></div>
+      <div><div class="n num">12 million</div><div class="k">girls married each year. At the current pace of decline UNICEF estimates it would take about 300 years to reach zero.</div></div>
+      <div><div class="n num">35%</div><div class="k">of young women in sub-Saharan Africa were married as children, against 38% a decade earlier. The region where progress is slowest.</div></div>
+      <div><div class="n num">2030</div><div class="k">the Sustainable Development Goal target year for ending child marriage. On current trends it will be missed by centuries.</div></div>
+      <div><div class="n num">New York</div><div class="k">No published count of sexual violence against children by sex and age comparable to UNICEF's. The ENDGBV Early Relationship Abuse Prevention Program reached 32,998 middle-school students in 2024.</div></div>
+    </div>
+    <p class="src">UNICEF, <a href="https://www.unicef.org/turkiye/en/press-releases/new-global-data-expose-acute-prevalence-violence-against-children-unicef">New global data expose acute prevalence of violence against children</a>, October 2024. UNICEF Data, <a href="https://data.unicef.org/topic/child-protection/child-marriage/">Child marriage</a>. UNICEF, <a href="https://www.unicef.org/media/173801/file/Global-annual-results-report-GA3-child-protection-2024.pdf">Global Annual Results Report 2024, child protection</a>. UNICEF USA, <a href="https://www.unicefusa.org/media-hub/reports/trends-forecast-ending-child-marriage-2030">Child marriage: latest trends and future prospects</a>. ENDGBV 2024 fact sheet for the New York figure.</p>
+  </div>
+</section>
+
+<section class="block" id="rape">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Rape and sexual violence</h2>
+      <p>The CDC's 2023 to 2024 survey is the first national measure since 2016. It is a survey of what people say happened to them, which makes it the opposite of the police figures below: the survey counts what is rarely reported, and the police count what was.</p>
+    </div>
+    <div class="costs">
+      <div><div class="n num">21.0%</div><div class="k">of US women have experienced completed or attempted rape in their lifetime, about 26.8 million women. CDC NISVS 2023 to 2024.</div></div>
+      <div><div class="n num">45.1%</div><div class="k">of US women have experienced contact sexual violence: rape, sexual coercion (20.3%) or unwanted sexual contact (39.0%). For men, 16.9%, with 3.2% reporting rape.</div></div>
+      <div><div class="n num">5.5%</div><div class="k">of US women experienced contact sexual violence in the past twelve months; 1.1% completed or attempted rape. That is the annual rate the clocks run at.</div></div>
+      <div><div class="n num">10.3%</div><div class="k">of adult women experienced technology-facilitated sexual violence in the past year, the first time the survey measured it. 6.9% of men.</div></div>
+      <div><div class="n num">68 seconds</div><div class="k">between sexual assaults of Americans aged 12 and over. Every nine minutes the victim is a child. RAINN, from the National Crime Victimization Survey.</div></div>
+      <div><div class="n num">229 vs 15</div><div class="k">months: average federal sentence for rape against tax fraud in 2024. Long when it happens; see the <a href="buyers.html#impunity">time served</a> comparison for why that is not the point.</div></div>
+      <div><div class="n num">1,000 → 25</div><div class="k">of every thousand sexual assaults, about 50 lead to an arrest, 28 to a felony conviction and 25 to a prison sentence. RAINN analysis of federal data, cited by the Arizona Department of Public Safety. To verify against RAINN's current page.</div></div>
+      <div><div class="n num">&lt; 25%</div><div class="k">of rapes are reported to law enforcement, by Bureau of Justice Statistics figures; other summaries say about a third. Estimates differ by year and method. To verify.</div></div>
+      <div><div class="n num">+24.9%</div><div class="k">rape complaints in New York City, January to April 2025 against the same period of 2024: 606 against 485. Manhattan North and South were up about 27% by late October. NYPD CompStat. A year-end 2025 total is not yet published.</div></div>
+      <div><div class="n num">$122,461</div><div class="k">estimated lifetime cost per rape victim: medical care, lost work, criminal justice, property loss. CDC, 2017. Multiply by the survey's 26.8 million women and the sum is about $3.1 trillion.</div></div>
+    </div>
+    <p class="src">CDC, <a href="https://www.cdc.gov/nisvs/media/pdfs/sexualviolence-brief.pdf">NISVS 2023/2024 Sexual Violence Data Brief</a>; NSVRC, <a href="https://nsvrc.org/?p=23842">CDC releases new sexual violence data</a>. RAINN, <a href="https://rainn.org/statistics">Statistics</a>. NYPD, <a href="https://www.nyc.gov/assets/nypd/downloads/pdf/crime_statistics/cs-en-us-city.pdf">CompStat citywide report</a>. The survey excluded people under 18, transgender and nonbinary people, people in institutions and people experiencing homelessness, which are among the groups most exposed. Rising complaints can reflect rising reporting; see the hypotheses below.</p>
+    <div class="lede" style="margin-top:3.5rem"><h2>Who, and at what age</h2><p>Most rape happens young. The CDC asked victims how old they were the first time.</p></div>
+    <div class="costs">
+      <div><div class="n num">~80%</div><div class="k">of women who were raped were first raped before the age of 25. CDC NISVS 2010 summary report, the wave that asked this question in most detail.</div></div>
+      <div><div class="n num">42.2%</div><div class="k">were first raped before 18: 29.9% between 11 and 17, and 12.3% at 10 or younger.</div></div>
+      <div><div class="n num">1 in 4</div><div class="k">women who experienced intimate partner violence were first victimised before 18; almost three quarters before 25. NISVS 2016/2017.</div></div>
+      <div><div class="n num">Every 9 min</div><div class="k">the victim of a sexual assault in the United States is a child. RAINN.</div></div>
+      <div><div class="n num">1 in 8</div><div class="k">girls and women worldwide experienced rape or sexual assault before 18. UNICEF, 2024. See the girls section.</div></div>
+      <div><div class="n num">Not measured</div><div class="k">The 2023/2024 survey excluded under-18s, so the most recent national data cannot say how many girls are raped each year. State child-protection counts are the gap to fill for New York.</div></div>
+    </div>
+    <p class="src">CDC, <a href="https://www.nsvrc.org/wp-content/uploads/2024/11/NISVS_Report2010-a.pdf">NISVS 2010 Summary Report</a>; CDC, <a href="https://www.cdc.gov/nisvs/documentation/NISVSReportonIPV_2022.pdf">NISVS 2016/2017 Report on Intimate Partner Violence</a>. Age-at-first-victimisation figures are from older survey waves; the 2023/2024 brief has not republished them.</p>
+  </div>
+</section>
+
+<section class="block" id="dv">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Domestic violence, measured by asking</h2>
+      <p>New York's incident reports count police responses. The CDC's survey counts what women say happened to them, whether or not anyone was called. The 2023 to 2024 intimate partner violence brief is the first since 2016.</p>
+    </div>
+    <div class="costs">
+      <div><div class="n num">34.0%</div><div class="k">of US women, nearly 43.5 million, experienced contact sexual violence, physical violence or stalking by an intimate partner in their lifetime. For men, 17.0%, 20.7 million.</div></div>
+      <div><div class="n num">5.2%</div><div class="k">of women, 6.7 million, experienced one of those in the past twelve months. 2.8 million men.</div></div>
+      <div><div class="n num">18.2%</div><div class="k">of women experienced a severe form of physical violence by a partner in their lifetime; 22.5% any physical violence; 12.2% were stalked by a partner.</div></div>
+      <div><div class="n num">8.6%</div><div class="k">of women were raped by an intimate partner in their lifetime; 19.7% experienced any contact sexual violence by a partner.</div></div>
+      <div><div class="n num">30.2%</div><div class="k">of women, 38.6 million, experienced psychological aggression by a partner, including 27.2% subjected to coercive control: being tracked, isolated from family, kept from their own money, threatened.</div></div>
+      <div><div class="n num">18.6%</div><div class="k">of women had a partner demand to know where they were and what they were doing; 16.0% were kept from family or friends; 12.4% were threatened with physical harm. The warning signs Women Count USA codes in femicide cases.</div></div>
+      <div><div class="n num">30.2%</div><div class="k">of New York women, about 2.4 million, experienced contact sexual violence, physical violence or stalking by an intimate partner in their lifetime (confidence interval 23.2% to 38.3%). 26.1% with an IPV-related impact. State range 21.0% to 48.1%.</div></div>
+      <div><div class="n num">1 in 4</div><div class="k">women who experienced partner violence were first victimised before 18, almost three quarters before 25. NISVS 2016/2017.</div></div>
+      <div><div class="n num">$103,767</div><div class="k">estimated lifetime cost per female victim of intimate partner violence; $23,414 per male victim. The brief cites it on its first page. 2014 dollars.</div></div>
+    </div>
+    <p class="src">CDC, <a href="https://www.cdc.gov/nisvs/media/pdfs/intimatepartnerviolence-brief.pdf">NISVS 2023/2024 Intimate Partner Violence Data Brief</a>. Response rate 16.5%; the survey excluded under-18s, transgender and nonbinary people, people in institutions and people experiencing homelessness.</p>
+  </div>
+</section>
+
+<section class="block" id="online">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Misogyny online, and how it reaches children</h2>
+      <p>The same platforms that carry the sex-buyer reviews carry the hate. This section shows how misogyny appears on social media, how much of it women receive, how it is fed to boys, and at what age children first meet pornography.</p>
+    </div>
+    <div class="lede" style="margin-top:2rem"><h3 style="font-size:1.2rem;margin:0 0 .4rem">How it shows up</h3></div>
+    <div class="cases">
+      <details class="case"><summary>Harassment and sexualised abuse<span class="tag">Direct</span></summary><div class="body">Threats, sexual insults, pile-ons. The Economist Intelligence Unit's 51-country survey found 38% of women had experienced online violence themselves and 85% had witnessed it against other women. UN Women's 2022 review puts prevalence between 16% and 58% depending on the country and the definition.</div></details>
+      <details class="case"><summary>Technology-facilitated sexual violence<span class="tag">10.3% of US women in a year</span></summary><div class="body">Non-consensual images, sextortion, deepfakes, stalking by device. The CDC measured it for the first time in 2023 to 2024: 10.3% of adult women and 6.9% of men in the previous twelve months. Women Count USA codes "camera, GPS and tech surveillance", "revenge porn" and "sexual extortion online" as keywords in femicide cases.</div></details>
+      <details class="case"><summary>The manosphere, recommended<span class="tag">Algorithmic</span></summary><div class="body">Content that frames women as property or enemies, delivered as jokes and clips. A 2023 Hope not Hate poll found 80% of British boys aged 16 and 17 had consumed Andrew Tate's content; Internet Matters found 56% of fathers under 35 approved of him. Researchers who set up blank accounts posing as teenage boys were recommended manosphere content within minutes, worst on YouTube Shorts. The database codes "incel traits" and "misogynistic attitudes, hate speech, slurs" in the men who kill.</div></details>
+      <details class="case"><summary>Silencing women in public life<span class="tag">Journalists, politicians</span></summary><div class="body">Coordinated abuse aimed at women who speak. UNESCO's global survey of women journalists is the standard reference; its headline figure is on the backlog to verify before it goes on this page.</div></details>
+      <details class="case"><summary>Reviews of women, as product<span class="tag">Demand</span></summary><div class="body">The hobby boards CATW mapped: men rating the women they bought, in public, under usernames, with no consequence. See the <a href="buyers.html">sex buyers map</a>.</div></details>
+    </div>
+    <div class="lede" style="margin-top:3rem"><h3 style="font-size:1.2rem;margin:0 0 .4rem">Pornography and children</h3><p>Not consent, exposure. Most children meet pornography before they are teenagers, and most of the first contact is not something they went looking for.</p></div>
+    <div class="costs">
+      <div><div class="n num">12</div><div class="k">average age at which American teenagers first saw pornography. 15% first saw it at 10 or younger. Common Sense Media, 2023, 1,358 teens aged 13 to 17.</div></div>
+      <div><div class="n num">54%</div><div class="k">had seen it by age 13; 73% by 17.</div></div>
+      <div><div class="n num">58%</div><div class="k">first encountered it accidentally: an ad, a link, a search result, a message. Only 44% ever sought it out.</div></div>
+      <div><div class="n num">13</div><div class="k">average age of first exposure among children in England, with a tenth exposed by age 9. Children's Commissioner for England, 2023. To verify against the report.</div></div>
+      <div><div class="n num">Before consent</div><div class="k">A child under 13 cannot lawfully hold an account on these platforms. Exposure at 12 on average means the first contact happens before any consent framework applies.</div></div>
+      <div><div class="n num">New York</div><div class="k">No state measure of children's exposure. The state's own figure is the ENDGBV healthy-relationship programme, which reached 32,998 middle-school students in 2024. Age verification and design-code bills are on the backlog to track.</div></div>
+    </div>
+    <p class="src">Common Sense Media, <a href="https://www.commonsensemedia.org/research/teens-and-pornography">Teens and Pornography</a>, January 2023. Economist Intelligence Unit, <a href="https://onlineviolencewomen.eiu.com/">Measuring the prevalence of online violence against women</a>, 2021. UN Women, <a href="https://www.unwomen.org/en/digital-library/publications/2022/10/accelerating-efforts-to-tackle-online-and-technology-facilitated-violence-against-women-and-girls">Accelerating efforts to tackle online and technology-facilitated violence against women and girls</a>, 2022. CDC NISVS 2023/2024 sexual violence brief. Hope not Hate and Internet Matters polls, 2023, and the recommendation experiment, cited via the <a href="https://www.acamh.org/blog/adolescence-at-risk-online-misogyny-mental-health-and-the-urgent-need-for-action/">ACAMH review</a>, secondary. Children's Commissioner figure marked to verify.</p>
+  </div>
+</section>
+
+<section class="block" id="hypotheses">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Five hypotheses about the backlash</h2>
+      <p>New York City's domestic violence homicides moved from 62 in 2021 to 71 in 2022 to 73 in 2023 to 66 in 2024. Nearly one in four governments told UN Women they faced a backlash against women's rights in 2024. Each hypothesis below says what would be true if it held, and how this project will test it. None is confirmed yet.</p>
+    </div>
+    <div class="hyp">
+      <details><summary><span class="h">H1</span><span>We are not seeing more violence, we are counting it better</span><span class="verdict">Testable now</span></summary><div class="body"><div><h4>If true</h4><p>Reported incidents rise while deaths, which are hard to hide, stay flat. New York City's incident reports fell slightly from 2023 to 2024 while intimate partner homicides rose from 30 to 33, which cuts against a pure reporting effect.</p></div><div><h4>How we test it</h4><p>Compare CDC WISQARS and FBI female homicide series, which do not depend on willingness to report, with police incident reports and hotline calls, which do.</p></div></div></details>
+      <details><summary><span class="h">H2</span><span>Social media and the manosphere are shifting attitudes among young men</span><span class="verdict">Needs data</span></summary><div class="body"><div><h4>If true</h4><p>Perpetrator age skews younger over time and misogynistic-attitude keywords appear more often in recent cases. Women Count USA codes incel traits, misogynistic hate speech and online grooming per case.</p></div><div><h4>How we test it</h4><p>Perpetrator age distribution by year from the database, plus attitude surveys such as the Global Institute for Women's Leadership and Ipsos tracking, once aggregation is agreed. The online section above holds the exposure evidence: 80% of British boys aged 16 to 17 had consumed Tate content by 2023, and blank teen accounts are fed the manosphere within minutes.</p></div></div></details>
+      <details><summary><span class="h">H3</span><span>Economic stress and housing insecurity raise lethality</span><span class="verdict">Needs data</span></summary><div class="body"><div><h4>If true</h4><p>Shelter denials and length of stay track homicide counts. New York denied shelter to 24,635 people in 2024 and the average city stay was 115 days, nearly three times the rest of the state.</p></div><div><h4>How we test it</h4><p>Year-by-year state dashboard figures against homicide counts by county, controlling for population.</p></div></div></details>
+      <details><summary><span class="h">H4</span><span>The pandemic reset the baseline and it has not come back</span><span class="verdict">Partly supported</span></summary><div class="body"><div><h4>If true</h4><p>A step change in 2020 to 2022 that persists. New York City's homicide series fits this shape; incident reports do not show the same step.</p></div><div><h4>How we test it</h4><p>Interrupted time series on monthly city data from 2017 to 2025.</p></div></div></details>
+      <details><summary><span class="h">H5</span><span>Deaths in the sex trade are the missing denominator</span><span class="verdict">Core claim</span></summary><div class="body"><div><h4>If true</h4><p>A material share of women killed by men in New York are killed by buyers or exploiters, and these cases are filed outside domestic violence or not identified as femicide at all.</p></div><div><h4>How we test it</h4><p>Count sex-trade cases in Women Count USA by state and year, then read how each was reported. This is what the project exists to produce.</p></div></div></details>
+    </div>
+    <p class="src">City counts: ENDGBV annual reports 2022 to 2024. Backlash figure: UN Women, <a href="https://www.unwomen.org/en/digital-library/publications/2025/03/womens-rights-in-review-30-years-after-beijing">Women's Rights in Review 30 Years After Beijing</a> (March 2025).</p>
+  </div>
+</section>
+
+<section class="block" id="diplomacy">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Thirty years of saying it at the United Nations</h2>
+      <p>The world has agreed, in writing, to end violence against women many times. The question for 2026 is whether the language is getting stronger or being traded away. Red marks the moments of pushback.</p>
+    </div>
+    <div class="tlwrap"><div class="tl">
+      <div><div class="y">1979</div><h4>CEDAW adopted</h4><p>The Convention on the Elimination of All Forms of Discrimination against Women. The United States signed in 1980 and has never ratified it.</p></div>
+      <div><div class="y">1993</div><h4>Declaration on the Elimination of Violence against Women</h4><p>The General Assembly defines violence against women for the first time, including violence in the family, in the community and condoned by the state.</p></div>
+      <div><div class="y">1995</div><h4>Beijing Declaration and Platform for Action</h4><p>189 governments adopt twelve critical areas of concern. Violence against women is one. Trafficking and prostitution are named inside it.</p></div>
+      <div><div class="y">2000</div><h4>Security Council resolution 1325</h4><p>Women, peace and security enters the Security Council's agenda. Nine follow-on resolutions by 2019.</p></div>
+      <div><div class="y">2013</div><h4>General Assembly resolution 68/191 on gender-related killing of women and girls</h4><p>The first UN resolution on femicide by name. Adopted by the General Assembly, not the Security Council, and renewed as 70/176 in 2015. It asks states to collect data and to criminalise and investigate these killings.</p></div>
+      <div><div class="y">2013</div><h4>CSW57 agreed conclusions</h4><p>The Commission on the Status of Women agrees conclusions on eliminating violence against women after a failure to agree in 2003 and 2012.</p></div>
+      <div><div class="y">2015</div><h4>Sustainable Development Goal 5</h4><p>Target 5.2 commits every state to eliminate all forms of violence against women and girls, including trafficking and sexual exploitation, by 2030.</p></div>
+      <div><div class="y">2016 to 2017</div><h4>Security Council resolutions 2331 and 2388</h4><p>Trafficking in persons in conflict situations. The closest the Council has come to CATW's subject, and the only Council hook for it.</p></div>
+      <div class="back"><div class="y">2024</div><h4>One in four governments report a backlash</h4><p>In UN Women's Beijing+30 review, nearly a quarter of governments say women's rights faced a backlash in 2024.</p></div>
+      <div class="back"><div class="y">March 2025</div><h4>Beijing+30 political declaration</h4><p>CSW69 adopts a political declaration on the thirtieth anniversary after difficult negotiations. Civil society groups say the consensus came at the cost of language on sexual and reproductive rights.</p></div>
+      <div><div class="y">November 2025</div><h4>Femicides in 2024</h4><p>UNODC and UN Women publish the first global femicide estimate built from 117 countries. One woman or girl every ten minutes. Fewer countries are reporting than before.</p></div>
+      <div><div class="y">2026</div><h4>New York</h4><p>No femicide definition in state law. This project, with CATW, builds the case for one.</p></div>
+    </div>
+    <div class="tlnav"><div class="tlyears"></div><div><button class="prev" aria-label="Earlier">‹</button><button class="next" aria-label="Later">›</button></div></div></div>
+    <div class="gapcard" style="margin-top:2rem">
+      <h3>Why the Security Council does not address femicide</h3>
+      <p>The Council's mandate is international peace and security. Its gender agenda, Women, Peace and Security, covers women in armed conflict and conflict-related sexual violence, not killings in peacetime. Femicide is handled as crime and human rights by the General Assembly's Third Committee, the Commission on the Status of Women, UNODC, UN Women, the CEDAW Committee and the Special Rapporteur on violence against women. The Council is also the one body where a single veto blocks a new agenda item, and several permanent members have resisted widening its gender work. The practical venues for New York's case are therefore the General Assembly femicide resolutions and CSW, with the Council's trafficking resolutions as the one point of contact.</p>
+    </div>
+    <div class="gapcard dark" style="margin-top:12px">
+      <h3>Why it should, and what this platform is showing</h3>
+      <p>The absence is a choice, not a rule. Four grounds on which femicide belongs on the international agenda, each tied to something this site documents.</p>
+      <div class="cases" style="margin-top:14px">
+        <details class="case"><summary>Women, Peace and Security is a continuum, not a wartime exception<span class="tag">Security</span></summary><div class="body">Resolution 1325 and its successors, including 1820 on sexual violence as a tactic of war, already treat violence against women as a matter of international peace and security. The research on conflict shows that violence against women at home rises before and after war and predicts instability. Fifty thousand women and girls killed by partners and relatives in a year is a death toll on the scale of an armed conflict, every year, in every region. The clocks on this site are that toll made visible.</div></details>
+        <details class="case"><summary>International human rights law already imposes a duty to prevent, investigate and punish<span class="tag">Human rights</span></summary><div class="body">CEDAW General Recommendation 35 (2017) states that gender-based violence against women is a human rights violation and that states are responsible for failing to act with due diligence. The Inter-American Court's judgment in González and others, the Cotton Field case against Mexico (2009), found a state liable for femicides it failed to investigate, and ordered it to build a femicide database. The European Court's Opuz v Turkey (2009) found a state in breach for not protecting a woman from a partner who later killed her mother. The Belém do Pará Convention (1994) and the Istanbul Convention (2011) make prevention and data collection treaty duties. The United States has ratified none of these. New York's missing femicide definition is a due-diligence gap in the terms these courts use.</div></details>
+        <details class="case"><summary>The Council has already put trafficking on its agenda<span class="tag">International law</span></summary><div class="body">Resolutions 2331 (2016) and 2388 (2017) treat trafficking in persons as a threat to peace and security, and the Palermo Protocol (2000) defines sexual exploitation as an end of trafficking. A woman killed in the sex trade sits at the intersection of the Council's trafficking agenda and the human rights law on femicide. This platform's purpose is to put a count under that intersection for the first time.</div></details>
+        <details class="case"><summary>Counting is a security function the Council already performs<span class="tag">Data</span></summary><div class="body">The Council requires the Secretary-General to report annually on conflict-related sexual violence, with named parties. Nothing equivalent exists for femicide, and UNODC reports that fewer countries are submitting femicide data each year. The 2013 and 2015 General Assembly resolutions asked states to collect it; most do not. A reporting mandate is the cheapest intervention on the table, and the gap section of this site shows what happens without one: the deaths are filed under other names.</div></details>
+      </div>
+      <p style="margin-top:14px">What the platform shows, in that order: the scale (the clocks and the ten figures), the duty (the law above), the intersection (the uncounted sex-trade line in the ledger), and the cost of not counting (the gap and the economics).</p>
+    </div>
+    <p class="src">Sources listed on the <a href="sources.html">sources page</a>. The backlog holds a planned text-mining pass over General Assembly, Security Council and CSW documents to count how often femicide and violence against women appear by year.</p>
+  </div>
+</section>
+
+<section class="block" id="politics">
+  <div class="wrap">
+    <div class="lede">
+      <h2>The backlash in politics, year by year</h2>
+      <p>The same decade seen from inside American and New York politics. Red marks the moments that moved against women's rights or cut the systems that count and protect. Entries marked to verify are from secondary reporting.</p>
+    </div>
+    <div class="tlwrap"><div class="tl">
+      <div><div class="y">October 2017</div><h4>#MeToo</h4><p>Sexual violence becomes a mass political subject. Reporting rises in the years after, which the hypotheses page treats as a measurement problem as much as a change in violence.</p></div>
+      <div><div class="y">2018</div><h4>New York creates the crime of sex trafficking of a child</h4><p>S5988A removes the need to prove force, fraud or coercion when the victim is under 18. Delaware and New Jersey become the first states to ban child marriage.</p></div>
+      <div><div class="y">2019</div><h4>New York Child Victims Act</h4><p>Opens a look-back window for civil claims by survivors of childhood sexual abuse.</p></div>
+      <div class="back"><div class="y">2020</div><h4>The pandemic</h4><p>Lockdowns trap women with abusers. New York City's domestic violence homicides rise from 62 in 2021 to 71 in 2022 and 73 in 2023, and have not returned to the earlier level.</p></div>
+      <div><div class="y">2021</div><h4>New York bans marriage under 18, no exceptions</h4><p>Rhode Island follows the same year.</p></div>
+      <div><div class="y">2021</div><h4>Sex Trade Survivors Justice and Equality Act introduced</h4><p>The Equality Model bill for New York, developed with survivors. Decriminalises people in prostitution, holds buyers and exploiters accountable. Not yet passed.</p></div>
+      <div class="back"><div class="y">June 2022</div><h4>Dobbs</h4><p>The Supreme Court ends the federal right to abortion. Reproductive coercion is one of the keywords Women Count USA codes in femicide cases.</p></div>
+      <div><div class="y">June 2023</div><h4>Maine becomes the first Equality Model state</h4><p>The precedent New York's bill points to.</p></div>
+      <div><div class="y">2024</div><h4>UN Special Rapporteur report on prostitution</h4><p>Reem Alsalem frames the system of prostitution as exploitation and a human rights abuse, the position CATW's New York bill rests on.</p></div>
+      <div><div class="y">November 2022</div><h4>New York Adult Survivors Act</h4><p>A one-year window for adult survivors of sexual offences to sue regardless of the statute of limitations. The window closed in November 2023.</p></div>
+      <div class="back"><div class="y">2024</div><h4>One in four governments report a backlash</h4><p>UN Women's Beijing+30 review. In the United States, the election returns an administration that campaigns against "gender ideology".</p></div>
+      <div class="back"><div class="y">January to March 2025</div><h4>Executive orders and aid cuts</h4><p>Executive orders restrict federal recognition of gender; the United States withdraws from the World Health Organization and dismantles most foreign assistance, including programmes against gender-based violence. To verify against the specific orders and the programme list.</p></div>
+      <div><div class="y">March 2025</div><h4>Beijing+30 declaration</h4><p>Adopted at CSW69 after difficult negotiations; see the diplomacy timeline above.</p></div>
+      <div><div class="y">2025</div><h4>New York: child sex buyer felony; S8723 clears committee</h4><p>Buying sex from 15 to 17 year olds becomes a felony. Senator Myrie's bill to extend the no-force standard to mentally disabled adults passes committee unanimously but lacks an Assembly companion. To verify current status.</p></div>
+      <div><div class="y">2025 to 2026</div><h4>More states ban child marriage</h4><p>Washington DC, Maine, Oregon and Missouri in 2025, Oklahoma in 2026. Thirty-three states still permit it with conditions.</p></div>
+      <div><div class="y">November 2025</div><h4>Femicides in 2024</h4><p>UNODC and UN Women publish the first global estimate. One woman or girl every ten minutes.</p></div>
+      <div><div class="y">20 November 2026</div><h4>Ethical Tech Summit</h4><p>This prototype is shown. The ask: a femicide definition in New York law that counts women killed in the sex trade.</p></div>
+    </div>
+    <div class="tlnav"><div class="tlyears"></div><div><button class="prev" aria-label="Earlier">‹</button><button class="next" aria-label="Later">›</button></div></div></div>
+    <p class="src">Legislative items from the New York State Senate and the sources page. The plan to measure the backlash rather than narrate it, by counting gender and violence-against-women bills and speeches by year, is on the backlog.</p>
+  </div>
+</section>
+
+<section class="block" id="catw-timeline">
+  <div class="wrap">
+    <div class="lede">
+      <h2>CATW and the Equality Model, 1988 to 2026</h2>
+      <p>Our partner's own record, from its founding to the law New York is being asked to pass. Red marks the New York entries.</p>
+    </div>
+    <div class="tlwrap"><div class="tl">
+      <div><div class="y">1988</div><h4>CATW is founded</h4><p>The First USA Conference on International Trafficking in Women launches the Coalition Against Trafficking in Women.</p></div>
+      <div><div class="y">1995</div><h4>Beijing: Violence Against Women Caucus</h4><p>CATW chairs the caucus at the Fourth World Conference on Women.</p></div>
+      <div><div class="y">1999</div><h4>Sweden bans the purchase of sex</h4><p>The first law to decriminalise prostituted women while holding buyers accountable. CATW supported the Swedish partners.</p></div>
+      <div><div class="y">2000</div><h4>UN Trafficking in Persons Protocol</h4><p>The Palermo Protocol adopts a comprehensive definition of trafficking, after advocacy by the network CATW organised.</p></div>
+      <div><div class="y">2001</div><h4>First US sex trafficking report</h4><p>Interviews with 40 women trafficked and prostituted in the United States.</p></div>
+      <div class="back"><div class="y">2007</div><h4>New York State Human Trafficking Act</h4><p>Passes after a joint campaign.</p></div>
+      <div><div class="y">2008 to 2009</div><h4>Iceland and Norway adopt the model</h4><p>The Swedish model becomes the Nordic Model.</p></div>
+      <div><div class="y">2010</div><h4>Craigslist closes Adult Services</h4><p>After CATW's Global Campaign for a Sex Trafficking Free Internet.</p></div>
+      <div class="back"><div class="y">2015</div><h4>Federal and New York victims' laws</h4><p>The Justice for Victims of Trafficking Act and New York's Trafficking Victims Protection and Justice Act are signed.</p></div>
+      <div><div class="y">2016</div><h4>France: the strongest law of its kind</h4><p>The French Act Against Prostitution, after proceedings CATW Europe began in the early 2000s.</p></div>
+      <div><div class="y">2017</div><h4>Ireland: the model becomes the Equality Model</h4><p>Criminal Law (Sexual Offences) Act 2015 enters force.</p></div>
+      <div><div class="y">2018</div><h4>FOSTA-SESTA</h4><p>Websites knowingly facilitating sex trafficking can be held accountable.</p></div>
+      <div class="back"><div class="y">2019</div><h4>New Yorkers for the Equality Model</h4><p>A survivor-led alliance of more than 30 advocates and organisations, CATW among them, begins work to bring the Equality Model to New York State.</p></div>
+      <div class="back"><div class="y">2021</div><h4>Sex Trade Survivors Justice and Equality Act</h4><p>Developed with survivors and advocates, introduced to the New York State Legislature. Still not passed.</p></div>
+      <div><div class="y">2023</div><h4>Maine passes Equality Model legislation</h4><p>The first US state to adopt the framework, in June 2023.</p></div>
+      <div><div class="y">2024</div><h4>UN Special Rapporteur's report on prostitution</h4><p>Reem Alsalem calls on governments to understand the system of prostitution as exploitation and a human rights abuse. The Special Rapporteur Carolina and Yorke met at Apne Aap in October 2026.</p></div>
+      <div><div class="y">2026</div><h4>France marks ten years</h4><p>Survivors and advocates gather in Paris for a decade of the abolitionist law.</p></div>
+    </div>
+    <div class="tlnav"><div class="tlyears"></div><div><button class="prev" aria-label="Earlier">‹</button><button class="next" aria-label="Later">›</button></div></div></div>
+    <p class="src">Source: CATW, <a href="https://www.catwinternational.org/about/">Legacy of Impact</a>, about page, read 22 October 2026. Selected entries; the full timeline has 36.</p>
+  </div>
+</section>
+
+<section class="block" id="economics">
+  <div class="wrap">
+    <div class="lede">
+      <h2>If lives do not move them, money might</h2>
+      <p>A woman killed at thirty in New York loses fifty-one years of life and thirty-five years of work. Move the slider. The figures use the state's median earnings for women working full time and United States life expectancy for women, without discounting or wage growth, so they are conservative.</p>
+    </div>
+    <div class="calc">
+      <div class="panel">
+        <label for="age">Her age at death: <strong id="ageV">30</strong></label>
+        <input type="range" id="age" min="0" max="80" value="30">
+        <div class="out">
+          <div><div class="n num" id="yrs">51.1</div><div class="k">years of life lost, against a life expectancy of 81.1</div></div>
+          <div><div class="n num" id="wyrs">35</div><div class="k">working years lost, to age 65</div></div>
+        </div>
+        <p class="src">Earnings: $62,111 median for New York women working full time, year round (American Community Survey 2023, via the NYS Comptroller). Life expectancy: 81.1 years for US women in 2023 (CDC NCHS).</p>
+      </div>
+      <div class="panel dark">
+        <label for="cohort">A ledger of lost life and lost earnings for</label>
+        <select id="cohort" style="width:100%;padding:10px;border-radius:10px;border:1px solid color-mix(in srgb,var(--bg) 30%,transparent);background:transparent;color:inherit;font:inherit;margin-bottom:12px">
+          <option value="66">New York City, 66 domestic violence homicide victims, 2024</option>
+          <option value="33">New York City, 33 intimate partner homicide victims, 2024</option>
+          <option value="32">Rest of New York State, 32 women killed by partners, 2024</option>
+          <option value="2400">United States, 2,400+ women killed by men, 2023</option>
+          <option value="725">Kenya, 725 femicides, 2024</option>
+          <option value="50000">World, 50,000 killed by partner or family, 2024</option>
+          <option value="custom">A number you counted in the Women Count USA table</option>
+        </select>
+        <input type="number" id="cohortN" min="1" value="66" style="display:none;width:100%;padding:10px;border-radius:10px;border:1px solid color-mix(in srgb,var(--bg) 30%,transparent);background:transparent;color:inherit;font:inherit;margin-bottom:12px" aria-label="Number of women">
+        <div class="big num" id="earnC">$0</div>
+        <div class="k" style="margin-top:6px">lifetime earnings they will not make, at New York's median for women, if each died at the age on the slider</div>
+        <div class="out">
+          <div><div class="n num" id="lifeC">0</div><div class="k">years of life lost across the group</div></div>
+          <div><div class="n num" id="earn1">$0</div><div class="k">per woman</div></div>
+        </div>
+        <div class="k" style="margin-top:14px;font-size:13px">To use the database: open the <a href="patterns.html" style="color:inherit">patterns page</a>, filter a year's table by state, relationship or keyword, read the record count at the bottom of the table, and type it here. The count stays on Dawn Wilcox's side; only the arithmetic happens here.</div>
+      </div>
+    </div>
+    <div class="costs">
+      <div><div class="n num">$3.6 trillion</div><div class="k">lifetime economic burden of intimate partner violence across the US population, in 2014 dollars. Medical costs, lost productivity, criminal justice, other.</div></div>
+      <div><div class="n num">$122,461</div><div class="k">estimated lifetime cost per rape victim, including medical care, lost work, criminal justice and property loss (CDC, 2017).</div></div>
+      <div><div class="n num">~2% of GDP</div><div class="k">what violence against women costs the world each year by the UN's own estimate. New York's share is on the backlog; so is the French report on the cost of prostitution to society.</div></div>
+    </div>
+    <p class="src">Peterson et al., <a href="https://www.ajpmonline.org/article/S0749-3797(18)31904-4/fulltext">Lifetime Economic Burden of Intimate Partner Violence Among U.S. Adults</a>, American Journal of Preventive Medicine, 2018. Peterson et al., <a href="https://www.ajpmonline.org/article/S0749-3797(16)30615-8/fulltext">Lifetime Economic Burden of Rape Among U.S. Adults</a>, 2017. Hospital and medication costs after rape in New York specifically are on the backlog.</p>
+    <div class="lede" style="margin-top:3.5rem"><h2>What other countries have put a number on</h2><p>Where governments and development banks have costed violence against women, the figures land between a third of a percent and a tenth of GDP, depending on what is counted. None of these studies is directly comparable with another, and each says its estimate is conservative.</p></div>
+    <div class="costs">
+      <div><div class="n num">0.31% of GDP</div><div class="k">cost of killings of women in Latin America, more than double the global average of 0.12%. Inter-American Development Bank, October 2026.</div></div>
+      <div><div class="n num">5.12% / 4.3%</div><div class="k">of GDP: cost of violence against women in Paraguay and Ecuador, combined-methodology estimates cited by the IDB.</div></div>
+      <div><div class="n num">€4,933 million</div><div class="k">Spain, 0.37% of GDP: health, labour-productive and legal-police costs borne by women, families, the state, business and civil society.</div></div>
+      <div><div class="n num">0.8% to 2.1%</div><div class="k">of GDP in Argentina, bottom-up accounting of domestic violence in the last 12 months only. Excludes femicide, under-18s, over-65s and violence outside the home.</div></div>
+      <div><div class="n num">Sh41 billion</div><div class="k">lost by Kenya every year to gender-based violence including femicide, with GDP losses put at 7.8% to 10%. Kenya's 2025 presidential taskforce, from Kenyatta University's Women's Economic Empowerment Hub.</div></div>
+      <div><div class="n num">725</div><div class="k">femicides recorded in Kenya in 2024, 2.66 per 100,000 women, about 47 a week, three quarters by someone the victim knew. Cited from UNODC by the Daily Nation.</div></div>
+      <div><div class="n num">1.2% to 3.7%</div><div class="k">of GDP lost to violence against women in developing countries, the global range cited by the Kenyan taskforce. South Africa's own estimate is 0.9% to 1.3%.</div></div>
+      <div><div class="n num">Sh109,551</div><div class="k">average cost of care per survivor and family in Nakuru County, Kenya: medical bills, property damage, lost income, missed work and school days. The kind of per-case figure New York does not yet publish.</div></div>
+      <div><div class="n num">1.1% of GDP</div><div class="k">Kenya's earlier 2016 estimate: Sh46 billion a year, of which Sh10 billion out-of-pocket medical costs and Sh33 billion lost productivity. National Gender and Equality Commission.</div></div>
+    </div>
+    <p class="src">Saldarriaga Jimenez and Kantor, <a href="https://www.iadb.org/en/blog/gender-and-diversity/what-economic-cost-violence-against-women">What is the Economic Cost of Violence Against Women?</a>, IDB, 7 October 2026. Maichuhie, <a href="https://nation.africa/kenya/news/gender/economic-toll-of-gbv-kenya-loses-sh41-billion-annually-taskforce-finds-5085996">Economic toll of GBV: Kenya loses Sh41 billion annually, taskforce finds</a>, Daily Nation, 19 June 2025. The IDB blog notes that most studies exclude femicide itself, intangible costs and long-term effects on children, so every figure here is a floor.</p>
+  </div>
+</section>
+
+<section class="block" id="representation">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Who is in the room when the law is written</h2>
+      <p>Representation is the other half of the backlash question. The parliament figure is verified against the Inter-Parliamentary Union's 2025 report; the other two are still to be checked against their primary lists.</p>
+    </div>
+    <div class="rep">
+      <div><div class="n num">27.5%</div><div class="k">of national parliamentary seats held by women on 1 January 2026, up from 27.2% a year earlier. Women Speakers fell to 19.9%. Three countries have no women in their lower chamber. IPU, Women in parliament 2025.</div></div>
+      <div><div class="n num">~28%</div><div class="k">of the United States Congress, Center for American Women and Politics, 2025. To verify.</div></div>
+      <div><div class="n num">~1 in 10</div><div class="k">Fortune 500 chief executives are women, 2025. To verify against the Fortune list.</div></div>
+    </div>
+    <div class="lede" style="margin-top:3.5rem"><h2>Does it change the outcome?</h2><p>The strongest evidence that women in office change what government does comes from a natural experiment, not a correlation.</p></div>
+    <div class="costs">
+      <div><div class="n num">265 villages</div><div class="k">India randomly reserves one third of village council leaderships for women. Where a woman led, councils invested more in the public goods women asked for, such as drinking water. Chattopadhyay and Duflo, Econometrica, 2004. Randomised, so the "richer places elect women" objection does not apply.</div></div>
+      <div><div class="n num">Open</div><div class="k">Whether women heads of government or CEOs produce better profits, health or quality of life at national scale is contested. Observational studies cannot separate the effect of the leader from the effect of being the kind of country or firm that chooses her. The backlog lists the studies to review with their confidence intervals.</div></div>
+      <div><div class="n num">Not here</div><div class="k">This site shows no causal claim about leadership. It shows who is in the room, and lets the reader hold that against what the room has decided.</div></div>
+    </div>
+    <p class="src">IPU, <a href="https://www.ipu.org/news/press-releases/2026-03/womens-representation-in-parliament-sees-sluggish-gains">Women's representation in parliament sees sluggish gains</a>, March 2026. Chattopadhyay and Duflo, <a href="https://www.econometricsociety.org/publications/econometrica/2004/09/01/women-policy-makers-evidence-randomized-policy-experiment-india">Women as Policy Makers</a>, Econometrica 72(5), 2004.</p>
+  </div>
+</section>
+
+<section class="block" id="trajectory">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Advance, stall, regress: the law on paper</h2>
+      <p>The World Bank has scored every economy's laws on women's economic rights since 1970. The score rose for fifty years, slowed sharply after 2021, and fell by a third when the Bank started measuring whether the laws are actually implemented.</p>
+    </div>
+    <div class="costs">
+      <div><div class="n num">70.1</div><div class="k">global average score out of 100 in 2009. Women, Business and the Law.</div></div>
+      <div><div class="n num">74.7</div><div class="k">in 2019, after a decade of reform.</div></div>
+      <div><div class="n num">77.1</div><div class="k">in 2022, only half a point above 2021: the slowest reform pace since 2001.</div></div>
+      <div><div class="n num">64</div><div class="k">in 2024, under the Bank's new method that also scores enforcement. Same world, stricter ruler. Under 40% of the systems needed to enforce the laws exist.</div></div>
+      <div><div class="n num">1970</div><div class="k">first year in the series. The 1970 value and the V-Dem women's political empowerment series are on the backlog to add as a full chart.</div></div>
+      <div><div class="n num">Peak?</div><div class="k">Whether gender policy peaked in national politics, and when it dropped off the agenda, needs bill and speech counts by year. The Comparative Agendas Project and New York's legislative record are the planned sources.</div></div>
+    </div>
+    <div class="lede" style="margin-top:3.5rem"><h2>Child marriage: still legal in most of the United States</h2><p>Forced marriage is a form of gender-based violence. Marriage under 18 is not treated as forced in most American states, and the global count of countries that permit it with exceptions is still to be verified.</p></div>
+    <div class="costs">
+      <div><div class="n num">2021</div><div class="k">New York set 18 as the minimum age to marry, with no exceptions. Delaware and New Jersey were first, in 2018.</div></div>
+      <div><div class="n num">17 states</div><div class="k">have banned marriage under 18 since 2018, including Washington DC, Maine, Oregon and Missouri in 2025 and Oklahoma in 2026. The 19th News. Sources disagree on the exact count: 16, 17 or 18.</div></div>
+      <div><div class="n num">33 states</div><div class="k">still allow marriage under 18 with parental consent, court approval or other conditions. Stateline, 2026.</div></div>
+      <div><div class="n num">12 million</div><div class="k">girls married before 18 each year worldwide, one every 2.6 seconds. UNICEF estimate.</div></div>
+      <div><div class="n num">Since 2021</div><div class="k">Sierra Leone, England, the Philippines and the Dominican Republic have set the marriage age at 18 with no exceptions. NPR, September 2026.</div></div>
+      <div><div class="n num">?</div><div class="k">How many countries still permit marriage under 18 with exceptions. A widely quoted Pew count of 117 could not be verified in this session and is on the backlog.</div></div>
+    </div>
+    <p class="src">World Bank, <a href="https://wbl.worldbank.org/content/dam/sites/wbl/documents/2023/Executive%20Summary.pdf">Women, Business and the Law 2023 executive summary</a> and <a href="https://wbl.worldbank.org/">2024 report</a>. The 19th, <a href="https://19thnews.org/2023/07/explaining-child-marriage-laws-united-states/">Child marriage is still prevalent across the U.S.</a>. UNICEF USA, <a href="https://www.unicefusa.org/how-help/advocate/how-we-work/child-protection-inclusion/end-child-marriage">Help end child marriage</a>. NPR, <a href="https://www.npr.org/2026/09/04/g-s1-141468/child-marriage-united-states-india-global">Will Congress pass a law to make child marriage illegal?</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logos">
+        <img class="etc" src="assets/etc-logo.jpg" alt="Ethical Tech CoLab">
+        <img class="catw-light" src="assets/catw-logo.png" alt="Coalition Against Trafficking in Women">
+        <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
+      </div>
+      <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Prototype, October 2026.</p>
+    </div>
+    <div>
+      <h4>On this site</h4>
+      <ol>
+        <li><a href="index.html">Home: New York counts</a></li>
+        <li><a href="patterns.html">Patterns: the Women Count USA databases</a></li>
+        <li><a href="methodology.html">Methodology and limitations</a></li>
+        <li><a href="sources.html">All sources</a></li>
+      </ol>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script>
+// timelines: arrows, year jump, keyboard
+document.querySelectorAll('.tlwrap').forEach(w=>{
+  const tl=w.querySelector('.tl'), cards=[...tl.children], years=w.querySelector('.tlyears');
+  const step=()=>cards[0].getBoundingClientRect().width+16;
+  w.querySelector('.prev').addEventListener('click',()=>tl.scrollBy({left:-step()*2}));
+  w.querySelector('.next').addEventListener('click',()=>tl.scrollBy({left:step()*2}));
+  cards.forEach((c,i)=>{const y=(c.querySelector('.y')||{}).textContent||'';const m=y.match(/\d{4}/);if(!m)return;const b=document.createElement('button');b.textContent=m[0];b.addEventListener('click',()=>tl.scrollTo({left:c.offsetLeft-tl.offsetLeft}));years.appendChild(b)});
+  tl.tabIndex=0; tl.addEventListener('keydown',e=>{if(e.key==='ArrowRight')tl.scrollBy({left:step()});if(e.key==='ArrowLeft')tl.scrollBy({left:-step()})});
+  const sync=()=>{const x=tl.scrollLeft+10;let idx=0;cards.forEach((c,i)=>{if(c.offsetLeft-tl.offsetLeft<=x)idx=i});[...years.children].forEach((b,i)=>b.classList.toggle('on',i===idx))};
+  tl.addEventListener('scroll',sync,{passive:true}); sync();
+});
+// calculator
+(function(){
+  const LE=81.1, EARN=62111, RET=65, N=66;
+  const age=document.getElementById('age');
+  const money=n=>'$'+Math.round(n).toLocaleString('en-US');
+  const cohort=document.getElementById('cohort'), cohortN=document.getElementById('cohortN');
+  function count(){return cohort.value==='custom'?Math.max(1,+cohortN.value||1):+cohort.value}
+  function upd(){const a=+age.value;document.getElementById('ageV').textContent=a;
+    const life=Math.max(0,LE-a); document.getElementById('yrs').textContent=life.toFixed(1);
+    const w=Math.max(0,RET-Math.max(a,18)); document.getElementById('wyrs').textContent=w;
+    const n=count(); document.getElementById('earnC').textContent=money(w*EARN*n);
+    document.getElementById('lifeC').textContent=Math.round(life*n).toLocaleString('en-US');
+    document.getElementById('earn1').textContent=money(w*EARN);}
+  const qn=+(new URLSearchParams(location.search).get('n')||0); if(qn>0){cohort.value='custom';cohortN.value=qn;cohortN.style.display='block'}
+  cohort.addEventListener('change',()=>{cohortN.style.display=cohort.value==='custom'?'block':'none';upd()});
+  cohortN.addEventListener('input',upd);
+  age.addEventListener('input',upd); upd();
+})();
+</script>
+</body>
+</html>

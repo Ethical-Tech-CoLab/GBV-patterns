@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Counting Femicide</title>
+<meta name="description" content="Patterns of femicide and gender-based violence worldwide, with New York as the first case for naming femicide in law. Ethical Tech CoLab × Coalition Against Trafficking in Women.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="brand" href="#top"><img src="assets/etc-logo.jpg" alt="Ethical Tech CoLab"><span>GBV Patterns</span></a>
+  <nav aria-label="Primary">
+    <a class="sec" href="#clocks">Clocks</a>
+    <a class="sec" href="#gap">The gap</a>
+    <a class="sec" href="#figures">Ten women</a>
+    <a href="new-york.html">New York</a>
+    <a href="patterns.html">Patterns</a>
+    <a href="context.html">Context</a>
+    <a href="methodology.html">Methodology</a>
+    <a href="sources.html">Sources</a>
+    <a href="progress.html">Progress</a>
+  </nav>
+  <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
+</header>
+
+<section class="hero" id="top">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="inner">
+    <h1 class="reveal">What gets counted, and who doesn't</h1>
+    <p class="reveal">Patterns of femicide and gender-based violence across the world, and the case for New York to become the first US state to name femicide in law.</p>
+    <div class="ctas reveal">
+      <a class="btn primary" href="#pulse">Explore the numbers</a>
+      <a class="btn ghost" href="#gap">Start with the gap</a>
+    </div>
+    <div class="partners reveal">
+      <img class="etc" src="assets/etc-logo.jpg" alt="Ethical Tech CoLab">
+      <span class="x">×</span>
+      <img class="catw-light" src="assets/catw-logo.png" alt="Coalition Against Trafficking in Women">
+      <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
+    </div>
+  </div>
+</section>
+
+<section class="block" id="warning" style="padding:2rem 24px 0;border-top:0">
+  <div class="wrap">
+    <div class="warn">This site documents violence against women and girls, including killing. Support in New York: the 24-hour HOPE hotline, 1-800-621-4673. National Domestic Violence Hotline, 1-800-799-7233.</div>
+  </div>
+</section>
+
+<section class="block" id="pulse">
+  <div class="wrap">
+    <div class="lede">
+      <h2>One woman or girl every ten minutes</h2>
+      <p>In 2024, around 50,000 women and girls were killed by an intimate partner or family member worldwide. That is about 137 a day. The dots below light up at that pace, starting from the moment you opened this page.</p>
+    </div>
+    <div class="pulse">
+      <div>
+        <div class="bignum"><span id="pulseN" class="num">0</span><small id="pulseL">killed by a partner or relative since you opened this page</small></div>
+        <div class="ctrl">
+          <button class="chip" id="pulsePause" aria-pressed="false">Pause</button>
+          <button class="chip" id="pulseDay">Show one day</button>
+          <button class="chip" id="pulseReset">Reset</button>
+        </div>
+      </div>
+      <div class="tally" id="tally" aria-hidden="true"></div>
+    </div>
+    <div class="lede" id="clocks" style="margin-top:3.5rem"><h2>Four clocks</h2><p>Killings, child marriages, money, and sexual assault. Counting from midnight, local time. The third is the one budget committees read.</p></div>
+    <div class="clocks">
+      <div class="clock"><svg class="ring" viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="20"/><circle class="fg" id="r1" cx="23" cy="23" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6"/></svg><div class="n num" id="c1">0</div><div class="k">femicides: women and girls killed by a partner or family member</div><div class="rate">one every 10.5 minutes · 50,000 a year · UNODC and UN Women, 2024 data</div></div>
+      <div class="clock"><svg class="ring" viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="20"/><circle class="fg" id="r2" cx="23" cy="23" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6"/></svg><div class="n num" id="c2">0</div><div class="k">girls married before their eighteenth birthday</div><div class="rate">one every 2.6 seconds · 12 million a year · UNICEF estimate</div></div>
+      <div class="clock"><svg class="ring" viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="20"/><circle class="fg" id="r3" cx="23" cy="23" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6"/></svg><div class="n num" id="c3">$0</div><div class="k">of global output lost to violence against women</div><div class="rate">about $47,500 a second · roughly 2% of world GDP, about $1.5 trillion · UN estimate</div></div>
+      <div class="clock"><svg class="ring" viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="20"/><circle class="fg" id="r4" cx="23" cy="23" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6"/></svg><div class="n num" id="c4">0</div><div class="k">Americans aged 12 and over sexually assaulted</div><div class="rate">one every 68 seconds · RAINN, from the National Crime Victimization Survey</div></div>
+    </div>
+    <p class="src">Rates spread evenly over a year. See the <a href="context.html#economics">economics section</a> for what a single life costs in lost earnings, and the country comparisons.</p>
+    <p class="src">Source: UNODC and UN Women, <a href="https://www.unwomen.org/en/digital-library/publications/2025/11/femicides-in-2024-global-estimates-of-intimate-partner-family-member-femicides">Femicides in 2024: global estimates of intimate partner and family member femicides</a> (November 2025), based on data from 117 countries.</p>
+  </div>
+</section>
+
+<section class="block" id="city">
+  <div class="wrap">
+    <div class="lede">
+      <h2>The case study: New York City, five boroughs, one year</h2>
+      <p>Choose a borough to see what the police recorded there. The red fill shows each borough's share of the city's intimate partner incident reports. Switch years to see what moved.</p>
+    </div>
+    <div class="toggle" role="group" aria-label="Year">
+      <button data-year="2023" aria-pressed="false">2023</button>
+      <button data-year="2024" aria-pressed="true">2024</button>
+    </div>
+    <div class="boro-grid" id="boroGrid"></div>
+    <div class="detail" id="boroDetail"></div>
+    <p class="src">Source: NYC Mayor's Office to End Domestic and Gender-Based Violence, <a href="https://www.nyc.gov/site/ocdv/press-resources/annual-reports-and-fact-sheets.page">2024 Annual Fact Sheet</a>. Domestic incident reports are NYPD responses, not unique people. Family Justice Center visits are civil-side client visits.</p>
+  </div>
+</section>
+
+<section class="block" id="ledger">
+  <div class="wrap">
+    <div class="lede">
+      <h2>The ledger, and the line nobody keeps</h2>
+      <p>The NYPD filed 249,077 domestic incident reports in 2024. Each report is sorted by the relationship between the people involved. Click a segment. Then click the striped one.</p>
+    </div>
+    <div class="ledger">
+      <div class="bar" id="ledgerBar" role="group" aria-label="Domestic incident reports by relationship"></div>
+      <div class="legend">
+        <span><i class="seg-ipv"></i>Intimate partner</span>
+        <span><i class="seg-fam"></i>Family</span>
+        <span><i class="seg-unk"></i>Relationship unknown</span>
+        <span><i class="seg-gap"></i>Killed in the sex trade</span>
+      </div>
+      <div class="ledger-detail" id="ledgerDetail"></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="state">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Across the state</h2>
+      <p>New York's 2024 gender-based violence dashboard pulls from courts, hotlines, shelters and the criminal justice system. Flip a card to read where its number comes from and what it leaves out.</p>
+    </div>
+    <div class="cards" id="cards"></div>
+    <p class="src">Source: NYS Office for the Prevention of Domestic Violence, <a href="https://opdv.ny.gov/2024-new-york-state-gender-based-violence-dashboard">2024 New York State Gender-Based Violence Dashboard</a>. DCJS victim and homicide figures exclude New York City, which had not provided data at publication.</p>
+  </div>
+</section>
+
+<section class="block" id="gap">
+  <div class="wrap">
+    <div class="lede">
+      <h2>The gap this project exists to close</h2>
+      <p>Roughly three dozen countries define femicide in their criminal codes. The United States and New York State do not. No agency counts the women killed in the sex trade. When those deaths are reported at all, the language used often hides what happened.</p>
+    </div>
+    <div class="gapwrap">
+      <div class="gapcard dark">
+        <div class="n">~36</div>
+        <h3>Countries that name femicide in law</h3>
+        <p>Most are in Latin America and Europe. Naming the crime is what makes it countable, and counting is what makes it a policy problem rather than a series of private tragedies.</p>
+      </div>
+      <div class="gapcard">
+        <div class="n gap">?</div>
+        <h3>Women killed in the sex trade in New York: unknown, because uncounted</h3>
+        <p>The number is not zero and it is not small. It is unknown, because no agency records it. The only systematic record in the country is a volunteer database, Women Count USA, built from news reports, social media and obituaries. This project exists to replace the question mark with a count.</p>
+      </div>
+    </div>
+    <div class="gapwrap" style="margin-top:12px">
+      <div class="gapcard">
+        <h3>The demand is documented, even if the deaths are not</h3>
+        <p>Jeffrey Epstein was indicted in federal court in Manhattan in July 2019 for sex trafficking of minors; Ghislaine Maxwell was convicted in December 2021. The files released since name the buyers' side of the trade at its wealthiest. In East New York, police estimate as many as 350 pimps work the Penn Track and tie nearly half of its shootings to the sex trade. New York made buying sex from a 15 to 17 year old a felony because the buying was happening. What the state has never done is count the women who did not survive it.</p>
+      </div>
+      <div class="gapcard">
+        <h3>What we can say, and what we cannot</h3>
+        <p>We can say that women are killed by buyers, pimps and traffickers in New York: the cases on the New York page are in federal court records. We can say the city's incident reports have no box for them, and that 40,142 reports in 2024 carried no relationship at all. We cannot say how many, and neither can the state. That is the gap, and it is the state's to close.</p>
+      </div>
+    </div>
+    <p class="src">Epstein and Maxwell: US Attorney's Office, Southern District of New York. Penn Track estimates: NYPD via Hoodline, secondary. The Epstein files release legislation and its status are on the backlog to verify.</p>
+    <div class="gapcard" style="margin-top:12px">
+      <h3>How a femicide disappears from the record</h3>
+      <p>Each step below is a place where a death can be reclassified, softened or dropped. Open one to see what the record says and what it could say instead.</p>
+      <div class="cases">
+        <details class="case"><summary>The relationship is marked unknown<span class="tag">40,142 reports in 2024</span></summary><div class="body">One in six NYC domestic incident reports in 2024 had no recorded relationship between the parties. A buyer, a pimp or a trafficker is not a partner or a relative, so these cases fall outside both categories the city tracks.</div></details>
+        <details class="case"><summary>The headline says "sex worker", not "woman"<span class="tag">Media framing</span></summary><div class="body">Describing a victim by the circumstances of her exploitation shifts the reader's attention from the person who killed her to the life she was living. CATW's review of coverage looks for this pattern case by case.</div></details>
+        <details class="case"><summary>The death is filed as an overdose or an accident<span class="tag">Cause of death</span></summary><div class="body">Deaths in the sex trade often involve drugs, exposure or injury. When a medical examiner records only the proximate cause, the coercion behind it is never entered anywhere.</div></details>
+        <details class="case"><summary>The perpetrator's relationship is never recorded<span class="tag">Data model</span></summary><div class="body">Age, race and relationship to the victim are what make patterns visible across cases. CATW's priority for this project is to capture those fields for perpetrators, not names.</div></details>
+      </div>
+    </div>
+    <p class="src">The count of countries recognising femicide is an approximate figure from CATW's project brief. Women Count USA is maintained by Dawn Wilcox at <a href="https://womencountusa.org/">womencountusa.org</a>.</p>
+  </div>
+</section>
+
+<section class="block" id="figures">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Of every ten women</h2>
+      <p>Pick a statistic. The figures fill to match it. The same ten figures are used every time so the eye can compare one measure with the next.</p>
+    </div>
+    <div class="figs">
+      <div>
+        <div class="figrow" id="figrow" aria-hidden="true"></div>
+        <div class="figchips" id="figchips"></div>
+      </div>
+      <div class="figstat"><span id="figN">3</span><small id="figL"></small></div>
+    </div>
+    <p class="src" id="figSrc"></p>
+  </div>
+</section>
+
+<section class="block" id="catw">
+  <div class="wrap">
+    <div class="lede">
+      <h2>The work this builds on</h2>
+      <p>The Coalition Against Trafficking in Women has worked since 1988 to end the trafficking and sexual exploitation of women and girls. Its position is that prostitution and sex trafficking are gender-based violence, and that the law should target the demand, not the women. This site is the data arm of that argument for New York.</p>
+    </div>
+    <div class="why">
+      <div><h3>Advocating for strong laws</h3><p>Laws that provide access to justice, target demand and ensure women and girls are free from the violence of the sex trade. CATW calls this the Equality Model. <a href="https://catwinternational.org/home/advocating-for-strong-laws/">Read more</a></p></div>
+      <div><h3>Raising public awareness</h3><p>Presenting trafficking and sexual exploitation as sex-based and gender-based violence, and mobilising the public to press policymakers. <a href="https://catwinternational.org/raising-public-awareness/">Read more</a></p></div>
+      <div><h3>Supporting survivor leadership</h3><p>Partnering with survivors on prevention and protection policy, so the people with the most knowledge lead. <a href="https://catwinternational.org/our-work/supporting-survivor-leadership/">Read more</a></p></div>
+    </div>
+    <div class="gapcard" style="margin-top:2rem">
+      <h3>What CATW is asking New York to do</h3>
+      <div class="cases">
+        <details class="case"><summary>Name femicide in state law, and include women killed in the sex trade<span class="tag">This project</span></summary><div class="body">About three dozen countries define femicide in their criminal codes. No US state does. CATW's brief proposes that New York codify sex trafficking and prostitution as forms of femicide, so the deaths are counted and the pattern becomes a policy problem.</div></details>
+        <details class="case"><summary>Close the gap survivors call the Epstein loophole<span class="tag">Civil justice</span></summary><div class="body">Epstein survivors have told New York legislators that his estate argues the statute of limitations makes their claims worth nothing, and that current law bars punitive damages against a deceased abuser's estate. CATW works with survivors pressing to close this.</div></details>
+        <details class="case"><summary>Pass the Sex Trade Survivors Justice and Equality Act<span class="tag">Introduced 2021</span></summary><div class="body">The Equality Model bill for New York, developed with survivors and introduced in 2021: decriminalise the people sold, hold buyers and exploiters accountable, fund exit services. Maine passed the first state version in June 2023. New Yorkers for the Equality Model, with CATW, has carried it since 2019.</div></details>
+        <details class="case"><summary>Finish what the 2018 law started<span class="tag">S5988A, S8723</span></summary><div class="body">In 2018 New York created the crime of sex trafficking of a child, removing the need to prove force, fraud or coercion for anyone under 18. Senator Myrie's S8723 would extend that to adults who are mentally disabled or incapacitated. The force, fraud or coercion test still applies to every other adult.</div></details>
+        <details class="case"><summary>Make buying sex from a minor a felony everywhere<span class="tag">Passed</span></summary><div class="body">New York's Victims Protection and Child Sex Buyer Accountability Act made buying sex from 15 to 17 year olds a felony rather than a misdemeanour, closing a gap with federal law and other states.</div></details>
+        <details class="case"><summary>Count the cost, the way France did<span class="tag">Economics</span></summary><div class="body">CATW points to a French report on the cost of prostitution to society that persuaded lawmakers there. The economics page on this site starts that accounting for New York.</div></details>
+      </div>
+    </div>
+    <p class="src">CATW, <a href="https://www.catwinternational.org/">catwinternational.org</a>; <a href="https://catwinternational.org/read-our-2023-2024-impact-report/">2023 to 2024 Impact Report</a>; <a href="https://catwinternational.org/failed-promises-the-history-of-legal-prostitution-and-sex-trafficking-the-kingdom-of-the-netherlands/">Failed Promises</a>, on legal prostitution in the Netherlands. Need help now: <a href="https://catwinternational.org/get-help/">CATW's global resource list</a>. Legislative details on the <a href="sources.html">sources page</a>.</p>
+  </div>
+</section>
+
+<section class="block" id="why">
+  <div class="wrap">
+    <div class="lede">
+      <h2>Why a page, not a PDF</h2>
+      <p>Technology can reach new audiences. For New York policymakers it can reach the same audience in a different way: a number they can press, a borough they can pick, a gap they can see.</p>
+    </div>
+    <div class="why">
+      <div><h3>Open data, updated</h3><p>Every figure here traces to a public source. The database and framework behind it will be open source and refreshed as new reports land.</p></div>
+      <div><h3>Patterns, not profiles</h3><p>The project works from aggregated demographics and relationship data. No victim is identified. No individual is tracked.</p></div>
+      <div><h3>Built for the hearing room</h3><p>First shown at the Ethical Tech Summit on 20 November 2026, then refined with CATW toward the case for naming femicide in New York law.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logos">
+        <img class="etc" src="assets/etc-logo.jpg" alt="Ethical Tech CoLab">
+        <img class="catw-light" src="assets/catw-logo.png" alt="Coalition Against Trafficking in Women">
+        <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
+      </div>
+      <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Prototype, October 2026.</p>
+    </div>
+    <div>
+      <h4>Sources</h4>
+      <ol>
+        <li>UNODC and UN Women. Femicides in 2024: global estimates of intimate partner and family member femicides. November 2025.</li>
+        <li>NYC Mayor's Office to End Domestic and Gender-Based Violence. 2024 Annual Fact Sheet. October 2025.</li>
+        <li>NYS Office for the Prevention of Domestic Violence. 2024 New York State Gender-Based Violence Dashboard. November 2025.</li>
+        <li>Women Count USA, Dawn Wilcox. Ongoing.</li>
+      </ol>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script>
+// ---------- data (all figures from the sources listed in the footer) ----------
+const BOROS = [
+  {k:'Bronx',         ipvH:{2023:5, 2024:5},  famH:{2023:13,2024:12}, ipvD:{2023:31286,2024:30440}, famD:{2023:25209,2024:25994}, fjc:{2023:11033,2024:10844}},
+  {k:'Brooklyn',      ipvH:{2023:14,2024:11}, famH:{2023:15,2024:10}, ipvD:{2023:33708,2024:33324}, famD:{2023:26424,2024:26441}, fjc:{2023:10492,2024:12860}},
+  {k:'Manhattan',     ipvH:{2023:3, 2024:8},  famH:{2023:3, 2024:3},  ipvD:{2023:17928,2024:18064}, famD:{2023:13024,2024:13705}, fjc:{2023:8931, 2024:11003}},
+  {k:'Queens',        ipvH:{2023:5, 2024:8},  famH:{2023:11,2024:6},  ipvD:{2023:27579,2024:27981}, famD:{2023:19687,2024:21257}, fjc:{2023:11906,2024:13421}},
+  {k:'Staten Island', ipvH:{2023:3, 2024:1},  famH:{2023:1, 2024:2},  ipvD:{2023:6377, 2024:6242},  famD:{2023:4879, 2024:5487},  fjc:{2023:6801, 2024:9528}},
+];
+const CITY = {dir:249077, ipv:116051, fam:92884, unk:40142};
+const fmt = n => n.toLocaleString('en-US');
+const root=document.documentElement;
+
+// ---------- hero reveal ----------
+requestAnimationFrame(()=>document.querySelectorAll('.reveal').forEach((el,i)=>setTimeout(()=>el.classList.add('in'),120+i*160)));
+
+// ---------- hero globe: a sphere of points, one per counted case; the pointer turns it ----------
+(function(){
+  const c=document.getElementById('field'), ctx=c.getContext('2d');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W,H,R,pts=[],links=[],rotY=0,rotX=-.35,tx=0,ty=0,t0=performance.now();
+  const css=v=>getComputedStyle(root).getPropertyValue(v).trim();
+  const N=1100;
+  function build(){
+    pts=[];const g=Math.PI*(3-Math.sqrt(5));
+    for(let i=0;i<N;i++){const y=1-(i/(N-1))*2,r=Math.sqrt(1-y*y),th=g*i;pts.push({x:Math.cos(th)*r,y,z:Math.sin(th)*r,lit:i%41===0,ph:Math.random()*6.28});}
+    links=[];for(let i=0;i<N;i+=3){let best=-1,bd=9;for(let j=0;j<N;j++){if(j===i)continue;const p=pts[i],q=pts[j];const d=(p.x-q.x)**2+(p.y-q.y)**2+(p.z-q.z)**2;if(d<bd){bd=d;best=j}}if(best>=0)links.push([i,best]);}
+  }
+  function resize(){const dpr=Math.min(devicePixelRatio||1,2);W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);R=Math.min(W,H)*.42;}
+  build();resize();addEventListener('resize',resize);
+  addEventListener('pointermove',e=>{tx=(e.clientX/innerWidth-.5)*1.2;ty=(e.clientY/innerHeight-.5)*.8});
+  function proj(p,ry,rx){const cy=Math.cos(ry),sy=Math.sin(ry),cx=Math.cos(rx),sx=Math.sin(rx);
+    let x=p.x*cy-p.z*sy,z=p.x*sy+p.z*cy,y=p.y*cx-z*sx;z=p.y*sx+z*cx;
+    const f=1/(1.9-z*.9);return {X:W/2+x*R*f,Y:H/2+y*R*f,z,f}}
+  function draw(now){
+    const t=(now-t0)/1000;if(!reduce){rotY+=.0018;}
+    const ry=rotY+tx,rx=rotX+ty;const fg=css('--fg'),ac=css('--accent');
+    ctx.clearRect(0,0,W,H);
+    const P=pts.map(p=>proj(p,ry,rx));
+    ctx.lineWidth=.6;ctx.strokeStyle=fg;
+    for(const [a,b] of links){const A=P[a],B=P[b];if(A.z<-.15&&B.z<-.15)continue;ctx.globalAlpha=.05+.14*Math.max(0,(A.z+B.z)/2+.2);ctx.beginPath();ctx.moveTo(A.X,A.Y);ctx.lineTo(B.X,B.Y);ctx.stroke();}
+    for(let i=0;i<N;i++){const p=pts[i],q=P[i];const depth=(q.z+1)/2;
+      if(p.lit){const pulse=.6+.4*Math.sin(t*2+p.ph);ctx.globalAlpha=(.35+.65*depth)*pulse;ctx.fillStyle=ac;ctx.beginPath();ctx.arc(q.X,q.Y,2.6*q.f,0,6.283);ctx.fill();}
+      else{ctx.globalAlpha=.08+.5*depth;ctx.fillStyle=fg;ctx.beginPath();ctx.arc(q.X,q.Y,1.1*q.f,0,6.283);ctx.fill();}}
+    ctx.globalAlpha=1;
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+
+
+// ---------- ten figures ----------
+(function(){
+  const STATS=[
+    {n:3,l:'have experienced physical or sexual violence in their lifetime, worldwide',s:'WHO, Violence against women prevalence estimates 2018, published 2021: about one in three women.',red:false},
+    {n:2,l:'US women have experienced completed or attempted rape in their lifetime: 21%, about 26.8 million',s:'CDC National Intimate Partner and Sexual Violence Survey 2023 to 2024. Nearly half, 45.1%, experienced some contact sexual violence.',red:true},
+    {n:6,l:'of the women and girls intentionally killed in 2024 were killed by a partner or a relative',s:'UNODC and UN Women, Femicides in 2024: about 60% of all intentional killings of women and girls.',red:true},
+    {n:5,l:'of the 66 domestic violence homicide victims New York City counted in 2024 were killed by an intimate partner',s:'ENDGBV 2024 fact sheet: 33 intimate partner and 33 family homicides.',red:true},
+    {n:2,l:'young women alive today were married before they turned 18, worldwide',s:'UNICEF child marriage data: about one in five young women aged 20 to 24. Girls variant of the figures below.',red:false,girl:true},
+    {n:2,l:'girls and women alive today experienced sexual violence in childhood, contact or non-contact: 650 million, one in five',s:'UNICEF, October 2024, first global estimate, 120 countries, 2010 to 2022. One in eight, 370 million, experienced rape or sexual assault.',red:true,girl:true},
+    {n:0,l:'of the women killed in the sex trade in New York appear in any official count. The deaths happen; the counting does not.',s:'No agency records killings by buyers, pimps or traffickers as a category. See the gap section and the New York page.',red:true},
+  ];
+  const row=document.getElementById('figrow'),chips=document.getElementById('figchips');
+  const W='<svg viewBox="0 0 40 100"><circle cx="20" cy="11" r="8"/><path d="M13 23h14l8 40h-7l-2 34h-12l-2-34h-7z"/></svg>';
+  const G='<svg viewBox="0 0 40 100"><circle cx="20" cy="30" r="7"/><path d="M14 40h12l6 30h-5l-2 27h-10l-2-27h-5z"/></svg>';
+  function render(i){const st=STATS[i];row.innerHTML=(st.girl?G:W).repeat(10);
+    document.getElementById('figN').textContent=st.n;document.getElementById('figL').textContent=st.l;document.getElementById('figSrc').textContent='Source: '+st.s;
+    [...row.children].forEach((s,j)=>setTimeout(()=>{if(j<st.n){s.classList.add('on');if(st.red)s.classList.add('red')}},80*j));
+    [...chips.children].forEach((c,j)=>c.setAttribute('aria-pressed',j===i));}
+  STATS.forEach((st,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=st.n+' of 10: '+st.l.split(',')[0].slice(0,42)+(st.l.length>42?'…':'');b.addEventListener('click',()=>render(i));chips.appendChild(b)});
+  render(0);
+})();
+
+// ---------- pulse ----------
+(function(){
+  const PER_YEAR=50000, perSec=PER_YEAR/(365.25*86400);
+  const n=document.getElementById('pulseN'), l=document.getElementById('pulseL'), tally=document.getElementById('tally');
+  const DOTS=137; for(let i=0;i<DOTS;i++){tally.appendChild(document.createElement('i'))}
+  let start=performance.now(), paused=false, pausedAt=0, dayMode=false, shown=-1, dayTimer=null;
+  const pauseBtn=document.getElementById('pulsePause');
+  function render(count,label){
+    const c=Math.floor(count); if(c!==shown){shown=c;n.textContent=fmt(c);
+      [...tally.children].forEach((d,i)=>d.classList.toggle('on',i<Math.min(c,DOTS)));}
+    l.textContent=label;
+  }
+  function tick(now){
+    if(!dayMode&&!paused){render(((now-start)/1000)*perSec,'killed by a partner or relative since you opened this page, at the 2024 global rate');}
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+  pauseBtn.addEventListener('click',()=>{paused=!paused;pauseBtn.setAttribute('aria-pressed',paused);pauseBtn.textContent=paused?'Resume':'Pause';
+    if(paused)pausedAt=performance.now(); else start+=performance.now()-pausedAt;});
+  document.getElementById('pulseDay').addEventListener('click',()=>{dayMode=true;clearInterval(dayTimer);shown=-1;
+    let i=0;dayTimer=setInterval(()=>{i++;render(i,'in one day, at the 2024 global rate. Each dot is one woman or girl.');if(i>=DOTS)clearInterval(dayTimer)},18);});
+  document.getElementById('pulseReset').addEventListener('click',()=>{clearInterval(dayTimer);dayMode=false;paused=false;pauseBtn.textContent='Pause';pauseBtn.setAttribute('aria-pressed','false');start=performance.now();shown=-1;render(0,'killed by a partner or relative since you opened this page');});
+})();
+
+// ---------- boroughs ----------
+(function(){
+  let year=2024, sel='Brooklyn';
+  const grid=document.getElementById('boroGrid'), det=document.getElementById('boroDetail');
+  const toggle=document.querySelectorAll('.toggle button');
+  const totalIpvD=y=>BOROS.reduce((a,b)=>a+b.ipvD[y],0);
+  function build(){
+    grid.innerHTML='';
+    BOROS.forEach(b=>{
+      const btn=document.createElement('button');btn.className='boro';btn.setAttribute('aria-pressed',b.k===sel);
+      btn.innerHTML=`<div class="fill"></div><div class="inner"><div class="name">${b.k}</div><div class="v num">${b.ipvH[year]+b.famH[year]}</div><div class="l">domestic violence homicides, ${year}</div></div>`;
+      btn.addEventListener('click',()=>{sel=b.k;build()});
+      grid.appendChild(btn);
+      requestAnimationFrame(()=>requestAnimationFrame(()=>btn.querySelector('.fill').style.height=(b.ipvD[year]/totalIpvD(year)*160)+'%'));
+    });
+    const b=BOROS.find(x=>x.k===sel), prev=year===2024?2023:null;
+    const delta=(cur,old)=>{if(old==null)return '';const d=cur-old;if(d===0)return '<div class="d">no change from 2023</div>';return `<div class="d ${d>0?'up':'down'}">${d>0?'+':''}${fmt(d)} from 2023</div>`};
+    const row=(k,v,o)=>`<div><div class="k">${k}</div><div class="n num">${fmt(v)}</div>${delta(v,o)}</div>`;
+    det.innerHTML=`<div class="title">${b.k}, ${year}<span>${((b.ipvD[year]/totalIpvD(year))*100).toFixed(0)}% of the city's intimate partner incident reports</span></div>`+
+      row('Intimate partner homicides',b.ipvH[year],prev&&b.ipvH[prev])+
+      row('Family homicides',b.famH[year],prev&&b.famH[prev])+
+      row('Intimate partner incident reports',b.ipvD[year],prev&&b.ipvD[prev])+
+      row('Family Justice Center visits',b.fjc[year],prev&&b.fjc[prev]);
+  }
+  toggle.forEach(t=>t.addEventListener('click',()=>{year=+t.dataset.year;toggle.forEach(x=>x.setAttribute('aria-pressed',x===t));build()}));
+  build();
+})();
+
+// ---------- ledger ----------
+(function(){
+  const bar=document.getElementById('ledgerBar'), det=document.getElementById('ledgerDetail');
+  const segs=[
+    {k:'ipv',cls:'seg-ipv',n:CITY.ipv,h:'Intimate partner',p:'Reports where the parties are current or former partners. This is the category most femicide definitions start from, and the one the city tracks most closely: 33 intimate partner homicides in 2024, up from 30 in 2023.'},
+    {k:'fam',cls:'seg-fam',n:CITY.fam,h:'Family',p:'Parents, children, siblings and other relatives. Family homicides fell from 43 in 2023 to 33 in 2024. Together with intimate partner cases they make up the 66 domestic violence homicides the city counts.'},
+    {k:'unk',cls:'seg-unk',n:CITY.unk,h:'Relationship unknown',p:'One in six reports. A death at the hands of a buyer, a pimp or a trafficker has no box to go in, so if it is recorded at all it lands here or outside the domestic ledger entirely.'},
+    {k:'gap',cls:'seg-gap',n:null,h:'Killed in the sex trade',p:'Unknown. There is no official count in New York or nationally, so the width of this segment is a placeholder, not a measurement. The deaths are documented case by case in court records and in Women Count USA. This project, with CATW, is building the first ledger for them.'},
+  ];
+  let sel='ipv';
+  function build(){
+    bar.innerHTML='';
+    segs.forEach(s=>{const b=document.createElement('button');b.className=s.cls;b.setAttribute('aria-pressed',s.k===sel);b.setAttribute('aria-label',s.h);
+      b.style.flex=s.n?String(s.n):'22000';b.addEventListener('click',()=>{sel=s.k;build()});bar.appendChild(b)});
+    const s=segs.find(x=>x.k===sel);
+    det.innerHTML=`<div class="n num ${s.n?'':'gap'}">${s.n?fmt(s.n):'?'}</div><div><h3>${s.h}</h3><p>${s.p}</p></div>`;
+  }
+  build();
+})();
+
+// ---------- state cards ----------
+(function(){
+  const cards=[
+    {n:'241,351',k:'orders of protection entered in the state registry',b:'Orders required for entry in the NYS Unified Court System Domestic Violence Registry during 2024. An order is a legal event, not a person: one survivor may hold several.'},
+    {n:'254,968',k:'hotline calls to domestic violence programs',b:'87,417 calls to New York City programs and 167,551 to programs elsewhere in the state. Separate from the 8,289 calls to the state hotline and 11,676 New York calls logged by the National Domestic Violence Hotline.'},
+    {n:'24,635',k:'people denied shelter',b:'12,696 adults and 11,939 children turned away from residential programs. Residential programs admitted 10,227 people statewide in the same year.'},
+    {n:'115 days',k:'average shelter stay in New York City',b:'Against 44 days in the rest of the state. Length of stay tracks how hard it is to find safe housing after leaving.'},
+    {n:'38',k:'intimate partner homicides outside New York City',b:'32 of the victims were women, 4 were men, 2 unknown. New York City had not reported to DCJS at publication, so this figure excludes the city\'s 33 intimate partner homicides.'},
+    {n:'67,934',k:'family offense petitions filed',b:'Civil petitions in Family Court alleging abuse by a family or household member. Another route to protection that never appears in criminal statistics.'},
+  ];
+  const el=document.getElementById('cards');
+  cards.forEach(c=>{const d=document.createElement('div');d.className='card';
+    d.innerHTML=`<button aria-pressed="false"><div class="face front"><div><div class="n num">${c.n}</div><div class="k">${c.k}</div></div><div class="flip">Flip for the source</div></div><div class="face back"><div>${c.b}</div><div class="flip">New York State 2024 dashboard</div></div></button>`;
+    const b=d.querySelector('button');b.addEventListener('click',()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true'));el.appendChild(d)});
+})();
+</script>
+</body>
+</html>
