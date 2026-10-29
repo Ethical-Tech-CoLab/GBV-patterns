@@ -61,3 +61,11 @@ Everything asked for that is not yet built, or that needs a human. Nothing gets 
 - **Impunity overlays**: DCJS patronizing and promoting arrests by county per hundred reviews; deaths on the same map once Women Count USA aggregation is agreed; recrawl of hobby boards by year (with CATW, given the content).
 - **Online misogyny, to verify**: UNESCO women journalists survey headline figure; Children's Commissioner for England 2023 exact ages; primary links for Hope not Hate and Internet Matters polls and the Dublin City University recommendation experiment; deepfake share targeting women (Sensity); New York age-verification and design-code bills.
 - **Sentencing comparison, state level**: New York domestic violence and rape conviction and sentence data from the Office of Court Administration or DCJS, to set against the federal comparison on the buyers page; BJS has no state series since 1998.
+
+## Version 2, 29 October 2026 (CATW feedback)
+
+- Done: nav reduced to Home | Femicide in the Sex Trade | New York | By the Numbers | Economic Impact | What if…? | About CATW. Context page retired; v1 archived at docs/v1/. Home reordered: definition, ten women (full sentences), gap (trimmed), pulse, single femicide clock, New York State by region (placeholder outside NYC), NYC boroughs. New York page: new title, DV stats and live records and fatality reviews removed (archived in v1; offer the DV data to Sanctuary for Families), cases as flip cards, five steps as placeholders. Copy deck at docs/copy/v2-copy.md and as a Google Doc for CATW edits.
+- **Waiting on CATW**: What is femicide text; Femicide in the Sex Trade page text and sources; other cases to spotlight; new text for the five steps; About CATW blurb; French study for Economic Impact; more What-if scenarios; buyers section update with Elly.
+- **Regional data for New York State**: county-level femicide, IPV homicide and orders of protection from NYS DCJS / OPDV, mapped to the ten regions.
+- **Dawn Wilcox data**: CATW is asking whether she can share it; charts on By the Numbers switch on when agreed.
+- **Hand-off**: the domestic violence evidence from v1 (CDC NISVS, fatality reviews, NYPD live data, online misogyny) could become a separate project with Sanctuary for Families.
