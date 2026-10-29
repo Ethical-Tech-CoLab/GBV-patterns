@@ -70,3 +70,5 @@ Everything asked for that is not yet built, or that needs a human. Nothing gets 
 - **Regional data for New York State**: county-level femicide, IPV homicide and orders of protection from NYS DCJS / OPDV, mapped to the ten regions.
 - **Dawn Wilcox data**: CATW is asking whether she can share it; charts on By the Numbers switch on when agreed.
 - **Hand-off**: the domestic violence evidence from v1 (CDC NISVS, fatality reviews, NYPD live data, online misogyny) could become a separate project with Sanctuary for Families.
+
+- **Sex Industry Kills**: confirm permission to reproduce the eight New York photographs and excerpts (sexindustrykills.de); ask whether they can share their full dataset for the By the Numbers page; add their non-New York US entries if CATW wants a national memorial.

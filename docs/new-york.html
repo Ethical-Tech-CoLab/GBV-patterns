@@ -58,6 +58,17 @@
 .ph{border:1px dashed var(--accent);border-radius:var(--radius);padding:18px 20px;color:var(--fg-muted);font-size:15px;margin-top:1.4rem}
 .ph b{color:var(--accent);font-family:var(--mono);font-size:12.5px;display:block;margin-bottom:6px}
 .cards .card button{min-height:230px}.face .k{font-size:13.5px;color:var(--fg-muted);margin-top:6px}
+.memgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:2rem}
+@media (max-width:1000px){.memgrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.memgrid{grid-template-columns:1fr}}
+.mem{margin:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--bg-alt);display:flex;flex-direction:column}
+.mem img{width:100%;aspect-ratio:4/4.6;object-fit:cover;filter:grayscale(1) contrast(1.05);display:block}
+.mem figcaption{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.mem-name{font-weight:600;font-size:1.05rem}
+.mem-meta{font-family:var(--mono);font-size:12px;color:var(--fg-subtle)}
+.mem-cause{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.mem p{margin:6px 0 0;font-size:13.5px;color:var(--fg-muted);flex:1}
+.mem a{font-size:12.5px;color:var(--fg-subtle);margin-top:8px}
 </style>
 </head>
 <body>
@@ -103,6 +114,98 @@
       <div class="card"><button aria-pressed="false"><div class="face front" style="border-style:dashed;border-color:var(--accent)"><div><span class="tag2">Placeholder</span><div class="n" style="font-family:var(--font);font-size:1.4rem;font-weight:600;margin-top:10px">Cases from CATW</div><div class="k">CATW will send other cases to spotlight.</div></div><div class="flip">Each becomes a card like these</div></div><div class="face back"><div>Name, place, what happened, and the words the system used.</div></div></button></div>
     </div>
     <p class="src">US Attorney's Office, Eastern District of New York, press releases on <a href="https://www.justice.gov/usao-edny/pr/brooklyn-man-sentenced-50-years-prison-sex-trafficking-and-murder-course-sex">Omari Scott</a>, <a href="https://www.justice.gov/usao-edny/pr/defendant-convicted-sex-trafficking-women-notorious-penn-track-brooklyn-and-coercion">Joel Forney</a> and <a href="https://www.justice.gov/usao-edny/pr/defendant-sentenced-22-years-imprisonment-sex-trafficking-women-sayville-motor-lodge">Michael Johnson</a>. Penn Track police estimates via <a href="https://hoodline.com/2026/09/brooklyn-man-charged-in-east-new-york-s-notorious-penn-track-sex-trafficking-operation/">Hoodline</a>, secondary. Gilgo Beach: Suffolk County District Attorney filings, public record.</p>
+  </div>
+</section>
+
+<section class="block" id="memoriam">
+  <div class="wrap">
+    <div class="lede">
+      <h2>In memoriam: New York</h2>
+      <p>People in the sex trade who died in New York, as recorded by Sex Industry Kills, a memorial project that documents deaths in prostitution and pornography worldwide from press and court records. These are the New York entries, 8 of its 103 for the United States. No New York agency holds an equivalent list.</p>
+    </div>
+    <div class="memgrid">
+      <figure class="mem">
+        <img src="assets/memoriam/cecilia-gentili.jpg" alt="Cecilia Gentili" loading="lazy">
+        <figcaption>
+          <div class="mem-name">Cecilia Gentili</div>
+          <div class="mem-meta">age 52 · February 6 2024 · New York City, New York</div>
+          <div class="mem-cause">died of an overdose · trans woman</div>
+          <p>(Cecilia)`s parents were Italian and Argentinian. Cecilia was sexually abused by a neighbor throughout the childhood, beginning at age 6. Cecilia came out as gay at age 12 and started identifying as a woman in the early 20s, at age 26 deciding to move to the United States in search of a better life. After leaving Argentina, (Cecilia) lived in Brazil and later being banned from there, (Cecilia) never divulged why.</p>
+          <a href="https://sexindustrykills.de/2025/02/06/cecilia-gentili/" rel="noopener">Her page on Sex Industry Kills</a>
+        </figcaption>
+      </figure>
+      <figure class="mem">
+        <img src="assets/memoriam/judy-guzman.jpg" alt="Judy Guzman" loading="lazy">
+        <figcaption>
+          <div class="mem-name">Judy Guzman</div>
+          <div class="mem-meta">age 54 · October 18 2019 · New York City, New York</div>
+          <div class="mem-cause">died of an overdose</div>
+          <p>Judy died from a drug overdose.</p>
+          <a href="https://sexindustrykills.de/2025/10/18/judy-guzman/" rel="noopener">Her page on Sex Industry Kills</a>
+        </figcaption>
+      </figure>
+      <figure class="mem">
+        <img src="assets/memoriam/chrystel-yager.jpg" alt="Chrystel Yager" loading="lazy">
+        <figcaption>
+          <div class="mem-name">Chrystel Yager</div>
+          <div class="mem-meta">age 38 · July 8 2018 · Poughkeepsie, New York</div>
+          <div class="mem-cause">killed</div>
+          <p>Chrystel was mother of a daughter. She was advertised for prostitution purposes on Backpage and charged with „promoting prostitution“ since 2015.</p>
+          <a href="https://sexindustrykills.de/2025/07/08/chrystel-yager/" rel="noopener">Her page on Sex Industry Kills</a>
+        </figcaption>
+      </figure>
+      <figure class="mem">
+        <img src="assets/memoriam/leondra-foster.jpg" alt="Leondra Foster" loading="lazy">
+        <figcaption>
+          <div class="mem-name">Leondra Foster</div>
+          <div class="mem-meta">age 32 · January 17 2017 · New York City, New York</div>
+          <div class="mem-cause">killed</div>
+          <p>Leondra was mother of a 16 year old. She was once in a relationship with Somorie Moses, but when she tried to leave, he threatened to kill her. Leondra was beaten to death by Moses who was her pimp. He decided to conceal her remains instead of contacting the police. The following morning, using a knife and a saw, Moses dismembered her body inside their shared apartment in Brooklyn, New York.</p>
+          <a href="https://sexindustrykills.de/2025/01/17/leondra-foster/" rel="noopener">Her page on Sex Industry Kills</a>
+        </figcaption>
+      </figure>
+      <figure class="mem">
+        <img src="assets/memoriam/melissa-barthelemy.jpg" alt="Melissa Barthelemy" loading="lazy">
+        <figcaption>
+          <div class="mem-name">Melissa Barthelemy</div>
+          <div class="mem-meta">age 24 · July 12 2009 · Bronx, New York City, New York</div>
+          <div class="mem-cause">killed</div>
+          <p>Melissa grew up in upstate New York, graduated in Buffalo and after school got her cosmetology license. At the age of 20 she left to live in the Bronx. She lived in a tiny apartment together with her five cats. She dreamed of having her own business and wanted to make money for this purpose.She advertised on Craigslist offering sexual service for money.</p>
+          <a href="https://sexindustrykills.de/2025/07/12/melissa-barthelemy/" rel="noopener">Her page on Sex Industry Kills</a>
+        </figcaption>
+      </figure>
+      <figure class="mem">
+        <img src="assets/memoriam/colleen-mcnamee.jpg" alt="Colleen McNamee" loading="lazy">
+        <figcaption>
+          <div class="mem-name">Colleen McNamee</div>
+          <div class="mem-meta">age 20 · January 5 1994 · Long Island, New York</div>
+          <div class="mem-cause">killed</div>
+          <p>Colleen at school was known as a bubbly peacemaker in Sachem High School on Long Island, dressing impeccably. She could be heard in hallways imploring friends in a squeaky voice to stop fighting or sleeping in class. Colleen was reported missing by her parents one day after she was last seen. According to her mother, she was bipolar and struggling with a drug addiction and was in prostitution.</p>
+          <a href="https://sexindustrykills.de/2025/01/05/colleen-mcnamee/" rel="noopener">Her page on Sex Industry Kills</a>
+        </figcaption>
+      </figure>
+      <figure class="mem">
+        <img src="assets/memoriam/carmen-vargas.jpg" alt="Carmen Vargas" loading="lazy">
+        <figcaption>
+          <div class="mem-name">Carmen Vargas</div>
+          <div class="mem-meta">age 29 · summer 1989 · New York City, New York</div>
+          <div class="mem-cause">killed</div>
+          <p>Carmen was last seen getting into a dark car with a man in Harlem. Carmens‘ remains would be found at the side of the road along the Meadowbrook State Parkway, in Freeport, weeks later on September 11. Her ankles and wrists were bound with a cord. A towel covered her face, a rope was tied around her neck, and she was missing three of her front teeth.</p>
+          <a href="https://sexindustrykills.de/2025/08/29/carmen-vargas/" rel="noopener">Her page on Sex Industry Kills</a>
+        </figcaption>
+      </figure>
+      <figure class="mem">
+        <img src="assets/memoriam/marc-stevens.jpg" alt="Marc Stevens" loading="lazy">
+        <figcaption>
+          <div class="mem-name">Marc Stevens</div>
+          <div class="mem-meta">age 46 · January 28 1989 · New York City, New York</div>
+          <div class="mem-cause">died of AIDS</div>
+          <p>Marc was born Mark Kuttner in Brooklyn in 1943. He was the third of four children born to first generation Jewish parents Walter and Hannah. He attended Midwood High School in Brooklyn. His name was later legally changed to Stevens. Marc appeared in over 80 pornographic movies; and lived next door to Annie Sprinkle. He was married to Jill Monroe and Miranda Stevens.</p>
+          <a href="https://sexindustrykills.de/2025/01/28/marc-stevens/" rel="noopener">Her page on Sex Industry Kills</a>
+        </figcaption>
+      </figure>
+    </div>
+    <p class="src">Photographs and accounts from <a href="https://sexindustrykills.de/category/country/usa/">Sex Industry Kills, USA</a>, reproduced for this prototype with attribution; permission to be confirmed with the project before the Summit. Each card links to the original entry and its sources. The 2014 French list on the <a href="economic-impact.html#france">Economic Impact</a> page comes from the same kind of counting, done by an association because the state does not.</p>
   </div>
 </section>
 
