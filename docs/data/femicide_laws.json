@@ -1,0 +1,238 @@
+{
+ "title": "Countries whose law names femicide or feminicide",
+ "as_of": "2026-11-05",
+ "count_crime": 23,
+ "note": "Verified against ECLAC (November 2023: 18 Latin American countries) and the UN Women CSW70 expert paper by Patsili Toledo (December 2025: the same 18 plus Cyprus, Croatia, Malta, Italy; Belgium as a prevention and data law). CATW's brief puts the figure at roughly three dozen; the difference is most likely countries that treat gender motive as an aggravating circumstance without naming the crime (for example Spain, Turkey, Canada), which are not shown here.",
+ "sources": [
+  {
+   "name": "ECLAC Gender Equality Observatory, The obligation of States to prevent femicidal violence (November 2023)",
+   "url": "https://oig.cepal.org/sites/default/files/s2301023_en.pdf"
+  },
+  {
+   "name": "ECLAC, Note for Equality No. 27: Femicide, the most extreme expression of violence against women",
+   "url": "https://oig.cepal.org/en/documento/note-equality-ndeg-27-femicide-most-extreme-expression-violence-against-women"
+  },
+  {
+   "name": "UN Women, Patsili Toledo Vasquez, Femicide/Feminicide and Access to Justice for Women and Girls, CSW70 expert paper (December 2025)",
+   "url": "https://www.unwomen.org/sites/default/files/2025-12/csw-70-expert-group-meeting-expert-paper-patsili-toledo-en.pdf"
+  },
+  {
+   "name": "RTE, Croatia passes law making femicide a specific crime (March 2024)",
+   "url": "https://www.rte.ie/news/world/2024/0314/1437967-croatia-femicide/"
+  },
+  {
+   "name": "University of Padua Human Rights Centre, Italian Parliament approves law introducing the crime of femicide, Law 181 of 2 December 2025",
+   "url": "https://unipd-centrodirittiumani.it/en/topics/the-italian-parliament-approves-law-introducing-the-crime-of-femicide-law-no-181-of-2-december-2025"
+  },
+  {
+   "name": "GCJ Network, Criminalising femicide: what the Western Balkans can learn (North Macedonia, Cyprus, Malta)",
+   "url": "https://gcjnetwork.org/criminalising-femicide-what-the-western-balkans-can-learn-from-global-practices/"
+  }
+ ],
+ "countries": [
+  {
+   "name": "Costa Rica",
+   "id": "188",
+   "year": 2007,
+   "type": "crime",
+   "note": "Law 8589 on the criminalization of violence against women, the first femicide law",
+   "lonlat": [
+    -84.1,
+    9.9
+   ]
+  },
+  {
+   "name": "Guatemala",
+   "id": "320",
+   "year": 2008,
+   "type": "crime",
+   "note": "Decree 22-2008, Law against femicide and other forms of violence against women"
+  },
+  {
+   "name": "Chile",
+   "id": "152",
+   "year": 2010,
+   "type": "crime",
+   "note": "Law 20.480; widened beyond partners by Law 21.212 in 2020"
+  },
+  {
+   "name": "El Salvador",
+   "id": "222",
+   "year": 2010,
+   "type": "crime",
+   "note": "Special comprehensive law for a life free of violence for women",
+   "lonlat": [
+    -88.9,
+    13.8
+   ]
+  },
+  {
+   "name": "Argentina",
+   "id": "032",
+   "year": 2012,
+   "type": "crime",
+   "note": "Law 26.791, gender-motivated killing as aggravated homicide"
+  },
+  {
+   "name": "Mexico",
+   "id": "484",
+   "year": 2012,
+   "type": "crime",
+   "note": "Federal Penal Code article 325, feminicidio"
+  },
+  {
+   "name": "Nicaragua",
+   "id": "558",
+   "year": 2012,
+   "type": "crime",
+   "note": "Law 779",
+   "lonlat": [
+    -85.2,
+    12.9
+   ]
+  },
+  {
+   "name": "Bolivia",
+   "id": "068",
+   "year": 2013,
+   "type": "crime",
+   "note": "Law 348"
+  },
+  {
+   "name": "Honduras",
+   "id": "340",
+   "year": 2013,
+   "type": "crime",
+   "note": "Decree 23-2013",
+   "lonlat": [
+    -86.6,
+    14.8
+   ]
+  },
+  {
+   "name": "Panama",
+   "id": "591",
+   "year": 2013,
+   "type": "crime",
+   "note": "Law 82",
+   "lonlat": [
+    -80.1,
+    8.6
+   ]
+  },
+  {
+   "name": "Peru",
+   "id": "604",
+   "year": 2013,
+   "type": "crime",
+   "note": "Law 30068; ECLAC dates the law to 2013, an earlier form was added in 2011"
+  },
+  {
+   "name": "Ecuador",
+   "id": "218",
+   "year": 2014,
+   "type": "crime",
+   "note": "Organic Integral Penal Code, article 141"
+  },
+  {
+   "name": "Dominican Republic",
+   "id": "214",
+   "year": 2014,
+   "type": "crime",
+   "note": "Penal Code reform",
+   "lonlat": [
+    -70.2,
+    18.8
+   ]
+  },
+  {
+   "name": "Venezuela",
+   "id": "862",
+   "year": 2014,
+   "type": "crime",
+   "note": "Reform of the Organic Law on the right of women to a life free of violence"
+  },
+  {
+   "name": "Brazil",
+   "id": "076",
+   "year": 2015,
+   "type": "crime",
+   "note": "Law 13.104, feminicídio as qualified homicide"
+  },
+  {
+   "name": "Colombia",
+   "id": "170",
+   "year": 2015,
+   "type": "crime",
+   "note": "Law 1761, Rosa Elvira Cely law"
+  },
+  {
+   "name": "Paraguay",
+   "id": "600",
+   "year": 2016,
+   "type": "crime",
+   "note": "Law 5777"
+  },
+  {
+   "name": "Uruguay",
+   "id": "858",
+   "year": 2017,
+   "type": "crime",
+   "note": "Law 19.538"
+  },
+  {
+   "name": "Cyprus",
+   "id": "196",
+   "year": 2022,
+   "type": "crime",
+   "note": "Femicide added to the 2021 violence against women law, September 2022",
+   "lonlat": [
+    33.2,
+    35.1
+   ]
+  },
+  {
+   "name": "Malta",
+   "id": "470",
+   "year": 2022,
+   "type": "crime",
+   "note": "Femicide as a specific offence, June 2022",
+   "lonlat": [
+    14.4,
+    35.9
+   ]
+  },
+  {
+   "name": "Belgium",
+   "id": "056",
+   "year": 2023,
+   "type": "framework",
+   "note": "Stop Féminicide law: defines femicide for prevention, protection and data collection; not a separate crime",
+   "lonlat": [
+    4.5,
+    50.6
+   ]
+  },
+  {
+   "name": "North Macedonia",
+   "id": "807",
+   "year": 2023,
+   "type": "crime",
+   "note": "Criminal Code amendments adding the murder of a woman or girl in the context of gender-based violence"
+  },
+  {
+   "name": "Croatia",
+   "id": "191",
+   "year": 2024,
+   "type": "crime",
+   "note": "Criminal Code amendment, aggravated murder of a female person, April 2024"
+  },
+  {
+   "name": "Italy",
+   "id": "380",
+   "year": 2025,
+   "type": "crime",
+   "note": "Law 181/2025, article 577-bis, life imprisonment; in force 17 December 2025"
+  }
+ ]
+}

@@ -86,6 +86,12 @@
       <p>Homicide is a crime under the law. However, given the reported high statistics on gender-based murders, it is important for every jurisdiction to collect data, identify, and prosecute crimes men commit against women and girls that are specifically gender-based. Collecting data will help illuminate femicide as a systemic failure, rather than unrelated, private tragedies, and an issue that urgently deserves legislative action.</p>
       <p>Roughly three dozen countries define femicide in their criminal codes. The United States and New York State do not.</p>
     </div>
+    <div class="lawmap" id="lawmap">
+      <div class="lawmap-head"><div><span class="n num" id="lawN">23</span><span class="k">countries name femicide as a crime in their law</span></div><div class="lawmap-legend"><span><i class="sw crime"></i>Femicide is a crime</span><span><i class="sw frame"></i>Defined in law, not a separate crime</span><span><i class="sw none"></i>No femicide law</span></div></div>
+      <svg id="lawSvg" viewBox="0 0 960 500" role="img" aria-label="World map of countries whose law names femicide"></svg>
+      <div class="lawmap-years" id="lawYears"></div>
+      <div class="lawmap-tip" id="lawTip" hidden></div>
+    </div>
     <div class="gapwrap">
       <div class="gapcard dark">
         <div class="n">~36</div>
@@ -98,7 +104,7 @@
         <p>There are also a number of countries that collect data on the number of femicides even in the absence of laws that define it, such as Sweden.</p>
       </div>
     </div>
-    <p class="src">The count of countries recognising femicide is an approximate figure from CATW's project brief. The uncounted women killed in the sex trade in New York are on the <a href="numbers.html#uncounted">By the Numbers</a> page.</p>
+    <p class="src">Map: countries verified in ECLAC's <a href="https://oig.cepal.org/sites/default/files/s2301023_en.pdf">November 2023 bulletin</a> (18 in Latin America) and UN Women's <a href="https://www.unwomen.org/sites/default/files/2025-12/csw-70-expert-group-meeting-expert-paper-patsili-toledo-en.pdf">CSW70 expert paper</a> (December 2025), with Croatia and Italy from their 2024 and 2025 laws. Data: <a href="data/femicide_laws.json">femicide_laws.json</a>. The count of roughly three dozen is CATW's figure and most likely includes countries that treat gender motive as an aggravating circumstance without naming the crime; those are not shaded. The uncounted women killed in the sex trade in New York are on the <a href="numbers.html#uncounted">By the Numbers</a> page.</p>
   </div>
 </section>
 <section class="block" id="pulse">
@@ -178,6 +184,36 @@
 </footer>
 
 <script src="site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+(async function(){
+  const svg=d3.select('#lawSvg'); if(svg.empty()||!window.d3||!window.topojson)return;
+  try{
+    const [laws,world]=await Promise.all([fetch('data/femicide_laws.json').then(r=>r.json()),fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json').then(r=>r.json())]);
+    const byId={};laws.countries.forEach(c=>byId[c.id]=c);
+    document.getElementById('lawN').textContent=laws.count_crime;
+    const proj=d3.geoNaturalEarth1().fitExtent([[0,0],[960,500]],{type:'Sphere'}),path=d3.geoPath(proj);
+    svg.append('defs').append('pattern').attr('id','lawHatch').attr('width',5).attr('height',5).attr('patternUnits','userSpaceOnUse').attr('patternTransform','rotate(45)').append('rect').attr('width',2).attr('height',5).attr('fill',getComputedStyle(document.documentElement).getPropertyValue('--accent').trim());
+    const countries=topojson.feature(world,world.objects.countries).features;
+    const tip=document.getElementById('lawTip'),box=document.getElementById('lawmap');
+    const land=svg.append('g').selectAll('path').data(countries).join('path').attr('d',path)
+      .attr('class',d=>'land'+(byId[d.id]?' '+byId[d.id].type:''))
+      .on('mousemove',(e,d)=>{const c=byId[d.id];if(!c){tip.hidden=true;return;}tip.hidden=false;tip.innerHTML='<b>'+c.name+' · '+c.year+'</b><br>'+c.note;const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+12,r.width-270)+'px';tip.style.top=(e.clientY-r.top+12)+'px';})
+      .on('mouseleave',()=>{tip.hidden=true});
+    svg.append('g').selectAll('circle').data(laws.countries.filter(c=>c.lonlat)).join('circle').attr('class',c=>'dot '+c.type).attr('r',3.2).attr('transform',c=>'translate('+proj(c.lonlat)+')')
+      .on('mousemove',(e,c)=>{tip.hidden=false;tip.innerHTML='<b>'+c.name+' · '+c.year+'</b><br>'+c.note;const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+12,r.width-270)+'px';tip.style.top=(e.clientY-r.top+12)+'px';}).on('mouseleave',()=>{tip.hidden=true});
+    const years=[...new Set(laws.countries.map(c=>c.year))].sort();
+    const yb=document.getElementById('lawYears');
+    const all=document.createElement('button');all.textContent='All years';all.setAttribute('aria-pressed','true');yb.appendChild(all);
+    function pick(y,btn){[...yb.children].forEach(b=>b.setAttribute('aria-pressed',b===btn));land.classed('on',d=>y!=null&&byId[d.id]&&byId[d.id].year===y);
+      land.style('opacity',d=>y==null||!byId[d.id]||byId[d.id].year<=y?1:.25);}
+    all.addEventListener('click',()=>pick(null,all));
+    years.forEach(y=>{const b=document.createElement('button');const names=laws.countries.filter(c=>c.year===y).map(c=>c.name);b.textContent=y+' · '+names.length;b.title=names.join(', ');b.addEventListener('click',()=>pick(y,b));yb.appendChild(b)});
+  }catch(e){document.getElementById('lawmap').insertAdjacentHTML('beforeend','<p class="src">The map could not load its country outlines. The list is in <a href="data/femicide_laws.json">femicide_laws.json</a>.</p>');}
+})();
+</script>
+
 <script>
 // ---------- data (all figures from the sources listed in the footer) ----------
 const BOROS = [

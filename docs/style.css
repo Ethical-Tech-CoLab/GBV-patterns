@@ -201,3 +201,24 @@ footer h4{margin:0 0 .6rem;font-size:14px;font-weight:600}
 .clock .ring circle{fill:none;stroke-width:3}
 .clock .ring .bg{stroke:var(--border)}
 .clock .ring .fg{stroke:var(--fg);stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%}
+
+/* Femicide-law world map, home page */
+.lawmap{margin-top:2.4rem;border:1px solid var(--border);border-radius:var(--radius);padding:18px;background:var(--bg-alt);position:relative}
+.lawmap-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+.lawmap-head .n{font-family:var(--mono);font-size:2.4rem;letter-spacing:-.03em;line-height:1;margin-right:10px}
+.lawmap-head .k{font-size:14px;color:var(--fg-muted)}
+.lawmap-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--fg-muted)}
+.lawmap-legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:2px;display:inline-block;border:1px solid var(--border)}
+.sw.crime{background:var(--accent)}.sw.frame{background:repeating-linear-gradient(45deg,var(--accent) 0 2px,transparent 2px 5px)}.sw.none{background:color-mix(in srgb,var(--fg) 14%,transparent)}
+#lawSvg{width:100%;height:auto;display:block}
+#lawSvg .land{fill:color-mix(in srgb,var(--fg) 14%,transparent);stroke:var(--bg);stroke-width:.4}
+#lawSvg .land.crime{fill:var(--accent)}
+#lawSvg .land.framework{fill:url(#lawHatch)}
+#lawSvg .land.on{stroke:var(--fg);stroke-width:1.2}
+#lawSvg .dot{fill:var(--accent);stroke:var(--bg);stroke-width:1}
+#lawSvg .dot.framework{fill:url(#lawHatch)}
+.lawmap-years{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.lawmap-years button{border:1px solid var(--border);background:transparent;color:var(--fg);border-radius:999px;padding:4px 10px;font-size:12.5px;cursor:pointer;font-family:inherit}
+.lawmap-years button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.lawmap-tip{position:absolute;pointer-events:none;background:var(--bg-alt);color:var(--fg);border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:12.5px;max-width:260px;z-index:3}
