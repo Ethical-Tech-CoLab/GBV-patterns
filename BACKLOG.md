@@ -2,6 +2,45 @@
 
 Everything asked for that is not yet built, or that needs a human. Nothing gets dropped from here without a note on why.
 
+## To do, consolidated 5 November 2026
+
+Everything still open, in one place, with an owner. Detail for each item is in the sections below. "Agent" means buildable by Claude Code once its inputs exist.
+
+| Owner | Item | Needs | When |
+|---|---|---|---|
+| CATW | Five steps text for the New York page | Final wording for the five asks, in order of cost | Before 20 Nov |
+| CATW | Femicide in the Sex Trade: the three section texts and sources (why it is femicide, how women die, why no one counts) | Text and primary sources; the page has the headings ready | Before 20 Nov |
+| CATW | Source for 40 to 42 million in prostitution, 80% women, 75% aged 13 to 25 | A document to link on the Sources page | Before 20 Nov |
+| CATW | Other cases to spotlight on the New York page ("Others??") | Name, place, what happened, how it was named | Before 20 Nov |
+| CATW | Confirm Joel vs Joey Forney in the Penn Track card | The US Attorney release says Joel | Before 20 Nov |
+| CATW | Confirm the asks list on About CATW: keep five or cut to two | Decision | Before 20 Nov |
+| CATW | About CATW blurb and more What-if scenarios | Text | Before 20 Nov |
+| CATW | Agree a written protocol for collecting buyer quotes (what is recorded, what is stripped, region-level only) | Decision by Taina and Nora; the agent then builds the coder and the card generator | Before 20 Nov |
+| Nora | Ask Ken which buyer forums are active and whether he can supply quotes under the protocol | Contact | Before 20 Nov |
+| Nora | Follow up with Taina on Dawn Wilcox sharing the Women Count USA data | Dawn's agreement switches on the By the Numbers charts | Open |
+| Nora | Check whether France updated the 2015 ProstCost figures and buyer arrest numbers | Search; send what exists | Open |
+| Elly | Send the invisible men project links (Canadian, British, German), the Canva silhouette and speech-bubble files, the Australian systematic forum study, the Dignity Journal femicide paper, the German animated videos | Files and links | Before 20 Nov |
+| Elly | Feedback on the Buyers page | Carolina sends the link | Before 20 Nov |
+| Giorgia | Preliminary research on serial killers in New York State | Send notes; becomes case cards or a timeline | Open |
+| Catherine | Extra economic sources: the Iceland formula, UN Women violence figures | Links | Open |
+| Catherine | Press-language discrepancy research for the word map | Reading pass over the linked articles | Open |
+| Yorke | Teams link for the Summit to Elly; Sharon and the avatar team on current versioning; Tivoli credits | Contacts | Before 20 Nov |
+| Carolina | DCJS data request: Penal Law 230 arrests and dispositions by county and top charge, 2009 to 2024 | Email to dcjsstats@dcjs.ny.gov; unlocks enforcement by region and the 2020 to 2022 gap | Before 20 Nov |
+| Carolina | Sex Industry Kills: permission for the seven New York photographs and excerpts; ask for their dataset | Email | Before 20 Nov |
+| Carolina | Economist review of the lost-earnings ledger and the age-66 drop | Professor, Iago, other contacts | Open |
+| Carolina | Send the November 20 event details to Elly; connect Elly with the OnlyFans master's contact | Emails | Before 20 Nov |
+| Carolina | Decide whether the pilot of twenty coded buyer quotes from the open USA Sex Guide section runs | Decision, after the protocol | Open |
+| Agent | Presenter mode for the Summit: keyboard section stepping, large type | Build | Before 20 Nov |
+| Agent | Buyer quote cards: data model, identifier-stripping coder, silhouette and speech-bubble SVG generator, cards by region and year on the Buyers page | Build once the protocol is agreed and Elly's files arrive | Before 20 Nov |
+| Agent | Word map of how the killing of women in the sex trade is reported | Build once source links are cleared for use | Open |
+| Agent | New York version of the ProstCost 29-line cost sheet, with an animation projecting 2015 figures forward | Build; wording must not price lives | Open |
+| Agent | Regional layer for New York State: county femicide, intimate partner homicide and orders of protection mapped to the ten regions | DCJS and OPDV county data | Open |
+| Agent | By the Numbers aggregated charts and death map | Switch on when Dawn Wilcox agrees; coding rules are on the Methodology page | Blocked |
+| Agent | State-level sentencing comparison for domestic violence and rape | OCA or DCJS conviction data | Open |
+| Agent | Verify the open figures: CAWP and Fortune 500, Pew under-18 marriage count, Epstein loophole bill number, child sex buyer law chapter, S8723 status, online misogyny primary links | Searches | Open |
+| Agent | Longer-term asks: country map with rights history, diplomacy tracker, policy tracker, backlash hypotheses test, gender policy peak chart, leadership impact review, Vibe Check feed | Build, each with its own sources | Later |
+
+
 ## Needs Carolina (blocked for the agent)
 
 - ~~Make the repo public and turn on Pages.~~ Done 22 October 2026. Site: https://ethical-tech-colab.github.io/GBV-patterns/ Original note:
