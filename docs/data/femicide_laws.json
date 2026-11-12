@@ -27,6 +27,10 @@
   {
    "name": "GCJ Network, Criminalising femicide: what the Western Balkans can learn (North Macedonia, Cyprus, Malta)",
    "url": "https://gcjnetwork.org/criminalising-femicide-what-the-western-balkans-can-learn-from-global-practices/"
+  },
+  {
+   "name": "EIGE, Measuring femicide, intimate partner violence and rape: methodology and metadata for 13 indicators (2021)",
+   "url": "https://eige.europa.eu/sites/default/files/documents/20211587_mh0221353enn_pdf.pdf"
   }
  ],
  "countries": [
@@ -233,6 +237,23 @@
    "year": 2025,
    "type": "crime",
    "note": "Law 181/2025, article 577-bis, life imprisonment; in force 17 December 2025"
+  },
+  {
+   "name": "Sweden",
+   "id": "752",
+   "year": null,
+   "type": "data",
+   "note": "No femicide offence; the state counts femicides anyway. EIGE's 13 indicators give EU states uniform definitions of intimate partner violence, femicide and rape.",
+   "lonlat": null
+  },
+  {
+   "name": "Spain",
+   "id": "724",
+   "year": null,
+   "type": "data",
+   "note": "No femicide offence; a national system counts intimate partner and non-partner feminicide and children killed in the context of violence against their mothers (UN Women CSW70 paper, EIGE 2025).",
+   "lonlat": null
   }
- ]
+ ],
+ "count_data": 2
 }

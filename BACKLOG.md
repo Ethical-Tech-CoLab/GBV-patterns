@@ -30,6 +30,7 @@ Everything still open, in one place, with an owner. Detail for each item is in t
 | Carolina | Economist review of the lost-earnings ledger and the age-66 drop | Professor, Iago, other contacts | Open |
 | Carolina | Send the November 20 event details to Elly; connect Elly with the OnlyFans master's contact | Emails | Before 20 Nov |
 | Carolina | Decide whether the pilot of twenty coded buyer quotes from the open USA Sex Guide section runs | Decision, after the protocol | Open |
+| Agent | Playable chutes-and-ladders of femicide prevention with Gilgo Beach as the case study: at each square, the law or system that could have caught the perpetrator sooner (CATW idea, Nov 2026); the Swiss cheese interactive on the What if page is the first step | Build; CATW to list the squares | Open |
 | Agent | Presenter mode for the Summit: keyboard section stepping, large type | Build | Before 20 Nov |
 | Agent | Buyer quote cards: data model, identifier-stripping coder, silhouette and speech-bubble SVG generator, cards by region and year on the Buyers page | Build once the protocol is agreed and Elly's files arrive | Before 20 Nov |
 | Agent | Word map of how the killing of women in the sex trade is reported | Build once source links are cleared for use | Open |
@@ -107,6 +108,7 @@ Everything still open, in one place, with an owner. Detail for each item is in t
 
 ## Version 2, 29 October 2026 (CATW feedback)
 
+- Done 2026-11-12: CATW text pass two: New York headline 'must'; About CATW asks cut to the two CATW listed (Epstein loophole, STSJEA, 2018 law, child sex buyer felony removed from the asks; the facts remain in the timeline and sources); What if page gains the Swiss cheese interactive and the ladders/chutes lists. Forney stays Joel per the Justice Department release.
 - Done 2026-11-12: Invisible Men method page (docs/invisible-men.html) adapting Die Unsichtbaren Männer's published method to New York: forum tables Germany 2018 vs New York 2026, CATW's 141 reviews by region against population share, year and setting charts as placeholders, the 26 German themes as the coding sheet, the lineage, and the protocol draft at analysis/INVISIBLE_MEN_NY_PROTOCOL.md. Open: word-frequency table (needs forum access), year and setting distributions (need the new collection), verify the region population shares.
 
 - Done: nav reduced to Home | Femicide in the Sex Trade | New York | By the Numbers | Economic Impact | What if…? | About CATW. Context page retired; v1 archived at docs/v1/. Home reordered: definition, ten women (full sentences), gap (trimmed), pulse, single femicide clock, New York State by region (placeholder outside NYC), NYC boroughs. New York page: new title, DV stats and live records and fatality reviews removed (archived in v1; offer the DV data to Sanctuary for Families), cases as flip cards, five steps as placeholders. Copy deck at docs/copy/v2-copy.md and as a Google Doc for CATW edits.

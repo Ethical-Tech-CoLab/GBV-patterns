@@ -10,6 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
+.cheese{border:1px solid var(--border);border-radius:var(--radius);padding:18px;background:var(--bg-alt);margin-top:1.6rem}
+.cheese svg{width:100%;height:auto;display:block}
+.cheese-ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.cheese-ctl .chip{border:1px solid var(--border);background:transparent;color:var(--fg);border-radius:999px;padding:5px 12px;font-size:12.5px;cursor:pointer;font-family:inherit}
+</style>
+
+<style>
 .page-hero{padding:calc(var(--header-h) + 3rem) 24px 3rem}
 .page-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.04;letter-spacing:-.03em;font-weight:600;margin:0;max-width:18ch}
 .page-hero p{color:var(--fg-muted);max-width:60ch;font-size:1.1rem}
@@ -49,7 +56,27 @@
       <div><h3>What if researchers had the data?</h3><p>Universities and public health institutes with access to the counts above, able to say how many, who, where and what it costs. This platform is a prototype of what that would show.</p></div>
       <div><h3>What if the law named it?</h3><p>A femicide definition that includes the sex trade, with a reporting duty. Every "what if" above follows from it.</p></div>
     </div>
-    <div class="ph"><b>PLACEHOLDER · more scenarios from CATW</b>These are a few suggestions from CATW's brief. The gist: if New York State institutions focused on the sex trade as they should, we would have a clearer understanding of the violence and death inherent to it, and the enormous profits.</div>
+  </div>
+</section>
+
+<section class="block" id="game">
+  <div class="wrap">
+    <div class="lede"><h2>Preventing and ending sexual violence and femicide</h2><p>Two ways to picture the same idea. In a game of chutes and ladders, the ladders are what carries a woman up and out of harm, and the chutes are what drops her back. In the Swiss cheese model, each law, policy and community intervention is a slice with holes in it; stack enough slices and the holes stop lining up, and a perpetrator can no longer pass straight through.</p></div>
+    <div class="cheese">
+      <svg viewBox="0 0 960 300" role="img" aria-label="Swiss cheese model: five slices named law, enforcement, platforms, services and culture, each with holes. A line passes through where the holes line up.">
+        <defs><linearGradient id="slice" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f2f2f2"/><stop offset="1" stop-color="#bdbdbd"/></linearGradient></defs>
+        <g id="slices"></g>
+        <line id="ray" x1="20" y1="150" x2="940" y2="150" stroke="#b21818" stroke-width="3" stroke-dasharray="6 6"/>
+        <text x="20" y="40" fill="#f2f2f2" font-size="13" font-family="inherit">perpetrator</text>
+        <text x="940" y="40" fill="#f2f2f2" font-size="13" font-family="inherit" text-anchor="end" id="rayLabel">a woman killed, and uncounted</text>
+      </svg>
+      <div class="cheese-ctl"><button class="chip" id="cheeseAdd">Add a slice</button><button class="chip" id="cheeseReset">Start again</button><span id="cheeseMsg" class="src" style="margin:0"></span></div>
+    </div>
+    <div class="why" style="grid-template-columns:repeat(2,1fr)">
+      <div><h3>Ladders</h3><p>Enforcing the patronizing laws that exist. Strengthening them: the Sex Trade Survivors Justice and Equality Act. Targeting the online sexual exploitation sites where the buyers post. Valuing women and girls as equal human beings. A culture, from Hollywood to the news desk, that stops normalising prostitution.</p></div>
+      <div><h3>Chutes</h3><p>Systemic loopholes. Harmful cultural norms. Law enforcement and institutional failures. Societal complicity. Dehumanisation of, or indifference to, women in the sex trade.</p></div>
+    </div>
+    <p class="src">The playable version, with the Gilgo Beach murders as the case study, is on the backlog: at each square, what law or system could have caught the perpetrator sooner. Models and examples CATW points to: the Swiss cheese model applied to harassment in <a href="https://southerncalifornialawreview.com/2025/07/05/mind-the-gaps-mitigating-harassment-in-a-post-metoo-workplace/">Mind the Gaps</a> (Southern California Law Review, 2025); RAND's <a href="https://www.rand.org/research/gun-policy.html">gun policy</a> comparison tool; The Violence Project's <a href="https://www.theviolenceproject.org/databases/mass-shooters#data-table">mass shooter database</a>.</p>
   </div>
 </section>
 
@@ -82,5 +109,23 @@
   </div>
 </footer>
 <script src="site.js"></script>
+<script>
+(function(){
+  const NAMES=['A femicide law','Patronizing arrests','Sites that host the buyers','Exit and health services','A culture that does not look away'];
+  const g=document.getElementById('slices'),ray=document.getElementById('ray'),msg=document.getElementById('cheeseMsg'),lab=document.getElementById('rayLabel');
+  let n=0;
+  function draw(){g.innerHTML='';const W=960,x0=120,gap=(W-240)/5;
+    for(let i=0;i<n;i++){const x=x0+i*gap;const holes=[60+((i*53)%120),150+((i*37)%40)-20,230-((i*29)%60)];
+      let h='<g><rect x="'+(x-22)+'" y="30" width="44" height="240" rx="8" fill="url(#slice)"/>';
+      holes.forEach((hy,k)=>{const r=k===1?(i<2?14:7):9;h+='<circle cx="'+x+'" cy="'+hy+'" r="'+r+'" fill="#0b0b0b"/>';});
+      h+='<text x="'+x+'" y="290" text-anchor="middle" fill="#999" font-size="11" font-family="inherit">'+NAMES[i]+'</text></g>';g.innerHTML+=h;}
+    const blocked=n>=3;ray.setAttribute('x2',blocked?String(x0+2*gap-30):'940');ray.setAttribute('stroke-dasharray',blocked?'0':'6 6');
+    lab.textContent=blocked?'stopped before harm':'a woman killed, and uncounted';
+    msg.textContent=n===0?'No slice in place: the line goes straight through.':n<3?'Each slice has holes. With '+n+', they still line up.':'With '+n+' slices the holes no longer line up. No single law does it; the stack does.';}
+  document.getElementById('cheeseAdd').addEventListener('click',()=>{if(n<5)n++;draw()});
+  document.getElementById('cheeseReset').addEventListener('click',()=>{n=0;draw()});
+  draw();
+})();
+</script>
 </body>
 </html>

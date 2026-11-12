@@ -112,22 +112,20 @@
       <p>Collecting data will help illuminate femicide as a systemic failure, rather than unrelated, private tragedies, and an issue that urgently deserves legislative action.</p>
       <p>Roughly three dozen countries define femicide in their criminal codes. The United States and New York State do not.</p>
     </div>
+    <div class="gapwrap">
+      <div class="gapcard" style="grid-column:1/-1;padding:0;border:0;background:none">
     <div class="lawmap" id="lawmap">
-      <div class="lawmap-head"><div><span class="n num" id="lawN">23</span><span class="k">countries name femicide as a crime in their law</span></div><div class="lawmap-legend"><span><i class="sw crime"></i>Femicide is a crime</span><span><i class="sw frame"></i>Defined in law, not a separate crime</span><span><i class="sw none"></i>No femicide law</span></div></div>
-      <svg id="lawSvg" viewBox="0 0 960 500" role="img" aria-label="World map of countries whose law names femicide"></svg>
+      <div class="lawmap-head"><div><span class="n num" id="lawN">23</span><span class="k">countries name femicide in law, Costa Rica in 2007 to Italy in 2025. Naming the crime is what makes it countable.</span></div><div class="lawmap-legend" id="lawLegend"><span><i class="sw crime"></i>Femicide is a crime</span><span><i class="sw frame"></i>Defined in law, not a separate crime</span><span><i class="sw data"></i>Counts femicide without a law</span><span><i class="sw none"></i>No femicide law</span></div></div>
+      <div class="lawmap-modes" role="tablist"><button id="modeLaw" aria-pressed="true">The law</button><button id="modeRate" aria-pressed="false">Female homicide rate</button></div>
+      <svg id="lawSvg" viewBox="0 0 960 500" role="img" aria-label="World map of countries whose law names femicide, with the female homicide rate"></svg>
       <div class="lawmap-years" id="lawYears"></div>
       <div class="lawmap-tip" id="lawTip" hidden></div>
     </div>
-    <div class="gapwrap">
-      <div class="gapcard dark">
-        <div class="n">~36</div>
-        <h3>Countries that name femicide in law</h3>
-        <p>Most are in Latin America and Europe. Naming the crime is what makes it countable, and counting is what makes it a policy problem rather than a series of private tragedies.</p>
       </div>
       <div class="gapcard">
         <div class="n">Sweden</div>
         <h3>Counting without a law</h3>
-        <p>There are also a number of countries that collect data on the number of femicides even in the absence of laws that define it, such as Sweden.</p>
+        <p>There are also a number of countries that collect data on the number of femicides even in the absence of laws that define it, such as Sweden. To address the lack of comparable data on violence against women, EIGE developed 13 indicators with uniform definitions of the multiple forms of intimate partner violence, femicide and rape, with a published <a href="https://eige.europa.eu/sites/default/files/documents/20211587_mh0221353enn_pdf.pdf">methodology and metadata per country</a>.</p>
       </div>
     </div>
     <p class="src">Map: countries verified in ECLAC's <a href="https://oig.cepal.org/sites/default/files/s2301023_en.pdf">November 2023 bulletin</a> (18 in Latin America) and UN Women's <a href="https://www.unwomen.org/sites/default/files/2025-12/csw-70-expert-group-meeting-expert-paper-patsili-toledo-en.pdf">CSW70 expert paper</a> (December 2025), with Croatia and Italy from their 2024 and 2025 laws. Data: <a href="data/femicide_laws.json">femicide_laws.json</a>. The count of roughly three dozen is CATW's figure and most likely includes countries that treat gender motive as an aggravating circumstance without naming the crime; those are not shaded. The uncounted women killed in the sex trade in New York are on the <a href="numbers.html#uncounted">By the Numbers</a> page.</p>
@@ -197,24 +195,35 @@
 (async function(){
   const svg=d3.select('#lawSvg'); if(svg.empty()||!window.d3||!window.topojson)return;
   try{
-    const [laws,world]=await Promise.all([fetch('data/femicide_laws.json').then(r=>r.json()),fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json').then(r=>r.json())]);
+    const [laws,world,rates]=await Promise.all([fetch('data/femicide_laws.json').then(r=>r.json()),fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json').then(r=>r.json()),fetch('data/femicide_rates.json').then(r=>r.json())]);
     const byId={};laws.countries.forEach(c=>byId[c.id]=c);
     document.getElementById('lawN').textContent=laws.count_crime;
     const proj=d3.geoNaturalEarth1().fitExtent([[0,0],[960,500]],{type:'Sphere'}),path=d3.geoPath(proj);
-    svg.append('defs').append('pattern').attr('id','lawHatch').attr('width',5).attr('height',5).attr('patternUnits','userSpaceOnUse').attr('patternTransform','rotate(45)').append('rect').attr('width',2).attr('height',5).attr('fill',getComputedStyle(document.documentElement).getPropertyValue('--accent').trim());
+    const defs=svg.append('defs');defs.append('pattern').attr('id','lawDots').attr('width',5).attr('height',5).attr('patternUnits','userSpaceOnUse').append('circle').attr('cx',2.5).attr('cy',2.5).attr('r',1.1).attr('fill',getComputedStyle(document.documentElement).getPropertyValue('--fg').trim());defs.append('pattern').attr('id','lawHatch').attr('width',5).attr('height',5).attr('patternUnits','userSpaceOnUse').attr('patternTransform','rotate(45)').append('rect').attr('width',2).attr('height',5).attr('fill',getComputedStyle(document.documentElement).getPropertyValue('--accent').trim());
     const countries=topojson.feature(world,world.objects.countries).features;
     const tip=document.getElementById('lawTip'),box=document.getElementById('lawmap');
     const land=svg.append('g').selectAll('path').data(countries).join('path').attr('d',path)
       .attr('class',d=>'land'+(byId[d.id]?' '+byId[d.id].type:''))
-      .on('mousemove',(e,d)=>{const c=byId[d.id];if(!c){tip.hidden=true;return;}tip.hidden=false;tip.innerHTML='<b>'+c.name+' · '+c.year+'</b><br>'+c.note;const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+12,r.width-270)+'px';tip.style.top=(e.clientY-r.top+12)+'px';})
       .on('mouseleave',()=>{tip.hidden=true});
     svg.append('g').selectAll('circle').data(laws.countries.filter(c=>c.lonlat)).join('circle').attr('class',c=>'dot '+c.type).attr('r',3.2).attr('transform',c=>'translate('+proj(c.lonlat)+')')
-      .on('mousemove',(e,c)=>{tip.hidden=false;tip.innerHTML='<b>'+c.name+' · '+c.year+'</b><br>'+c.note;const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+12,r.width-270)+'px';tip.style.top=(e.clientY-r.top+12)+'px';}).on('mouseleave',()=>{tip.hidden=true});
-    const years=[...new Set(laws.countries.map(c=>c.year))].sort();
+      .on('mousemove',(e,c)=>{tip.hidden=false;tip.innerHTML='<b>'+c.name+(c.year?' · '+c.year:'')+'</b><br>'+c.note;const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+12,r.width-270)+'px';tip.style.top=(e.clientY-r.top+12)+'px';}).on('mouseleave',()=>{tip.hidden=true});
+    const ALIAS={'Russia':'Russia','Czechia':'Czechia','Bosnia and Herzegovina':'Bosnia and Herz.','Dominican Republic':'Dominican Rep.','North Macedonia':'North Macedonia','Turkey':'Turkey','South Korea':'South Korea','Türkiye':'Turkey'};
+    const rateByName={};Object.entries(rates.rates).forEach(([n,v])=>{rateByName[n]=v;if(ALIAS[n])rateByName[ALIAS[n]]=v;});
+    const rateOf=d=>{const n=d.properties&&d.properties.name;return n in rateByName?rateByName[n]:(n==='Türkiye'?rateByName['Turkey']:undefined)};
+    const ramp=v=>{const t=Math.min(1,Math.log1p(v)/Math.log1p(12));return 'rgb('+Math.round(235-150*t)+','+Math.round(235-205*t)+','+Math.round(235-205*t)+')'};
+    const legend=document.getElementById('lawLegend'),legHTML=legend.innerHTML;
+    function mode(m){document.getElementById('modeLaw').setAttribute('aria-pressed',m==='law');document.getElementById('modeRate').setAttribute('aria-pressed',m==='rate');
+      if(m==='law'){land.style('fill',null).style('stroke',null).style('stroke-width',null);legend.innerHTML=legHTML;}
+      else{land.style('fill',d=>{const v=rateOf(d);return v==null?null:ramp(v)}).style('stroke',d=>byId[d.id]&&byId[d.id].type!=='data'?accentCol:null).style('stroke-width',d=>byId[d.id]&&byId[d.id].type!=='data'?1.4:null);
+        legend.innerHTML='<span><i class="sw" style="background:'+ramp(0.2)+'"></i>0.2</span><span><i class="sw" style="background:'+ramp(1)+'"></i>1</span><span><i class="sw" style="background:'+ramp(3)+'"></i>3</span><span><i class="sw" style="background:'+ramp(11)+'"></i>11 female homicides per 100,000 women</span><span><i class="sw" style="background:transparent;border:1.5px solid '+accentCol+'"></i>names femicide in law</span><span><i class="sw none"></i>no figure on the page</span>';}}
+    const accentCol=getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+    document.getElementById('modeLaw').addEventListener('click',()=>mode('law'));document.getElementById('modeRate').addEventListener('click',()=>mode('rate'));
+    land.on('mousemove.rate',(e,d)=>{const c=byId[d.id],v=rateOf(d);if(!c&&v==null){tip.hidden=true;return;}tip.hidden=false;const n=d.properties.name;tip.innerHTML='<b>'+(c?c.name+(c.year?' · '+c.year:''):n)+'</b><br>'+(c?c.note+'<br>':'')+(v!=null?'<span style="color:#999">Female homicide rate '+v.toFixed(2)+' per 100,000</span>':'');const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+12,r.width-270)+'px';tip.style.top=(e.clientY-r.top+12)+'px';});
+    const years=[...new Set(laws.countries.filter(c=>c.year).map(c=>c.year))].sort();
     const yb=document.getElementById('lawYears');
     const all=document.createElement('button');all.textContent='All years';all.setAttribute('aria-pressed','true');yb.appendChild(all);
     function pick(y,btn){[...yb.children].forEach(b=>b.setAttribute('aria-pressed',b===btn));land.classed('on',d=>y!=null&&byId[d.id]&&byId[d.id].year===y);
-      land.style('opacity',d=>y==null||!byId[d.id]||byId[d.id].year<=y?1:.25);}
+      land.style('opacity',d=>y==null||!byId[d.id]||!byId[d.id].year||byId[d.id].year<=y?1:.25);}
     all.addEventListener('click',()=>pick(null,all));
     years.forEach(y=>{const b=document.createElement('button');const names=laws.countries.filter(c=>c.year===y).map(c=>c.name);b.textContent=y+' · '+names.length;b.title=names.join(', ');b.addEventListener('click',()=>pick(y,b));yb.appendChild(b)});
   }catch(e){document.getElementById('lawmap').insertAdjacentHTML('beforeend','<p class="src">The map could not load its country outlines. The list is in <a href="data/femicide_laws.json">femicide_laws.json</a>.</p>');}
