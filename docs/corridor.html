@@ -115,13 +115,13 @@ body{overflow-x:hidden}
   const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
   let deckW=shuffle(D.women),deckM=shuffle(D.men);
   function draw(sex){let d=sex==='w'?deckW:deckM;if(!d.length){d=shuffle(sex==='w'?D.women:D.men);if(sex==='w')deckW=d;else deckM=d;}return d.pop();}
-  const G=[],N=9,DUR=[26,44];
+  const G=[],N=Math.max(14,Math.min(26,Math.round((innerWidth||1200)/60))),DUR=[22,40];
   function make(i){const b=document.createElement('button');const sex=Math.random()<.6?'w':'m';b.className='ghost '+sex;b.innerHTML=(sex==='w'?W:M)+'<span class="sh" aria-hidden="true">'+(sex==='w'?W:M)+'</span>';b.setAttribute('aria-label',sex==='w'?'A woman. Click for her story.':'A man. Click for where he posted from.');
-    const g={el:b,sex,lane:(Math.random()*2-1)*1.1,t:reduce?Math.random():-(i/N),dur:DUR[0]+Math.random()*(DUR[1]-DUR[0]),picked:false};
+    const g={el:b,sex,lane:(Math.random()*2-1)*1.5,t:reduce?Math.random():Math.random()*1.1-.1,dur:DUR[0]+Math.random()*(DUR[1]-DUR[0]),picked:false};
     b.addEventListener('click',()=>pick(g));host.appendChild(b);return g;}
   for(let i=0;i<N;i++)G.push(make(i));
   function place(g){const p=Math.max(0,g.t);const z=p*p;const scale=.06+z*2.4,x=g.lane*z*46,y=z*60;g.el.style.transform='translate('+x+'vw,'+y+'vh) scale('+scale+')';g.el.style.opacity=p<0?0:Math.min(1,p*6)*(1-Math.max(0,(p-.85)/.15))*.9;g.el.style.zIndex=Math.round(z*100);g.el.style.filter='blur('+(3.5*(1-z)).toFixed(2)+'px)';const sh=g.el.querySelector('.sh');if(sh){sh.style.transform='scaleY('+(-1.2-z*1.4).toFixed(2)+') skewX('+(-g.lane*22).toFixed(1)+'deg)';}}
-  function reset(g){g.sex=Math.random()<.6?'w':'m';g.el.className='ghost '+g.sex;g.el.innerHTML=(g.sex==='w'?W:M)+'<span class="sh" aria-hidden="true">'+(g.sex==='w'?W:M)+'</span>';g.lane=(Math.random()*2-1)*1.1;g.t=-.05-Math.random()*.2;g.dur=DUR[0]+Math.random()*(DUR[1]-DUR[0]);g.picked=false;}
+  function reset(g){g.sex=Math.random()<.6?'w':'m';g.el.className='ghost '+g.sex;g.el.innerHTML=(g.sex==='w'?W:M)+'<span class="sh" aria-hidden="true">'+(g.sex==='w'?W:M)+'</span>';g.lane=(Math.random()*2-1)*1.5;g.t=-.05-Math.random()*.2;g.dur=DUR[0]+Math.random()*(DUR[1]-DUR[0]);g.picked=false;}
   let last=performance.now();
   function tick(now){const dt=(now-last)/1000;last=now;for(const g of G){if(!reduce&&!g.picked)g.t+=dt/g.dur;if(g.t>1)reset(g);place(g);}requestAnimationFrame(tick);}
   requestAnimationFrame(tick);
