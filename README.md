@@ -29,7 +29,7 @@ First shown at the Ethical Tech Summit, 20 November 2026.
 - `docs/data/catw_sex_buyers_map.geojson`: region polygons and review point locations from CATW's Google My Maps layer. Review text and images are deliberately excluded.
 - `docs/data/femicide_laws.json`: the 23 countries that name femicide as a crime (18 in Latin America per ECLAC; Cyprus, Malta, North Macedonia, Croatia, Italy) plus Belgium's framework law, with years, for the home page map.
 - `docs/data/invisible_men_ny.json`: reviews by region against population share, the 26 themes, forum tables. `analysis/INVISIBLE_MEN_NY_PROTOCOL.md` is the collection protocol.
-- `docs/data/silhouettes.json`: the five human silhouettes used on the home hero and the Game.
+- `docs/data/silhouettes.json`: the two silhouette figures used on the home hero and the Game, the same as the ten-women isotype.
 - `docs/data/corridor_stories.json`: the Game's stories, drawn from the memorial, the cases and the buyers-map regions.
 - `docs/data/ny_enforcement.json`: statewide prostitution-related arrests by Penal Law section and by group (people sold, buyers, pimps and premises, traffickers), 2009 to 2019 from a DCJS data request published by Decriminalize Sex Work, and 2023 from the Unified Court System. County-level counts are not published; see `BACKLOG.md`.
 - `analysis/fetch_wcusa.py`: reads the Women Count USA shared Airtable views and bases into a raw directory. Raw exports contain names, photos, narratives and sources and are never committed.

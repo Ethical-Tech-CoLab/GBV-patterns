@@ -164,8 +164,8 @@ body{overflow-x:hidden}
 <script>
 (async function(){
   const [D,SIL]=await Promise.all([fetch('data/corridor_stories.json').then(r=>r.json()),fetch('data/silhouettes.json').then(r=>r.json())]);
-  const svgOf=k=>'<svg viewBox="0 0 100 200"><path d="'+SIL[k]+'"/></svg>';
-  const WK=['w1','w2','w3'],MK=['m1','m2'];
+  const svgOf=k=>'<svg viewBox="0 0 40 100"><path d="'+SIL[k]+'"/></svg>';
+  const WK=['w1','w1','w1'],MK=['m1','m1'];
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const host=document.getElementById('ghosts'),story=document.getElementById('story'),body=document.getElementById('storyBody'),hint=document.getElementById('hint');
   const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};

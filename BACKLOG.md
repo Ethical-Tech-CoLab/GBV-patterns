@@ -108,7 +108,7 @@ Everything still open, in one place, with an owner. Detail for each item is in t
 
 ## Version 2, 29 October 2026 (CATW feedback)
 
-- Done 2026-11-12: The Corridor became The Game (docs/game.html; corridor.html redirects): Swiss cheese corridor with ladders and chutes, Gilgo Beach chutes-and-ladders board (30 squares, public record), policy-to-outcome flow in RAND's style. Figures are now drawn human silhouettes (docs/data/silhouettes.json), also on the home hero.
+- Done 2026-11-12: The Corridor became The Game (docs/game.html; corridor.html redirects): Swiss cheese corridor with ladders and chutes, Gilgo Beach chutes-and-ladders board (30 squares, public record), policy-to-outcome flow in RAND's style. Fuller human silhouettes were tried and reverted the same day at Carolina's request; the isotype figures stay (docs/data/silhouettes.json).
 - Done 2026-11-12: CATW text pass two: New York headline 'must'; About CATW asks cut to the two CATW listed (Epstein loophole, STSJEA, 2018 law, child sex buyer felony removed from the asks; the facts remain in the timeline and sources); What if page gains the Swiss cheese interactive and the ladders/chutes lists. Forney stays Joel per the Justice Department release.
 - Done 2026-11-12: Invisible Men method page (docs/invisible-men.html) adapting Die Unsichtbaren Männer's published method to New York: forum tables Germany 2018 vs New York 2026, CATW's 141 reviews by region against population share, year and setting charts as placeholders, the 26 German themes as the coding sheet, the lineage, and the protocol draft at analysis/INVISIBLE_MEN_NY_PROTOCOL.md. Open: word-frequency table (needs forum access), year and setting distributions (need the new collection), verify the region population shares.
 
