@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Game</title>
+<meta name="description" content="Three ways to play the same idea: a corridor where the interventions are Swiss cheese slices, a chutes-and-ladders board on the Gilgo Beach timeline, and the flow from policy to outcome.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+body{overflow-x:hidden}
+.corr{position:relative;height:calc(100dvh - var(--header-h));min-height:560px;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#d9d9d9 0%,#8a8a8a 14%,#3a3a3a 40%,#0a0a0a 75%);perspective:900px;perspective-origin:50% 42%}
+.corr .floor{position:absolute;left:-80%;right:-80%;bottom:0;height:70%;transform-origin:50% 100%;transform:rotateX(70deg);background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.55),rgba(255,255,255,.12) 35%,transparent 70%),repeating-linear-gradient(90deg,transparent 0 118px,rgba(0,0,0,.18) 118px 119px),repeating-linear-gradient(0deg,transparent 0 118px,rgba(0,0,0,.18) 118px 119px),#2a2a2a}
+.corr .wall{position:absolute;top:0;bottom:38%;width:50%;background:linear-gradient(90deg,#1a1a1a,#000 90%);transform-origin:0 50%;opacity:.85}
+.corr .wall.l{left:0;transform:rotateY(62deg) translateZ(-40px);transform-origin:100% 50%;background:linear-gradient(270deg,#121212,#000 80%)}
+.corr .wall.r{right:0;transform:rotateY(-62deg) translateZ(-40px);transform-origin:0 50%}
+.corr .fog{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),transparent 40%,rgba(0,0,0,.6) 100%);pointer-events:none}
+.corr .vp{position:absolute;left:50%;top:40%;width:4px;height:4px;background:#fff;box-shadow:0 0 120px 70px rgba(255,255,255,.55);transform:translate(-50%,-50%)}
+.corr .lede{position:absolute;left:24px;top:24px;max-width:46ch;z-index:4}
+.corr .lede{text-shadow:0 1px 12px rgba(0,0,0,.8)}
+.corr .lede h1{font-size:clamp(1.6rem,3.6vw,2.6rem);line-height:1.05;letter-spacing:-.03em;font-weight:600;margin:0}
+.corr .lede p{color:var(--fg-muted);margin:.6rem 0 0;font-size:.95rem}
+.ghost{position:absolute;left:50%;top:42%;width:60px;height:150px;margin:-150px 0 0 -30px;border:0;background:none;padding:0;cursor:pointer;transform-origin:50% 100%;will-change:transform,opacity,filter;opacity:0;pointer-events:auto}
+.ghost svg{width:100%;height:100%;display:block;fill:#0b0b0b;animation:walk 1.1s ease-in-out infinite}
+.ghost .sh{position:absolute;left:0;top:100%;width:100%;height:100%;transform-origin:50% 0;transform:scaleY(-1.6) skewX(0deg);opacity:.55;filter:blur(2px);pointer-events:none;mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 90%);-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 90%)}
+.ghost .sh svg{animation:none;fill:#000}
+.ghost.w svg{fill:#160a0a}
+.ghost.m svg{fill:#0b0b0b}
+.ghost:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:40px}
+.ghost.picked{filter:drop-shadow(0 0 18px rgba(178,24,24,.9))!important}.ghost.picked svg{animation:none}
+@keyframes walk{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-3px) rotate(1deg)}}
+.story{position:absolute;right:24px;bottom:24px;width:min(420px,calc(100% - 48px));max-height:calc(100% - 80px);overflow:auto;background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:20px;z-index:5;display:none;color:var(--fg)}
+.story.on{display:block}
+.story .kind{font-family:var(--mono);font-size:11.5px;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+.story h2{margin:.3rem 0 .2rem;font-size:1.35rem;font-weight:600}
+.story .meta{font-family:var(--mono);font-size:12px;color:var(--fg-subtle)}
+.story .cause{font-family:var(--mono);font-size:12px;color:var(--accent);margin-bottom:.6rem}
+.story p{font-size:14px;color:var(--fg-muted);margin:.5rem 0}
+.story img{width:84px;height:84px;object-fit:cover;border-radius:8px;filter:grayscale(1);float:right;margin:0 0 10px 12px;border:1px solid var(--border)}
+.story .close{position:absolute;top:10px;right:12px;border:0;background:none;color:var(--fg-muted);font-size:20px;cursor:pointer}
+.story a{color:var(--fg)}
+.hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-family:var(--mono);font-size:12px;color:var(--fg-subtle);z-index:4;background:rgba(0,0,0,.5);padding:6px 12px;border-radius:999px}
+:root[data-theme="light"] .corr{background:#0a0a0a}
+@media (max-width:700px){.corr .lede{max-width:calc(100% - 48px)}.corr .lede p{display:none}.story{right:12px;left:12px;width:auto;bottom:12px}}
+@media (prefers-reduced-motion:reduce){.ghost svg{animation:none}}
+
+.ghost svg{fill:#0b0b0b}
+.slice{position:absolute;left:50%;top:42%;width:60px;height:150px;margin:-150px 0 0 -30px;transform-origin:50% 100%;pointer-events:none;will-change:transform}
+.slice .pane{position:absolute;left:-180px;right:-180px;top:-20px;bottom:0;background:linear-gradient(90deg,rgba(242,242,242,.78),rgba(200,200,200,.78));border-radius:6px;box-shadow:0 0 30px rgba(0,0,0,.4)}
+.slice .pane i{position:absolute;border-radius:50%;background:#0b0b0b}
+.slice .lbl{position:absolute;left:50%;top:-44px;transform:translateX(-50%);white-space:nowrap;font-family:var(--mono);font-size:11px;color:var(--fg);background:rgba(0,0,0,.6);padding:3px 8px;border-radius:999px}
+.ctl{position:absolute;left:24px;bottom:24px;z-index:5;display:flex;flex-direction:column;gap:8px;max-width:360px}
+.ctl .grp{background:rgba(0,0,0,.55);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px}
+.ctl .grp b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--fg-subtle);margin-bottom:6px}
+.ctl .grp .opts{display:flex;flex-wrap:wrap;gap:6px}
+.ctl button{border:1px solid var(--border);background:transparent;color:var(--fg);border-radius:999px;padding:4px 10px;font-size:12px;cursor:pointer;font-family:inherit}
+.ctl button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.ctl .chute button[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.score{position:absolute;right:24px;top:24px;z-index:5;background:rgba(0,0,0,.55);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;font-size:13px;color:var(--fg-muted)}
+.score .n{font-family:var(--mono);font-size:1.6rem;color:var(--fg);line-height:1}
+.score div+div{margin-top:8px}
+.board{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:1.4rem}
+.sq{position:relative;aspect-ratio:1;border:1px solid var(--border);border-radius:8px;padding:8px;font-size:11.5px;color:var(--fg-muted);background:var(--bg-alt);overflow:hidden}
+.sq .i{position:absolute;top:6px;left:8px;font-family:var(--mono);font-size:10px;color:var(--fg-subtle)}
+.sq .y{font-family:var(--mono);font-size:11px;color:var(--fg);margin-top:14px}
+.sq.ladder{border-color:#5fb36a;background:color-mix(in srgb,#5fb36a 12%,var(--bg-alt))}
+.sq.chute{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,var(--bg-alt))}
+.sq.here{outline:2px solid var(--fg);outline-offset:2px}
+.sq .tok{position:absolute;right:8px;bottom:6px;width:18px;height:18px;border-radius:50%;background:var(--fg);display:none}
+.sq.here .tok{display:block}
+.bctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.bctl button{border:1px solid var(--border);background:transparent;color:var(--fg);border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer;font-family:inherit}
+.bctl .die{font-family:var(--mono);font-size:1.4rem}
+.bmsg{margin-top:10px;font-size:14px;color:var(--fg-muted);min-height:3em}
+.flow svg{width:100%;height:auto;display:block}
+.flow .k{font-size:12px;color:var(--fg-subtle)}
+@media (max-width:700px){.board{grid-template-columns:repeat(5,1fr)}.sq{font-size:10px}.ctl{max-width:calc(100% - 48px)}.score{display:none}}
+</style>
+
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html"><img src="assets/etc-logo.jpg" alt="Ethical Tech CoLab"><span>GBV Patterns</span></a>
+  <nav aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="sex-trade.html">Femicide in the Sex Trade</a>
+    <a href="new-york.html">New York</a>
+    <a href="numbers.html">By the Numbers</a>
+    <a href="economic-impact.html">Economic Impact</a>
+    <a href="what-if.html">What if…?</a>
+    <a href="about-catw.html">About CATW</a>
+    <a href="game.html" aria-current="page">The Game</a>
+  </nav>
+  <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
+</header>
+<main>
+<section class="corr" id="corr" aria-label="A corridor. Figures walk toward you. Each one carries a story.">
+  <div class="floor"></div><div class="vp"></div><div class="fog"></div>
+  <div class="lede"><h1>The Game</h1></div>
+  <div id="slices"></div>
+  <div id="ghosts"></div>
+  <div class="score" id="score"><div><div class="n" id="sStop">0</div>stopped before harm</div><div><div class="n" id="sPass">0</div>got through</div></div>
+  <div class="ctl" id="ctl">
+    <div class="grp"><b>Ladders · add a slice</b><div class="opts" id="ladders"></div></div>
+    <div class="grp chute"><b>Chutes · widen the holes</b><div class="opts" id="chutes"></div></div>
+  </div>
+  <aside class="story" id="story" aria-live="polite"><button class="close" id="storyClose" aria-label="Close">×</button><div id="storyBody"></div></aside>
+  <div class="hint" id="hint">add a slice · click a woman for her story</div>
+</section>
+<section class="block" id="board">
+  <div class="wrap">
+    <div class="lede"><h2>Chutes and ladders: Gilgo Beach</h2><p>Thirty squares along the public record of the Gilgo Beach killings, 2007 to 2023. Roll, and land where the case landed. Ladders are the laws and systems that could have caught him sooner. Chutes are the failures that let thirteen years pass. The ladders are what New York can still build.</p></div>
+    <div class="board" id="boardGrid"></div>
+    <div class="bctl"><button id="roll">Roll</button><span class="die" id="die">·</span><button id="breset">Start again</button></div>
+    <div class="bmsg" id="bmsg">Square 1. The women are alive. Press roll.</div>
+    <p class="src">Timeline from the public record as reported by the Associated Press, ABC7 and NBC New York; charges as filed by the Suffolk County District Attorney. The ladders are CATW's list; the chutes are its mirror. Nothing on this board describes a victim beyond her name and the date she was last seen.</p>
+  </div>
+</section>
+
+<section class="block" id="flow">
+  <div class="wrap">
+    <div class="lede"><h2>From policy to outcome</h2><p>What the evidence on this site says each ladder does, drawn the way RAND draws gun policy: policies on the left, outcomes on the right, a ribbon where there is evidence, labelled by how strong it is.</p></div>
+    <div class="flow"><svg id="flowSvg" viewBox="0 0 960 420"></svg></div>
+    <p class="src">Evidence is what is already cited on this site: Sweden's buyer share under the Equality Model (0.29% in six months), Nashville's 400+ buyer arrests against Manhattan's 107, Operation Losing Proposition's 156 arrests in three days, Brooklyn's fall from 279 to 28 patronizing arrests, the 23 countries whose law names femicide. "Limited" means one study or one city; "moderate" means a national series; "supportive" means several sources agree. Model: <a href="https://www.rand.org/research/gun-policy.html">RAND, Gun Policy in America</a>.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <p class="src">Stories: <a href="new-york.html#memoriam">In memoriam: New York</a> (Sex Industry Kills), <a href="new-york.html#cases">real cases</a> from the public record, and the ten regions of <a href="buyers.html">CATW's sex-buyers map</a> with the enforcement notes from <em>From Impunity to Accountability</em> (2022). Data: <a href="data/corridor_stories.json">corridor_stories.json</a>. Figures are silhouettes, the same ones used across the site; no image of a person is generated. How buyer quotes will be collected: <a href="invisible-men.html">the method</a>. The Swiss cheese model: <a href="https://southerncalifornialawreview.com/2025/07/05/mind-the-gaps-mitigating-harassment-in-a-post-metoo-workplace/">Mind the Gaps</a> (Southern California Law Review, 2025).</p>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logos">
+        <img class="etc" src="assets/etc-logo.jpg" alt="Ethical Tech CoLab">
+        <img class="catw-light" src="assets/catw-logo.png" alt="Coalition Against Trafficking in Women">
+        <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
+      </div>
+      <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Version 2, October 2026. <a href="v1/index.html">Version 1</a> is archived.</p>
+    </div>
+    <div>
+      <h4>On this site</h4>
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sex-trade.html">Femicide in the Sex Trade</a></li>
+        <li><a href="new-york.html">New York</a></li>
+        <li><a href="numbers.html">By the Numbers</a></li>
+        <li><a href="economic-impact.html">Economic Impact</a></li>
+        <li><a href="what-if.html">What if…?</a></li>
+        <li><a href="about-catw.html">About CATW</a></li>
+        <li><a href="methodology.html">Methodology and limitations</a></li>
+        <li><a href="sources.html">Sources</a></li>
+        <li><a href="progress.html">Progress</a></li>
+      </ol>
+    </div>
+  </div>
+</footer>
+<script src="site.js"></script>
+<script>
+(async function(){
+  const [D,SIL]=await Promise.all([fetch('data/corridor_stories.json').then(r=>r.json()),fetch('data/silhouettes.json').then(r=>r.json())]);
+  const svgOf=k=>'<svg viewBox="0 0 100 200"><path d="'+SIL[k]+'"/></svg>';
+  const WK=['w1','w2','w3'],MK=['m1','m2'];
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const host=document.getElementById('ghosts'),story=document.getElementById('story'),body=document.getElementById('storyBody'),hint=document.getElementById('hint');
+  const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+  let deckW=shuffle(D.women);
+  function drawW(){if(!deckW.length)deckW=shuffle(D.women);return deckW.pop();}
+  // ---- ladders and chutes
+  const LADDERS=['Enforce the patronizing laws','Pass the Survivors Justice and Equality Act','Target the sites where buyers post','Value women and girls as equals','End the normalisation in media and film'];
+  const CHUTES=['Systemic loopholes','Harmful cultural norms','Law enforcement failures','Societal complicity','Dehumanisation of women in the trade'];
+  const on={l:new Set(),c:new Set()};
+  const lad=document.getElementById('ladders'),chu=document.getElementById('chutes');
+  LADDERS.forEach((n,i)=>{const b=document.createElement('button');b.textContent=n;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>{on.l.has(i)?on.l.delete(i):on.l.add(i);b.setAttribute('aria-pressed',on.l.has(i));buildSlices();});lad.appendChild(b)});
+  CHUTES.forEach((n,i)=>{const b=document.createElement('button');b.textContent=n;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>{on.c.has(i)?on.c.delete(i):on.c.add(i);b.setAttribute('aria-pressed',on.c.has(i));buildSlices();});chu.appendChild(b)});
+  const sl=document.getElementById('slices');let SL=[];
+  function holeSize(){return .5+.12*on.c.size}  // chance a perpetrator passes one slice
+  function buildSlices(){sl.innerHTML='';SL=[];const ls=[...on.l].sort();ls.forEach((i,k)=>{const d=document.createElement('div');d.className='slice';const z=.4+k*.13;d.dataset.z=z;
+      const hs=holeSize();let holes='';for(let h=0;h<7;h++){const r=8+Math.round(hs*26);holes+='<i style="left:'+(10+((h*53+i*17)%300))+'px;top:'+(10+((h*41+i*29)%110))+'px;width:'+r+'px;height:'+r+'px"></i>';}
+      d.innerHTML='<div class="pane">'+holes+'</div><div class="lbl">'+LADDERS[i]+'</div>';sl.appendChild(d);SL.push({el:d,z});placeSlice(SL[SL.length-1]);});}
+  function placeSlice(S){const z=S.z*S.z,scale=.06+z*2.4,y=z*60;S.el.style.transform='translate(0vw,'+y+'vh) scale('+scale+')';S.el.style.zIndex=Math.round(z*100);}
+  // ---- women near the front, clickable
+  const W=[];for(let i=0;i<6;i++){const b=document.createElement('button');b.className='ghost w';b.innerHTML=svgOf(WK[i%3])+'<span class="sh" aria-hidden="true">'+svgOf(WK[i%3])+'</span>';b.setAttribute('aria-label','A woman. Click for her story.');
+    const lane=-1.3+i*.52+(Math.random()*.2-.1),z=.86+Math.random()*.08;const zz=z*z,scale=.06+zz*2.4,x=lane*zz*46,y=zz*60;
+    b.style.transform='translate('+x+'vw,'+y+'vh) scale('+scale+')';b.style.opacity=.95;b.style.zIndex=Math.round(zz*100)+50;b.style.filter='blur(0)';
+    const sh=b.querySelector('.sh');sh.style.transform='scaleY(-2.4) skewX('+(-lane*22).toFixed(1)+'deg)';
+    b.addEventListener('click',()=>{const s=drawW();showStory(s);});host.appendChild(b);W.push(b);}
+  // ---- perpetrators walking from the light
+  const P=[],NP=7,DUR=[16,28];let stopped=0,passed=0;
+  function mk(){const el=document.createElement('div');el.className='ghost m';el.style.pointerEvents='none';const k=MK[Math.floor(Math.random()*2)];el.innerHTML=svgOf(k)+'<span class="sh" aria-hidden="true">'+svgOf(k)+'</span>';host.appendChild(el);const g={el,lane:(Math.random()*2-1)*1.2,t:Math.random()*-.6,dur:DUR[0]+Math.random()*(DUR[1]-DUR[0]),next:0,dead:0};return g;}
+  for(let i=0;i<NP;i++)P.push(mk());
+  function reset(g){g.lane=(Math.random()*2-1)*1.2;g.t=-.05-Math.random()*.4;g.next=0;g.dead=0;g.el.style.opacity=0;}
+  function place(g){const p=Math.max(0,g.t),z=p*p,scale=.06+z*2.4,x=g.lane*z*46,y=z*60;g.el.style.transform='translate('+x+'vw,'+y+'vh) scale('+scale+')';
+    const fade=g.dead?Math.max(0,1-(performance.now()-g.dead)/900):1;g.el.style.opacity=(p<0?0:Math.min(1,p*6)*(1-Math.max(0,(p-.85)/.15))*.95)*fade;g.el.style.zIndex=Math.round(z*100);g.el.style.filter='blur('+(3.5*(1-z)).toFixed(2)+'px)';
+    const sh=g.el.querySelector('.sh');if(sh)sh.style.transform='scaleY('+(-1.2-z*1.4).toFixed(2)+') skewX('+(-g.lane*22).toFixed(1)+'deg)';}
+  const sStop=document.getElementById('sStop'),sPass=document.getElementById('sPass');
+  let last=performance.now();
+  function tick(now){const dt=(now-last)/1000;last=now;
+    for(const g of P){if(g.dead){if(now-g.dead>900)reset(g);place(g);continue;}
+      if(!reduce)g.t+=dt/g.dur;
+      // reaching a slice
+      while(g.next<SL.length&&g.t>=SL[g.next].z){if(Math.random()>holeSize()){g.dead=now;stopped++;sStop.textContent=stopped;break;}g.next++;}
+      if(!g.dead&&g.t>.92){passed++;sPass.textContent=passed;g.dead=now;}
+      place(g);}
+    requestAnimationFrame(tick);}
+  requestAnimationFrame(tick);
+  function showStory(s){hint.style.display='none';let h='';
+    if(s.kind==='memorial'){h='<div class="kind">In memoriam · New York</div>'+(s.img?'<img src="'+s.img+'" alt="">':'')+'<h2>'+s.name+'</h2><div class="meta">'+s.meta+'</div><div class="cause">'+s.cause+'</div><p>'+s.text+'</p><p><a href="'+s.url+'" rel="noopener">Her page on Sex Industry Kills</a></p>';}
+    else{h='<div class="kind">From the public record</div><h2>'+s.title+'</h2><div class="meta">'+s.place+'</div><p>'+s.text+'</p><p class="cause">'+s.named+'</p><p><a href="'+s.url+'">The case on the New York page</a></p>';}
+    body.innerHTML=h;story.classList.add('on');}
+  document.getElementById('storyClose').addEventListener('click',()=>story.classList.remove('on'));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')story.classList.remove('on')});
+
+  // ---- chutes and ladders board, Gilgo Beach
+  const SQ=[
+   [1,'1993 · 2003','Sandra Costilla and Jessica Taylor are killed. Not connected to anything for twenty years.','chute',5],
+   [2,'',''],
+   [3,'July 2007','Maureen Brainard-Barnes, 25, last seen in Manhattan.'],
+   [4,'','Ladder: a femicide law with a reporting duty. Her disappearance is logged as what it is.','ladder',9],
+   [5,'','Chute: she is filed as a missing adult who advertised online. Low priority.','chute',2],
+   [6,'July 2009','Melissa Barthelemy, 24, last seen in the Bronx.'],
+   [7,'','Her sister receives calls from Melissa’s phone. The caller taunts her. The calls are traced to Midtown and go no further.','chute',3],
+   [8,'','Ladder: the site that carried her ad is made to answer for it. Ads and the men who answer them are evidence.','ladder',13],
+   [9,'June 2010','Megan Waterman, 22, last seen in Hauppauge.'],
+   [10,'Sept 2010','Amber Lynn Costello, 27, last seen in West Babylon. A witness describes a large man and a dark Chevrolet Avalanche.'],
+   [11,'','Chute: the Avalanche lead is not run down. It will wait twelve years.','chute',6],
+   [12,'May 2010','Shannan Gilbert calls 911 from Oak Beach and runs. It takes months for a search to begin.'],
+   [13,'','Ladder: patronizing laws enforced. The buyers who met these women are on record, and the record is searched.','ladder',18],
+   [14,'Dec 2010','Melissa is found on Ocean Parkway. Two days later, Maureen, Megan and Amber. The Gilgo Four.'],
+   [15,'','Chute: the press names them by their ads. “Craigslist killer.” “Prostitutes.” The public shrugs.','chute',9],
+   [16,'2011','More remains along the parkway. Shannan is found in December.'],
+   [17,'','Ladder: value women and girls as equal human beings. The case gets the resources any four murdered women would.','ladder',22],
+   [18,'','Chute: Suffolk’s police leadership keeps federal help at arm’s length. The chief is later convicted in an unrelated assault and cover-up.','chute',12],
+   [19,'2012 to 2021',"The case goes cold. A decade."],
+   [20,'','Chute: institutional failure. No one is assigned, no one is answerable.','chute',14],
+   [21,'','Ladder: the Survivors Justice and Equality Act. The women are not criminals; they come forward, and so do the people who saw them last.','ladder',26],
+   [22,'Feb 2022','A new commissioner forms a task force with the FBI and state police.'],
+   [23,'Mar 2022','The 2010 Avalanche lead is run. It matches a Massapequa Park architect.'],
+   [24,'','Ladder: online evidence is pursued. Burner phones, searches, ads: the trail was always there.','ladder',28],
+   [25,'2023','A discarded pizza box gives the DNA match.'],
+   [26,'','Chute: societal complicity. For thirteen years the buyers who knew these women said nothing.','chute',19],
+   [27,'',''],
+   [28,'July 2023','Rex Heuermann is arrested and charged with three murders, then a fourth.'],
+   [29,'2024 to 2025','Charges grow to seven women, going back to 1993.'],
+   [30,'','Thirteen years. A femicide law, enforced patronizing laws and sites held to account could have ended this at square 8. That is the game.'],
+  ];
+  const grid=document.getElementById('boardGrid'),bmsg=document.getElementById('bmsg'),die=document.getElementById('die');let pos=1;
+  function cellOrder(){const cols=innerWidth<=700?5:6,rows=Math.ceil(30/cols),out=[];for(let r=rows-1;r>=0;r--){const row=[];for(let c=0;c<cols;c++){const n=r*cols+c+1;if(n<=30)row.push(n);}if((rows-1-r)%2===1)row.reverse();out.push(...row);}return out;}
+  function renderBoard(){grid.innerHTML='';cellOrder().forEach(n=>{const q=SQ[n-1];const d=document.createElement('div');d.className='sq'+(q[3]?' '+q[3]:'')+(n===pos?' here':'');d.id='sq'+n;d.innerHTML='<span class="i">'+n+'</span>'+(q[1]?'<div class="y">'+q[1]+'</div>':'')+'<div>'+(q[2]||'')+'</div><span class="tok"></span>';grid.appendChild(d);});}
+  renderBoard();addEventListener('resize',renderBoard);
+  document.getElementById('roll').addEventListener('click',()=>{if(pos>=30)return;const r=1+Math.floor(Math.random()*6);die.textContent=r;pos=Math.min(30,pos+r);let q=SQ[pos-1];let m='Square '+pos+'. '+(q[1]?q[1]+': ':'')+(q[2]||'Nothing happens here. The years pass.');
+    if(q[3]==='ladder'){m+=' You climb to '+q[4]+'.';pos=q[4];}else if(q[3]==='chute'){m+=' You slide back to '+q[4]+'.';pos=q[4];}
+    if(pos>=30)m+=' '+SQ[29][2];bmsg.textContent=m;renderBoard();document.getElementById('sq'+pos).scrollIntoView({block:'nearest'});});
+  document.getElementById('breset').addEventListener('click',()=>{pos=1;die.textContent='·';bmsg.textContent='Square 1. The women are alive. Press roll.';renderBoard();});
+
+  // ---- policy to outcome flow
+  (function(){const POL=['Enforce patronizing laws','Survivors Justice and Equality Act','Target the sites where buyers post','Name femicide in law','End the normalisation in media'];
+    const OUT=['Fewer buyers','More buyer arrests','Deaths counted','Women come forward','Deaths named as what they are'];
+    const L=[[0,1,'supportive','Nashville 400+ vs Manhattan 107; Operation Losing Proposition 156 in three days; Brooklyn 279 to 28 when enforcement stopped'],[0,0,'moderate','Sweden 13.6% of men in 1996 to 7.5% in 2014 under a buyer law'],[1,0,'moderate','Sweden, Norway, France, Ireland: buyer share falls'],[1,3,'limited','Maine 2023; survivor testimony to the New York legislature'],[2,0,'limited','Craigslist Adult Services 2010; Backpage 2018; demand moved rather than fell'],[3,2,'supportive','23 countries count what they name; ECLAC and UN Women'],[3,4,'supportive','Femicide watch and official series follow the law'],[4,4,'limited','CATW media framing work; the word map is not built yet']];
+    const W=960,H=420,lx=250,rx=710,rowL=(H-40)/POL.length,rowR=(H-40)/OUT.length;const accent=getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+    const wgt={limited:6,moderate:12,supportive:20},op={limited:.35,moderate:.55,supportive:.8};let s='';
+    L.forEach(([a,b,e,why])=>{const y1=20+a*rowL+rowL/2,y2=20+b*rowR+rowR/2;s+='<path d="M'+lx+' '+y1+' C '+(lx+230)+' '+y1+' '+(rx-230)+' '+y2+' '+rx+' '+y2+'" fill="none" stroke="'+accent+'" stroke-opacity="'+op[e]+'" stroke-width="'+wgt[e]+'"><title>'+POL[a]+' → '+OUT[b]+' ('+e+'): '+why+'</title></path>';});
+    POL.forEach((p,i)=>{const y=20+i*rowL+rowL/2;s+='<text x="'+(lx-10)+'" y="'+(y+4)+'" text-anchor="end" fill="#f2f2f2" font-size="12.5" font-family="inherit">'+p+'</text><rect x="'+lx+'" y="'+(y-14)+'" width="6" height="28" fill="#f2f2f2"/>';});
+    OUT.forEach((o,i)=>{const y=20+i*rowR+rowR/2;s+='<rect x="'+(rx-6)+'" y="'+(y-14)+'" width="6" height="28" fill="#f2f2f2"/><text x="'+(rx+10)+'" y="'+(y+4)+'" fill="#f2f2f2" font-size="12.5" font-family="inherit">'+o+'</text>';});
+    s+='<text x="'+lx+'" y="14" fill="#999" font-size="10" font-family="JetBrains Mono,monospace">POLICIES</text><text x="'+rx+'" y="14" text-anchor="end" fill="#999" font-size="10" font-family="JetBrains Mono,monospace">OUTCOMES</text>';
+    s+='<text x="480" y="'+(H-6)+'" text-anchor="middle" fill="#999" font-size="10" font-family="JetBrains Mono,monospace">ribbon width: limited · moderate · supportive evidence. hover a ribbon.</text>';
+    document.getElementById('flowSvg').innerHTML=s;})();
+})();
+</script>
+</body>
+</html>
