@@ -1,0 +1,199 @@
+{
+ "as_of": "2026-11-12",
+ "regions": [
+  {
+   "region": "New York City",
+   "reviews": 50,
+   "review_share": 39.4,
+   "pop_m": 8.8,
+   "pop_share": 43.4
+  },
+  {
+   "region": "Long Island",
+   "reviews": 18,
+   "review_share": 14.2,
+   "pop_m": 2.92,
+   "pop_share": 14.4
+  },
+  {
+   "region": "Hudson Valley",
+   "reviews": 18,
+   "review_share": 14.2,
+   "pop_m": 2.37,
+   "pop_share": 11.7
+  },
+  {
+   "region": "Capital Region",
+   "reviews": 6,
+   "review_share": 4.7,
+   "pop_m": 1.17,
+   "pop_share": 5.8
+  },
+  {
+   "region": "Western New York",
+   "reviews": 8,
+   "review_share": 6.3,
+   "pop_m": 1.42,
+   "pop_share": 7.0
+  },
+  {
+   "region": "Finger Lakes",
+   "reviews": 6,
+   "review_share": 4.7,
+   "pop_m": 1.23,
+   "pop_share": 6.1
+  },
+  {
+   "region": "Central New York",
+   "reviews": 5,
+   "review_share": 3.9,
+   "pop_m": 0.79,
+   "pop_share": 3.9
+  },
+  {
+   "region": "Mohawk Valley",
+   "reviews": 6,
+   "review_share": 4.7,
+   "pop_m": 0.49,
+   "pop_share": 2.4
+  },
+  {
+   "region": "Southern Tier",
+   "reviews": 4,
+   "review_share": 3.1,
+   "pop_m": 0.65,
+   "pop_share": 3.2
+  },
+  {
+   "region": "North Country",
+   "reviews": 6,
+   "review_share": 4.7,
+   "pop_m": 0.42,
+   "pop_share": 2.1
+  }
+ ],
+ "themes": [
+  "Boundary complaints",
+  "Boundary violations",
+  "Cheating",
+  "Drugs",
+  "Empathy",
+  "Fake ads",
+  "Fake pleasure",
+  "Fetishization",
+  "Lack of enthusiasm",
+  "Lack of hygiene",
+  "Lack of language skills",
+  "Masculinity",
+  "Misogyny",
+  "Non-prostituted women",
+  "Not using protection",
+  "Objectification",
+  "Pain",
+  "Pimping",
+  "Porn-sex",
+  "Poverty",
+  "Racism",
+  "Rape",
+  "Rip-off",
+  "Self-image",
+  "Self-pity",
+  "Trafficking"
+ ],
+ "ny_forums": [
+  {
+   "forum": "BestGFE",
+   "named_by": "CATW 2022",
+   "status": "Live",
+   "public_index": "NYC 1,700 threads · Long Island 40 · Hudson Valley 1,100 · Upstate 104 (cumulative, index page)"
+  },
+  {
+   "forum": "USA Sex Guide",
+   "named_by": "Roadmap, CATW",
+   "status": "Live",
+   "public_index": "New York section; Manhattan 15,348 posts (index page)"
+  },
+  {
+   "forum": "Erotic Monkey",
+   "named_by": "Roadmap",
+   "status": "Live",
+   "public_index": "New York City 17,852 listings (index page)"
+  },
+  {
+   "forum": "RubMaps",
+   "named_by": "Roadmap, CATW",
+   "status": "Live, age gate",
+   "public_index": "Not inspected"
+  },
+  {
+   "forum": "The Erotic Review",
+   "named_by": "Roadmap",
+   "status": "Live, behind Cloudflare",
+   "public_index": "Not inspected"
+  },
+  {
+   "forum": "ECCIE",
+   "named_by": "Roadmap",
+   "status": "Blocks automated access",
+   "public_index": "Not inspected"
+  },
+  {
+   "forum": "TNA Board",
+   "named_by": "Roadmap",
+   "status": "Blocks automated access",
+   "public_index": "Not inspected"
+  },
+  {
+   "forum": "UtopiaGuide",
+   "named_by": "CATW 2022",
+   "status": "Offline",
+   "public_index": "None"
+  }
+ ],
+ "german_forums_2018": [
+  {
+   "forum": "AO-Huren",
+   "users": "70,300",
+   "posts": "315,000"
+  },
+  {
+   "forum": "Freiermagazin",
+   "users": "42,700",
+   "posts": "230,000"
+  },
+  {
+   "forum": "Gentleman Navigator",
+   "users": "unknown",
+   "posts": "reviews of c. 2,300 establishments"
+  },
+  {
+   "forum": "Ladies Forum",
+   "users": "47,000",
+   "posts": "723,000"
+  },
+  {
+   "forum": "Lusthaus",
+   "users": "316 million clicks",
+   "posts": "2,140,000"
+  },
+  {
+   "forum": "Pattaya Forum",
+   "users": "14,000",
+   "posts": "1,400,000"
+  },
+  {
+   "forum": "Römer Forum",
+   "users": "14,000",
+   "posts": "226,000"
+  },
+  {
+   "forum": "Tabulos",
+   "users": "27,000",
+   "posts": "500,000"
+  }
+ ],
+ "sources": {
+  "german_method": "https://dieunsichtbarenmaenner.wordpress.com/methods-2/",
+  "catw_report": "https://catwinternational.org/publication/from-impunity-to-accountability-deterring-sex-buyers-in-new-york-state-and-beyond/"
+ }
+}
