@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Corridor</title>
+<meta name="description" content="They walk toward you down a corridor. Each one carries a story: a woman New York did not count, or a region where the buyers write reviews and the arrests do not come.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+body{overflow-x:hidden}
+.corr{position:relative;height:calc(100dvh - var(--header-h));min-height:560px;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#d9d9d9 0%,#8a8a8a 14%,#3a3a3a 40%,#0a0a0a 75%);perspective:900px;perspective-origin:50% 42%}
+.corr .floor{position:absolute;left:-80%;right:-80%;bottom:0;height:70%;transform-origin:50% 100%;transform:rotateX(70deg);background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.55),rgba(255,255,255,.12) 35%,transparent 70%),repeating-linear-gradient(90deg,transparent 0 118px,rgba(0,0,0,.18) 118px 119px),repeating-linear-gradient(0deg,transparent 0 118px,rgba(0,0,0,.18) 118px 119px),#2a2a2a}
+.corr .wall{position:absolute;top:0;bottom:38%;width:50%;background:linear-gradient(90deg,#1a1a1a,#000 90%);transform-origin:0 50%;opacity:.85}
+.corr .wall.l{left:0;transform:rotateY(62deg) translateZ(-40px);transform-origin:100% 50%;background:linear-gradient(270deg,#121212,#000 80%)}
+.corr .wall.r{right:0;transform:rotateY(-62deg) translateZ(-40px);transform-origin:0 50%}
+.corr .fog{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),transparent 40%,rgba(0,0,0,.6) 100%);pointer-events:none}
+.corr .vp{position:absolute;left:50%;top:40%;width:4px;height:4px;background:#fff;box-shadow:0 0 120px 70px rgba(255,255,255,.55);transform:translate(-50%,-50%)}
+.corr .lede{position:absolute;left:24px;top:24px;max-width:46ch;z-index:4}
+.corr .lede{text-shadow:0 1px 12px rgba(0,0,0,.8)}
+.corr .lede h1{font-size:clamp(1.6rem,3.6vw,2.6rem);line-height:1.05;letter-spacing:-.03em;font-weight:600;margin:0}
+.corr .lede p{color:var(--fg-muted);margin:.6rem 0 0;font-size:.95rem}
+.ghost{position:absolute;left:50%;top:42%;width:60px;height:150px;margin:-150px 0 0 -30px;border:0;background:none;padding:0;cursor:pointer;transform-origin:50% 100%;will-change:transform,opacity,filter;opacity:0;pointer-events:auto}
+.ghost svg{width:100%;height:100%;display:block;fill:#0b0b0b;animation:walk 1.1s ease-in-out infinite}
+.ghost .sh{position:absolute;left:0;top:100%;width:100%;height:100%;transform-origin:50% 0;transform:scaleY(-1.6) skewX(0deg);opacity:.55;filter:blur(2px);pointer-events:none;mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 90%);-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 90%)}
+.ghost .sh svg{animation:none;fill:#000}
+.ghost.w svg{fill:#160a0a}
+.ghost.m svg{fill:#0b0b0b}
+.ghost:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:40px}
+.ghost.picked{filter:drop-shadow(0 0 18px rgba(178,24,24,.9))!important}.ghost.picked svg{animation:none}
+@keyframes walk{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-3px) rotate(1deg)}}
+.story{position:absolute;right:24px;bottom:24px;width:min(420px,calc(100% - 48px));max-height:calc(100% - 80px);overflow:auto;background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:20px;z-index:5;display:none;color:var(--fg)}
+.story.on{display:block}
+.story .kind{font-family:var(--mono);font-size:11.5px;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+.story h2{margin:.3rem 0 .2rem;font-size:1.35rem;font-weight:600}
+.story .meta{font-family:var(--mono);font-size:12px;color:var(--fg-subtle)}
+.story .cause{font-family:var(--mono);font-size:12px;color:var(--accent);margin-bottom:.6rem}
+.story p{font-size:14px;color:var(--fg-muted);margin:.5rem 0}
+.story img{width:84px;height:84px;object-fit:cover;border-radius:8px;filter:grayscale(1);float:right;margin:0 0 10px 12px;border:1px solid var(--border)}
+.story .close{position:absolute;top:10px;right:12px;border:0;background:none;color:var(--fg-muted);font-size:20px;cursor:pointer}
+.story a{color:var(--fg)}
+.hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-family:var(--mono);font-size:12px;color:var(--fg-subtle);z-index:4;background:rgba(0,0,0,.5);padding:6px 12px;border-radius:999px}
+:root[data-theme="light"] .corr{background:#0a0a0a}
+@media (max-width:700px){.corr .lede{max-width:calc(100% - 48px)}.corr .lede p{display:none}.story{right:12px;left:12px;width:auto;bottom:12px}}
+@media (prefers-reduced-motion:reduce){.ghost svg{animation:none}}
+</style>
+
+</head>
+<body>
+<header>
+  <a class="brand" href="index.html"><img src="assets/etc-logo.jpg" alt="Ethical Tech CoLab"><span>GBV Patterns</span></a>
+  <nav aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="sex-trade.html">Femicide in the Sex Trade</a>
+    <a href="new-york.html">New York</a>
+    <a href="numbers.html">By the Numbers</a>
+    <a href="economic-impact.html">Economic Impact</a>
+    <a href="what-if.html">What if…?</a>
+    <a href="about-catw.html">About CATW</a>
+    <a href="corridor.html" aria-current="page">The Corridor</a>
+  </nav>
+  <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
+</header>
+<main>
+<section class="corr" id="corr" aria-label="A corridor. Figures walk toward you. Each one carries a story.">
+  <div class="floor"></div><div class="vp"></div><div class="fog"></div>
+  <div class="lede"><h1>The Corridor</h1></div>
+  <div id="ghosts"></div>
+  <aside class="story" id="story" aria-live="polite"><button class="close" id="storyClose" aria-label="Close">×</button><div id="storyBody"></div></aside>
+  <div class="hint" id="hint">click one of them</div>
+</section>
+<section class="block">
+  <div class="wrap">
+    <p class="src">Stories: <a href="new-york.html#memoriam">In memoriam: New York</a> (Sex Industry Kills), <a href="new-york.html#cases">real cases</a> from the public record, and the ten regions of <a href="buyers.html">CATW's sex-buyers map</a> with the enforcement notes from <em>From Impunity to Accountability</em> (2022). Data: <a href="data/corridor_stories.json">corridor_stories.json</a>. Figures are silhouettes, the same ones used across the site; no image of a person is generated.</p>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logos">
+        <img class="etc" src="assets/etc-logo.jpg" alt="Ethical Tech CoLab">
+        <img class="catw-light" src="assets/catw-logo.png" alt="Coalition Against Trafficking in Women">
+        <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
+      </div>
+      <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Version 2, October 2026. <a href="v1/index.html">Version 1</a> is archived.</p>
+    </div>
+    <div>
+      <h4>On this site</h4>
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sex-trade.html">Femicide in the Sex Trade</a></li>
+        <li><a href="new-york.html">New York</a></li>
+        <li><a href="numbers.html">By the Numbers</a></li>
+        <li><a href="economic-impact.html">Economic Impact</a></li>
+        <li><a href="what-if.html">What if…?</a></li>
+        <li><a href="about-catw.html">About CATW</a></li>
+        <li><a href="methodology.html">Methodology and limitations</a></li>
+        <li><a href="sources.html">Sources</a></li>
+        <li><a href="progress.html">Progress</a></li>
+      </ol>
+    </div>
+  </div>
+</footer>
+<script src="site.js"></script>
+<script>
+(async function(){
+  const D=await (await fetch('data/corridor_stories.json')).json();
+  const W='<svg viewBox="0 0 40 100"><circle cx="20" cy="11" r="8"/><path d="M13 23h14l8 40h-7l-2 34h-12l-2-34h-7z"/></svg>';
+  const M='<svg viewBox="0 0 40 100"><circle cx="20" cy="11" r="8"/><path d="M9 23h22l5 40h-6l-2 34h-8v-30h-2v30h-8l-2-34h-6z"/></svg>';
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const host=document.getElementById('ghosts'),story=document.getElementById('story'),body=document.getElementById('storyBody'),hint=document.getElementById('hint');
+  const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+  let deckW=shuffle(D.women),deckM=shuffle(D.men);
+  function draw(sex){let d=sex==='w'?deckW:deckM;if(!d.length){d=shuffle(sex==='w'?D.women:D.men);if(sex==='w')deckW=d;else deckM=d;}return d.pop();}
+  const G=[],N=9,DUR=[26,44];
+  function make(i){const b=document.createElement('button');const sex=Math.random()<.6?'w':'m';b.className='ghost '+sex;b.innerHTML=(sex==='w'?W:M)+'<span class="sh" aria-hidden="true">'+(sex==='w'?W:M)+'</span>';b.setAttribute('aria-label',sex==='w'?'A woman. Click for her story.':'A man. Click for where he posted from.');
+    const g={el:b,sex,lane:(Math.random()*2-1)*1.1,t:reduce?Math.random():-(i/N),dur:DUR[0]+Math.random()*(DUR[1]-DUR[0]),picked:false};
+    b.addEventListener('click',()=>pick(g));host.appendChild(b);return g;}
+  for(let i=0;i<N;i++)G.push(make(i));
+  function place(g){const p=Math.max(0,g.t);const z=p*p;const scale=.06+z*2.4,x=g.lane*z*46,y=z*60;g.el.style.transform='translate('+x+'vw,'+y+'vh) scale('+scale+')';g.el.style.opacity=p<0?0:Math.min(1,p*6)*(1-Math.max(0,(p-.85)/.15))*.9;g.el.style.zIndex=Math.round(z*100);g.el.style.filter='blur('+(3.5*(1-z)).toFixed(2)+'px)';const sh=g.el.querySelector('.sh');if(sh){sh.style.transform='scaleY('+(-1.2-z*1.4).toFixed(2)+') skewX('+(-g.lane*22).toFixed(1)+'deg)';}}
+  function reset(g){g.sex=Math.random()<.6?'w':'m';g.el.className='ghost '+g.sex;g.el.innerHTML=(g.sex==='w'?W:M)+'<span class="sh" aria-hidden="true">'+(g.sex==='w'?W:M)+'</span>';g.lane=(Math.random()*2-1)*1.1;g.t=-.05-Math.random()*.2;g.dur=DUR[0]+Math.random()*(DUR[1]-DUR[0]);g.picked=false;}
+  let last=performance.now();
+  function tick(now){const dt=(now-last)/1000;last=now;for(const g of G){if(!reduce&&!g.picked)g.t+=dt/g.dur;if(g.t>1)reset(g);place(g);}requestAnimationFrame(tick);}
+  requestAnimationFrame(tick);
+  function pick(g){G.forEach(o=>{o.picked=false;o.el.classList.remove('picked')});g.picked=true;g.el.classList.add('picked');hint.style.display='none';
+    const s=draw(g.sex);let h='';
+    if(s.kind==='memorial'){h='<div class="kind">In memoriam · New York</div>'+(s.img?'<img src="'+s.img+'" alt="">':'')+'<h2>'+s.name+'</h2><div class="meta">'+s.meta+'</div><div class="cause">'+s.cause+'</div><p>'+s.text+'</p><p><a href="'+s.url+'" rel="noopener">Her page on Sex Industry Kills</a></p>';}
+    else if(s.kind==='case'){h='<div class="kind">From the public record</div><h2>'+s.title+'</h2><div class="meta">'+s.place+'</div><p>'+s.text+'</p><p class="cause">'+s.named+'</p><p><a href="'+s.url+'">The case on the New York page</a></p>';}
+    else{h='<div class="kind">A buyer · '+s.region+'</div><h2>He posted a review from '+s.region+'</h2><div class="meta">One of 141 reviews CATW geolocated in 2022. His words are not reproduced.</div><p>'+s.text+'</p><p><a href="'+s.url+'">The region on the buyers map</a></p>';}
+    body.innerHTML=h;story.classList.add('on');}
+  document.getElementById('storyClose').addEventListener('click',()=>{story.classList.remove('on');G.forEach(o=>{o.picked=false;o.el.classList.remove('picked')})});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){story.classList.remove('on');G.forEach(o=>{o.picked=false;o.el.classList.remove('picked')})}});
+})();
+</script>
+</body>
+</html>

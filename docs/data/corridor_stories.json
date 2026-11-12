@@ -1,0 +1,154 @@
+{
+ "note": "Stories for the Corridor page. Women: the New York memorial entries from Sex Industry Kills and the three New York cases. Men: the ten regions of CATW's sex-buyers map with what the arrest record shows there. No review text, no generated faces.",
+ "women": [
+  {
+   "kind": "memorial",
+   "name": "Cecilia Gentili",
+   "meta": "age 52 · February 6 2024 · New York City, New York",
+   "cause": "died of an overdose · trans woman",
+   "img": "assets/memoriam/cecilia-gentili.jpg",
+   "text": "Cecilia’s parents were Italian and Argentinian. Cecilia was sexually abused by a neighbor throughout the childhood, beginning at age 6. Cecilia came out as gay at age 12 and started identifying as a woman in the early 20s, at age 26 deciding to move to the United States in search of a better life. After leaving Argentina, Cecilia lived in Brazil and later being banned from there, Cecilia never divulged why.",
+   "url": "https://sexindustrykills.de/2025/02/06/cecilia-gentili/"
+  },
+  {
+   "kind": "memorial",
+   "name": "Judy Guzman",
+   "meta": "age 54 · October 18 2019 · New York City, New York",
+   "cause": "died of an overdose",
+   "img": "assets/memoriam/judy-guzman.jpg",
+   "text": "Judy died from a drug overdose.",
+   "url": "https://sexindustrykills.de/2025/10/18/judy-guzman/"
+  },
+  {
+   "kind": "memorial",
+   "name": "Chrystel Yager",
+   "meta": "age 38 · July 8 2018 · Poughkeepsie, New York",
+   "cause": "killed",
+   "img": "assets/memoriam/chrystel-yager.jpg",
+   "text": "Chrystel was mother of a daughter. She was advertised for prostitution purposes on Backpage and charged with „promoting prostitution“ since 2015.",
+   "url": "https://sexindustrykills.de/2025/07/08/chrystel-yager/"
+  },
+  {
+   "kind": "memorial",
+   "name": "Leondra Foster",
+   "meta": "age 32 · January 17 2017 · New York City, New York",
+   "cause": "killed",
+   "img": "assets/memoriam/leondra-foster.jpg",
+   "text": "Leondra was mother of a 16 year old. She was once in a relationship with Somorie Moses, but when she tried to leave, he threatened to kill her. Leondra was beaten to death by Moses who was her pimp. He decided to conceal her remains instead of contacting the police. The following morning, using a knife and a saw, Moses dismembered her body inside their shared apartment in Brooklyn, New York.",
+   "url": "https://sexindustrykills.de/2025/01/17/leondra-foster/"
+  },
+  {
+   "kind": "memorial",
+   "name": "Melissa Barthelemy",
+   "meta": "age 24 · July 12 2009 · Bronx, New York City, New York",
+   "cause": "killed",
+   "img": "assets/memoriam/melissa-barthelemy.jpg",
+   "text": "Melissa grew up in upstate New York, graduated in Buffalo and after school got her cosmetology license. At the age of 20 she left to live in the Bronx. She lived in a tiny apartment together with her five cats. She dreamed of having her own business and wanted to make money for this purpose.She advertised on Craigslist offering sexual service for money.",
+   "url": "https://sexindustrykills.de/2025/07/12/melissa-barthelemy/"
+  },
+  {
+   "kind": "memorial",
+   "name": "Colleen McNamee",
+   "meta": "age 20 · January 5 1994 · Long Island, New York",
+   "cause": "killed",
+   "img": "assets/memoriam/colleen-mcnamee.jpg",
+   "text": "Colleen at school was known as a bubbly peacemaker in Sachem High School on Long Island, dressing impeccably. She could be heard in hallways imploring friends in a squeaky voice to stop fighting or sleeping in class. Colleen was reported missing by her parents one day after she was last seen. According to her mother, she was bipolar and struggling with a drug addiction and was in prostitution.",
+   "url": "https://sexindustrykills.de/2025/01/05/colleen-mcnamee/"
+  },
+  {
+   "kind": "memorial",
+   "name": "Carmen Vargas",
+   "meta": "age 29 · summer 1989 · New York City, New York",
+   "cause": "killed",
+   "img": "assets/memoriam/carmen-vargas.jpg",
+   "text": "Carmen was last seen getting into a dark car with a man in Harlem. Carmens‘ remains would be found at the side of the road along the Meadowbrook State Parkway, in Freeport, weeks later on September 11. Her ankles and wrists were bound with a cord. A towel covered her face, a rope was tied around her neck, and she was missing three of her front teeth.",
+   "url": "https://sexindustrykills.de/2025/08/29/carmen-vargas/"
+  },
+  {
+   "kind": "case",
+   "title": "The Penn Track",
+   "place": "East New York, Brooklyn",
+   "text": "An open-air sex market where police estimate 350 pimps operate. Omari Scott was convicted in 2025 of murder in the course of sex trafficking and sentenced to 50 years; Joel Forney of trafficking two women there.",
+   "named": "Named as “sex trafficking”; the murder victim counted is a pimp, the women are witnesses.",
+   "url": "new-york.html#cases"
+  },
+  {
+   "kind": "case",
+   "title": "Sayville Motor Lodge",
+   "place": "Suffolk County",
+   "text": "Michael Johnson, convicted October 2025, sentenced April 2026 to 22 years for trafficking women out of a motel: coercion, drugs, violence, a room.",
+   "named": "Named as “sex trafficking of women”; no category for the women who die.",
+   "url": "new-york.html#cases"
+  },
+  {
+   "kind": "case",
+   "title": "Gilgo Beach",
+   "place": "Ocean Parkway, Suffolk County",
+   "text": "Rex Heuermann, arrested July 2023, charged with the murders of women found along the beach, several of whom advertised as escorts. Reported for a decade through the lens of their work.",
+   "named": "Named as “sex workers”, “escorts”, “the Craigslist killer”. Rarely “women”.",
+   "url": "new-york.html#cases"
+  }
+ ],
+ "men": [
+  {
+   "kind": "buyer",
+   "region": "New York City",
+   "text": "The largest market and the largest gap. Brooklyn patronizing arrests fell from 279 in 2018 to 28 in 2020. Manhattan made 107 buyer arrests in 2011 against more than 400 in Nashville. A 2018 NYPD officer ran a $2 million-a-year ring across Queens, Brooklyn and Long Island; 49 men were arrested in Operation Zap. Flushing's illicit massage parlours are named in the report as a centre of demand.",
+   "url": "buyers.html#mapsec"
+  },
+  {
+   "kind": "buyer",
+   "region": "Long Island",
+   "text": "Sayville Motor Lodge and Gilgo Beach are both here. The 2018 Operation Zap ring extended onto the island. Reviews cluster along the Nassau and Suffolk corridors.",
+   "url": "buyers.html#mapsec"
+  },
+  {
+   "kind": "buyer",
+   "region": "Hudson Valley",
+   "text": "In 2021 a Hudson Valley police officer was arrested for an eight-year sex trafficking and bribery operation between Mexico, Queens and Brewster. An Orange County sting arrested four women and three buyers.",
+   "url": "buyers.html#mapsec"
+  },
+  {
+   "kind": "buyer",
+   "region": "Capital Region",
+   "text": "Safe Inc. in Schenectady reports that 90% of the roughly 1,000 homeless young people it works with each year have been approached by a pimp or exploiter. Five arrests in Saratoga Springs in the FBI's Operation Cross Country, 2013.",
+   "url": "buyers.html#mapsec"
+  },
+  {
+   "kind": "buyer",
+   "region": "Western New York",
+   "text": "Buffalo and Jamestown. In 2017 Rochester police arrested 15 men for patronizing after a \"Dear John\" billboard campaign pressed them to enforce Section 230 of the Penal Law.",
+   "url": "buyers.html#mapsec"
+  },
+  {
+   "kind": "buyer",
+   "region": "Finger Lakes",
+   "text": "Rochester's \"Dear John\" campaign posted buyers' pictures on billboards. The region is also where Arthur Shawcross killed women in prostitution; the report cites it as history that was never named as femicide.",
+   "url": "buyers.html#mapsec"
+  },
+  {
+   "kind": "buyer",
+   "region": "Central New York",
+   "text": "Syracuse police ran a reverse sting online and arrested 20 buyers, many from out of town. In 2020 three men were arrested, one for luring a 12-year-old on social media.",
+   "url": "buyers.html#mapsec"
+  },
+  {
+   "kind": "buyer",
+   "region": "Mohawk Valley",
+   "text": "Utica: arrests of women in prostitution in 2015 and 2016, with no recorded arrests of sex buyers found by the report.",
+   "url": "buyers.html#mapsec"
+  },
+  {
+   "kind": "buyer",
+   "region": "North Country",
+   "text": "Interstate 87 between Montreal and New York City raises trafficking risk. State police arrested 5 buyers in Calcium in 2014 and 10 men for solicitation in 2016. Plattsburgh officials reported rising child exploitation tied to the opiate crisis.",
+   "url": "buyers.html#mapsec"
+  },
+  {
+   "kind": "buyer",
+   "region": "Southern Tier",
+   "text": "Binghamton and Elmira. Few reviews, and the report finds few enforcement actions to set against them.",
+   "url": "buyers.html#mapsec"
+  }
+ ]
+}
