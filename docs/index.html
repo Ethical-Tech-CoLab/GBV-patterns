@@ -45,6 +45,19 @@
     <div class="warn">This site documents violence against women and girls, including killing. Support in New York: the 24-hour HOPE hotline, 1-800-621-4673. National Domestic Violence Hotline, 1-800-799-7233.</div>
   </div>
 </section>
+<section class="block" id="lawmap-sec">
+  <div class="wrap">
+    <div class="lede"><h2>Where femicide is named in law</h2></div>
+    <div class="lawmap" id="lawmap">
+      <div class="lawmap-head"><div><span class="n num" id="lawN">23</span><span class="k">countries name femicide in law, Costa Rica in 2007 to Italy in 2025. Naming the crime is what makes it countable.</span></div><div class="lawmap-legend" id="lawLegend"><span><i class="sw crime"></i>Femicide is a crime</span><span><i class="sw frame"></i>Defined in law, not a separate crime</span><span><i class="sw data"></i>Counts femicide without a law</span><span><i class="sw none"></i>No femicide law</span></div></div>
+      <div class="lawmap-modes" role="tablist"><button id="modeLaw" aria-pressed="true">The law</button><button id="modeRate" aria-pressed="false">Female homicide rate</button></div>
+      <svg id="lawSvg" viewBox="0 0 960 500" role="img" aria-label="World map of countries whose law names femicide, with the female homicide rate"></svg>
+      <div class="lawmap-years" id="lawYears"></div>
+      <div class="lawmap-tip" id="lawTip" hidden></div>
+    </div>
+    <p class="src">Map: countries verified in ECLAC's <a href="https://oig.cepal.org/sites/default/files/s2301023_en.pdf">November 2023 bulletin</a> (18 in Latin America) and UN Women's <a href="https://www.unwomen.org/sites/default/files/2025-12/csw-70-expert-group-meeting-expert-paper-patsili-toledo-en.pdf">CSW70 expert paper</a> (December 2025), with Croatia and Italy from their 2024 and 2025 laws. Data: <a href="data/femicide_laws.json">femicide_laws.json</a>. Countries that treat gender motive as an aggravating circumstance without naming the crime, such as Spain, Turkey and Canada, are not shaded. The uncounted women killed in the sex trade in New York are on the <a href="numbers.html#uncounted">By the Numbers</a> page.</p>
+  </div>
+</section>
 <section class="block" id="pulse">
   <div class="wrap">
     <div class="lede">
@@ -113,22 +126,12 @@
       <p>Twenty-three countries define femicide in their criminal codes. The United States and New York State do not.</p>
     </div>
     <div class="gapwrap">
-      <div class="gapcard" style="grid-column:1/-1;padding:0;border:0;background:none">
-    <div class="lawmap" id="lawmap">
-      <div class="lawmap-head"><div><span class="n num" id="lawN">23</span><span class="k">countries name femicide in law, Costa Rica in 2007 to Italy in 2025. Naming the crime is what makes it countable.</span></div><div class="lawmap-legend" id="lawLegend"><span><i class="sw crime"></i>Femicide is a crime</span><span><i class="sw frame"></i>Defined in law, not a separate crime</span><span><i class="sw data"></i>Counts femicide without a law</span><span><i class="sw none"></i>No femicide law</span></div></div>
-      <div class="lawmap-modes" role="tablist"><button id="modeLaw" aria-pressed="true">The law</button><button id="modeRate" aria-pressed="false">Female homicide rate</button></div>
-      <svg id="lawSvg" viewBox="0 0 960 500" role="img" aria-label="World map of countries whose law names femicide, with the female homicide rate"></svg>
-      <div class="lawmap-years" id="lawYears"></div>
-      <div class="lawmap-tip" id="lawTip" hidden></div>
-    </div>
-      </div>
       <div class="gapcard">
         <div class="n">Sweden</div>
         <h3>Counting without a law</h3>
         <p>There are also a number of countries that collect data on the number of femicides even in the absence of laws that define it, such as Sweden. To address the lack of comparable data on violence against women, EIGE developed 13 indicators with uniform definitions of the multiple forms of intimate partner violence, femicide and rape, with a published <a href="https://eige.europa.eu/sites/default/files/documents/20211587_mh0221353enn_pdf.pdf">methodology and metadata per country</a>.</p>
       </div>
     </div>
-    <p class="src">Map: countries verified in ECLAC's <a href="https://oig.cepal.org/sites/default/files/s2301023_en.pdf">November 2023 bulletin</a> (18 in Latin America) and UN Women's <a href="https://www.unwomen.org/sites/default/files/2025-12/csw-70-expert-group-meeting-expert-paper-patsili-toledo-en.pdf">CSW70 expert paper</a> (December 2025), with Croatia and Italy from their 2024 and 2025 laws. Data: <a href="data/femicide_laws.json">femicide_laws.json</a>. Countries that treat gender motive as an aggravating circumstance without naming the crime, such as Spain, Turkey and Canada, are not shaded. The uncounted women killed in the sex trade in New York are on the <a href="numbers.html#uncounted">By the Numbers</a> page.</p>
   </div>
 </section>
 <section class="block" id="state-regions">
