@@ -31,6 +31,8 @@ Everything still open, in one place, with an owner. Detail for each item is in t
 | Carolina | Send the November 20 event details to Elly; connect Elly with the OnlyFans master's contact | Emails | Before 20 Nov |
 | Carolina | Decide whether the pilot of twenty coded buyer quotes from the open USA Sex Guide section runs | Decision, after the protocol | Open |
 | CATW | Review The Game: the Gilgo Beach board squares (ladders and chutes as written), the Swiss cheese corridor, and the policy-to-outcome ribbons; correct any square | Read docs/game.html | Before 20 Nov |
+| Agent | SPARCS emergency department assault visits by county and sex, as the health correlation by county | Data pull from NY DOH SPARCS public files | Open |
+| Agent | Run the CDC WISQARS cost module for homicide of women in New York by age, to put a sourced lost-life figure beside the $15,400 medical cost | WISQARS query | Open |
 | Agent | Presenter mode for the Summit: keyboard section stepping, large type | Build | Before 20 Nov |
 | Agent | Buyer quote cards: data model, identifier-stripping coder, silhouette and speech-bubble SVG generator, cards by region and year on the Buyers page | Build once the protocol is agreed and Elly's files arrive | Before 20 Nov |
 | Agent | Word map of how the killing of women in the sex trade is reported | Build once source links are cleared for use | Open |
@@ -107,6 +109,8 @@ Everything still open, in one place, with an owner. Detail for each item is in t
 - **Sentencing comparison, state level**: New York domestic violence and rape conviction and sentence data from the Office of Court Administration or DCJS, to set against the federal comparison on the buyers page; BJS has no state series since 1998.
 
 ## Version 2, 29 October 2026 (CATW feedback)
+
+- Done 2026-11-12, from the decision-maker review: home spine (background, problem, solution); health section on the sex-trade page (Potterat lethality, Glass strangulation, OPDV strangulation arrests, overdose share, CDC medical cost); arrest see-saw and Sweden two-point chart on the buyers page; bill tracker on the New York page. Dropped before publishing for lack of a primary source: a per-homicide value-of-life figure and a 2008 Swedish survey value. Still open from the review: county map with Senate district overlay (DCJS/OPDV request); impunity funnel (DCJS dispositions); one woman, one page (permission); SPARCS assault visits by county and sex; WISQARS cost module run for New York by age; cost of one femicide to one county; the 24-hour clock; the county round in the Game; Norway, France and Ireland buyer-share series from primary sources.
 
 - Done 2026-11-12: The Corridor became The Game (docs/game.html; corridor.html redirects): Swiss cheese corridor with ladders and chutes, Gilgo Beach chutes-and-ladders board (30 squares, public record), policy-to-outcome flow in RAND's style. Fuller human silhouettes were tried and reverted the same day at Carolina's request; the isotype figures stay (docs/data/silhouettes.json).
 - Done 2026-11-12: CATW text pass two: New York headline 'must'; About CATW asks cut to the two CATW listed (Epstein loophole, STSJEA, 2018 law, child sex buyer felony removed from the asks; the facts remain in the timeline and sources); What if page gains the Swiss cheese interactive and the ladders/chutes lists. Forney stays Joel per the Justice Department release.
