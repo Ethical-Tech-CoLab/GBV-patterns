@@ -222,7 +222,7 @@ footer h4{margin:0 0 .6rem;font-size:14px;font-weight:600}
 .lawmap-years button{border:1px solid var(--border);background:transparent;color:var(--fg);border-radius:999px;padding:4px 10px;font-size:12.5px;cursor:pointer;font-family:inherit}
 .lawmap-years button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .lawmap-tip{position:absolute;pointer-events:none;background:var(--bg-alt);color:var(--fg);border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:12.5px;max-width:260px;z-index:3}
-.sw.data{background:repeating-linear-gradient(0deg,var(--fg) 0 1px,transparent 1px 4px);opacity:.7}
+.sw.data{background:radial-gradient(circle,var(--fg) 1.1px,transparent 1.3px) 0 0/5px 5px;opacity:.85}
 #lawSvg .land.data{fill:url(#lawDots)}
 .lawmap-modes{display:flex;gap:6px;margin:4px 0 8px}
 .lawmap-modes button{border:1px solid var(--border);background:transparent;color:var(--fg);border-radius:999px;padding:4px 12px;font-size:12.5px;cursor:pointer;font-family:inherit}
