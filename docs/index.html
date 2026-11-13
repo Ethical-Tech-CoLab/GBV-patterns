@@ -86,6 +86,20 @@
       </div>
       <div class="tally" id="tally" aria-hidden="true"></div>
     </div>
+    <div class="dayclock" id="dayclock">
+      <svg viewBox="0 0 300 300" role="img" aria-labelledby="dcTitle"><title id="dcTitle">One day on a 24-hour dial: 137 marks, lit up to the current local hour</title>
+        <g id="dcTicks"></g>
+        <line id="dcHand" class="hand" x1="150" y1="150" x2="150" y2="40"/>
+        <circle cx="150" cy="150" r="3" fill="var(--fg)"/>
+        <text class="hour" x="150" y="22" text-anchor="middle">0</text><text class="hour" x="284" y="154" text-anchor="middle">6</text><text class="hour" x="150" y="286" text-anchor="middle">12</text><text class="hour" x="16" y="154" text-anchor="middle">18</text>
+        <text class="mid" id="dcN" x="150" y="150">0</text><text class="midl" x="150" y="168">by this hour, at the 2024 pace</text>
+      </svg>
+      <div>
+        <h3>One day, on a clock.</h3>
+        <p>The dial is 24 hours and the hand is your local time. The 137 marks are one day at the 2024 global pace of intimate partner and family femicide. The ones already lit are the share of today that has passed.</p>
+        <p>This is a pace, not a count: it shows what the yearly estimate means across an ordinary day, not who was killed today.</p>
+      </div>
+    </div>
     <p class="src">Source: UNODC and UN Women, <a href="https://www.unwomen.org/en/digital-library/publications/2025/11/femicides-in-2024-global-estimates-of-intimate-partner-family-member-femicides">Femicides in 2024: global estimates of intimate partner and family member femicides</a> (November 2025), based on data from 117 countries.</p>
   </div>
 </section>
@@ -202,7 +216,7 @@
   </div>
 </footer>
 
-<script src="site.js"></script>
+<script src="site.js?v=3"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 <script>
@@ -361,6 +375,20 @@ requestAnimationFrame(()=>document.querySelectorAll('.reveal').forEach((el,i)=>s
   document.getElementById('pulseDay').addEventListener('click',()=>{dayMode=true;clearInterval(dayTimer);shown=-1;
     let i=0;dayTimer=setInterval(()=>{i++;render(i,'in one day, at the 2024 global rate. Each dot is one woman or girl.');if(i>=DOTS)clearInterval(dayTimer)},18);});
   document.getElementById('pulseReset').addEventListener('click',()=>{clearInterval(dayTimer);dayMode=false;paused=false;pauseBtn.textContent='Pause';pauseBtn.setAttribute('aria-pressed','false');start=performance.now();shown=-1;render(0,'killed by a partner or relative since you opened this page');});
+})();
+
+// ---------- one day on a 24-hour dial ----------
+(function(){
+  const g=document.getElementById('dcTicks'),hand=document.getElementById('dcHand'),n=document.getElementById('dcN'); if(!g)return;
+  const N=137, R1=104, R2=128, ticks=[];
+  for(let i=0;i<N;i++){const a=(i+.5)/N*2*Math.PI-Math.PI/2;const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('class','tick');l.setAttribute('x1',150+R1*Math.cos(a));l.setAttribute('y1',150+R1*Math.sin(a));l.setAttribute('x2',150+R2*Math.cos(a));l.setAttribute('y2',150+R2*Math.sin(a));g.appendChild(l);ticks.push(l)}
+  let last=-1;
+  function tick(){const d=new Date();const frac=(d.getHours()*3600+d.getMinutes()*60+d.getSeconds())/86400;
+    hand.setAttribute('transform','rotate('+(frac*360)+' 150 150)');
+    const lit=Math.floor(frac*N); if(lit!==last){last=lit;ticks.forEach((t,i)=>t.classList.toggle('on',i<lit));n.textContent=lit}
+    setTimeout(tick,1000)}
+  tick();
 })();
 
 // ---------- regions ----------

@@ -12,7 +12,7 @@ First shown at the Ethical Tech Summit, 20 November 2026.
 
 | Page | What it holds |
 |---|---|
-| **Home** | A hero with silhouettes of women and men drifting through the globe; the UN femicide definition and the six forms the NYC Coalition to End Femicide names; the pace dots (the countdown clock was removed at CATW's request); a world map of the countries whose law names femicide, by year; New York City's homicides and incident reports by borough for 2023 and 2024, with the uncounted sex-trade line in the ledger; the state dashboard; the gap and the demand evidence; "Of every ten women" figures; CATW's work and its asks of New York. |
+| **Home** | A hero with silhouettes of women and men drifting through the globe; the UN femicide definition and the six forms the NYC Coalition to End Femicide names; the pace dots and one day on a 24-hour dial (the countdown clock was removed at CATW's request); a world map of the countries whose law names femicide, by year; New York City's homicides and incident reports by borough for 2023 and 2024, with the uncounted sex-trade line in the ledger; the state dashboard; the gap and the demand evidence; "Of every ten women" figures; CATW's work and its asks of New York. |
 | **New York** | The case for the law. Live charts from NYPD domestic violence records on NYC Open Data (about 484,000 incidents, 2020 to 2021): victim and suspect age, borough, race, suspect sex, rapes by relationship. A decade of fatality reviews. Three real cases from the sex trade and how each was named. CATW's sex buyers map embedded. Five steps the state can take, in order of cost. |
 | **New York › Buyers** | CATW's 2022 map of 141 geolocated sex-buyer reviews across ten regions, rebuilt as an open layer with region notes, plus CATW's original map. An enforcement layer: statewide arrests of people sold, buyers, pimps and traffickers, 2009 to 2023, and a status check of the eight buyer forums from their public index pages. Impunity in numbers: Brooklyn's patronizing arrests falling from 279 to 28, Manhattan against Nashville, and federal sentences for sex crimes against tax fraud. |
 | **New York › Buyers › Method** | The German Invisible Men method adapted to New York: forums then and now, reviews by region against population, the 26-theme coding sheet, the lineage, and the collection protocol CATW signs before any board is read. |
@@ -22,6 +22,8 @@ First shown at the Ethical Tech Summit, 20 November 2026.
 | **Methodology** | Scope, source table, coding rules for the case-level data, ten limitations ranked by severity, ethics. |
 | **Sources** | Every figure with the document it comes from and a link to verify it. Figures quoted from secondary summaries are flagged. |
 | **Progress** | CATW's five desired outcomes scored built, partial or not started, with what is on the platform, what is missing and the blocker for each; a coverage table of every section; a table of what has not been researched. |
+
+Presenter mode for talks: press P on any page, or open it with `?present=1`. The header and footer hide, each section fills the screen with larger type, the arrow keys step through the sections and Esc exits.
 
 ## Data
 

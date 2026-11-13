@@ -28,3 +28,26 @@
     requestAnimationFrame(tick)}
   tick();
 })();
+
+// Presenter mode for the Summit: press P (or open with ?present) to step section by section with the arrow keys, large type, no header or footer. Esc exits.
+(function(){
+  const secs=[...document.querySelectorAll('section')]; if(secs.length<2)return;
+  const body=document.body; let on=false, i=0;
+  const hud=document.createElement('div'); hud.id='presentHud'; hud.setAttribute('aria-live','polite');
+  const btn=document.createElement('button'); btn.id='presentBtn'; btn.type='button'; btn.textContent='Present'; btn.title='Presenter mode (P). Arrow keys step through the sections, Esc exits.';
+  document.body.append(hud,btn);
+  function nearest(){const y=scrollY+innerHeight/3;let k=0;secs.forEach((s,j)=>{if(s.offsetTop<=y)k=j});return k}
+  function go(k){i=Math.max(0,Math.min(secs.length-1,k));secs[i].scrollIntoView({behavior:'smooth',block:'start'});hud.textContent=(i+1)+' / '+secs.length+' · Esc to exit';}
+  function set(v){on=v;body.classList.toggle('present',on);btn.textContent=on?'Exit':'Present';if(on){go(nearest())}else{hud.textContent=''}
+    try{const u=new URL(location);if(on)u.searchParams.set('present','1');else u.searchParams.delete('present');history.replaceState(null,'',u)}catch(e){}}
+  btn.addEventListener('click',()=>set(!on));
+  addEventListener('keydown',e=>{const t=e.target; if(t&&/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))return;
+    if((e.key==='p'||e.key==='P')&&!e.metaKey&&!e.ctrlKey){set(!on);return}
+    if(!on)return;
+    if(e.key==='Escape'){set(false)}
+    else if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1)}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(i-1)}
+    else if(e.key==='Home'){e.preventDefault();go(0)}
+    else if(e.key==='End'){e.preventDefault();go(secs.length-1)}});
+  if(new URLSearchParams(location.search).has('present'))set(true);
+})();

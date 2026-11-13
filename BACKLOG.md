@@ -31,9 +31,14 @@ Everything still open, in one place, with an owner. Detail for each item is in t
 | Carolina | Send the November 20 event details to Elly; connect Elly with the OnlyFans master's contact | Emails | Before 20 Nov |
 | Carolina | Decide whether the pilot of twenty coded buyer quotes from the open USA Sex Guide section runs | Decision, after the protocol | Open |
 | CATW | Review The Game: the Gilgo Beach board squares (ladders and chutes as written), the Swiss cheese corridor, and the policy-to-outcome ribbons; correct any square | Read docs/game.html | Before 20 Nov |
+| Agent | County map of New York with Senate district overlay: femicide, intimate partner homicide, orders of protection | DCJS and OPDV county data; TIGER district boundaries | Open |
+| Agent | Impunity funnel for buyer arrests: arrests to convictions to sentences, by charge | DCJS dispositions from the county request | Open |
+| Agent | Cost of one femicide to one county (medical, criminal justice, lost earnings) | Economist review and the WISQARS run | Open |
+| Agent | One woman, one page: a memorial page per New York case | Family or Sex Industry Kills permission; public record only | Blocked |
+| Agent | County round in The Game: the corridor replayed with one county's own numbers | DCJS county data | Open |
+| Agent | Buyer-share series for Norway, France and Ireland next to Sweden | Primary surveys only; none located yet | Open |
 | Agent | SPARCS emergency department assault visits by county and sex, as the health correlation by county | Data pull from NY DOH SPARCS public files | Open |
 | Agent | Run the CDC WISQARS cost module for homicide of women in New York by age, to put a sourced lost-life figure beside the $15,400 medical cost | WISQARS query | Open |
-| Agent | Presenter mode for the Summit: keyboard section stepping, large type | Build | Before 20 Nov |
 | Agent | Buyer quote cards: data model, identifier-stripping coder, silhouette and speech-bubble SVG generator, cards by region and year on the Buyers page | Build once the protocol is agreed and Elly's files arrive | Before 20 Nov |
 | Agent | Word map of how the killing of women in the sex trade is reported | Build once source links are cleared for use | Open |
 | Agent | New York version of the ProstCost 29-line cost sheet, with an animation projecting 2015 figures forward | Build; wording must not price lives | Open |
@@ -70,7 +75,7 @@ Everything still open, in one place, with an owner. Detail for each item is in t
 - **Media-framing analysis**: how coverage of women killed in the sex trade names the victim and perpetrator. Needs an LLM-assisted coding pass over the SOURCES links.
 - **Confidence scores per source** as discussed with CATW.
 - **Vibe Check integration**: pull trafficking news aggregates from Carolina's Vibe Check platform.
-- **Hackathon on 19 November and Ethical Tech Summit on 20 November 2026**: prepare a presenter mode for the site.
+- ~~Presenter mode for the Hackathon on 19 November and the Summit on 20 November 2026.~~ Done 2026-11-12: press P on any page, or add ?present=1 to the URL; arrow keys step section by section, Esc exits.
 
 ## Data refresh
 
@@ -82,7 +87,7 @@ Everything still open, in one place, with an owner. Detail for each item is in t
 - **Representation by sector**: women's share in politics (IPU, CAWP, NY State Legislature), boards and CEOs (Fortune, Catalyst), judiciary, police, medicine, tech, media. Verify the three placeholder figures on the context page.
 - **Trajectory of women's rights over time**: is there a study of advance and regress, and of when gender policy peaked in national politics? Candidate sources: World Bank Women, Business and the Law (legal scores 1970 to present, 190 economies); V-Dem Women's Political Empowerment Index (1900 to present); Georgetown WPS Index; UN Women Beijing+30 country reports; Comparative Agendas Project for counts of gender bills and speeches by year, including New York. Build a chart of mentions of gender, women and violence against women in NY legislative sessions and in UN General Assembly resolutions by year, to show the peak and the fall.
 - **More evidence and data** requested in general: expand every section with primary-source figures; add CDC WISQARS female homicide series, FBI SHR, NYS DCJS county-level domestic violence counts, NYPD precinct-level complaints 2025.
-- **Design direction confirmed**: black and white, formal, grey scale, dark red accent, 3D futuristic. Dark is now the default theme and the hero is a rotating 3D point globe. Remaining: 3D treatment for charts (depth, parallax), presenter mode.
+- **Design direction confirmed**: black and white, formal, grey scale, dark red accent, 3D futuristic. Dark is now the default theme and the hero is a rotating 3D point globe. Remaining: 3D treatment for charts (depth, parallax). Presenter mode done 2026-11-12.
 - **Dataset aggregation script**: build_dataset.py was drafted but could not be saved because the agent's permission layer refused to process the copyrighted database into a derived file. The coding rules are on the methodology page. Once Dawn Wilcox and CATW agree, Carolina can write the script by hand from those rules or re-run the agent with the restriction lifted.
 
 ## Worked 22 October 2026, later still
@@ -110,7 +115,8 @@ Everything still open, in one place, with an owner. Detail for each item is in t
 
 ## Version 2, 29 October 2026 (CATW feedback)
 
-- Done 2026-11-12, from the decision-maker review: home spine (background, problem, solution); health section on the sex-trade page (Potterat lethality, Glass strangulation, OPDV strangulation arrests, overdose share, CDC medical cost); arrest see-saw and Sweden two-point chart on the buyers page; bill tracker on the New York page. Dropped before publishing for lack of a primary source: a per-homicide value-of-life figure and a 2008 Swedish survey value. Still open from the review: county map with Senate district overlay (DCJS/OPDV request); impunity funnel (DCJS dispositions); one woman, one page (permission); SPARCS assault visits by county and sex; WISQARS cost module run for New York by age; cost of one femicide to one county; the 24-hour clock; the county round in the Game; Norway, France and Ireland buyer-share series from primary sources.
+- Done 2026-11-12: Presenter mode on every page (site.js: P or ?present=1, arrow keys, Esc; header and footer hidden, one section per screen, larger type). One day on a 24-hour dial in the home pulse section: 137 marks from the UN Women 2024 estimate, lit by local time of day, labelled as a pace, not a count.
+- Done 2026-11-12, from the decision-maker review: home spine (background, problem, solution); health section on the sex-trade page (Potterat lethality, Glass strangulation, OPDV strangulation arrests, overdose share, CDC medical cost); arrest see-saw and Sweden two-point chart on the buyers page; bill tracker on the New York page. Dropped before publishing for lack of a primary source: a per-homicide value-of-life figure and a 2008 Swedish survey value. Still open from the review: county map with Senate district overlay (DCJS/OPDV request); impunity funnel (DCJS dispositions); one woman, one page (permission); SPARCS assault visits by county and sex; WISQARS cost module run for New York by age; cost of one femicide to one county; the county round in the Game; Norway, France and Ireland buyer-share series from primary sources.
 
 - Done 2026-11-12: The Corridor became The Game (docs/game.html; corridor.html redirects): Swiss cheese corridor with ladders and chutes, Gilgo Beach chutes-and-ladders board (30 squares, public record), policy-to-outcome flow in RAND's style. Fuller human silhouettes were tried and reverted the same day at Carolina's request; the isotype figures stay (docs/data/silhouettes.json).
 - Done 2026-11-12: CATW text pass two: New York headline 'must'; About CATW asks cut to the two CATW listed (Epstein loophole, STSJEA, 2018 law, child sex buyer felony removed from the asks; the facts remain in the timeline and sources); What if page gains the Swiss cheese interactive and the ladders/chutes lists. Forney stays Joel per the Justice Department release.
