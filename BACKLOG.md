@@ -63,6 +63,7 @@ Still open from this round:
 | CATW | Confirm whether the ladders and chutes controls stay on "Learn their stories" | Decision |
 | Carolina | The Suffolk County Police crime-scene map in CATW's timeline (via Reuters) is not on the site | Licence check before use |
 | Agent | The other pages still say 23 countries (About CATW, New York, Sources), and the New York page's Gilgo Beach card still says "charged"; Heuermann pleaded guilty on 8 April 2026 | Update when those pages come back into scope |
+| CATW | Economic Impact is hidden since 17 November 2026 at Carolina's request: out of the menu and footer on every page, the page itself kept at docs/economic-impact.html and marked noindex | Say when it comes back |
 | Agent | Check the Sanctuary for Families figures against their primary sources (Violence Policy Center, BJS, Everytown) | Searches |
 
 ## Needs Carolina (blocked for the agent)
