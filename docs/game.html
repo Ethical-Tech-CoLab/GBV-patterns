@@ -71,7 +71,7 @@ body{overflow-x:hidden}
 .tl-stats div{font-size:13px;color:var(--fg-muted)}
 .tl-stats b{display:block;font-family:var(--mono);font-size:clamp(1.6rem,3.4vw,2.4rem);font-weight:500;line-height:1.05;color:var(--fg);letter-spacing:-.03em}
 .tl-stats .yrs b{color:var(--accent)}
-.tl-track{position:relative;margin:22px 6px 6px;height:calc(var(--up,70px) + var(--down,110px))}
+.tl-track{position:relative;margin:10px 6px 6px;height:calc(var(--up,70px) + var(--down,110px))}
 .tl-mid{position:absolute;left:0;right:0;bottom:var(--down);border-top:1px solid var(--fg-subtle)}
 .tl-lane{position:absolute;left:0;font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--fg-subtle);max-width:34%;line-height:1.3}
 .tl-lane.up{top:0}.tl-lane.down{bottom:0}
@@ -86,6 +86,17 @@ body{overflow-x:hidden}
 .tl-head{position:absolute;top:0;bottom:0;width:1.5px;background:var(--fg);transition:left .6s ease;pointer-events:none}
 .tl-years{position:relative;height:20px;margin:0 6px;font-family:var(--mono);font-size:11px;color:var(--fg-subtle)}
 .tl-years span{position:absolute;transform:translateX(-50%);top:4px}
+.tl-drive{position:relative;margin-top:16px;border-radius:12px;overflow:hidden;background:#050505;border:1px solid var(--border)}
+#tlRoad{display:block;width:100%;aspect-ratio:2/1;min-height:280px;outline:0}
+#tlRoad:focus-visible{box-shadow:inset 0 0 0 2px #f2f2f2}
+.tl-side{position:absolute;top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#cfcfcf;text-shadow:0 1px 6px #000;pointer-events:none}
+.tl-side.l{left:14px}.tl-side.r{right:14px;text-align:right}
+.tl-start{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(0,0,0,.6);text-align:center;padding:24px}
+.tl-start[hidden]{display:none}
+.tl-start button{border:0;background:#f2f2f2;color:#0a0a0a;border-radius:999px;padding:14px 30px;font-size:17px;font-weight:600;font-family:inherit;cursor:pointer}
+.tl-start p{color:#d6d6d6;max-width:48ch;font-size:14.5px;margin:0}
+.tl-start p.keys{font-family:var(--mono);font-size:11.5px;color:#999}
+.tl-routelbl{margin-top:18px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--fg-subtle)}
 .tl-card{margin-top:14px;border-left:4px solid var(--c);padding:6px 0 6px 16px;min-height:9.5em}
 .tl-card .kind{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--c)}
 .tl-card h3{margin:.25rem 0 .4rem;font-size:1.3rem;font-weight:600}
@@ -100,7 +111,7 @@ body{overflow-x:hidden}
 .tl-all li{border-left:3px solid var(--c);padding:2px 0 2px 12px;margin:0 0 12px;color:var(--fg-muted);font-size:14.5px;max-width:80ch}
 .tl-all li b{color:var(--fg);font-weight:600}
 .tl-all li em{font-style:normal;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--c);margin-left:8px}
-@media (max-width:700px){.tl-stats{grid-template-columns:repeat(2,1fr)}.tl-lane{font-size:9px;max-width:46%}.tl-dot{width:9px;height:9px;margin-left:-4.5px}.tl-gap span{font-size:9px}.ctl{max-width:calc(100% - 48px)}.score{display:none}}
+@media (max-width:700px){.tl-stats{grid-template-columns:repeat(2,1fr)}.tl-lane{font-size:9px;max-width:46%}.tl-side{font-size:9px;max-width:44%}.tl-start p.keys{display:none}.tl-dot{width:9px;height:9px;margin-left:-4.5px}.tl-gap span{font-size:9px}.ctl{max-width:calc(100% - 48px)}.score{display:none}}
 </style>
 
 </head>
@@ -148,10 +159,16 @@ body{overflow-x:hidden}
         <div><b id="tlI">0</b>steps in the investigation so far</div>
         <div><b id="tlA">0</b>advocacy and legal actions so far</div>
       </div>
+      <div class="tl-drive" id="tlDrive">
+        <canvas id="tlRoad" tabindex="0" role="img" aria-label="A night road seen from the driver's seat. Each entry of the timeline is a roadside signal with a red, orange or green light: advocacy and law on the left of the road, the murders and the investigation on the right. The same entries are in the card and the list below."></canvas>
+        <span class="tl-side l">← Advocacy and law</span><span class="tl-side r">The murders and the investigation →</span>
+        <div class="tl-start" id="tlStart"><button id="tlGo">Start the drive</button><p>You are on a road that runs from 1993 to 2026. Every signal you pass is an entry in the record. On the left, the advocacy and the laws. On the right, the murders and the investigation.</p><p class="keys">Arrow keys or the buttons below to drive. Space to pause.</p></div>
+      </div>
+      <article class="tl-card" id="tlCard" aria-live="polite"></article>
+      <div class="tl-ctl"><button id="tlPrev" aria-label="Previous event">← Back</button><button id="tlPlay">Drive</button><button id="tlNext" aria-label="Next event">Next →</button><button id="tlRestart">Start again</button><span class="pos" id="tlPos"></span></div>
+      <div class="tl-routelbl">The route · click any point to drive there</div>
       <div class="tl-track" id="tlTrack"><span class="tl-lane up">Advocacy and law against online sexual exploitation</span><span class="tl-lane down">The murders and the investigation</span><div class="tl-mid"></div><div class="tl-head" id="tlHead"></div></div>
       <div class="tl-years" id="tlYearsAxis" aria-hidden="true"></div>
-      <article class="tl-card" id="tlCard" aria-live="polite"></article>
-      <div class="tl-ctl"><button id="tlPrev" aria-label="Previous event">← Back</button><button id="tlPlay">Play</button><button id="tlNext" aria-label="Next event">Next →</button><button id="tlRestart">Start again</button><span class="pos" id="tlPos"></span></div>
     </div>
     <details class="tl-all"><summary>Read the whole timeline as a list</summary><ol id="tlList"></ol></details>
     <p class="src">Timeline compiled by CATW, drawing on ABC News, <em>Gilgo Beach murders: A timeline of the investigation</em>, court records and CATW's own campaign record; CATW is adding the remaining sources. The entries give each woman's name, age and where she was last seen or found, and leave out what was done to her body.</p>
@@ -269,15 +286,61 @@ body{overflow-x:hidden}
       document.getElementById('tlYears').textContent=Math.max(0,Math.floor(Math.min(e[1],ARREST)-FIRST));
       document.getElementById('tlF').textContent=n('f');document.getElementById('tlW').textContent=n('w');const na=l=>EV.slice(0,i+1).filter(v=>v[2]==='a'&&v[4]===l).length;document.getElementById('tlA').textContent=na('s');document.getElementById('tlI').textContent=na('c');
       pos.textContent=(i+1)+' / '+EV.length;}
-    function stop(){clearInterval(timer);timer=null;play.textContent='Play'}
+    function stop(){clearInterval(timer);timer=null;play.textContent='Drive'}
     function start(){if(i>=EV.length-1)go(0);play.textContent='Pause';timer=setInterval(()=>{if(i>=EV.length-1){stop();return}go(i+1)},4200)}
     play.addEventListener('click',()=>timer?stop():start());
     document.getElementById('tlPrev').addEventListener('click',()=>{stop();go(i-1)});
     document.getElementById('tlNext').addEventListener('click',()=>{stop();go(i+1)});
     document.getElementById('tlRestart').addEventListener('click',()=>{stop();go(0)});
+    // ---- the road: the same entries seen from the driver's seat. Left of the road, advocacy and law; right, the murders and the investigation.
+    const cv=document.getElementById('tlRoad'),ctx=cv.getContext('2d'),ov=document.getElementById('tlStart');
+    const COL={f:getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()||'#b21818',w:'#e0a030',a:'#5fb36a'};
+    const DIST=[30];for(let k=1;k<EV.length;k++)DIST[k]=DIST[k-1]+Math.max(26,Math.min(120,(EV[k][1]-EV[k-1][1])*40));
+    const distAt=y=>{if(y<=EV[0][1])return DIST[0]-(EV[0][1]-y)*40;for(let k=1;k<EV.length;k++)if(y<=EV[k][1]){const f=(y-EV[k-1][1])/((EV[k][1]-EV[k-1][1])||1);return DIST[k-1]+f*(DIST[k]-DIST[k-1])}return DIST[EV.length-1]+(y-EV[EV.length-1][1])*40};
+    const yearAt=d=>{if(d<=DIST[0])return EV[0][1]-(DIST[0]-d)/40;for(let k=1;k<EV.length;k++)if(d<=DIST[k]){const f=(d-DIST[k-1])/((DIST[k]-DIST[k-1])||1);return EV[k-1][1]+f*(EV[k][1]-EV[k-1][1])}return EV[EV.length-1][1]};
+    const HI=EV.findIndex(e=>e[0]==='After 2012'),TF=EV.findIndex(e=>e[0]==='January 2022');
+    const AHEAD=13,RW=4.2,CH=1.5;let cam=DIST[0]-AHEAD,W=0,H=0,cx=0,hy=0,F=0,seen=true,lastT=performance.now();
+    function size(){const dpr=Math.min(devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);cx=W/2;hy=H*.43;F=H*1.15}
+    const P=(x,y,z)=>{const s=F/z;return [cx+x*s,hy+(CH-y)*s,s]};
+    function quad(a,b,c,d,fill){ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.lineTo(c[0],c[1]);ctx.lineTo(d[0],d[1]);ctx.closePath();ctx.fillStyle=fill;ctx.fill()}
+    function strip(x1,x2,z1,z2,fill,y){z1=Math.max(z1,1.2);if(z2<=z1)return;quad(P(x1,y||0,z1),P(x2,y||0,z1),P(x2,y||0,z2),P(x1,y||0,z2),fill)}
+    function draw(now){requestAnimationFrame(draw);const dt=Math.min(.05,(now-lastT)/1000);lastT=now;if(!seen||!W)return;
+      const target=DIST[i]-AHEAD,gapc=target-cam;cam=reduce||Math.abs(gapc)<.02?target:cam+gapc*Math.min(1,dt*1.7);
+      // sky and ground
+      let g=ctx.createLinearGradient(0,0,0,hy);g.addColorStop(0,'#030303');g.addColorStop(1,'#1c1c1c');ctx.fillStyle=g;ctx.fillRect(0,0,W,hy);
+      g=ctx.createRadialGradient(cx,hy,0,cx,hy,W*.35);g.addColorStop(0,'rgba(255,255,255,.22)');g.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=g;ctx.fillRect(0,0,W,hy);
+      g=ctx.createLinearGradient(0,hy,0,H);g.addColorStop(0,'#0e0e0e');g.addColorStop(1,'#050505');ctx.fillStyle=g;ctx.fillRect(0,hy,W,H-hy);
+      // road, lit by the headlights
+      g=ctx.createLinearGradient(0,hy,0,H);g.addColorStop(0,'#141414');g.addColorStop(.55,'#232323');g.addColorStop(1,'#2e2e2e');strip(-RW,RW,1.2,600,g);
+      strip(-RW+.15,-RW+.3,1.2,600,'rgba(242,242,242,.55)');strip(RW-.3,RW-.15,1.2,600,'rgba(242,242,242,.55)');
+      for(let D=Math.floor(cam/8)*8;D<cam+260;D+=8)strip(-.08,.08,D-cam,D-cam+3.2,'rgba(242,242,242,'+Math.min(.8,30/Math.max(1,D-cam)+.12).toFixed(2)+')');
+      // the hiatus: a red barrier along the investigation side of the road
+      if(HI>=0&&TF>=0){const z1=Math.max(1.5,DIST[HI]-cam),z2=Math.min(320,DIST[TF]-cam);if(z2>z1){ctx.globalAlpha=.55;quad(P(RW+.8,0,z1),P(RW+.8,.9,z1),P(RW+.8,.9,z2),P(RW+.8,0,z2),COL.f);ctx.globalAlpha=1;
+        for(let D=Math.ceil((cam+z1)/6)*6;D<cam+z2;D+=6){const b=P(RW+.8,0,D-cam),tp=P(RW+.8,1.25,D-cam);ctx.strokeStyle='rgba(242,242,242,.5)';ctx.lineWidth=Math.max(1,.1*b[2]);ctx.beginPath();ctx.moveTo(b[0],b[1]);ctx.lineTo(tp[0],tp[1]);ctx.stroke()}}}
+      // the years, painted on the road
+      ctx.textAlign='center';ctx.textBaseline='middle';
+      for(let y=1994;y<=2026;y++){const z=distAt(y)-cam;if(z<4||z>170)continue;const p=P(RW/2,0,z),fs=1.5*p[2];if(fs<5)continue;ctx.save();ctx.translate(p[0],p[1]);ctx.scale(1,.34);ctx.font='700 '+fs.toFixed(1)+'px "JetBrains Mono",monospace';ctx.fillStyle='rgba(242,242,242,'+Math.min(.5,22/z).toFixed(2)+')';ctx.fillText(y,0,0);ctx.restore()}
+      // the signals, far to near
+      for(let k=EV.length-1;k>=0;k--){const z=DIST[k]-cam;if(z<1.6||z>330)continue;const e=EV[k],side=e[4]==='s'?-1:1,x=side*(RW+2.2),b=P(x,0,z),tp=P(x,3.5,z),s=b[2],col=COL[e[2]],al=Math.min(1,70/z+.18),cur=k===i;
+        ctx.globalAlpha=al;ctx.strokeStyle='#8a8a8a';ctx.lineWidth=Math.max(1,.13*s);ctx.beginPath();ctx.moveTo(b[0],b[1]);ctx.lineTo(tp[0],tp[1]);ctx.stroke();
+        const pw=3.3*s,ph=1.05*s,pc=P(x,2.25,z);
+        if(pw>26){ctx.fillStyle='#0d0d0d';ctx.strokeStyle=cur?'#f2f2f2':col;ctx.lineWidth=Math.max(1,.06*s);ctx.beginPath();ctx.rect(pc[0]-pw/2,pc[1]-ph/2,pw,ph);ctx.fill();ctx.stroke();
+          const fs=.5*s;if(fs>=8){ctx.fillStyle='#f2f2f2';ctx.font='600 '+Math.min(fs,22).toFixed(1)+'px "JetBrains Mono",monospace';ctx.fillText(e[0],pc[0],pc[1]+1,pw-8)}}
+        const r=Math.max(1.6,.55*s);ctx.shadowColor=col;ctx.shadowBlur=cur?r*3.2:r*1.6;ctx.fillStyle=col;ctx.beginPath();ctx.arc(tp[0],tp[1],r,0,6.283);ctx.fill();ctx.shadowBlur=0;
+        if(cur){ctx.strokeStyle='#f2f2f2';ctx.lineWidth=2;ctx.beginPath();ctx.arc(tp[0],tp[1],r+4,0,6.283);ctx.stroke()}
+        ctx.globalAlpha=1;}
+      // the car: hood and the year on the dashboard
+      ctx.fillStyle='#030303';ctx.beginPath();ctx.ellipse(cx,H*1.13,W*.66,H*.3,0,0,6.283);ctx.fill();
+      ctx.strokeStyle='rgba(242,242,242,.12)';ctx.lineWidth=1.5;ctx.beginPath();ctx.ellipse(cx,H*1.13,W*.66,H*.3,0,Math.PI*1.08,Math.PI*1.92);ctx.stroke();
+      ctx.fillStyle='#f2f2f2';ctx.font='500 '+Math.max(18,H*.075).toFixed(0)+'px "JetBrains Mono",monospace';ctx.fillText(Math.floor(yearAt(cam+AHEAD)),cx,H-Math.max(16,H*.06));
+    }
+    size();addEventListener('resize',size);requestAnimationFrame(draw);
+    if('IntersectionObserver' in window)new IntersectionObserver(en=>{seen=en[0].isIntersecting;if(seen&&!W)size()}).observe(cv);
+    document.getElementById('tl').addEventListener('click',()=>{ov.hidden=true});
+    document.getElementById('tlGo').addEventListener('click',()=>{if(reduce)go(i);else start();cv.focus({preventScroll:true})});
+    cv.addEventListener('click',()=>{stop();go(i+1)});
+    cv.addEventListener('keydown',e=>{if(['ArrowUp','ArrowRight'].includes(e.key)){stop();go(i+1)}else if(['ArrowDown','ArrowLeft'].includes(e.key)){stop();go(i-1)}else if(e.key===' '){timer?stop():start()}else return;ov.hidden=true;e.preventDefault();e.stopPropagation()});
     go(0);
-    // start moving the first time the timeline is on screen, unless the visitor prefers reduced motion
-    if(!reduce&&'IntersectionObserver' in window){const io=new IntersectionObserver(en=>{if(en.some(v=>v.isIntersecting)){io.disconnect();start()}},{threshold:.5});io.observe(document.getElementById('tl'))}
   })();
 })();
 </script>
