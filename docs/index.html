@@ -21,7 +21,7 @@
     <a href="economic-impact.html">Economic Impact</a>
     <a href="what-if.html">What if…?</a>
     <a href="about-catw.html">About CATW</a>
-    <a href="game.html">The Game</a>
+    <a href="game.html">Connecting the Dots</a>
   </nav>
   <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
 </header>
@@ -30,7 +30,7 @@
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="inner">
     <h1 class="reveal">Femicide in New York State</h1>
-    <p class="reveal">Around the world, femicide is an epidemic, including in the sex trade. New York is poised to become the first US state to codify femicide into law.</p>
+    <p class="reveal">Around the world, femicide is an epidemic, including in the sex trade. We call on New York to be the first US state to codify femicide into law.</p>
     <div class="partners reveal">
       <img class="etc" src="assets/etc-logo.jpg" alt="Ethical Tech CoLab">
       <span class="x">×</span>
@@ -42,31 +42,31 @@
 
 <section class="block" id="warning" style="padding:2rem 24px 0;border-top:0">
   <div class="wrap">
-    <div class="warn">This site documents violence against women and girls, including killing. Support in New York: the 24-hour HOPE hotline, 1-800-621-4673. National Domestic Violence Hotline, 1-800-799-7233.</div>
+    <div class="warn">This site documents violence against women and girls, including murder. If you or someone you know needs support in New York City, call the Sanctuary for Families helpline: <a href="tel:+12123496009">+1 (212) 349-6009</a>. If you need immediate assistance, call the NYC 24-hour HOPE hotline: <a href="tel:+18006214673">+1 (800) 621-4673</a>. For support in New York State, call the 24-hour Domestic and Sexual Violence hotline: <a href="tel:+18009426906">+1 (800) 942-6906</a> or text at <a href="sms:+18449972121">+1 (844) 997-2121</a>.</div>
   </div>
 </section>
-<section class="block" id="spine">
+<section class="block" id="what-is-femicide">
   <div class="wrap">
+    <div class="lede">
+      <h2>What is femicide?</h2>
+      <p>The United Nations defines femicide as an intentional killing with a gender-related motivation, and the most extreme and brutal manifestation of violence against women and girls.</p>
+      <p>This project is inspired by the New York City Coalition to End Femicide, initiated by Sanctuary for Families, New York's leading service provider and advocate for survivors of domestic violence, sex trafficking and related forms of gender violence. The initiative includes different forms of femicide:*</p>
+    </div>
     <div class="why" style="grid-template-columns:repeat(3,1fr)">
-      <div><h3>The background</h3><p>Twenty-three countries name femicide as a crime. In 2024 New York City counted 66 domestic violence homicides, 33 of them by an intimate partner. The state counted 63 intimate partner homicides in 2022. The women killed in the sex trade are in none of these counts.</p></div>
-      <div><h3>The problem</h3><p>A state cannot count what it does not name. A woman killed by a buyer, a pimp or a trafficker is a homicide with "relationship unknown". No agency records her as what she was, so no pattern can be seen and no budget line can be argued. The buyers are rarely arrested: 118 patronizing arrests in all of New York in 2023.</p></div>
-      <div><h3>The solution</h3><p>Name femicide in the Penal Law and include the sex trade. Attach a reporting duty, so every agency counts the same thing. Enforce the patronizing laws already on the books. Pass the Sex Trade Survivors Justice and Equality Act, S2005 and A1465, referred to Codes in January 2026. Count the cost, the way France did. <a href="new-york.html#asks">The five steps</a>.</p></div>
+      <div><h3>Intimate partner femicide</h3><p>Current or former partners.</p></div>
+      <div><h3>Non-partner femicide</h3><p>Family members, acquaintances, or strangers.</p></div>
+      <div><h3>Reproductive-related femicide</h3><p>Pregnancy, postpartum status, or reproductive control.</p></div>
+      <div><h3>Sex trade-related femicide</h3><p>Prostitution and commercial sexual exploitation.</p></div>
+      <div><h3>Missing and Murdered Indigenous Women</h3><p>Colonial violence and systemic neglect.</p></div>
+      <div><h3>Transfemicide</h3><p>Misogyny, transphobia, and racism.</p></div>
     </div>
-    <p class="src">66 and 33: NYC ENDGBV 2024 fact sheet. 63: DCJS 2022 Domestic Homicide Report. 118: New York State Unified Court System. S2005 and A1465: New York State Senate. All on the <a href="sources.html">sources page</a>.</p>
-  </div>
-</section>
-
-<section class="block" id="lawmap-sec">
-  <div class="wrap">
-    <div class="lede"><h2>Where femicide is named in law</h2></div>
-    <div class="lawmap" id="lawmap">
-      <div class="lawmap-head"><div><span class="n num" id="lawN">23</span><span class="k">countries name femicide in law, Costa Rica in 2007 to Italy in 2025. Naming the crime is what makes it countable.</span></div><div class="lawmap-legend" id="lawLegend"><span><i class="sw crime"></i>Femicide is a crime</span><span><i class="sw frame"></i>Defined in law, not a separate crime</span><span><i class="sw data"></i>Counts femicide without a law naming it (Sweden, Spain)</span><span><i class="sw none"></i>No femicide law</span></div></div>
-      <div class="lawmap-modes" role="tablist"><button id="modeLaw" aria-pressed="true">The law</button><button id="modeRate" aria-pressed="false">Female homicide rate</button></div>
-      <svg id="lawSvg" viewBox="0 0 960 500" role="img" aria-label="World map of countries whose law names femicide, with the female homicide rate"></svg>
-      <div class="lawmap-years" id="lawYears"></div>
-      <div class="lawmap-tip" id="lawTip" hidden></div>
+    <p class="src">*Definitions come from <a href="https://sanctuaryforfamilies.org/">Sanctuary for Families</a>.</p>
+    <div class="lede" id="why-sex-trade" style="margin-top:3rem">
+      <h3 style="font-size:clamp(1.3rem,2.2vw,1.7rem);line-height:1.2;letter-spacing:-.02em;font-weight:600;margin:0 0 .8rem">Why are deaths related to sex trafficking and prostitution forms of femicide?</h3>
+      <p>Out of an estimated 40 to 42 million people in prostitution worldwide, roughly 80%, about 4 out of 5, are women and girls, disproportionately of color. Approximately 75% of individuals in the global sex trade are between the ages of 13 and 25. The sex trade is an umbrella term for all forms of prostitution including escort services, illegal massage parlors, pornography, strip clubs, sugar dating, and street prostitution.</p>
+      <p style="margin-top:.8rem">Currently, no government or other agency in the U.S. or in New York systematically counts the number of women and girls killed in the sex trade by sex buyers, pimps, and traffickers.</p>
     </div>
-    <p class="src">Map: countries verified in ECLAC's <a href="https://oig.cepal.org/sites/default/files/s2301023_en.pdf">November 2023 bulletin</a> (18 in Latin America) and UN Women's <a href="https://www.unwomen.org/sites/default/files/2025-12/csw-70-expert-group-meeting-expert-paper-patsili-toledo-en.pdf">CSW70 expert paper</a> (December 2025), with Croatia and Italy from their 2024 and 2025 laws. Data: <a href="data/femicide_laws.json">femicide_laws.json</a>. Countries that treat gender motive as an aggravating circumstance without naming the crime, such as Spain, Turkey and Canada, are not shaded. The uncounted women killed in the sex trade in New York are on the <a href="numbers.html#uncounted">By the Numbers</a> page.</p>
+    <p class="src">Sources: Fondation Scelles, <a href="https://www.fondationscelles.org/pdf/current-assessment-of-the-state-of-prostitution-2013.pdf">Current assessment of the state of prostitution</a> (2013); WorldMetrics, <a href="https://worldmetrics.org/sex-trafficking-victims-statistics/">Sex trafficking victims statistics</a>.</p>
   </div>
 </section>
 <section class="block" id="pulse">
@@ -103,29 +103,12 @@
     <p class="src">Source: UNODC and UN Women, <a href="https://www.unwomen.org/en/digital-library/publications/2025/11/femicides-in-2024-global-estimates-of-intimate-partner-family-member-femicides">Femicides in 2024: global estimates of intimate partner and family member femicides</a> (November 2025), based on data from 117 countries.</p>
   </div>
 </section>
-<section class="block" id="what-is-femicide">
-  <div class="wrap">
-    <div class="lede">
-      <h2>What is femicide?</h2>
-      <p>The United Nations defines femicide as an intentional killing with a gender-related motivation, and the most extreme and brutal manifestation of violence against women and girls.</p>
-      <p>This project is inspired by the New York City Coalition to End Femicide, initiated by Sanctuary for Families, New York's leading service provider and advocate for survivors of domestic violence, sex trafficking and related forms of gender violence. The initiative includes different forms of femicide:</p>
-    </div>
-    <div class="why" style="grid-template-columns:repeat(3,1fr)">
-      <div><h3>Intimate partner femicide</h3><p>Current or former partners.</p></div>
-      <div><h3>Non-partner femicide</h3><p>Family members, acquaintances, or strangers.</p></div>
-      <div><h3>Reproductive-related femicide</h3><p>Pregnancy, postpartum status, or reproductive control.</p></div>
-      <div><h3>Sex trade-related femicide</h3><p>Prostitution and commercial sexual exploitation.</p></div>
-      <div><h3>Missing and Murdered Indigenous Women</h3><p>Colonial violence and systemic neglect.</p></div>
-      <div><h3>Transfemicide</h3><p>Misogyny, transphobia, and racism.</p></div>
-    </div>
-  </div>
-</section>
 
 <section class="block" id="figures">
   <div class="wrap">
     <div class="lede">
-      <h2>Of every ten women</h2>
-      <p>Pick a statistic. The figures fill to match it. The same ten figures are used every time so the eye can compare one measure with the next.</p>
+      <h2>Of every ten women killed</h2>
+      <p>Pick a statistic. The figures fill to match it. Each one is about women who were killed; the same ten figures are used every time so the eye can compare one measure with the next.</p>
     </div>
     <div class="figs">
       <div>
@@ -137,53 +120,32 @@
     <p class="src" id="figSrc"></p>
   </div>
 </section>
-<section class="block" id="isolated">
-  <div class="wrap">
-    <div class="lede"><h2>In the United States, femicide cases are treated as isolated incidents, not as part of a larger pattern and evidence of a culture's inherent misogyny and normalization of violence against women and girls.</h2></div>
-  </div>
-</section>
 <section class="block" id="gap">
   <div class="wrap">
     <div class="lede">
       <h2>The first step for New York is to name and codify femicide</h2>
       <p>Homicide is a crime under the law. However, given the reported high statistics on gender-based murders, it is important for every jurisdiction to collect data, identify, and prosecute crimes men commit against women and girls that are specifically gender-based.</p>
       <p>Collecting data will help illuminate femicide as a systemic failure, rather than unrelated, private tragedies, and an issue that urgently deserves legislative action.</p>
-      <p>Twenty-three countries define femicide in their criminal codes. The United States and New York State do not.</p>
-    </div>
-    <div class="gapwrap">
-      <div class="gapcard">
-        <div class="n">Sweden</div>
-        <h3>Counting without a law</h3>
-        <p>There are also a number of countries that collect data on the number of femicides even in the absence of laws that define it, such as Sweden. To address the lack of comparable data on violence against women, EIGE developed 13 indicators with uniform definitions of the multiple forms of intimate partner violence, femicide and rape, with a published <a href="https://eige.europa.eu/sites/default/files/documents/20211587_mh0221353enn_pdf.pdf">methodology and metadata per country</a>.</p>
-      </div>
+      <p>Twenty-six countries define femicide in their criminal codes. The United States and New York State do not.</p>
     </div>
   </div>
 </section>
-<section class="block" id="state-regions">
+<section class="block" id="lawmap-sec">
   <div class="wrap">
-    <div class="lede">
-      <h2>The case study: New York State, by region</h2>
-      <p>Ten regions, the same ten CATW uses. New York City is filled from the city's 2024 fact sheet. The other nine wait on county-level counts from the state's Division of Criminal Justice Services and the OPDV dashboard, which publish statewide totals but not a regional breakdown in a form that can be loaded here yet.</p>
+    <div class="lede"><h2>Where femicide is codified in law</h2></div>
+    <div class="lawmap" id="lawmap">
+      <div class="lawmap-head"><div><span class="n num" id="lawN">26</span><span class="k">countries codify femicide in law, Costa Rica in 2007 to Italy in 2025: 23 as a named crime, and Gabon, Morocco and Türkiye in the World Bank's count. Naming the crime is what makes it countable.</span></div><div class="lawmap-legend" id="lawLegend"><span><i class="sw crime"></i>Femicide is a crime</span><span><i class="sw penalty"></i>In the World Bank's count: separate offence or harsher penalties</span><span><i class="sw frame"></i>Defined in law, not a separate crime</span><span><i class="sw data"></i>Counts femicide without a law naming it (Sweden, Spain): click for detail</span><span><i class="sw none"></i>No femicide law</span></div></div>
+      <div class="lawmap-modes" role="tablist"><button id="modeLaw" aria-pressed="true">The law</button><button id="modeRate" aria-pressed="false">Female homicide rate</button><span class="lawmap-zoom" role="group" aria-label="Zoom the map"><button id="zoomIn" aria-label="Zoom in">+</button><button id="zoomOut" aria-label="Zoom out">−</button><button id="zoomReset">Reset</button></span></div>
+      <svg id="lawSvg" viewBox="0 0 960 500" role="img" aria-label="World map of countries whose law names femicide, with the female homicide rate"></svg>
+      <div class="lawmap-years" id="lawYears"></div>
+      <div class="lawmap-tip" id="lawTip" hidden></div>
     </div>
-    <div class="boro-grid" id="regionGrid" style="grid-template-columns:repeat(5,1fr)"></div>
-    <div class="detail" id="regionDetail"></div>
-    <div class="ph"><b>PLACEHOLDER · regional data</b>Femicides, intimate partner homicides and orders of protection by region. Source to confirm with NYS DCJS. Statewide 2024 known so far: 38 intimate partner homicides outside New York City (32 women), 241,351 orders of protection, 254,968 hotline calls.</div>
+    <p class="src">Use the buttons or pinch to zoom, drag to move, and click a country to keep its note open. Map: the World Bank's Women, Business and the Law team counts 29 economies with laws that address femicide (<a href="https://blogs.worldbank.org/en/opendata/femicide-laws-worldwide--50-years-of-evolution-and-ongoing-gaps">Femicide laws worldwide: 50 years of evolution and ongoing gaps</a>, June 2025) and names Gabon, Morocco, North Macedonia, Cyprus and Türkiye among them without publishing the full list; the 26 shaded here are the ones this site could name. The other 23 are verified in ECLAC's <a href="https://oig.cepal.org/sites/default/files/s2301023_en.pdf">November 2023 bulletin</a> (18 in Latin America) and UN Women's <a href="https://www.unwomen.org/sites/default/files/2025-12/csw-70-expert-group-meeting-expert-paper-patsili-toledo-en.pdf">CSW70 expert paper</a> (December 2025), with Croatia and Italy from their 2024 and 2025 laws. Data: <a href="data/femicide_laws.json">femicide_laws.json</a>. Countries that treat gender motive as an aggravating circumstance without naming the crime, such as Spain, Turkey and Canada, are not shaded. The uncounted women killed in the sex trade in New York are on the <a href="numbers.html#uncounted">By the Numbers</a> page.</p>
   </div>
 </section>
-
-<section class="block" id="city">
+<section class="block" id="isolated">
   <div class="wrap">
-    <div class="lede">
-      <h2>New York City, five boroughs, one year</h2>
-      <p>Choose a borough to see what the police recorded there. The red fill shows each borough's share of the city's intimate partner incident reports. Switch years to see what moved.</p>
-    </div>
-    <div class="toggle" role="group" aria-label="Year">
-      <button data-year="2023" aria-pressed="false">2023</button>
-      <button data-year="2024" aria-pressed="true">2024</button>
-    </div>
-    <div class="boro-grid" id="boroGrid"></div>
-    <div class="detail" id="boroDetail"></div>
-    <p class="src">Source: NYC Mayor's Office to End Domestic and Gender-Based Violence, <a href="https://www.nyc.gov/site/ocdv/press-resources/annual-reports-and-fact-sheets.page">2024 Annual Fact Sheet</a>. Domestic incident reports are NYPD responses, not unique people. Family Justice Center visits are civil-side client visits.</p>
+    <div class="lede"><h2>In the United States, femicide cases are treated as isolated incidents, not as part of a larger pattern and evidence of a culture's inherent misogyny and normalization of violence against women and girls.</h2></div>
   </div>
 </section>
 
@@ -207,7 +169,7 @@
         <li><a href="economic-impact.html">Economic Impact</a></li>
         <li><a href="what-if.html">What if…?</a></li>
         <li><a href="about-catw.html">About CATW</a></li>
-        <li><a href="game.html">The Game</a></li>
+        <li><a href="game.html">Connecting the Dots</a></li>
         <li><a href="methodology.html">Methodology and limitations</a></li>
         <li><a href="sources.html">Sources</a></li>
         <li><a href="progress.html">Progress</a></li>
@@ -225,16 +187,18 @@
   try{
     const [laws,world,rates]=await Promise.all([fetch('data/femicide_laws.json').then(r=>r.json()),fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json').then(r=>r.json()),fetch('data/femicide_rates.json').then(r=>r.json())]);
     const byId={};laws.countries.forEach(c=>byId[c.id]=c);
-    document.getElementById('lawN').textContent=laws.count_crime;
+    document.getElementById('lawN').textContent=laws.count_total||laws.count_crime;
     const proj=d3.geoNaturalEarth1().fitExtent([[0,0],[960,500]],{type:'Sphere'}),path=d3.geoPath(proj);
     const defs=svg.append('defs');defs.append('pattern').attr('id','lawDots').attr('width',5).attr('height',5).attr('patternUnits','userSpaceOnUse').append('circle').attr('cx',2.5).attr('cy',2.5).attr('r',1.1).attr('fill',getComputedStyle(document.documentElement).getPropertyValue('--fg').trim());defs.append('pattern').attr('id','lawHatch').attr('width',5).attr('height',5).attr('patternUnits','userSpaceOnUse').attr('patternTransform','rotate(45)').append('rect').attr('width',2).attr('height',5).attr('fill',getComputedStyle(document.documentElement).getPropertyValue('--accent').trim());
     const countries=topojson.feature(world,world.objects.countries).features;
-    const tip=document.getElementById('lawTip'),box=document.getElementById('lawmap');
-    const land=svg.append('g').selectAll('path').data(countries).join('path').attr('d',path)
+    const tip=document.getElementById('lawTip'),box=document.getElementById('lawmap');let pinned=false;
+    const unpin=()=>{pinned=false;tip.classList.remove('pinned');tip.hidden=true};
+    const view=svg.append('g');
+    const land=view.append('g').selectAll('path').data(countries).join('path').attr('d',path)
       .attr('class',d=>'land'+(byId[d.id]?' '+byId[d.id].type:''))
-      .on('mouseleave',()=>{tip.hidden=true});
-    svg.append('g').selectAll('circle').data(laws.countries.filter(c=>c.lonlat)).join('circle').attr('class',c=>'dot '+c.type).attr('r',3.2).attr('transform',c=>'translate('+proj(c.lonlat)+')')
-      .on('mousemove',(e,c)=>{tip.hidden=false;tip.innerHTML='<b>'+c.name+(c.year?' · '+c.year:'')+'</b><br>'+c.note;const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+12,r.width-270)+'px';tip.style.top=(e.clientY-r.top+12)+'px';}).on('mouseleave',()=>{tip.hidden=true});
+      .on('mouseleave',()=>{if(!pinned)tip.hidden=true});
+    view.append('g').selectAll('circle').data(laws.countries.filter(c=>c.lonlat)).join('circle').attr('class',c=>'dot '+c.type).attr('r',3.2).attr('transform',c=>'translate('+proj(c.lonlat)+')')
+      .on('mousemove',(e,c)=>{if(pinned)return;tip.hidden=false;tip.innerHTML='<b>'+c.name+(c.year?' · '+c.year:'')+'</b><br>'+c.note;const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+12,r.width-270)+'px';tip.style.top=(e.clientY-r.top+12)+'px';}).on('mouseleave',()=>{if(!pinned)tip.hidden=true});
     const ALIAS={'Russia':'Russia','Czechia':'Czechia','Bosnia and Herzegovina':'Bosnia and Herz.','Dominican Republic':'Dominican Rep.','North Macedonia':'North Macedonia','Turkey':'Turkey','South Korea':'South Korea','Türkiye':'Turkey'};
     const rateByName={};Object.entries(rates.rates).forEach(([n,v])=>{rateByName[n]=v;if(ALIAS[n])rateByName[ALIAS[n]]=v;});
     const rateOf=d=>{const n=d.properties&&d.properties.name;return n in rateByName?rateByName[n]:(n==='Türkiye'?rateByName['Turkey']:undefined)};
@@ -246,7 +210,15 @@
         legend.innerHTML='<span><i class="sw" style="background:'+ramp(0.2)+'"></i>0.2</span><span><i class="sw" style="background:'+ramp(1)+'"></i>1</span><span><i class="sw" style="background:'+ramp(3)+'"></i>3</span><span><i class="sw" style="background:'+ramp(11)+'"></i>11 female homicides per 100,000 women</span><span><i class="sw" style="background:transparent;border:1.5px solid '+accentCol+'"></i>names femicide in law</span><span><i class="sw none"></i>no figure on the page</span>';}}
     const accentCol=getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
     document.getElementById('modeLaw').addEventListener('click',()=>mode('law'));document.getElementById('modeRate').addEventListener('click',()=>mode('rate'));
-    land.on('mousemove.rate',(e,d)=>{const c=byId[d.id],v=rateOf(d);if(!c&&v==null){tip.hidden=true;return;}tip.hidden=false;const n=d.properties.name;tip.innerHTML='<b>'+(c?c.name+(c.year?' · '+c.year:''):n)+'</b><br>'+(c?c.note+'<br>':'')+(v!=null?'<span style="color:#999">Female homicide rate '+v.toFixed(2)+' per 100,000</span>':'');const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+12,r.width-270)+'px';tip.style.top=(e.clientY-r.top+12)+'px';});
+    function showTip(e,d){const c=byId[d.id],v=rateOf(d);if(!c&&v==null){tip.hidden=true;return;}tip.hidden=false;const n=d.properties.name;tip.innerHTML='<b>'+(c?c.name+(c.year?' · '+c.year:''):n)+'</b><br>'+(c?c.note+'<br>':'')+(v!=null?'<span style="color:#999">Female homicide rate '+v.toFixed(2)+' per 100,000</span>':'');const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+12,r.width-270)+'px';tip.style.top=(e.clientY-r.top+12)+'px';}
+    land.on('mousemove.rate',(e,d)=>{if(!pinned)showTip(e,d)});
+    land.on('click',(e,d)=>{e.stopPropagation();const had=pinned;unpin();if(had)return;showTip(e,d);if(!tip.hidden){pinned=true;tip.classList.add('pinned')}});
+    svg.on('click',unpin);
+    const zoom=d3.zoom().scaleExtent([1,8]).translateExtent([[0,0],[960,500]]).filter(e=>e.type==='wheel'?e.ctrlKey:(e.type.startsWith('touch')?e.touches.length>1:!e.button)).on('zoom',e=>{view.attr('transform',e.transform);view.selectAll('circle').attr('r',3.2/e.transform.k);land.style('stroke-width',null);if(!pinned)tip.hidden=true});
+    svg.call(zoom).on('dblclick.zoom',null);
+    document.getElementById('zoomIn').addEventListener('click',()=>svg.transition().duration(250).call(zoom.scaleBy,1.8));
+    document.getElementById('zoomOut').addEventListener('click',()=>svg.transition().duration(250).call(zoom.scaleBy,1/1.8));
+    document.getElementById('zoomReset').addEventListener('click',()=>svg.transition().duration(250).call(zoom.transform,d3.zoomIdentity));
     const years=[...new Set(laws.countries.filter(c=>c.year).map(c=>c.year))].sort();
     const yb=document.getElementById('lawYears');
     const all=document.createElement('button');all.textContent='All years';all.setAttribute('aria-pressed','true');yb.appendChild(all);
@@ -260,14 +232,6 @@
 
 <script>
 // ---------- data (all figures from the sources listed in the footer) ----------
-const BOROS = [
-  {k:'Bronx',         ipvH:{2023:5, 2024:5},  famH:{2023:13,2024:12}, ipvD:{2023:31286,2024:30440}, famD:{2023:25209,2024:25994}, fjc:{2023:11033,2024:10844}},
-  {k:'Brooklyn',      ipvH:{2023:14,2024:11}, famH:{2023:15,2024:10}, ipvD:{2023:33708,2024:33324}, famD:{2023:26424,2024:26441}, fjc:{2023:10492,2024:12860}},
-  {k:'Manhattan',     ipvH:{2023:3, 2024:8},  famH:{2023:3, 2024:3},  ipvD:{2023:17928,2024:18064}, famD:{2023:13024,2024:13705}, fjc:{2023:8931, 2024:11003}},
-  {k:'Queens',        ipvH:{2023:5, 2024:8},  famH:{2023:11,2024:6},  ipvD:{2023:27579,2024:27981}, famD:{2023:19687,2024:21257}, fjc:{2023:11906,2024:13421}},
-  {k:'Staten Island', ipvH:{2023:3, 2024:1},  famH:{2023:1, 2024:2},  ipvD:{2023:6377, 2024:6242},  famD:{2023:4879, 2024:5487},  fjc:{2023:6801, 2024:9528}},
-];
-const CITY = {dir:249077, ipv:116051, fam:92884, unk:40142};
 const fmt = n => n.toLocaleString('en-US');
 const root=document.documentElement;
 
@@ -334,22 +298,22 @@ requestAnimationFrame(()=>document.querySelectorAll('.reveal').forEach((el,i)=>s
 // ---------- ten figures ----------
 (function(){
   const STATS=[
-    {n:3,l:'have experienced physical or sexual violence in their lifetime, worldwide',s:'WHO, Violence against women prevalence estimates 2018, published 2021: about one in three women.',red:false},
-    {n:2,l:'US women have experienced completed or attempted rape in their lifetime: 21%, about 26.8 million',s:'CDC National Intimate Partner and Sexual Violence Survey 2023 to 2024. Nearly half, 45.1%, experienced some contact sexual violence.',red:true},
-    {n:6,l:'of the women and girls intentionally killed in 2024 were killed by a partner or a relative',s:'UNODC and UN Women, Femicides in 2024: about 60% of all intentional killings of women and girls.',red:true},
-    {n:5,l:'of the 66 domestic violence homicide victims New York City counted in 2024 were killed by an intimate partner',s:'ENDGBV 2024 fact sheet: 33 intimate partner and 33 family homicides.',red:true},
-    {n:2,l:'young women alive today were married before they turned 18, worldwide',s:'UNICEF child marriage data: about one in five young women aged 20 to 24. Girls variant of the figures below.',red:false,girl:true},
-    {n:2,l:'girls and women alive today experienced sexual violence in childhood, contact or non-contact: 650 million, one in five',s:'UNICEF, October 2024, first global estimate, 120 countries, 2010 to 2022. One in eight, 370 million, experienced rape or sexual assault.',red:true,girl:true},
-    {n:0,l:'of the women killed in the sex trade in New York appear in any official count. The deaths happen; the counting does not.',s:'No agency records killings by buyers, pimps or traffickers as a category. See the gap section and the New York page.',red:true},
+    {n:9,l:"in the United States by a man in 2018 were killed by a man they knew: 92%",s:"Violence Policy Center, When Men Murder Women (2020). Compiled by Sanctuary for Families, The Femicide Epidemic:",red:true},
+    {n:6,l:"by a man they knew were killed by a current husband, a boyfriend or an ex-husband: 63%",s:"Violence Policy Center, When Men Murder Women (2020). Compiled by Sanctuary for Families, The Femicide Epidemic:",red:true},
+    {n:1,l:"in the United States is killed by a stranger: 10%, against 29% of the men who are killed",s:"Bureau of Justice Statistics. Compiled by Sanctuary for Families, The Femicide Epidemic:",red:true},
+    {n:7,l:"across 25 populous high-income countries were killed in the United States: 70% of all cases",s:"Study of female homicide victimization in 25 populous high-income countries. Compiled by Sanctuary for Families, The Femicide Epidemic:",red:true},
+    {n:9,l:"with a gun in high-income countries in 2015 were killed in the United States: 92%",s:"Everytown for Gun Safety. Compiled by Sanctuary for Families, The Femicide Epidemic:",red:true},
+    {n:6,l:"intentionally worldwide in 2024, women and girls, were killed by a partner or a relative",s:"UNODC and UN Women, Femicides in 2024: about 60% of all intentional killings of women and girls. For the US figures see",red:true},
+    {n:0,l:"in the sex trade in New York appear in any official count. The deaths happen; the counting does not.",s:"No agency records killings by buyers, pimps or traffickers as a category. For the US figures see",red:true},
   ];
   const row=document.getElementById('figrow'),chips=document.getElementById('figchips');
   const W='<svg viewBox="0 0 40 100"><circle cx="20" cy="11" r="8"/><path d="M13 23h14l8 40h-7l-2 34h-12l-2-34h-7z"/></svg>';
   const G='<svg viewBox="0 0 40 100"><circle cx="20" cy="30" r="7"/><path d="M14 40h12l6 30h-5l-2 27h-10l-2-27h-5z"/></svg>';
   function render(i){const st=STATS[i];row.innerHTML=(st.girl?G:W).repeat(10);
-    document.getElementById('figN').textContent=st.n;document.getElementById('figL').textContent=st.l;document.getElementById('figSrc').textContent='Source: '+st.s;
+    document.getElementById('figN').textContent=st.n;document.getElementById('figL').textContent='of every ten women killed '+st.l;document.getElementById('figSrc').innerHTML='Source: '+st.s+' <a href="https://sanctuaryforfamilies.org/femicide-epidemic/">sanctuaryforfamilies.org/femicide-epidemic</a>.';
     [...row.children].forEach((s,j)=>setTimeout(()=>{if(j<st.n){s.classList.add('on');if(st.red)s.classList.add('red')}},80*j));
     [...chips.children].forEach((c,j)=>c.setAttribute('aria-pressed',j===i));}
-  STATS.forEach((st,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=st.n+' of 10 '+st.l;b.addEventListener('click',()=>render(i));chips.appendChild(b)});
+  STATS.forEach((st,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=st.n+' of 10 killed '+st.l;b.addEventListener('click',()=>render(i));chips.appendChild(b)});
   render(0);
 })();
 
@@ -389,43 +353,6 @@ requestAnimationFrame(()=>document.querySelectorAll('.reveal').forEach((el,i)=>s
     const lit=Math.floor(frac*N); if(lit!==last){last=lit;ticks.forEach((t,i)=>t.classList.toggle('on',i<lit));n.textContent=lit}
     setTimeout(tick,1000)}
   tick();
-})();
-
-// ---------- regions ----------
-(function(){
-  const REG=[['New York City',{h:66,ipv:33,fam:33,dir:249077,src:'ENDGBV 2024 fact sheet'}],['Long Island',null],['Hudson Valley',null],['Capital Region',null],['Western New York',null],['Finger Lakes',null],['Central New York',null],['Mohawk Valley',null],['North Country',null],['Southern Tier',null]];
-  const g=document.getElementById('regionGrid'),d=document.getElementById('regionDetail');let sel=0;
-  function build(){g.innerHTML='';REG.forEach(([k,v],i)=>{const b=document.createElement('button');b.className='boro';b.setAttribute('aria-pressed',i===sel);b.innerHTML=`<div class="inner"><div class="name">${k}</div><div class="v num">${v?v.h:'—'}</div><div class="l">${v?'domestic violence homicides, 2024':'data pending'}</div></div>`;b.addEventListener('click',()=>{sel=i;build()});g.appendChild(b)});
-    const [k,v]=REG[sel];d.innerHTML=v?`<div class="title">${k}, 2024<span>${v.src}</span></div><div><div class="k">Domestic violence homicides</div><div class="n num">${v.h}</div></div><div><div class="k">By an intimate partner</div><div class="n num">${v.ipv}</div></div><div><div class="k">By family</div><div class="n num">${v.fam}</div></div><div><div class="k">Domestic incident reports</div><div class="n num">${v.dir.toLocaleString('en-US')}</div></div>`:`<div class="title">${k}<span>placeholder</span></div><div style="grid-column:1/-1;color:var(--fg-muted)">Regional counts to be loaded from NYS DCJS county data. Until then, see the statewide figures in the placeholder below.</div>`}
-  build();
-})();
-
-// ---------- boroughs ----------
-(function(){
-  let year=2024, sel='Brooklyn';
-  const grid=document.getElementById('boroGrid'), det=document.getElementById('boroDetail');
-  const toggle=document.querySelectorAll('.toggle button');
-  const totalIpvD=y=>BOROS.reduce((a,b)=>a+b.ipvD[y],0);
-  function build(){
-    grid.innerHTML='';
-    BOROS.forEach(b=>{
-      const btn=document.createElement('button');btn.className='boro';btn.setAttribute('aria-pressed',b.k===sel);
-      btn.innerHTML=`<div class="fill"></div><div class="inner"><div class="name">${b.k}</div><div class="v num">${b.ipvH[year]+b.famH[year]}</div><div class="l">domestic violence homicides, ${year}</div></div>`;
-      btn.addEventListener('click',()=>{sel=b.k;build()});
-      grid.appendChild(btn);
-      requestAnimationFrame(()=>requestAnimationFrame(()=>btn.querySelector('.fill').style.height=(b.ipvD[year]/totalIpvD(year)*160)+'%'));
-    });
-    const b=BOROS.find(x=>x.k===sel), prev=year===2024?2023:null;
-    const delta=(cur,old)=>{if(old==null)return '';const d=cur-old;if(d===0)return '<div class="d">no change from 2023</div>';return `<div class="d ${d>0?'up':'down'}">${d>0?'+':''}${fmt(d)} from 2023</div>`};
-    const row=(k,v,o)=>`<div><div class="k">${k}</div><div class="n num">${fmt(v)}</div>${delta(v,o)}</div>`;
-    det.innerHTML=`<div class="title">${b.k}, ${year}<span>${((b.ipvD[year]/totalIpvD(year))*100).toFixed(0)}% of the city's intimate partner incident reports</span></div>`+
-      row('Intimate partner homicides',b.ipvH[year],prev&&b.ipvH[prev])+
-      row('Family homicides',b.famH[year],prev&&b.famH[prev])+
-      row('Intimate partner incident reports',b.ipvD[year],prev&&b.ipvD[prev])+
-      row('Family Justice Center visits',b.fjc[year],prev&&b.fjc[prev]);
-  }
-  toggle.forEach(t=>t.addEventListener('click',()=>{year=+t.dataset.year;toggle.forEach(x=>x.setAttribute('aria-pressed',x===t));build()}));
-  build();
 })();
 
 </script>

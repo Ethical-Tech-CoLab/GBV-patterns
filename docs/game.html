@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Game</title>
-<meta name="description" content="Three ways to play the same idea: a corridor where the interventions are Swiss cheese slices, a chutes-and-ladders board on the Gilgo Beach timeline, and the flow from policy to outcome.">
+<title>Connecting the Dots</title>
+<meta name="description" content="Learn the stories of women killed in the sex trade in New York, and follow the Gilgo Beach case on a moving timeline: the femicides, the warning signs and the actions, 1993 to 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -61,22 +61,42 @@ body{overflow-x:hidden}
 .score{position:absolute;right:24px;top:24px;z-index:5;background:rgba(0,0,0,.55);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;font-size:15px;color:var(--fg-muted)}
 .score .n{font-family:var(--mono);font-size:2rem;color:var(--fg);line-height:1}
 .score div+div{margin-top:8px}
-.board{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:1.4rem}
-.sq{position:relative;aspect-ratio:1;border:1px solid var(--border);border-radius:8px;padding:8px;font-size:11.5px;color:var(--fg-muted);background:var(--bg-alt);overflow:hidden}
-.sq .i{position:absolute;top:6px;left:8px;font-family:var(--mono);font-size:10px;color:var(--fg-subtle)}
-.sq .y{font-family:var(--mono);font-size:11px;color:var(--fg);margin-top:14px}
-.sq.ladder{border-color:#5fb36a;background:color-mix(in srgb,#5fb36a 12%,var(--bg-alt))}
-.sq.chute{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,var(--bg-alt))}
-.sq.here{outline:2px solid var(--fg);outline-offset:2px}
-.sq .tok{position:absolute;right:8px;bottom:6px;width:18px;height:18px;border-radius:50%;background:var(--fg);display:none}
-.sq.here .tok{display:block}
-.bctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
-.bctl button{border:1px solid var(--border);background:transparent;color:var(--fg);border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer;font-family:inherit}
-.bctl .die{font-family:var(--mono);font-size:1.4rem}
-.bmsg{margin-top:10px;font-size:14px;color:var(--fg-muted);min-height:3em}
-.flow svg{width:100%;height:auto;display:block}
-.flow .k{font-size:12px;color:var(--fg-subtle)}
-@media (max-width:700px){.board{grid-template-columns:repeat(5,1fr)}.sq{font-size:10px}.ctl{max-width:calc(100% - 48px)}.score{display:none}}
+.tl-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:1.4rem;font-size:13.5px;color:var(--fg-muted)}
+.tl-legend span{display:inline-flex;align-items:center;gap:7px}
+.tl-legend i,.tl-dot{--c:var(--accent)}
+.tl-legend i{width:11px;height:11px;border-radius:50%;background:var(--c);display:inline-block}
+.t-f{--c:var(--accent)!important}.t-a{--c:#5fb36a!important}.t-w{--c:#e0a030!important}
+.tl{margin-top:1.2rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-alt);padding:18px}
+.tl-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tl-stats div{font-size:13px;color:var(--fg-muted)}
+.tl-stats b{display:block;font-family:var(--mono);font-size:clamp(1.6rem,3.4vw,2.4rem);font-weight:500;line-height:1.05;color:var(--fg);letter-spacing:-.03em}
+.tl-stats .yrs b{color:var(--accent)}
+.tl-track{position:relative;margin:22px 6px 6px;height:var(--h,90px);border-bottom:1px solid var(--border)}
+.tl-dot{position:absolute;bottom:calc(6px + var(--row)*15px);width:12px;height:12px;margin-left:-6px;border-radius:50%;border:0;padding:0;background:var(--c);opacity:.22;cursor:pointer;transition:opacity .3s,transform .3s}
+.tl-dot.past{opacity:.95}
+.tl-dot.now{opacity:1;transform:scale(1.6);box-shadow:0 0 0 2px var(--bg-alt),0 0 0 3.5px var(--fg)}
+.tl-dot:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.tl-gap{position:absolute;bottom:0;top:0;background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--accent) 22%,transparent) 0 6px,transparent 6px 12px);border-left:1px dashed var(--accent);border-right:1px dashed var(--accent);opacity:.25;transition:opacity .4s;pointer-events:none}
+.tl-gap.past{opacity:1}
+.tl-gap span{position:absolute;left:6px;top:4px;font-family:var(--mono);font-size:11px;color:var(--fg);letter-spacing:.03em;text-transform:uppercase}
+.tl-head{position:absolute;top:0;bottom:-6px;width:1.5px;background:var(--fg);transition:left .6s ease;pointer-events:none}
+.tl-years{position:relative;height:20px;margin:0 6px;font-family:var(--mono);font-size:11px;color:var(--fg-subtle)}
+.tl-years span{position:absolute;transform:translateX(-50%);top:4px}
+.tl-card{margin-top:14px;border-left:4px solid var(--c);padding:6px 0 6px 16px;min-height:9.5em}
+.tl-card .kind{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--c)}
+.tl-card h3{margin:.25rem 0 .4rem;font-size:1.3rem;font-weight:600}
+.tl-card p{margin:0;color:var(--fg-muted);max-width:75ch}
+.tl-ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.tl-ctl button{border:1px solid var(--border);background:transparent;color:var(--fg);border-radius:999px;padding:7px 16px;font-size:14px;cursor:pointer;font-family:inherit}
+.tl-ctl #tlPlay{background:var(--fg);color:var(--bg);border-color:var(--fg);min-width:6.5em}
+.tl-ctl .pos{font-family:var(--mono);font-size:12.5px;color:var(--fg-subtle);margin-left:auto}
+.tl-all{margin-top:1.4rem}
+.tl-all summary{cursor:pointer;color:var(--fg-muted)}
+.tl-all ol{list-style:none;padding:0;margin:1rem 0 0}
+.tl-all li{border-left:3px solid var(--c);padding:2px 0 2px 12px;margin:0 0 12px;color:var(--fg-muted);font-size:14.5px;max-width:80ch}
+.tl-all li b{color:var(--fg);font-weight:600}
+.tl-all li em{font-style:normal;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--c);margin-left:8px}
+@media (max-width:700px){.tl-stats{grid-template-columns:repeat(2,1fr)}.tl-dot{width:9px;height:9px;margin-left:-4.5px}.tl-gap span{font-size:9px}.ctl{max-width:calc(100% - 48px)}.score{display:none}}
 </style>
 
 </head>
@@ -91,14 +111,14 @@ body{overflow-x:hidden}
     <a href="economic-impact.html">Economic Impact</a>
     <a href="what-if.html">What if…?</a>
     <a href="about-catw.html">About CATW</a>
-    <a href="game.html" aria-current="page">The Game</a>
+    <a href="game.html" aria-current="page">Connecting the Dots</a>
   </nav>
   <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
 </header>
 <main>
 <section class="corr" id="corr" aria-label="A corridor. Figures walk toward you. Each one carries a story.">
   <div class="floor"></div><div class="vp"></div><div class="fog"></div>
-  <div class="lede"><h1>The Game</h1></div>
+  <div class="lede"><h1>Learn their stories</h1><p>Each woman walking toward you was killed by a man. Click her to read who she was.</p></div>
   <div id="slices"></div>
   <div id="ghosts"></div>
   <div class="score" id="score"><div><div class="n" id="sStop">0</div>stopped before harm</div><div><div class="n" id="sPass">0</div>got through</div></div>
@@ -107,29 +127,36 @@ body{overflow-x:hidden}
     <div class="grp chute"><b>Chutes · widen the holes</b><div class="opts" id="chutes"></div></div>
   </div>
   <aside class="story" id="story" aria-live="polite"><button class="close" id="storyClose" aria-label="Close">×</button><div id="storyBody"></div></aside>
-  <div class="hint" id="hint">add a ladder · click a woman for her story</div>
+  <div class="hint" id="hint">click a woman for her story · add a ladder to stop the men</div>
 </section>
-<section class="block" id="board">
+<section class="block" id="timeline">
   <div class="wrap">
-    <div class="lede"><h2>Chutes and ladders: Gilgo Beach</h2><p>Thirty squares along the public record of the Gilgo Beach killings, 2007 to 2023. Roll, and land where the case landed. Ladders are the laws and systems that could have caught him sooner. Chutes are the failures that let thirteen years pass. The ladders are what New York can still build.</p></div>
-    <div class="board" id="boardGrid"></div>
-    <div class="bctl"><button id="roll">Roll</button><span class="die" id="die">·</span><button id="breset">Start again</button></div>
-    <div class="bmsg" id="bmsg">Square 1. The women are alive. Press roll.</div>
-    <p class="src">Timeline from the public record as reported by the Associated Press, ABC7 and NBC New York; charges as filed by the Suffolk County District Attorney. The ladders are CATW's list; the chutes are its mirror. Nothing on this board describes a victim beyond her name and the date she was last seen.</p>
-  </div>
-</section>
-
-<section class="block" id="flow">
-  <div class="wrap">
-    <div class="lede"><h2>From policy to outcome</h2><p>What the evidence on this site says each ladder does, drawn the way RAND draws gun policy: policies on the left, outcomes on the right, a ribbon where there is evidence, labelled by how strong it is.</p></div>
-    <div class="flow"><svg id="flowSvg" viewBox="0 0 960 420"></svg></div>
-    <p class="src">Evidence is what is already cited on this site: Sweden's buyer share under the Equality Model (0.29% in six months), Nashville's 400+ buyer arrests against Manhattan's 107, Operation Losing Proposition's 156 arrests in three days, Brooklyn's fall from 279 to 28 patronizing arrests, the 23 countries whose law names femicide. "Limited" means one study or one city; "moderate" means a national series; "supportive" means several sources agree. Model: <a href="https://www.rand.org/research/gun-policy.html">RAND, Gun Policy in America</a>.</p>
+    <div class="lede">
+      <h2>Case study in how to prevent femicide in the sex trade: the Gilgo Beach murders case</h2>
+      <p>In 2010, a search for Shannan Gilbert, a missing woman who had been bought and sold online, led to the discovery of ten other bodies on a stretch of Long Island's South Shore called Gilgo Beach. In a case that spans three decades, Rex Heuermann admitted to killing eight women. There may be more.</p>
+      <p style="margin-top:.8rem">The timeline moves through the case from the first body to the guilty plea. Watch the years add up before an arrest, and how many warning signs came first.</p>
+    </div>
+    <div class="tl-legend" aria-hidden="true"><span class="t-f"><i class="t-f"></i>Femicide</span><span class="t-w"><i class="t-w"></i>Warning sign</span><span class="t-a"><i class="t-a"></i>Legal, law enforcement or advocacy action</span></div>
+    <div class="tl" id="tl">
+      <div class="tl-stats" aria-live="off">
+        <div class="yrs"><b id="tlYears">0</b>years since the first body was found, with no arrest</div>
+        <div><b id="tlF">0</b>femicide entries so far</div>
+        <div><b id="tlW">0</b>warning signs so far</div>
+        <div><b id="tlA">0</b>actions so far</div>
+      </div>
+      <div class="tl-track" id="tlTrack"><div class="tl-head" id="tlHead"></div></div>
+      <div class="tl-years" id="tlYearsAxis" aria-hidden="true"></div>
+      <article class="tl-card" id="tlCard" aria-live="polite"></article>
+      <div class="tl-ctl"><button id="tlPrev" aria-label="Previous event">← Back</button><button id="tlPlay">Play</button><button id="tlNext" aria-label="Next event">Next →</button><button id="tlRestart">Start again</button><span class="pos" id="tlPos"></span></div>
+    </div>
+    <details class="tl-all"><summary>Read the whole timeline as a list</summary><ol id="tlList"></ol></details>
+    <p class="src">Timeline compiled by CATW, drawing on ABC News, <em>Gilgo Beach murders: A timeline of the investigation</em>, court records and CATW's own campaign record; CATW is adding the remaining sources. The entries give each woman's name, age and where she was last seen or found, and leave out what was done to her body.</p>
   </div>
 </section>
 
 <section class="block">
   <div class="wrap">
-    <p class="src">Stories: <a href="new-york.html#memoriam">In memoriam: New York</a> (Sex Industry Kills), <a href="new-york.html#cases">real cases</a> from the public record, and the ten regions of <a href="buyers.html">CATW's sex-buyers map</a> with the enforcement notes from <em>From Impunity to Accountability</em> (2022). Data: <a href="data/corridor_stories.json">corridor_stories.json</a>. Figures are silhouettes, the same ones used across the site; no image of a person is generated. How buyer quotes will be collected: <a href="invisible-men.html">the method</a>. The Swiss cheese model: <a href="https://southerncalifornialawreview.com/2025/07/05/mind-the-gaps-mitigating-harassment-in-a-post-metoo-workplace/">Mind the Gaps</a> (Southern California Law Review, 2025).</p>
+    <p class="src">Stories: <a href="new-york.html#memoriam">In memoriam: New York</a> (Sex Industry Kills), the entries for women who were killed. Data: <a href="data/corridor_stories.json">corridor_stories.json</a>. Figures are silhouettes, the same ones used across the site; no image of a person is generated. How buyer quotes will be collected: <a href="invisible-men.html">the method</a>. The Swiss cheese model: <a href="https://southerncalifornialawreview.com/2025/07/05/mind-the-gaps-mitigating-harassment-in-a-post-metoo-workplace/">Mind the Gaps</a> (Southern California Law Review, 2025).</p>
   </div>
 </section>
 </main>
@@ -169,8 +196,10 @@ body{overflow-x:hidden}
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const host=document.getElementById('ghosts'),story=document.getElementById('story'),body=document.getElementById('storyBody'),hint=document.getElementById('hint');
   const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
-  let deckW=shuffle(D.women);
-  function drawW(){if(!deckW.length)deckW=shuffle(D.women);return deckW.pop();}
+  // CATW, Round 4: biographies of women killed by men; overdose deaths and the case cards are not in this deck
+  const WOMEN=D.women.filter(w=>w.kind==='memorial'&&/killed/i.test(w.cause||''));
+  let deckW=shuffle(WOMEN);
+  function drawW(){if(!deckW.length)deckW=shuffle(WOMEN);return deckW.pop();}
   // ---- ladders and chutes
   const LADDERS=['Enforce the patronizing laws','Pass the Survivors Justice and Equality Act','Target the sites where buyers post','Value women and girls as equals','End the normalisation in media and film'];
   const CHUTES=['Systemic loopholes','Harmful cultural norms','Law enforcement failures','Societal complicity','Dehumanisation of women in the trade'];
@@ -212,60 +241,39 @@ body{overflow-x:hidden}
   document.getElementById('storyClose').addEventListener('click',()=>story.classList.remove('on'));
   document.addEventListener('keydown',e=>{if(e.key==='Escape')story.classList.remove('on')});
 
-  // ---- chutes and ladders board, Gilgo Beach
-  const SQ=[
-   [1,'1993 · 2003','Sandra Costilla and Jessica Taylor are killed. Not connected to anything for twenty years.','chute',5],
-   [2,'',''],
-   [3,'July 2007','Maureen Brainard-Barnes, 25, last seen in Manhattan.'],
-   [4,'','Ladder: a femicide law with a reporting duty. Her disappearance is logged as what it is.','ladder',9],
-   [5,'','Chute: she is filed as a missing adult who advertised online. Low priority.','chute',2],
-   [6,'July 2009','Melissa Barthelemy, 24, last seen in the Bronx.'],
-   [7,'','Her sister receives calls from Melissa’s phone. The caller taunts her. The calls are traced to Midtown and go no further.','chute',3],
-   [8,'','Ladder: the site that carried her ad is made to answer for it. Ads and the men who answer them are evidence.','ladder',13],
-   [9,'June 2010','Megan Waterman, 22, last seen in Hauppauge.'],
-   [10,'Sept 2010','Amber Lynn Costello, 27, last seen in West Babylon. A witness describes a large man and a dark Chevrolet Avalanche.'],
-   [11,'','Chute: the Avalanche lead is not run down. It will wait twelve years.','chute',6],
-   [12,'May 2010','Shannan Gilbert calls 911 from Oak Beach and runs. It takes months for a search to begin.'],
-   [13,'','Ladder: patronizing laws enforced. The buyers who met these women are on record, and the record is searched.','ladder',18],
-   [14,'Dec 2010','Melissa is found on Ocean Parkway. Two days later, Maureen, Megan and Amber. The Gilgo Four.'],
-   [15,'','Chute: the press names them by their ads. “Craigslist killer.” “Prostitutes.” The public shrugs.','chute',9],
-   [16,'2011','More remains along the parkway. Shannan is found in December.'],
-   [17,'','Ladder: value women and girls as equal human beings. The case gets the resources any four murdered women would.','ladder',22],
-   [18,'','Chute: Suffolk’s police leadership keeps federal help at arm’s length. The chief is later convicted in an unrelated assault and cover-up.','chute',12],
-   [19,'2012 to 2021',"The case goes cold. A decade."],
-   [20,'','Chute: institutional failure. No one is assigned, no one is answerable.','chute',14],
-   [21,'','Ladder: the Survivors Justice and Equality Act. The women are not criminals; they come forward, and so do the people who saw them last.','ladder',26],
-   [22,'Feb 2022','A new commissioner forms a task force with the FBI and state police.'],
-   [23,'Mar 2022','The 2010 Avalanche lead is run. It matches a Massapequa Park architect.'],
-   [24,'','Ladder: online evidence is pursued. Burner phones, searches, ads: the trail was always there.','ladder',28],
-   [25,'2023','A discarded pizza box gives the DNA match.'],
-   [26,'','Chute: societal complicity. For thirteen years the buyers who knew these women said nothing.','chute',19],
-   [27,'',''],
-   [28,'July 2023','Rex Heuermann is arrested and charged with three murders, then a fourth.'],
-   [29,'2024 to 2025','Charges grow to seven women, going back to 1993.'],
-   [30,'','Thirteen years. A femicide law, enforced patronizing laws and sites held to account could have ended this at square 8. That is the game.'],
-  ];
-  const grid=document.getElementById('boardGrid'),bmsg=document.getElementById('bmsg'),die=document.getElementById('die');let pos=1;
-  function cellOrder(){const cols=innerWidth<=700?5:6,rows=Math.ceil(30/cols),out=[];for(let r=rows-1;r>=0;r--){const row=[];for(let c=0;c<cols;c++){const n=r*cols+c+1;if(n<=30)row.push(n);}if((rows-1-r)%2===1)row.reverse();out.push(...row);}return out;}
-  function renderBoard(){grid.innerHTML='';cellOrder().forEach(n=>{const q=SQ[n-1];const d=document.createElement('div');d.className='sq'+(q[3]?' '+q[3]:'')+(n===pos?' here':'');d.id='sq'+n;d.innerHTML='<span class="i">'+n+'</span>'+(q[1]?'<div class="y">'+q[1]+'</div>':'')+'<div>'+(q[2]||'')+'</div><span class="tok"></span>';grid.appendChild(d);});}
-  renderBoard();addEventListener('resize',renderBoard);
-  document.getElementById('roll').addEventListener('click',()=>{if(pos>=30)return;const r=1+Math.floor(Math.random()*6);die.textContent=r;pos=Math.min(30,pos+r);let q=SQ[pos-1];let m='Square '+pos+'. '+(q[1]?q[1]+': ':'')+(q[2]||'Nothing happens here. The years pass.');
-    if(q[3]==='ladder'){m+=' You climb to '+q[4]+'.';pos=q[4];}else if(q[3]==='chute'){m+=' You slide back to '+q[4]+'.';pos=q[4];}
-    if(pos>=30)m+=' '+SQ[29][2];bmsg.textContent=m;renderBoard();document.getElementById('sq'+pos).scrollIntoView({block:'nearest'});});
-  document.getElementById('breset').addEventListener('click',()=>{pos=1;die.textContent='·';bmsg.textContent='Square 1. The women are alive. Press roll.';renderBoard();});
-
-  // ---- policy to outcome flow
-  (function(){const POL=['Enforce patronizing laws','Survivors Justice and Equality Act','Target the sites where buyers post','Name femicide in law','End the normalisation in media'];
-    const OUT=['Fewer buyers','More buyer arrests','Deaths counted','Women come forward','Deaths named as what they are'];
-    const L=[[0,1,'supportive','Nashville 400+ vs Manhattan 107; Operation Losing Proposition 156 in three days; Brooklyn 279 to 28 when enforcement stopped'],[0,0,'moderate','Sweden 13.6% of men in 1996 to 7.5% in 2014 under a buyer law'],[1,0,'moderate','Sweden, Norway, France, Ireland: buyer share falls'],[1,3,'limited','Maine 2023; survivor testimony to the New York legislature'],[2,0,'limited','Craigslist Adult Services 2010; Backpage 2018; demand moved rather than fell'],[3,2,'supportive','23 countries count what they name; ECLAC and UN Women'],[3,4,'supportive','Femicide watch and official series follow the law'],[4,4,'limited','CATW media framing work; the word map is not built yet']];
-    const W=960,H=420,lx=250,rx=710,rowL=(H-40)/POL.length,rowR=(H-40)/OUT.length;const accent=getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
-    const wgt={limited:6,moderate:12,supportive:20},op={limited:.35,moderate:.55,supportive:.8};let s='';
-    L.forEach(([a,b,e,why])=>{const y1=20+a*rowL+rowL/2,y2=20+b*rowR+rowR/2;s+='<path d="M'+lx+' '+y1+' C '+(lx+230)+' '+y1+' '+(rx-230)+' '+y2+' '+rx+' '+y2+'" fill="none" stroke="'+accent+'" stroke-opacity="'+op[e]+'" stroke-width="'+wgt[e]+'"><title>'+POL[a]+' → '+OUT[b]+' ('+e+'): '+why+'</title></path>';});
-    POL.forEach((p,i)=>{const y=20+i*rowL+rowL/2;s+='<text x="'+(lx-10)+'" y="'+(y+4)+'" text-anchor="end" fill="#f2f2f2" font-size="12.5" font-family="inherit">'+p+'</text><rect x="'+lx+'" y="'+(y-14)+'" width="6" height="28" fill="#f2f2f2"/>';});
-    OUT.forEach((o,i)=>{const y=20+i*rowR+rowR/2;s+='<rect x="'+(rx-6)+'" y="'+(y-14)+'" width="6" height="28" fill="#f2f2f2"/><text x="'+(rx+10)+'" y="'+(y+4)+'" fill="#f2f2f2" font-size="12.5" font-family="inherit">'+o+'</text>';});
-    s+='<text x="'+lx+'" y="14" fill="#999" font-size="10" font-family="JetBrains Mono,monospace">POLICIES</text><text x="'+rx+'" y="14" text-anchor="end" fill="#999" font-size="10" font-family="JetBrains Mono,monospace">OUTCOMES</text>';
-    s+='<text x="480" y="'+(H-6)+'" text-anchor="middle" fill="#999" font-size="10" font-family="JetBrains Mono,monospace">ribbon width: limited · moderate · supportive evidence. hover a ribbon.</text>';
-    document.getElementById('flowSvg').innerHTML=s;})();
+  // ---- Gilgo Beach, a moving timeline. Text: CATW's Heuermann timeline, November 2026.
+  (function(){
+    const EV=[["Nov. 20, 1993", 1993.88, "f", "The body of Sandra Costilla, 28, a native of Trinidad and Tobago who had been living in New York City, is found in a wooded area in Southampton, NY."], ["Feb. 8, 1996", 1996.1, "a", "The Communications Decency Act is enacted to regulate the spread of pornographic content on the burgeoning Internet. Section 230 carves out an exception for online service providers, immunizing them from liability for third-party content."], ["1996 to today", 1996.2, "w", "Online sex trafficking, pornography and websites profiting from prostitution-related ads flourish. Craigslist, one of the most popular websites in the U.S., hosts an “Erotic Services” section in which women and children are trafficked, bought and sold in the sex trade."], ["April 20, 1996", 1996.3, "f", "The partial remains of a woman are discovered on Fire Island, NY. Her name remains unknown to investigators for decades, until she is identified as Karen Vergata, 34."], ["June 28, 1997", 1997.49, "f", "The partial remains of a woman are discovered in Hempstead Lake State Park. Investigators nickname her “Peaches” after a tattoo. In 2025 police identify her as Tanya Jackson, a U.S. Army veteran who was living in Brooklyn before she disappeared."], ["Nov. 19, 2000", 2000.88, "f", "The partial remains of Valerie Mack, 24, who had been living in Philadelphia, are found in a wooded area in Manorville, NY. Her family last saw her in the spring or summer of that year in Port Republic, New Jersey."], ["July 26, 2003", 2003.57, "f", "The partial remains of Jessica Taylor are discovered in a wooded area of Manorville, NY. She was 20 when she vanished."], ["July 9, 2007", 2007.52, "f", "Maureen Brainard-Barnes, 25, is last seen alive in New York City, according to prosecutors. She had traveled from her home in Norwich, CT, and told a friend she was heading to meet a “client”. Her phone was last used on Long Island."], ["2008", 2008.5, "a", "Forty attorneys general press Craigslist to purge the apparent and often graphic solicitations for prostitution on its website. The “Erotic Services” ads reportedly generate $36 million that year."], ["2009", 2009.3, "a", "Sheriff Thomas Dart of Cook County, IL, sues Craigslist for hosting a dedicated platform that facilitates sex trafficking by sex buyers, pimps and traffickers. Craigslist moves its “Erotic Services” page to “Adult Services”."], ["July 10, 2009", 2009.52, "w", "Melissa Barthelemy, 24, is last seen alive at her New York City home, according to prosecutors. She tells a friend she is going to see a man and will be back in the morning. Her phone’s last location is on Long Island. A man then uses her phone to make disturbing calls to her relatives."], ["May 1, 2010", 2010.33, "f", "Shannan Gilbert, 23, flees a “client’s” home in Oak Beach, near Gilgo Beach, and bangs on a neighbor’s door. In a recorded 911 call she tells a dispatcher people are after her. Her pimp, the “client” and his neighbor all tell police she ran into the night on her own. Her disappearance prompts several searches of the area."], ["June 6, 2010", 2010.43, "w", "Megan Waterman, 22, is last seen alive at the Holiday Inn in Hauppauge, NY, according to prosecutors. She had traveled from Maine to respond to a “client’s” request."], ["July 8, 2010", 2010.52, "a", "Craigslist is reportedly on track to bring in $122 million from its “Adult Services”. CATW, with 81 leading anti-trafficking organizations across the U.S., protests in front of Craigslist’s headquarters in San Francisco. Craigslist stops publishing “Adult Services” ads."], ["Sept. 2, 2010", 2010.67, "w", "Amber Costello, 27, is last seen alive leaving her home in West Babylon, NY, to meet a “client”, according to prosecutors. A friend later tells investigators that the man he presumed was the sex buyer drove a Chevrolet Avalanche."], ["2010", 2010.78, "w", "Backpage.com, a competitor of Craigslist, increases its online prostitution-related advertisements. Analysts put Village Voice Media’s stake in Backpage’s “Adult Services” ads at $22.7 million in annual revenue."], ["Nov. 18, 2010", 2010.88, "a", "CATW organizes a protest, co-sponsored by over 120 leading anti-trafficking organizations, in front of Village Voice Media’s headquarters in New York City, calling for Backpage to be shut down. The National Association of Attorneys General urges Backpage to close its “Adult Services”."], ["Dec. 11, 2010", 2010.945, "a", "An officer searching for Shannan Gilbert with his police dog along Ocean Parkway in Gilgo Beach discovers human remains, later identified as Melissa Barthelemy."], ["Dec. 13, 2010", 2010.95, "a", "Police find the remains of Maureen Brainard-Barnes, Megan Waterman and Amber Costello within a quarter mile of where Melissa Barthelemy was found."], ["Dec. 14, 2010", 2010.955, "a", "Suffolk County Police Commissioner Richard Dormer announces the discovery and says a serial killer might be to blame. Police expand the search, still looking for any sign of Shannan Gilbert."], ["March 29, 2011", 2011.24, "a", "Amid the continued search for Gilbert, police find partial remains belonging to Jessica Taylor several miles east of where the Gilgo Four were found."], ["April 4, 2011", 2011.26, "a", "Police find three sets of remains along Ocean Parkway. The rest of Valerie Mack’s remains are found a little over two miles east of the Gilgo Four."], ["April 11, 2011", 2011.28, "a", "Two more sets of remains are located off Ocean Parkway in Nassau County. One belongs to the woman known as “Peaches”, the mother of a toddler found on April 4. The other belongs to the woman first found on Fire Island in 1996."], ["Nov. 16, 2011", 2011.87, "a", "With over 100 national and international co-sponsors, CATW organizes a protest in New York against Village Voice Media Holdings and its facilitation of sex trafficking through Backpage.com."], ["Dec. 13, 2011", 2011.95, "f", "Shannan Gilbert’s remains are found in marshland near Oak Beach. Police suspect an accidental drowning; the medical examiner later rules the cause of death undetermined. Her family maintains she was murdered."], ["June 20, 2012", 2012.47, "a", "CATW and over 100 national and international co-sponsors hold another protest in New York City calling on Village Voice Media Holdings to end its facilitation of sex trafficking through Backpage.com."], ["After 2012", 2012.8, "f", "An eleven-year hiatus in Long Island law enforcement investigations of the Gilgo Beach murders."], ["2013 to 2015", 2014.0, "a", "Across the country, plaintiffs, almost all adolescent girls, sue Backpage for facilitating their sex trafficking online. Attorneys general from 49 states and territories ask Congress to remove the criminal and civil immunity in Section 230."], ["2013 to 2015", 2015.0, "w", "Courts interpret Section 230 as giving websites immunity for criminal activity facilitated on their sites, and deny victims of sex trafficking the right to sue the companies that facilitated and profited from their exploitation."], ["2017", 2017.0, "a", "An 18-month bipartisan investigation by the Senate Permanent Subcommittee on Investigations concludes that Backpage knowingly facilitated sex trafficking and covered up evidence of it to increase its profits."], ["April 11, 2018", 2018.28, "a", "FOSTA-SESTA is enacted. The federal law amends Section 230 to hold accountable websites that knowingly facilitate sex trafficking and promote prostitution. Victims can also sue the websites that facilitated their trafficking."], ["January 2022", 2022.04, "a", "The Suffolk County District Attorney’s Office creates a new task force to conduct a comprehensive review of the evidence."], ["March 14, 2022", 2022.2, "a", "Rex Heuermann first comes up as a suspect, according to District Attorney Ray Tierney. He is tracked through his car, a Chevrolet Avalanche: the vehicle a witness to Amber Costello’s disappearance described in 2010."], ["July 13, 2023", 2023.53, "a", "Investigators arrest Heuermann at his Midtown Manhattan office and charge him with murdering Amber Costello, Megan Waterman and Melissa Barthelemy. Cellphone records and DNA from a discarded pizza crust tie him to the case."], ["Aug. 4, 2023", 2023.59, "a", "Officials announce they have identified the woman first found on Fire Island in 1996 as Karen Vergata."], ["Jan. 16, 2024", 2024.04, "a", "Heuermann is charged in the death of Maureen Brainard-Barnes."], ["June 6, 2024", 2024.43, "a", "Heuermann is charged with the 2003 murder of Jessica Taylor and the 1993 murder of Sandra Costilla. He pleads not guilty."], ["Dec. 17, 2024", 2024.96, "a", "Heuermann is charged with the murder of Valerie Mack. Prosecutors cite DNA evidence and material recovered from some of the 350 electronic devices seized from him. He pleads not guilty."], ["April 23, 2025", 2025.31, "a", "Authorities announce the identity of the woman known as “Peaches”: Tanya Jackson, a 26-year-old Army veteran. Her toddler is identified as two-year-old Tatiana Dykes."], ["April 8, 2026", 2026.27, "a", "Heuermann pleads guilty to seven counts of murder, and admits to killing Karen Vergata as part of the plea agreement. He agrees to three consecutive life sentences followed by four consecutive sentences of 25 years to life, prosecutors say."]];
+    const KIND={f:'Femicide',w:'Warning sign',a:'Legal, law enforcement or advocacy action'};
+    const Y0=1993,Y1=2027,FIRST=1993.88,ARREST=2023.53,GAP=[2012.47,2022.04];
+    const x=y=>(y-Y0)/(Y1-Y0)*100;
+    const track=document.getElementById('tlTrack'),head=document.getElementById('tlHead'),card=document.getElementById('tlCard'),pos=document.getElementById('tlPos'),play=document.getElementById('tlPlay');
+    const gap=document.createElement('div');gap.className='tl-gap';gap.style.left=x(GAP[0])+'%';gap.style.width=(x(GAP[1])-x(GAP[0]))+'%';gap.innerHTML='<span>The hiatus</span>';track.appendChild(gap);
+    const rows=[];let maxRow=0;
+    const dots=EV.map((e,i)=>{const px=x(e[1]);let r=0;while(rows[r]!=null&&px-rows[r]<1.5)r++;rows[r]=px;maxRow=Math.max(maxRow,r);
+      const b=document.createElement('button');b.className='tl-dot t-'+e[2];b.style.left=px+'%';b.style.setProperty('--row',r);b.setAttribute('aria-label',e[0]+'. '+KIND[e[2]]);b.title=e[0];b.addEventListener('click',()=>{stop();go(i)});track.appendChild(b);return b;});
+    track.style.setProperty('--h',(26+(maxRow+1)*15)+'px');
+    const ax=document.getElementById('tlYearsAxis');for(let y=1995;y<=2025;y+=5){const s=document.createElement('span');s.style.left=x(y)+'%';s.textContent=y;ax.appendChild(s)}
+    document.getElementById('tlList').innerHTML=EV.map(e=>'<li class="t-'+e[2]+'"><b>'+e[0]+'</b><em>'+KIND[e[2]]+'</em><br>'+e[3]+'</li>').join('');
+    let i=0,timer=null;
+    function go(k){i=Math.max(0,Math.min(EV.length-1,k));const e=EV[i];
+      dots.forEach((d,j)=>{d.classList.toggle('past',j<=i);d.classList.toggle('now',j===i)});
+      head.style.left=x(e[1])+'%';gap.classList.toggle('past',e[1]>GAP[0]);
+      card.className='tl-card t-'+e[2];card.innerHTML='<div class="kind">'+KIND[e[2]]+'</div><h3>'+e[0]+'</h3><p>'+e[3]+'</p>';
+      const n=t=>EV.slice(0,i+1).filter(v=>v[2]===t).length;
+      document.getElementById('tlYears').textContent=Math.max(0,Math.floor(Math.min(e[1],ARREST)-FIRST));
+      document.getElementById('tlF').textContent=n('f');document.getElementById('tlW').textContent=n('w');document.getElementById('tlA').textContent=n('a');
+      pos.textContent=(i+1)+' / '+EV.length;}
+    function stop(){clearInterval(timer);timer=null;play.textContent='Play'}
+    function start(){if(i>=EV.length-1)go(0);play.textContent='Pause';timer=setInterval(()=>{if(i>=EV.length-1){stop();return}go(i+1)},4200)}
+    play.addEventListener('click',()=>timer?stop():start());
+    document.getElementById('tlPrev').addEventListener('click',()=>{stop();go(i-1)});
+    document.getElementById('tlNext').addEventListener('click',()=>{stop();go(i+1)});
+    document.getElementById('tlRestart').addEventListener('click',()=>{stop();go(0)});
+    go(0);
+    // start moving the first time the timeline is on screen, unless the visitor prefers reduced motion
+    if(!reduce&&'IntersectionObserver' in window){const io=new IntersectionObserver(en=>{if(en.some(v=>v.isIntersecting)){io.disconnect();start()}},{threshold:.5});io.observe(document.getElementById('tl'))}
+  })();
 })();
 </script>
 </body>

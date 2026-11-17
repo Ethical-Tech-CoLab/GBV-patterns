@@ -49,6 +49,22 @@ Everything still open, in one place, with an owner. Detail for each item is in t
 | Agent | Longer-term asks: country map with rights history, diplomacy tracker, policy tracker, backlash hypotheses test, gender policy peak chart, leadership impact review, Vibe Check feed | Build, each with its own sources | Later |
 
 
+## Round 4 feedback from CATW, applied 17 November 2026
+
+CATW narrowed the Summit scope to two pages, Home and Connecting the Dots (the tab that was The Game). Done: Home in CATW's section order with their text, the Sanctuary for Families hotlines, femicide-specific figures in the ten-women section, the zoomable law map with Sweden's note inside it; the background, problem, solution panels and the two New York case-study sections removed. Connecting the Dots: "Learn their stories" shows only women killed by men; the Gilgo Beach board is now a moving timeline built from CATW's Heuermann timeline; the policy-to-outcome section is removed.
+
+Still open from this round:
+
+| Owner | Item | Needs |
+|---|---|---|
+| CATW | Additional biographies for "Learn their stories" | Text; five Sex Industry Kills entries are shown now |
+| CATW | Sources for the Gilgo timeline (the document says "to be added"), including the 2008 attorneys general and Craigslist revenue figures | Links |
+| CATW | Confirm the count of 26: the site reaches it as 23 named crimes plus Gabon, Morocco and Türkiye from the World Bank article, which itself says 29 without listing them | Their list, if it differs |
+| CATW | Confirm whether the ladders and chutes controls stay on "Learn their stories" | Decision |
+| Carolina | The Suffolk County Police crime-scene map in CATW's timeline (via Reuters) is not on the site | Licence check before use |
+| Agent | The other pages still say 23 countries (About CATW, New York, Sources), and the New York page's Gilgo Beach card still says "charged"; Heuermann pleaded guilty on 8 April 2026 | Update when those pages come back into scope |
+| Agent | Check the Sanctuary for Families figures against their primary sources (Violence Policy Center, BJS, Everytown) | Searches |
+
 ## Needs Carolina (blocked for the agent)
 
 - ~~Make the repo public and turn on Pages.~~ Done 22 October 2026. Site: https://ethical-tech-colab.github.io/GBV-patterns/ Original note:

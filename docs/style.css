@@ -252,3 +252,15 @@ body.present .src{font-size:.75em}
 .dayclock .midl{font:400 9px var(--font);fill:var(--fg-muted);text-anchor:middle}
 .dayclock h3{margin:0 0 .6rem;font-size:1.35rem;letter-spacing:-.01em}
 .dayclock p{color:var(--fg-muted);margin:0 0 .8rem;max-width:48ch}
+
+/* Round 4: zoomable law map, pinned notes, World Bank additions */
+#lawSvg{cursor:grab;touch-action:pan-y}
+#lawSvg:active{cursor:grabbing}
+#lawSvg .land.penalty{fill:color-mix(in srgb,var(--accent) 55%,transparent)}
+.lawmap-legend .sw.penalty{background:color-mix(in srgb,var(--accent) 55%,transparent)}
+.lawmap-modes{flex-wrap:wrap}
+.lawmap-zoom{display:inline-flex;gap:6px;margin-left:auto}
+.lawmap-zoom button{min-width:34px}
+.lawmap-tip.pinned{pointer-events:auto;border-color:var(--fg);max-width:320px}
+.lawmap-tip a{color:var(--fg)}
+.warn a{color:inherit}
