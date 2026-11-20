@@ -73,13 +73,12 @@
   <div class="wrap">
     <div class="lede">
       <h2>Every ten minutes a man kills a woman or girl because she is female.</h2>
-      <p>In 2024, around 50,000 women and girls were killed by an intimate partner or family member worldwide. That is about 137 women and girls a day. The dots below light up at that pace, starting from the moment you opened this page.</p>
+      <p>In 2024, around 50,000 women and girls were killed by an intimate partner or family member worldwide. That is about 137 women and girls a day. The count below moves at that pace, starting from the moment you opened this page.</p>
     </div>
-    <div class="pulse">
+    <div class="pulse" style="grid-template-columns:1fr">
       <div>
         <div class="bignum"><span id="pulseN" class="num">0</span><small id="pulseL">killed by a partner or relative since you opened this page</small></div>
       </div>
-      <div><div class="tally" id="tally" aria-hidden="true"></div><p class="src" style="margin-top:.9rem">Each dot is one woman or girl; 137 dots are one day. The ringed dot is filling now. At the 2024 pace one fills about every ten and a half minutes, so the first takes that long after you open the page.</p></div>
     </div>
     <p class="src">Source: UNODC and UN Women, <a href="https://www.unwomen.org/en/digital-library/publications/2025/11/femicides-in-2024-global-estimates-of-intimate-partner-family-member-femicides">Femicides in 2024: global estimates of intimate partner and family member femicides</a> (November 2025), based on data from 117 countries.</p>
   </div>
@@ -301,21 +300,10 @@ requestAnimationFrame(()=>document.querySelectorAll('.reveal').forEach((el,i)=>s
 // ---------- pulse ----------
 (function(){
   const PER_YEAR=50000, perSec=PER_YEAR/(365.25*86400);
-  const n=document.getElementById('pulseN'), l=document.getElementById('pulseL'), tally=document.getElementById('tally');
-  const DOTS=137; for(let i=0;i<DOTS;i++){tally.appendChild(document.createElement('i'))}
-  let start=performance.now(), shown=-1;
-  function render(count,label){
-    const c=Math.floor(count); if(c!==shown){shown=c;n.textContent=fmt(c);
-      [...tally.children].forEach((d,i)=>d.classList.toggle('on',i<Math.min(c,DOTS)));}
-    l.textContent=label;
-  }
-  let cur=null;
-  function nextDot(v){const d=tally.children[Math.floor(v)]||null;if(cur&&cur!==d){cur.classList.remove('next');cur.style.background=''}cur=d;if(d){d.classList.add('next');d.style.background='conic-gradient(var(--accent) '+((v%1)*360).toFixed(1)+'deg, color-mix(in srgb,var(--fg) 28%,transparent) 0)'}}
-  function tick(now){
-    const v=((now-start)/1000)*perSec;
-    render(v,'killed by a partner or relative since you opened this page, at the 2024 global rate');nextDot(v);
-    requestAnimationFrame(tick);
-  }
+  const n=document.getElementById('pulseN'), l=document.getElementById('pulseL');
+  const start=performance.now(); let shown=-1;
+  l.textContent='killed by a partner or relative since you opened this page, at the 2024 global rate';
+  function tick(now){const c=Math.floor(((now-start)/1000)*perSec); if(c!==shown){shown=c;n.textContent=fmt(c)} requestAnimationFrame(tick)}
   requestAnimationFrame(tick);
 })();
 
