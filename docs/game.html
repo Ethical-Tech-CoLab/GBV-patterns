@@ -36,6 +36,7 @@ body{overflow-x:hidden}
 .corr .key .k-man{background:#000;border:1px solid #333}
 .ghost.m svg{fill:#050505;opacity:.9}
 .story .srcs a{display:block;color:var(--fg)}
+.story .q{font-size:1.15rem;line-height:1.45;border-left:3px solid #444;padding-left:12px;margin:.6rem 0}
 .obs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem}
 @media (max-width:700px){.obs-grid{grid-template-columns:1fr}}
 .obs-grid h3{margin:0 0 .6rem}
@@ -145,7 +146,7 @@ body{overflow-x:hidden}
 <main>
 <section class="corr" id="corr" aria-label="A corridor. Women walk toward you. Each one carries a story, or stands for a woman whose story is not known.">
   <div class="floor"></div><div class="vp"></div><div class="fog"></div>
-  <div class="lede"><h1>Learn their stories</h1><p>Each silhouette represents a woman who was killed by a sex buyer or in the sex trade. Click on her to learn her story.</p><div class="key" aria-label="Key"><span><i class="k-named"></i>Click for her story</span><span><i class="k-jane"></i>Jane Doe: an estimate, no public story</span><span><i class="k-man"></i>A shadow: a sex-buyer region, what the record shows</span></div></div>
+  <div class="lede"><h1>Learn their stories</h1><p>Each silhouette represents a woman who was killed by a sex buyer or in the sex trade. Click on her to learn her story.</p><div class="key" aria-label="Key"><span><i class="k-named"></i>Click for her story</span><span><i class="k-jane"></i>Jane Doe: an estimate, no public story</span><span><i class="k-man"></i>A shadow: what a sex buyer wrote, from the published record</span></div></div>
   <div id="ghosts"></div>
   <aside class="story" id="story" aria-live="polite"><button class="close" id="storyClose" aria-label="Close">×</button><div id="storyBody"></div></aside>
   <div class="hint" id="hint">click a woman for her story</div>
@@ -232,7 +233,7 @@ body{overflow-x:hidden}
 <script src="site.js?v=3"></script>
 <script>
 (async function(){
-  const [D,SIL]=await Promise.all([fetch('data/corridor_stories.json?v=4').then(r=>r.json()),fetch('data/silhouettes.json?v=2').then(r=>r.json())]);
+  const [D,SIL,IMP]=await Promise.all([fetch('data/corridor_stories.json?v=4').then(r=>r.json()),fetch('data/silhouettes.json?v=2').then(r=>r.json()),fetch('data/nyc_impunity_2020_2026.json?v=1').then(r=>r.json()).catch(()=>null)]);
   const svgOf=k=>'<svg viewBox="0 0 40 100"><path d="'+SIL[k]+'"/></svg>';
   const WK=['w1'],MK=['m1'];
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -240,8 +241,10 @@ body{overflow-x:hidden}
   const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
   // CATW, Round 4: biographies of women killed by men; overdose deaths and the case cards are not in this deck
   const WOMEN=D.women.filter(w=>w.kind==='record'||(w.kind==='memorial'&&/killed/i.test(w.cause||'')));
-  const MEN=(D.men||[]);let deckM=shuffle(MEN);function drawM(){if(!deckM.length)deckM=shuffle(MEN);return deckM.pop();}
-  const pick=()=>{const r=Math.random();return r<.4?'w':r<.75?'j':'m'};
+  // Shadows: what sex buyers wrote, as quoted in CATW's 2022 report and the 2025 UNCO study (redacted as in the source), plus the ten region records
+  const QUOTES=IMP?[...IMP.citations.filter(q=>!/no text/.test(q.excerpt)),...IMP.decoy].map(q=>Object.assign({kind:'quote'},q)):[];
+  const MEN=[...QUOTES,...(D.men||[])];let deckM=shuffle(MEN);function drawM(){if(!deckM.length)deckM=shuffle(MEN);return deckM.pop();}
+  const pick=()=>{const r=Math.random();return r<.35?'w':r<.6?'j':'m'};
   let deckW=shuffle(WOMEN);
   function drawW(){if(!deckW.length)deckW=shuffle(WOMEN);return deckW.pop();}
   const OBS=D.observations||{ladders:[],chutes:[]};
@@ -266,6 +269,7 @@ body{overflow-x:hidden}
   function showStory(s){hint.style.display='none';let h='';
     if(s.kind==='memorial'){h='<div class="kind">In memoriam · New York</div>'+(s.img?'<img src="'+s.img+'" alt="">':'')+'<h2>'+s.name+'</h2><div class="meta">'+s.meta+'</div><div class="cause">'+s.cause+'</div><p>'+s.text+'</p><p><a href="'+s.url+'" rel="noopener">Her page on Sex Industry Kills</a></p>';}
     else if(s.kind==='jane'){h='<div class="kind">Jane Doe · an estimate</div><h2>Jane Doe</h2><p>'+D.jane+'</p><p><a href="numbers.html#uncounted">The uncounted, on By the Numbers</a></p>';}
+    else if(s.kind==='quote'){h='<div class="kind">A shadow · a sex buyer wrote, '+s.date+'</div><h2>'+s.area+'</h2><p class="q">'+s.excerpt+'</p><div class="cause">'+s.theme+'</div><p class="src">Quoted in <a href="'+s.url+'" rel="noopener">'+s.source+'</a>, redacted as in the source. '+(s.verified_by_agent?'Read at the source.':'As compiled; not re-read by this project.')+' Nothing was collected from a forum by this project. <a href="buyers.html#mapsec">On the map</a>.</p>';}
     else if(s.kind==='buyer'){h='<div class="kind">A shadow · the record for '+s.region+'</div><h2>'+s.region+'</h2><p>'+s.text+'</p><p><a href="'+s.url+'">The region on the buyers map</a> · <a href="invisible-men.html">How buyer quotes would be collected</a></p>';}
     else if(s.kind==='record'){h='<div class="kind">From the public record'+(s.group?' · '+s.group:'')+'</div><h2>'+s.name+'</h2><div class="meta">'+s.meta+'</div><p>'+s.text+'</p><div class="srcs">'+s.sources.map(x=>'<a href="'+x[1]+'" rel="noopener">'+x[0]+'</a>').join('')+'</div>';}
     else{h='<div class="kind">From the public record</div><h2>'+s.title+'</h2><div class="meta">'+s.place+'</div><p>'+s.text+'</p><p class="cause">'+s.named+'</p><p><a href="'+s.url+'">The case on the New York page</a></p>';}

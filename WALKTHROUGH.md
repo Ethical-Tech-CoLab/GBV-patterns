@@ -63,7 +63,7 @@ Who CATW is, what it does, the legacy timeline 1988 to 2026, and the two asks of
 
 ## 7. Connecting the Dots (3 minutes, the close)
 
-**Learn their stories.** Figures walk toward you from the light. Three kinds, with a key under the heading. Dark red: click for her story. Grey: Jane Doe, an estimate. Black shadows: a sex-buyer region and what the arrest record shows there.
+**Learn their stories.** Figures walk toward you from the light. Three kinds, with a key under the heading. Dark red: click for her story. Grey: Jane Doe, an estimate. Black shadows: a sex buyer's own words, as quoted in CATW's 2022 report or the 2025 UNCO decoy study, redacted as the source prints them; some shadows carry a region's arrest record instead.
 - Click a dark red figure. You will get a woman from the memorial or the public record: Shao Ling Huang, killed in a Flushing massage parlor two weeks ago; one of the Gilgo Beach women; one of the ten women Arthur Shawcross killed in Rochester. Each card links its sources.
 - Click a grey figure. Read the Jane Doe card aloud: her figure is an estimate; no one counts, so we might never actually know who she was, or how many there are.
 - Press Esc to close the card. Click one more, then stop. Three is enough.
@@ -78,7 +78,7 @@ End there. Do not go back to Home.
 
 - "Where do the numbers come from?" Every figure has a source line beneath it and an entry on the Sources page with a Verify link.
 - "Why 30 countries when the World Bank says 29?" The World Bank does not publish its list. The 30 are the ones this site could name from ECLAC, UN Women and the World Bank blog; the caption under the map says so.
-- "Did you scrape the buyer forums?" No. Index-level counts only, from CATW's published report; the method page explains the protocol and what is never collected. The shadows carry the arrest record by region, not forum text.
+- "Did you scrape the buyer forums?" No. Index-level counts only, from CATW's published report; the method page explains the protocol and what is never collected. The shadows quote what published research already printed, with its redactions; nothing was taken from a forum by this project.
 - "Why doesn't the FBI count this?" By the Numbers has the answer in four boxes: the UN framework's eight indicators, the FBI's voluntary and thinning data, the CDC's system without a femicide field, and New York's missing definition.
 - "Are the silhouettes real women?" The figures are drawings. The stories behind the dark red ones are real and sourced; the grey ones stand for women no one counted.
 
