@@ -77,11 +77,6 @@
     <div class="pulse">
       <div>
         <div class="bignum"><span id="pulseN" class="num">0</span><small id="pulseL">killed by a partner or relative since you opened this page</small></div>
-        <div class="ctrl">
-          <button class="chip" id="pulsePause" aria-pressed="false">Pause</button>
-          <button class="chip" id="pulseDay">Show one day</button>
-          <button class="chip" id="pulseReset">Reset</button>
-        </div>
       </div>
       <div class="tally" id="tally" aria-hidden="true"></div>
     </div>
@@ -320,23 +315,17 @@ requestAnimationFrame(()=>document.querySelectorAll('.reveal').forEach((el,i)=>s
   const PER_YEAR=50000, perSec=PER_YEAR/(365.25*86400);
   const n=document.getElementById('pulseN'), l=document.getElementById('pulseL'), tally=document.getElementById('tally');
   const DOTS=137; for(let i=0;i<DOTS;i++){tally.appendChild(document.createElement('i'))}
-  let start=performance.now(), paused=false, pausedAt=0, dayMode=false, shown=-1, dayTimer=null;
-  const pauseBtn=document.getElementById('pulsePause');
+  let start=performance.now(), shown=-1;
   function render(count,label){
     const c=Math.floor(count); if(c!==shown){shown=c;n.textContent=fmt(c);
       [...tally.children].forEach((d,i)=>d.classList.toggle('on',i<Math.min(c,DOTS)));}
     l.textContent=label;
   }
   function tick(now){
-    if(!dayMode&&!paused){render(((now-start)/1000)*perSec,'killed by a partner or relative since you opened this page, at the 2024 global rate');}
+    render(((now-start)/1000)*perSec,'killed by a partner or relative since you opened this page, at the 2024 global rate');
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
-  pauseBtn.addEventListener('click',()=>{paused=!paused;pauseBtn.setAttribute('aria-pressed',paused);pauseBtn.textContent=paused?'Resume':'Pause';
-    if(paused)pausedAt=performance.now(); else start+=performance.now()-pausedAt;});
-  document.getElementById('pulseDay').addEventListener('click',()=>{dayMode=true;clearInterval(dayTimer);shown=-1;
-    let i=0;dayTimer=setInterval(()=>{i++;render(i,'in one day, at the 2024 global rate. Each dot is one woman or girl.');if(i>=DOTS)clearInterval(dayTimer)},18);});
-  document.getElementById('pulseReset').addEventListener('click',()=>{clearInterval(dayTimer);dayMode=false;paused=false;pauseBtn.textContent='Pause';pauseBtn.setAttribute('aria-pressed','false');start=performance.now();shown=-1;render(0,'killed by a partner or relative since you opened this page');});
 })();
 
 // ---------- one day on a 24-hour dial ----------
