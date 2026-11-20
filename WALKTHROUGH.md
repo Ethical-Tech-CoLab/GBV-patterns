@@ -85,8 +85,8 @@ End there. Do not go back to Home.
 
 **Things the audience will look for and not find**
 1. **A New York number.** The headline tile says "?". The site argues that the absence is the finding, but a room wants one sourced count, even a floor: the seven women in the memorial, the eight Gilgo Beach women, the ten in Rochester, Shao Ling Huang. A single line "at least 26 women we can name, from three cases and one memorial" would carry the argument. Needs CATW's agreement on wording.
-2. **The five steps.** The New York page lost its placeholder grid today. What New York can do now lives only on About CATW as two asks. The audience will ask "so what do you want Albany to do" and the answer should be on the New York page in CATW's words.
-3. **A woman's face, or the deliberate absence explained.** The memorial cards link to photographs on Sex Industry Kills but show none. One line on the page saying why (permission not yet given) would stop the question.
+2. **The five steps.** The New York page lost its placeholder grid today. What New York can do now lives only on About CATW as two asks. The audience will ask "so what do you want Albany to do" and the answer has to be on the New York page in CATW's words.
+3. **The memorial photographs.** The seven memorial cards reproduce photographs from Sex Industry Kills with attribution; the line under them says permission is still to be confirmed with the project. Confirm it or remove the images before the talk.
 4. **The county view.** The regions block on Home still says data pending for everything outside New York City. The DCJS request is on the backlog. Either send the request this week or hide the block before the talk.
 5. **Sound and motion on a projector.** The hero, the pace dots and the corridor all animate. On a weak projector the grey Jane Doe figures may vanish into the background. Test on the room's screen; the figure colours are two lines of CSS in game.html.
 
@@ -95,13 +95,14 @@ End there. Do not go back to Home.
 7. **The Invisible Men method page** (how buyer quotes would be collected under a protocol) is reachable only from a footer line on Connecting the Dots. If Elly is in the room, it deserves a mention.
 8. **Presenter mode** exists but nothing on the page says so. A line in the footer, "Press P to present", would help whoever presents next.
 
-**Things that are not verifiable yet, and should be said as such**
-9. Operation Flush the Johns: the age range (17 to 79) and the lawsuits come from CATW's note; the NY Post and Newsday pages could not be read.
-10. The Rochester line "10 of 12 women were in street prostitution on Lyell Avenue" is not on the cards because no readable source said it.
-11. The Gilgo plea terms come from CATW's timeline; the Suffolk DA release blocked automated reading.
-12. Shao Ling Huang's case had a court date on 17 November; the card does not yet say what happened.
+**Things that could not be verified, and have to be said as such**
+9. Operation Flush the Johns: the lawsuit is now verified (Louis DiMaria, News 12, March 2014). The age range 17 to 79 is not on any readable page and is not on the site.
+10. The Rochester line "10 of 12 women were in street prostitution on Lyell Avenue": UPI and AP in January 1990 say at least nine of the eleven were prostitutes, which is now on the cards. No readable source names Lyell Avenue.
+11. The Gilgo plea and sentence are now verified from PBS/AP, CBS and FOX 5: plea 8 April 2026, life without parole on 17 June 2026. The sentence structure CATW's timeline gave (consecutive terms) differs between outlets and is not used.
+12. Shao Ling Huang's 17 November court date: no report found. The card says the case is open.
+13. The 40 to 42 million and 75% figures are verified in the Fondation Scelles document (page 5, attributed to the UN, 2009). The 80% women share is not in it and rests on a 2017 PRI article; the home page says so.
 
 **Things a decision-maker will want next**
-13. A cost. The health section has the medical cost of one assault; nothing yet says what one femicide costs a county. The WISQARS run is on the backlog.
-14. A comparison. Sweden's two points (1996, 2014) stand alone. Norway, France and Ireland would make the demand argument a trend, but no primary series has been found.
-15. A way to act. The site ends on a story. A final card with the bill number, the committee it sits in and the two asks would give the room something to carry out.
+14. A cost. The health section has the medical cost of one assault; nothing yet says what one femicide costs a county. The WISQARS run is on the backlog.
+15. A comparison. Sweden's two points (1996, 2014) stand alone. Norway, France and Ireland would make the demand argument a trend, but no primary series has been found.
+16. A way to act. The site ends on a story. A final card with the bill number, the committee it sits in and the two asks would give the room something to carry out.
