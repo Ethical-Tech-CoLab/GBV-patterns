@@ -1,5 +1,5 @@
 {
- "note": "Stories for the Corridor page. Women: the New York memorial entries from Sex Industry Kills and the three New York cases. Men: the ten regions of CATW's sex-buyers map with what the arrest record shows there. No review text, no generated faces.",
+ "note": "Stories for Connecting the Dots. Women: the New York memorial entries from Sex Industry Kills, and records from the public record (Queens 2026, Gilgo Beach, Rochester 1988 to 1989) with the sources that could be read. Jane Doe figures stand for the uncounted. No review text, no generated faces.",
  "women": [
   {
    "kind": "memorial",
@@ -87,6 +87,280 @@
    "text": "Rex Heuermann, arrested July 2023, charged with the murders of women found along the beach, several of whom advertised as escorts. Reported for a decade through the lens of their work.",
    "named": "Named as “sex workers”, “escorts”, “the Craigslist killer”. Rarely “women”.",
    "url": "new-york.html#cases"
+  },
+  {
+   "kind": "record",
+   "name": "Shao Ling Huang",
+   "meta": "age 39 · 6 November 2026 · Flushing, Queens, New York City",
+   "text": "Shao Ling Huang was killed inside the massage parlor where she worked, at 36-17 164th Street in Flushing, between 3:50 and 4:15 in the afternoon. Another worker who went to check on her found her at 4:24 p.m. The Department of Buildings had received a complaint the day before about an illegal adult establishment at the premises. Zhordrack Blodywon, 54, was arrested three days later and arraigned on 11 November 2026 on a complaint charging first-degree murder, two counts of second-degree murder, first-degree robbery, second-degree burglary, first-degree sexual abuse and weapon possession. He was remanded. The case is open.",
+   "sources": [
+    [
+     "Queens District Attorney, 12 November 2026",
+     "https://queensda.org/defendant-charged-with-first-degree-murder-in-killing-of-39-year-old-woman-in-massage-parlor/"
+    ],
+    [
+     "QNS, 12 November 2026",
+     "https://qns.com/2026/11/homeless-man-prison-stabbing-massage-worker-death-flushing/"
+    ]
+   ],
+   "group": "Queens, 2026"
+  },
+  {
+   "kind": "record",
+   "name": "Maureen Brainard-Barnes",
+   "meta": "age 25 · last heard from 9 July 2007 · Norwich, Connecticut, and Manhattan",
+   "text": "A mother of two from Norwich, Connecticut, who travelled to Manhattan for a few days at a time and advertised on Craigslist, Backpage and other sites. Her last call, at 11:43 p.m. on 9 July 2007, told a friend she was going to meet someone outside a motel. Her remains were found on 13 December 2010 on the north side of Ocean Parkway near Gilgo Beach, during the search for Shannan Gilbert. Rex Heuermann was arrested in July 2023. On 8 April 2026 he pleaded guilty to seven counts of murder and admitted killing Karen Vergata as part of the plea, prosecutors said.",
+   "sources": [
+    [
+     "FOX 5 New York, 16 January 2024",
+     "https://www.fox5ny.com/news/maureen-brainard-barnes-4th-murder-victim-gilgo-beach-murder"
+    ],
+    [
+     "NBC Insider, 10 June 2025",
+     "https://www.nbc.com/nbc-insider/gilgo-four-victims-had-chilling-traits-in-common-long-island-serial-killer"
+    ],
+    [
+     "ABC7 New York, 8 April 2026",
+     "https://abc7ny.com/post/gilgo-beach-suspected-serial-killer-rex-heuermann-expected-plead-guilty-death-8th-woman/18852774/"
+    ]
+   ],
+   "group": "Gilgo Beach"
+  },
+  {
+   "kind": "record",
+   "name": "Megan Waterman",
+   "meta": "age 22 · last seen 6 June 2010 · Hauppauge, Long Island",
+   "text": "Megan Waterman was last seen on surveillance video leaving a Holiday Inn Express in Hauppauge, about 25 miles north of where her remains were found, not long after connecting with someone through Craigslist. Her remains were found near Gilgo Beach in December 2010. Prosecutors said hair found with her remains matched DNA from a pizza box discarded outside Rex Heuermann's Manhattan office. Rex Heuermann was arrested in July 2023. On 8 April 2026 he pleaded guilty to seven counts of murder and admitted killing Karen Vergata as part of the plea, prosecutors said.",
+   "sources": [
+    [
+     "NBC Insider, 10 June 2025",
+     "https://www.nbc.com/nbc-insider/gilgo-four-victims-had-chilling-traits-in-common-long-island-serial-killer"
+    ],
+    [
+     "FOX 5 New York, 16 January 2024",
+     "https://www.fox5ny.com/news/maureen-brainard-barnes-4th-murder-victim-gilgo-beach-murder"
+    ],
+    [
+     "ABC7 New York, 8 April 2026",
+     "https://abc7ny.com/post/gilgo-beach-suspected-serial-killer-rex-heuermann-expected-plead-guilty-death-8th-woman/18852774/"
+    ]
+   ],
+   "group": "Gilgo Beach"
+  },
+  {
+   "kind": "record",
+   "name": "Amber Lynn Costello",
+   "meta": "age 27 · disappeared on or about 2 September 2010 · Babylon, Long Island",
+   "text": "Amber Lynn Costello disappeared from Babylon, minutes from Gilgo Beach. Her last known meeting was arranged through a burner phone. Her remains were found near Gilgo Beach in December 2010 with those of three other women who had advertised on Craigslist. Rex Heuermann was arrested in July 2023. On 8 April 2026 he pleaded guilty to seven counts of murder and admitted killing Karen Vergata as part of the plea, prosecutors said.",
+   "sources": [
+    [
+     "NBC Insider, 10 June 2025",
+     "https://www.nbc.com/nbc-insider/gilgo-four-victims-had-chilling-traits-in-common-long-island-serial-killer"
+    ],
+    [
+     "ABC7 New York, 8 April 2026",
+     "https://abc7ny.com/post/gilgo-beach-suspected-serial-killer-rex-heuermann-expected-plead-guilty-death-8th-woman/18852774/"
+    ]
+   ],
+   "group": "Gilgo Beach"
+  },
+  {
+   "kind": "record",
+   "name": "Sandra Costilla",
+   "meta": "age 28 · killed 19 or 20 November 1993 · Southampton, Long Island",
+   "text": "Sandra Costilla, from Trinidad and Tobago, was living on Gates Avenue in Ridgewood, Queens. Hunters found her body in 1993 in a wooded area of Southampton. In June 2024 Rex Heuermann was charged with her murder, three decades after her death. Rex Heuermann was arrested in July 2023. On 8 April 2026 he pleaded guilty to seven counts of murder and admitted killing Karen Vergata as part of the plea, prosecutors said.",
+   "sources": [
+    [
+     "NBC News, 6 June 2024",
+     "https://www.nbcnews.com/news/us-news/suspect-gilgo-beach-killings-may-started-preying-women-three-decades-a-rcna155855"
+    ],
+    [
+     "ABC7 New York, 8 April 2026",
+     "https://abc7ny.com/post/gilgo-beach-suspected-serial-killer-rex-heuermann-expected-plead-guilty-death-8th-woman/18852774/"
+    ]
+   ],
+   "group": "Gilgo Beach"
+  },
+  {
+   "kind": "record",
+   "name": "Valerie Mack",
+   "meta": "killed in 2000 · Manorville and Gilgo Beach, Long Island",
+   "text": "Valerie Mack was killed in the spring or summer of 2000. Her partial remains were found in Manorville and near Gilgo Beach. Rex Heuermann was charged with her murder in December 2024. Rex Heuermann was arrested in July 2023. On 8 April 2026 he pleaded guilty to seven counts of murder and admitted killing Karen Vergata as part of the plea, prosecutors said.",
+   "sources": [
+    [
+     "NBC News, 6 June 2024",
+     "https://www.nbcnews.com/news/us-news/suspect-gilgo-beach-killings-may-started-preying-women-three-decades-a-rcna155855"
+    ],
+    [
+     "ABC7 New York, 8 April 2026",
+     "https://abc7ny.com/post/gilgo-beach-suspected-serial-killer-rex-heuermann-expected-plead-guilty-death-8th-woman/18852774/"
+    ]
+   ],
+   "group": "Gilgo Beach"
+  },
+  {
+   "kind": "record",
+   "name": "Jessica Taylor",
+   "meta": "age 20 · disappeared July 2003 · Manhattan and Poughkeepsie",
+   "text": "Jessica Taylor was working as an escort in Midtown Manhattan. She spoke with her mother by phone before leaving for what would be her last date, and never arrived in Poughkeepsie for her mother's birthday on 25 July 2003. Her dismembered body was found in 2011 in the scrub near Ocean Parkway, east of Gilgo Beach; other remains were found in Manorville. Rex Heuermann was charged with her murder in June 2024. Rex Heuermann was arrested in July 2023. On 8 April 2026 he pleaded guilty to seven counts of murder and admitted killing Karen Vergata as part of the plea, prosecutors said.",
+   "sources": [
+    [
+     "NBC News, 6 June 2024",
+     "https://www.nbcnews.com/news/us-news/suspect-gilgo-beach-killings-may-started-preying-women-three-decades-a-rcna155855"
+    ],
+    [
+     "ABC7 New York, 8 April 2026",
+     "https://abc7ny.com/post/gilgo-beach-suspected-serial-killer-rex-heuermann-expected-plead-guilty-death-8th-woman/18852774/"
+    ]
+   ],
+   "group": "Gilgo Beach"
+  },
+  {
+   "kind": "record",
+   "name": "Karen Vergata",
+   "meta": "age 34 · disappeared 1996 · Manhattan and Fire Island",
+   "text": "Karen Vergata, from Manhattan, disappeared in 1996 and was believed to be working as an escort. Her legs and feet were found on the bay side of Fire Island in April 1996; she was known as Fire Island Jane Doe for years. Fifteen years later more of her remains were found at Tobay Beach. She was identified in August 2023. Rex Heuermann admitted killing her as part of his April 2026 plea, prosecutors said.",
+   "sources": [
+    [
+     "ABC7 New York, 8 April 2026",
+     "https://abc7ny.com/post/gilgo-beach-suspected-serial-killer-rex-heuermann-expected-plead-guilty-death-8th-woman/18852774/"
+    ],
+    [
+     "Suffolk County District Attorney, April 2026",
+     "https://www.suffolkcountyda.org/gilgo-serial-killer-pleads-guilty-to-seven-charged-murders-and-also-admits-to-the-killing-of-karen-vergata/"
+    ]
+   ],
+   "group": "Gilgo Beach"
+  },
+  {
+   "kind": "record",
+   "name": "Dorothy Blackburn",
+   "meta": "age 27 · disappeared 18 March 1988 · found 24 March 1988 · Rochester, New York",
+   "text": "Dorothy Blackburn disappeared on 18 March 1988 and was found on 24 March 1988. She was one of the women Arthur Shawcross killed in Rochester in 1988 and 1989. Arthur Shawcross was paroled in April 1987 after serving 14 years of a 25-year sentence for killing two children in Watertown in 1972. From March 1988 he killed women in the Rochester area, primarily targeting women in prostitution, driving the streets in his girlfriend's car. He was tried in Monroe County in November 1990 for ten murders and convicted; Elizabeth Gibson was killed in neighbouring Wayne County. He was sentenced to 250 years and died in custody on 10 November 2008.",
+   "sources": [
+    [
+     "Arthur Shawcross, Wikipedia, with its cited court and press record",
+     "https://en.wikipedia.org/wiki/Arthur_Shawcross"
+    ]
+   ],
+   "group": "Rochester, 1988 to 1989"
+  },
+  {
+   "kind": "record",
+   "name": "Anna Marie Steffen",
+   "meta": "age 28 · disappeared 9 July 1988 · found 11 September 1988 · Rochester, New York",
+   "text": "Anna Steffen disappeared on 9 July 1988 and was found on 11 September 1988. She was one of the women Arthur Shawcross killed in Rochester in 1988 and 1989. Arthur Shawcross was paroled in April 1987 after serving 14 years of a 25-year sentence for killing two children in Watertown in 1972. From March 1988 he killed women in the Rochester area, primarily targeting women in prostitution, driving the streets in his girlfriend's car. He was tried in Monroe County in November 1990 for ten murders and convicted; Elizabeth Gibson was killed in neighbouring Wayne County. He was sentenced to 250 years and died in custody on 10 November 2008.",
+   "sources": [
+    [
+     "Arthur Shawcross, Wikipedia, with its cited court and press record",
+     "https://en.wikipedia.org/wiki/Arthur_Shawcross"
+    ]
+   ],
+   "group": "Rochester, 1988 to 1989"
+  },
+  {
+   "kind": "record",
+   "name": "Patricia Ives",
+   "meta": "age 25 · disappeared 29 September 1989 · found 27 October 1989 · Rochester, New York",
+   "text": "Patricia Ives disappeared on 29 September 1989 and was found on 27 October 1989. She was one of the women Arthur Shawcross killed in Rochester in 1988 and 1989. Arthur Shawcross was paroled in April 1987 after serving 14 years of a 25-year sentence for killing two children in Watertown in 1972. From March 1988 he killed women in the Rochester area, primarily targeting women in prostitution, driving the streets in his girlfriend's car. He was tried in Monroe County in November 1990 for ten murders and convicted; Elizabeth Gibson was killed in neighbouring Wayne County. He was sentenced to 250 years and died in custody on 10 November 2008.",
+   "sources": [
+    [
+     "Arthur Shawcross, Wikipedia, with its cited court and press record",
+     "https://en.wikipedia.org/wiki/Arthur_Shawcross"
+    ]
+   ],
+   "group": "Rochester, 1988 to 1989"
+  },
+  {
+   "kind": "record",
+   "name": "Marie Welch",
+   "meta": "age 22 · disappeared 5 November 1989 · found 5 January 1990 · Rochester, New York",
+   "text": "Marie Welch disappeared on 5 November 1989 and was found on 5 January 1990. She was one of the women Arthur Shawcross killed in Rochester in 1988 and 1989. Arthur Shawcross was paroled in April 1987 after serving 14 years of a 25-year sentence for killing two children in Watertown in 1972. From March 1988 he killed women in the Rochester area, primarily targeting women in prostitution, driving the streets in his girlfriend's car. He was tried in Monroe County in November 1990 for ten murders and convicted; Elizabeth Gibson was killed in neighbouring Wayne County. He was sentenced to 250 years and died in custody on 10 November 2008.",
+   "sources": [
+    [
+     "Arthur Shawcross, Wikipedia, with its cited court and press record",
+     "https://en.wikipedia.org/wiki/Arthur_Shawcross"
+    ]
+   ],
+   "group": "Rochester, 1988 to 1989"
+  },
+  {
+   "kind": "record",
+   "name": "Frances Brown",
+   "meta": "age 22 · disappeared 11 November 1989 · found 15 November 1989 · Rochester, New York",
+   "text": "Frances Brown disappeared on 11 November 1989 and was found on 15 November 1989. She was one of the women Arthur Shawcross killed in Rochester in 1988 and 1989. Arthur Shawcross was paroled in April 1987 after serving 14 years of a 25-year sentence for killing two children in Watertown in 1972. From March 1988 he killed women in the Rochester area, primarily targeting women in prostitution, driving the streets in his girlfriend's car. He was tried in Monroe County in November 1990 for ten murders and convicted; Elizabeth Gibson was killed in neighbouring Wayne County. He was sentenced to 250 years and died in custody on 10 November 2008.",
+   "sources": [
+    [
+     "Arthur Shawcross, Wikipedia, with its cited court and press record",
+     "https://en.wikipedia.org/wiki/Arthur_Shawcross"
+    ]
+   ],
+   "group": "Rochester, 1988 to 1989"
+  },
+  {
+   "kind": "record",
+   "name": "Kimberly Logan",
+   "meta": "age 30 · disappeared 15 November 1989 · found 15 November 1989 · Rochester, New York",
+   "text": "Kimberly Logan disappeared on 15 November 1989 and was found on 15 November 1989. She was one of the women Arthur Shawcross killed in Rochester in 1988 and 1989. Arthur Shawcross was paroled in April 1987 after serving 14 years of a 25-year sentence for killing two children in Watertown in 1972. From March 1988 he killed women in the Rochester area, primarily targeting women in prostitution, driving the streets in his girlfriend's car. He was tried in Monroe County in November 1990 for ten murders and convicted; Elizabeth Gibson was killed in neighbouring Wayne County. He was sentenced to 250 years and died in custody on 10 November 2008.",
+   "sources": [
+    [
+     "Arthur Shawcross, Wikipedia, with its cited court and press record",
+     "https://en.wikipedia.org/wiki/Arthur_Shawcross"
+    ]
+   ],
+   "group": "Rochester, 1988 to 1989"
+  },
+  {
+   "kind": "record",
+   "name": "Elizabeth Gibson",
+   "meta": "age 29 · disappeared 25 November 1989 · found 27 November 1989 · Rochester, New York",
+   "text": "Elizabeth Gibson disappeared on 25 November 1989 and was found on 27 November 1989. She was one of the women Arthur Shawcross killed in Rochester in 1988 and 1989. Arthur Shawcross was paroled in April 1987 after serving 14 years of a 25-year sentence for killing two children in Watertown in 1972. From March 1988 he killed women in the Rochester area, primarily targeting women in prostitution, driving the streets in his girlfriend's car. He was tried in Monroe County in November 1990 for ten murders and convicted; Elizabeth Gibson was killed in neighbouring Wayne County. He was sentenced to 250 years and died in custody on 10 November 2008.",
+   "sources": [
+    [
+     "Arthur Shawcross, Wikipedia, with its cited court and press record",
+     "https://en.wikipedia.org/wiki/Arthur_Shawcross"
+    ]
+   ],
+   "group": "Rochester, 1988 to 1989"
+  },
+  {
+   "kind": "record",
+   "name": "Darlene Trippi",
+   "meta": "age 32 · disappeared 15 December 1989 · found 5 January 1990 · Rochester, New York",
+   "text": "Darlene Trippi disappeared on 15 December 1989 and was found on 5 January 1990. She was one of the women Arthur Shawcross killed in Rochester in 1988 and 1989. Arthur Shawcross was paroled in April 1987 after serving 14 years of a 25-year sentence for killing two children in Watertown in 1972. From March 1988 he killed women in the Rochester area, primarily targeting women in prostitution, driving the streets in his girlfriend's car. He was tried in Monroe County in November 1990 for ten murders and convicted; Elizabeth Gibson was killed in neighbouring Wayne County. He was sentenced to 250 years and died in custody on 10 November 2008.",
+   "sources": [
+    [
+     "Arthur Shawcross, Wikipedia, with its cited court and press record",
+     "https://en.wikipedia.org/wiki/Arthur_Shawcross"
+    ]
+   ],
+   "group": "Rochester, 1988 to 1989"
+  },
+  {
+   "kind": "record",
+   "name": "June Cicero",
+   "meta": "age 33 · disappeared 17 December 1989 · found 3 January 1990 · Rochester, New York",
+   "text": "June Cicero disappeared on 17 December 1989 and was found on 3 January 1990. She was one of the women Arthur Shawcross killed in Rochester in 1988 and 1989. Arthur Shawcross was paroled in April 1987 after serving 14 years of a 25-year sentence for killing two children in Watertown in 1972. From March 1988 he killed women in the Rochester area, primarily targeting women in prostitution, driving the streets in his girlfriend's car. He was tried in Monroe County in November 1990 for ten murders and convicted; Elizabeth Gibson was killed in neighbouring Wayne County. He was sentenced to 250 years and died in custody on 10 November 2008.",
+   "sources": [
+    [
+     "Arthur Shawcross, Wikipedia, with its cited court and press record",
+     "https://en.wikipedia.org/wiki/Arthur_Shawcross"
+    ]
+   ],
+   "group": "Rochester, 1988 to 1989"
+  },
+  {
+   "kind": "record",
+   "name": "Felicia Stephens",
+   "meta": "age 20 · disappeared 28 December 1989 · found 31 December 1989 · Rochester, New York",
+   "text": "Felicia Stephens disappeared on 28 December 1989 and was found on 31 December 1989. She was one of the women Arthur Shawcross killed in Rochester in 1988 and 1989. Arthur Shawcross was paroled in April 1987 after serving 14 years of a 25-year sentence for killing two children in Watertown in 1972. From March 1988 he killed women in the Rochester area, primarily targeting women in prostitution, driving the streets in his girlfriend's car. He was tried in Monroe County in November 1990 for ten murders and convicted; Elizabeth Gibson was killed in neighbouring Wayne County. He was sentenced to 250 years and died in custody on 10 November 2008.",
+   "sources": [
+    [
+     "Arthur Shawcross, Wikipedia, with its cited court and press record",
+     "https://en.wikipedia.org/wiki/Arthur_Shawcross"
+    ]
+   ],
+   "group": "Rochester, 1988 to 1989"
   }
  ],
  "men": [
@@ -150,5 +424,23 @@
    "text": "Binghamton and Elmira. Few reviews, and the report finds few enforcement actions to set against them.",
    "url": "buyers.html#mapsec"
   }
- ]
+ ],
+ "jane": "Jane Doe. A woman killed in the sex trade whose name is not in any public record. Her figure is an estimate: no government or agency in the United States or New York counts the women and girls killed by sex buyers, pimps and traffickers, so we might never actually know who she was, or how many there are.",
+ "observations": {
+  "note": "The variables of the first version of the game, kept as observations. Ladders were the actions that close the holes; chutes the conditions that widen them.",
+  "ladders": [
+   "Enforce the patronizing laws",
+   "Pass the Survivors Justice and Equality Act",
+   "Target the sites where buyers post",
+   "Value women and girls as equals",
+   "End the normalisation in media and film"
+  ],
+  "chutes": [
+   "Systemic loopholes",
+   "Harmful cultural norms",
+   "Law enforcement failures",
+   "Societal complicity",
+   "Dehumanisation of women in the trade"
+  ]
+ }
 }

@@ -264,3 +264,12 @@ body.present .src{font-size:.75em}
 .lawmap-tip.pinned{pointer-events:auto;border-color:var(--fg);max-width:320px}
 .lawmap-tip a{color:var(--fg)}
 .warn a{color:inherit}
+/* Round 5: legend entries are buttons that open a country list; every country clickable */
+.lawmap-legend button{display:inline-flex;align-items:center;gap:6px;border:1px solid transparent;background:transparent;color:var(--fg-muted);font:inherit;font-size:12px;padding:3px 8px;border-radius:999px;cursor:pointer}
+.lawmap-legend button:hover,.lawmap-legend button[aria-pressed="true"]{border-color:var(--border);color:var(--fg)}
+.lawmap-list{margin-top:10px;padding:12px 14px;border:1px solid var(--border);border-radius:8px;background:var(--bg);font-size:13.5px}
+.lawmap-list ul{list-style:none;margin:.5rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:6px 18px}
+.lawmap-list li span{display:block}.lawmap-list li em{display:block;font-style:normal;color:var(--fg-muted);font-size:12.5px}
+.lawmap-tip .tt{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--fg-muted)}
+.lawmap-tip .obs{display:block;margin-top:6px;color:var(--fg-muted)}
+#lawSvg .land{cursor:pointer}#lawSvg .land.dim{opacity:.18}

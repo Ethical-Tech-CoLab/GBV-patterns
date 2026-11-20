@@ -1,8 +1,8 @@
 {
  "title": "Countries whose law names femicide or feminicide",
- "as_of": "2026-11-17",
+ "as_of": "2026-11-20",
  "count_crime": 23,
- "note": "Verified against ECLAC (November 2023: 18 Latin American countries) and the UN Women CSW70 expert paper by Patsili Toledo (December 2025: the same 18 plus Cyprus, Croatia, Malta, Italy; Belgium as a prevention and data law). CATW's brief puts the figure at roughly three dozen; the difference is most likely countries that treat gender motive as an aggravating circumstance without naming the crime (for example Spain, Turkey, Canada), which are not shown here. Update 17 November 2026, at CATW's request: the World Bank counts 29 economies with laws that address femicide but its article does not list them all. Gabon, Morocco and Türkiye are named there and added here as type \"penalty\" (separate offence or harsher penalties), which gives the 26 in CATW's text: 23 named crimes plus these three. Belgium stays a framework law and is not in the 26.",
+ "note": "Verified against ECLAC (November 2023: 18 Latin American countries) and the UN Women CSW70 expert paper by Patsili Toledo (December 2025: the same 18 plus Cyprus, Croatia, Malta, Italy; Belgium as a prevention and data law). CATW's brief puts the figure at roughly three dozen; the difference is most likely countries that treat gender motive as an aggravating circumstance without naming the crime (for example Spain, Turkey, Canada), which are not shown here. Update 17 November 2026, at CATW's request: the World Bank counts 29 economies with laws that address femicide but its article does not list them all. Gabon, Morocco and Türkiye are named there and added here as type \"penalty\" (separate offence or harsher penalties), which gives the 26 in CATW's text: 23 named crimes plus these three. Belgium stays a framework law and is not in the 26. Update 20 November 2026, at CATW's request: France added, and with it the other countries the World Bank blog names as aggravating homicide penalties for gender motive (Portugal, Spain). North Macedonia, also named by the World Bank, was already among the named crimes. Each country has an \"observation\" field, shown when the country is clicked. Countries not in this file are shown on the map with the note that no femicide law was found in the three sources used; they may still punish gender-motivated homicide more severely, as France does. The World Bank counts 29 economies but does not publish its list, so the two counts cannot be reconciled country by country.",
  "sources": [
   {
    "name": "ECLAC Gender Equality Observatory, The obligation of States to prevent femicidal violence (November 2023)",
@@ -34,6 +34,10 @@
   },
   {
    "name": "World Bank, Marina Elefante and Siyi Wang, Femicide laws worldwide: 50 years of evolution and ongoing gaps (16 June 2025)",
+   "url": "https://blogs.worldbank.org/en/opendata/femicide-laws-worldwide--50-years-of-evolution-and-ongoing-gaps"
+  },
+  {
+   "name": "World Bank Data Blog, Marina Elefante and Siyi Wang, Femicide laws worldwide: 50 years of evolution and ongoing gaps (16 June 2025)",
    "url": "https://blogs.worldbank.org/en/opendata/femicide-laws-worldwide--50-years-of-evolution-and-ongoing-gaps"
   }
  ],
@@ -219,14 +223,16 @@
    "lonlat": [
     4.5,
     50.6
-   ]
+   ],
+   "observation": "The 2023 Stop Féminicide law defines femicide for prevention, protection and data collection. The World Bank classes Belgium with the countries that aggravate homicide penalties rather than name a crime."
   },
   {
    "name": "North Macedonia",
    "id": "807",
    "year": 2023,
    "type": "crime",
-   "note": "Criminal Code amendments adding the murder of a woman or girl in the context of gender-based violence"
+   "note": "Criminal Code amendments adding the murder of a woman or girl in the context of gender-based violence",
+   "observation": "Also named by the World Bank blog (June 2025) among the economies with a separate offence or harsher penalties."
   },
   {
    "name": "Croatia",
@@ -248,7 +254,8 @@
    "year": null,
    "type": "penalty",
    "note": "World Bank, Women, Business and the Law (June 2025): the national law on violence against women imposes life imprisonment for various forms of femicide.",
-   "lonlat": null
+   "lonlat": null,
+   "observation": "Life imprisonment for various forms of femicide under the national law on violence against women; the World Bank does not say whether femicide is a separate offence."
   },
   {
    "name": "Morocco",
@@ -256,7 +263,8 @@
    "year": null,
    "type": "penalty",
    "note": "World Bank, Women, Business and the Law (June 2025): named among the economies that have recognized femicide as a separate offence or introduced harsher penalties.",
-   "lonlat": null
+   "lonlat": null,
+   "observation": "The World Bank does not say which of the two applies. Not in the ECLAC or UN Women lists of named crimes."
   },
   {
    "name": "Türkiye",
@@ -264,7 +272,8 @@
    "year": null,
    "type": "penalty",
    "note": "World Bank, Women, Business and the Law (June 2025): named among the economies that have recognized femicide as a separate offence or introduced harsher penalties.",
-   "lonlat": null
+   "lonlat": null,
+   "observation": "The World Bank does not say which of the two applies. Not in the ECLAC or UN Women lists of named crimes."
   },
   {
    "name": "Sweden",
@@ -272,17 +281,39 @@
    "year": null,
    "type": "data",
    "note": "There are also a number of countries that collect data on the number of femicides even in the absence of laws that define it, such as Sweden. To address the lack of comparable data on violence against women, EIGE developed 13 indicators with uniform definitions of the multiple forms of intimate partner violence, femicide and rape, with a published <a href=\"https://eige.europa.eu/sites/default/files/documents/20211587_mh0221353enn_pdf.pdf\">methodology and metadata per country</a>.",
-   "lonlat": null
+   "lonlat": null,
+   "observation": "Counts femicides in official statistics without a law that names the crime."
   },
   {
    "name": "Spain",
    "id": "724",
    "year": null,
-   "type": "data",
-   "note": "No femicide offence; a national system counts intimate partner and non-partner feminicide and children killed in the context of violence against their mothers (UN Women CSW70 paper, EIGE 2025).",
-   "lonlat": null
+   "type": "penalty",
+   "note": "World Bank, Women, Business and the Law blog (16 June 2025): does not explicitly criminalize femicide; in 1996 Spain was the first to recognize the victim's gender as an aggravating circumstance.",
+   "lonlat": null,
+   "observation": "No offence called femicide, but a national system counts intimate partner and non-partner feminicide and children killed in the context of violence against their mothers (UN Women CSW70 paper, EIGE 2025). Counted here with the penalty countries; Sweden, which only counts, stays dotted."
+  },
+  {
+   "name": "France",
+   "id": "250",
+   "year": null,
+   "type": "penalty",
+   "note": "World Bank, Women, Business and the Law blog (16 June 2025): does not explicitly criminalize femicide; aggravates penalties for homicide motivated by discrimination based on the victim's sex or gender.",
+   "lonlat": null,
+   "observation": "No offence called femicide. Stricter homicide penalties when the killing is motivated by the victim's sex or gender, so a femicide is punished as an aggravated homicide and is not counted under its own name."
+  },
+  {
+   "name": "Portugal",
+   "id": "620",
+   "year": null,
+   "type": "penalty",
+   "note": "World Bank, Women, Business and the Law blog (16 June 2025): does not explicitly criminalize femicide; aggravates penalties for homicide motivated by discrimination based on the victim's sex or gender.",
+   "lonlat": null,
+   "observation": "No offence called femicide. Stricter homicide penalties for gender-motivated killing."
   }
  ],
- "count_data": 2,
- "count_total": 26
+ "count_data": 1,
+ "count_total": 30,
+ "count_penalty": 6,
+ "count_framework": 1
 }

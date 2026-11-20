@@ -80,20 +80,6 @@
       </div>
       <div class="tally" id="tally" aria-hidden="true"></div>
     </div>
-    <div class="dayclock" id="dayclock">
-      <svg viewBox="0 0 300 300" role="img" aria-labelledby="dcTitle"><title id="dcTitle">One day on a 24-hour dial: 137 marks, lit up to the current local hour</title>
-        <g id="dcTicks"></g>
-        <line id="dcHand" class="hand" x1="150" y1="150" x2="150" y2="40"/>
-        <circle cx="150" cy="150" r="3" fill="var(--fg)"/>
-        <text class="hour" x="150" y="22" text-anchor="middle">0</text><text class="hour" x="284" y="154" text-anchor="middle">6</text><text class="hour" x="150" y="286" text-anchor="middle">12</text><text class="hour" x="16" y="154" text-anchor="middle">18</text>
-        <text class="mid" id="dcN" x="150" y="150">0</text><text class="midl" x="150" y="168">by this hour, at the 2024 pace</text>
-      </svg>
-      <div>
-        <h3>One day, on a clock.</h3>
-        <p>The dial is 24 hours and the hand is your local time. The 137 marks are one day at the 2024 global pace of intimate partner and family femicide. The ones already lit are the share of today that has passed.</p>
-        <p>This is a pace, not a count: it shows what the yearly estimate means across an ordinary day, not who was killed today.</p>
-      </div>
-    </div>
     <p class="src">Source: UNODC and UN Women, <a href="https://www.unwomen.org/en/digital-library/publications/2025/11/femicides-in-2024-global-estimates-of-intimate-partner-family-member-femicides">Femicides in 2024: global estimates of intimate partner and family member femicides</a> (November 2025), based on data from 117 countries.</p>
   </div>
 </section>
@@ -120,7 +106,7 @@
       <h2>The first step for New York is to name and codify femicide</h2>
       <p>Homicide is a crime under the law. However, given the reported high statistics on gender-based murders, it is important for every jurisdiction to collect data, identify, and prosecute crimes men commit against women and girls that are specifically gender-based.</p>
       <p>Collecting data will help illuminate femicide as a systemic failure, rather than unrelated, private tragedies, and an issue that urgently deserves legislative action.</p>
-      <p>Twenty-six countries define femicide in their criminal codes. The United States and New York State do not.</p>
+      <p>Twenty-three countries name femicide as a crime, and seven more define it or punish it more severely. The United States and New York State do not.</p>
     </div>
   </div>
 </section>
@@ -128,13 +114,14 @@
   <div class="wrap">
     <div class="lede"><h2>Where femicide is codified in law</h2></div>
     <div class="lawmap" id="lawmap">
-      <div class="lawmap-head"><div><span class="n num" id="lawN">26</span><span class="k">countries codify femicide in law, Costa Rica in 2007 to Italy in 2025: 23 as a named crime, and Gabon, Morocco and Türkiye in the World Bank's count. Naming the crime is what makes it countable.</span></div><div class="lawmap-legend" id="lawLegend"><span><i class="sw crime"></i>Femicide is a crime</span><span><i class="sw penalty"></i>In the World Bank's count: separate offence or harsher penalties</span><span><i class="sw frame"></i>Defined in law, not a separate crime</span><span><i class="sw data"></i>Counts femicide without a law naming it (Sweden, Spain): click for detail</span><span><i class="sw none"></i>No femicide law</span></div></div>
-      <div class="lawmap-modes" role="tablist"><button id="modeLaw" aria-pressed="true">The law</button><button id="modeRate" aria-pressed="false">Female homicide rate</button><span class="lawmap-zoom" role="group" aria-label="Zoom the map"><button id="zoomIn" aria-label="Zoom in">+</button><button id="zoomOut" aria-label="Zoom out">−</button><button id="zoomReset">Reset</button></span></div>
-      <svg id="lawSvg" viewBox="0 0 960 500" role="img" aria-label="World map of countries whose law names femicide, with the female homicide rate"></svg>
+      <div class="lawmap-head"><div><span class="n num" id="lawN">30</span><span class="k">countries address femicide in law, Costa Rica in 2007 to Italy in 2025: 23 name it as a crime, Belgium defines it without a separate crime, and 6 punish gender-motivated homicide more severely without naming it. Naming the crime is what makes it countable. Click any country for its note; click a legend entry for its list.</span></div><div class="lawmap-legend" id="lawLegend"><button data-t="crime"><i class="sw crime"></i>Femicide is a crime (23)</button><button data-t="penalty"><i class="sw penalty"></i>Harsher penalties for gender-motivated homicide, no named crime (6)</button><button data-t="framework"><i class="sw frame"></i>Defined in law, not a separate crime (1)</button><button data-t="data"><i class="sw data"></i>Counts femicide without a law naming it (1)</button><button data-t="none"><i class="sw none"></i>No femicide law in the sources used: click a country for its note</button></div></div>
+      <div class="lawmap-modes"><span class="lawmap-zoom" role="group" aria-label="Zoom the map"><button id="zoomIn" aria-label="Zoom in">+</button><button id="zoomOut" aria-label="Zoom out">−</button><button id="zoomReset">Reset</button></span></div>
+      <svg id="lawSvg" viewBox="0 0 960 500" role="img" aria-label="World map of countries whose law names femicide or punishes it more severely"></svg>
+      <div class="lawmap-list" id="lawList" hidden></div>
       <div class="lawmap-years" id="lawYears"></div>
       <div class="lawmap-tip" id="lawTip" hidden></div>
     </div>
-    <p class="src">Use the buttons or pinch to zoom, drag to move, and click a country to keep its note open. Map: the World Bank's Women, Business and the Law team counts 29 economies with laws that address femicide (<a href="https://blogs.worldbank.org/en/opendata/femicide-laws-worldwide--50-years-of-evolution-and-ongoing-gaps">Femicide laws worldwide: 50 years of evolution and ongoing gaps</a>, June 2025) and names Gabon, Morocco, North Macedonia, Cyprus and Türkiye among them without publishing the full list; the 26 shaded here are the ones this site could name. The other 23 are verified in ECLAC's <a href="https://oig.cepal.org/sites/default/files/s2301023_en.pdf">November 2023 bulletin</a> (18 in Latin America) and UN Women's <a href="https://www.unwomen.org/sites/default/files/2025-12/csw-70-expert-group-meeting-expert-paper-patsili-toledo-en.pdf">CSW70 expert paper</a> (December 2025), with Croatia and Italy from their 2024 and 2025 laws. Data: <a href="data/femicide_laws.json">femicide_laws.json</a>. Countries that treat gender motive as an aggravating circumstance without naming the crime, such as Spain, Turkey and Canada, are not shaded. The uncounted women killed in the sex trade in New York are on the <a href="numbers.html#uncounted">By the Numbers</a> page.</p>
+    <p class="src">Use the buttons or pinch to zoom, drag to move, and click a country to keep its note open. Map: the World Bank's Women, Business and the Law team counts 29 economies with laws that address femicide (<a href="https://blogs.worldbank.org/en/opendata/femicide-laws-worldwide--50-years-of-evolution-and-ongoing-gaps">Femicide laws worldwide: 50 years of evolution and ongoing gaps</a>, June 2025) and names Gabon, Morocco, North Macedonia, Cyprus and Türkiye among them without publishing the full list; the 30 shaded here are the ones this site could name from three sources: the World Bank blog for the countries that aggravate penalties (France, Portugal, Spain, Morocco, Türkiye, Gabon), and for the 23 named crimes in ECLAC's <a href="https://oig.cepal.org/sites/default/files/s2301023_en.pdf">November 2023 bulletin</a> (18 in Latin America) and UN Women's <a href="https://www.unwomen.org/sites/default/files/2025-12/csw-70-expert-group-meeting-expert-paper-patsili-toledo-en.pdf">CSW70 expert paper</a> (December 2025), with Croatia and Italy from their 2024 and 2025 laws. Data: <a href="data/femicide_laws.json">femicide_laws.json</a>. A country left grey had no femicide provision in those three sources; it may still, like France, punish a gender-motivated homicide more severely, and the World Bank's own count of 29 is not published country by country.</p>
   </div>
 </section>
 <section class="block" id="isolated">
@@ -178,7 +165,7 @@
 (async function(){
   const svg=d3.select('#lawSvg'); if(svg.empty()||!window.d3||!window.topojson)return;
   try{
-    const [laws,world,rates]=await Promise.all([fetch('data/femicide_laws.json').then(r=>r.json()),fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json').then(r=>r.json()),fetch('data/femicide_rates.json').then(r=>r.json())]);
+    const [laws,world]=await Promise.all([fetch('data/femicide_laws.json?v=5').then(r=>r.json()),fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json').then(r=>r.json())]);
     const byId={};laws.countries.forEach(c=>byId[c.id]=c);
     document.getElementById('lawN').textContent=laws.count_total||laws.count_crime;
     const proj=d3.geoNaturalEarth1().fitExtent([[0,0],[960,500]],{type:'Sphere'}),path=d3.geoPath(proj);
@@ -192,19 +179,18 @@
       .on('mouseleave',()=>{if(!pinned)tip.hidden=true});
     view.append('g').selectAll('circle').data(laws.countries.filter(c=>c.lonlat)).join('circle').attr('class',c=>'dot '+c.type).attr('r',3.2).attr('transform',c=>'translate('+proj(c.lonlat)+')')
       .on('mousemove',(e,c)=>{if(pinned)return;tip.hidden=false;tip.innerHTML='<b>'+c.name+(c.year?' · '+c.year:'')+'</b><br>'+c.note;const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+12,r.width-270)+'px';tip.style.top=(e.clientY-r.top+12)+'px';}).on('mouseleave',()=>{if(!pinned)tip.hidden=true});
-    const ALIAS={'Russia':'Russia','Czechia':'Czechia','Bosnia and Herzegovina':'Bosnia and Herz.','Dominican Republic':'Dominican Rep.','North Macedonia':'North Macedonia','Turkey':'Turkey','South Korea':'South Korea','Türkiye':'Turkey'};
-    const rateByName={};Object.entries(rates.rates).forEach(([n,v])=>{rateByName[n]=v;if(ALIAS[n])rateByName[ALIAS[n]]=v;});
-    const rateOf=d=>{const n=d.properties&&d.properties.name;return n in rateByName?rateByName[n]:(n==='Türkiye'?rateByName['Turkey']:undefined)};
-    const ramp=v=>{const t=Math.min(1,Math.log1p(v)/Math.log1p(12));return 'rgb('+Math.round(235-150*t)+','+Math.round(235-205*t)+','+Math.round(235-205*t)+')'};
-    const legend=document.getElementById('lawLegend'),legHTML=legend.innerHTML;
-    function mode(m){document.getElementById('modeLaw').setAttribute('aria-pressed',m==='law');document.getElementById('modeRate').setAttribute('aria-pressed',m==='rate');
-      if(m==='law'){land.style('fill',null).style('stroke',null).style('stroke-width',null);legend.innerHTML=legHTML;}
-      else{land.style('fill',d=>{const v=rateOf(d);return v==null?null:ramp(v)}).style('stroke',d=>byId[d.id]&&byId[d.id].type!=='data'?accentCol:null).style('stroke-width',d=>byId[d.id]&&byId[d.id].type!=='data'?1.4:null);
-        legend.innerHTML='<span><i class="sw" style="background:'+ramp(0.2)+'"></i>0.2</span><span><i class="sw" style="background:'+ramp(1)+'"></i>1</span><span><i class="sw" style="background:'+ramp(3)+'"></i>3</span><span><i class="sw" style="background:'+ramp(11)+'"></i>11 female homicides per 100,000 women</span><span><i class="sw" style="background:transparent;border:1.5px solid '+accentCol+'"></i>names femicide in law</span><span><i class="sw none"></i>no figure on the page</span>';}}
-    const accentCol=getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
-    document.getElementById('modeLaw').addEventListener('click',()=>mode('law'));document.getElementById('modeRate').addEventListener('click',()=>mode('rate'));
-    function showTip(e,d){const c=byId[d.id],v=rateOf(d);if(!c&&v==null){tip.hidden=true;return;}tip.hidden=false;const n=d.properties.name;tip.innerHTML='<b>'+(c?c.name+(c.year?' · '+c.year:''):n)+'</b><br>'+(c?c.note+'<br>':'')+(v!=null?'<span style="color:#999">Female homicide rate '+v.toFixed(2)+' per 100,000</span>':'');const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+12,r.width-270)+'px';tip.style.top=(e.clientY-r.top+12)+'px';}
-    land.on('mousemove.rate',(e,d)=>{if(!pinned)showTip(e,d)});
+    const NONE='No femicide law found in the three sources used (ECLAC 2023, UN Women 2025, World Bank 2025). The country may still punish a gender-motivated homicide more severely, as France does, without naming the crime; the World Bank counts 29 economies but does not publish its list.';
+    const TYPE={crime:'Femicide is a crime',penalty:'Harsher penalties, no named crime',framework:'Defined in law, not a separate crime',data:'Counts femicide without a law'};
+    function showTip(e,d){const c=byId[d.id];tip.hidden=false;const n=(c&&c.name)||(d.properties&&d.properties.name)||'';
+      tip.innerHTML='<b>'+n+(c&&c.year?' · '+c.year:'')+'</b>'+(c?'<br><span class="tt">'+TYPE[c.type]+'</span><br>'+c.note+(c.observation?'<br><span class="obs">Observation: '+c.observation+'</span>':''):'<br><span class="tt">Not shaded</span><br>'+NONE);
+      const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+12,r.width-290)+'px';tip.style.top=(e.clientY-r.top+12)+'px';}
+    const list=document.getElementById('lawList');
+    document.querySelectorAll('#lawLegend button').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.t;const open=list.dataset.t===t&&!list.hidden;document.querySelectorAll('#lawLegend button').forEach(x=>x.setAttribute('aria-pressed',false));
+      if(open||t==='none'){list.hidden=true;list.dataset.t='';land.classed('dim',false);return;}
+      b.setAttribute('aria-pressed',true);list.dataset.t=t;list.hidden=false;const cs=laws.countries.filter(c=>c.type===t).sort((a,b)=>(a.year||9999)-(b.year||9999)||a.name.localeCompare(b.name));
+      list.innerHTML='<b>'+TYPE[t]+' · '+cs.length+'</b><ul>'+cs.map(c=>'<li><span>'+c.name+(c.year?' · '+c.year:'')+'</span>'+(c.observation?'<em>'+c.observation+'</em>':'')+'</li>').join('')+'</ul>';
+      land.classed('dim',d=>!(byId[d.id]&&byId[d.id].type===t));}));
+    land.on('mousemove',(e,d)=>{if(!pinned)showTip(e,d)});
     land.on('click',(e,d)=>{e.stopPropagation();const had=pinned;unpin();if(had)return;showTip(e,d);if(!tip.hidden){pinned=true;tip.classList.add('pinned')}});
     svg.on('click',unpin);
     const zoom=d3.zoom().scaleExtent([1,8]).translateExtent([[0,0],[960,500]]).filter(e=>e.type==='wheel'?e.ctrlKey:(e.type.startsWith('touch')?e.touches.length>1:!e.button)).on('zoom',e=>{view.attr('transform',e.transform);view.selectAll('circle').attr('r',3.2/e.transform.k);land.style('stroke-width',null);if(!pinned)tip.hidden=true});
@@ -328,19 +314,6 @@ requestAnimationFrame(()=>document.querySelectorAll('.reveal').forEach((el,i)=>s
   requestAnimationFrame(tick);
 })();
 
-// ---------- one day on a 24-hour dial ----------
-(function(){
-  const g=document.getElementById('dcTicks'),hand=document.getElementById('dcHand'),n=document.getElementById('dcN'); if(!g)return;
-  const N=137, R1=104, R2=128, ticks=[];
-  for(let i=0;i<N;i++){const a=(i+.5)/N*2*Math.PI-Math.PI/2;const l=document.createElementNS('http://www.w3.org/2000/svg','line');
-    l.setAttribute('class','tick');l.setAttribute('x1',150+R1*Math.cos(a));l.setAttribute('y1',150+R1*Math.sin(a));l.setAttribute('x2',150+R2*Math.cos(a));l.setAttribute('y2',150+R2*Math.sin(a));g.appendChild(l);ticks.push(l)}
-  let last=-1;
-  function tick(){const d=new Date();const frac=(d.getHours()*3600+d.getMinutes()*60+d.getSeconds())/86400;
-    hand.setAttribute('transform','rotate('+(frac*360)+' 150 150)');
-    const lit=Math.floor(frac*N); if(lit!==last){last=lit;ticks.forEach((t,i)=>t.classList.toggle('on',i<lit));n.textContent=lit}
-    setTimeout(tick,1000)}
-  tick();
-})();
 
 </script>
 </body>
