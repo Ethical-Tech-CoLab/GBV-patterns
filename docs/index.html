@@ -21,6 +21,7 @@
     <a href="what-if.html">What if…?</a>
     <a href="about-catw.html">About CATW</a>
     <a href="game.html">Connecting the Dots</a>
+    <a href="sources.html">Sources</a>
   </nav>
   <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
 </header>
@@ -106,7 +107,7 @@
       <h2>The first step for New York is to name and codify femicide</h2>
       <p>Homicide is a crime under the law. However, given the reported high statistics on gender-based murders, it is important for every jurisdiction to collect data, identify, and prosecute crimes men commit against women and girls that are specifically gender-based.</p>
       <p>Collecting data will help illuminate femicide as a systemic failure, rather than unrelated, private tragedies, and an issue that urgently deserves legislative action.</p>
-      <p>Twenty-three countries name femicide as a crime, and seven more define it or punish it more severely. The United States and New York State do not.</p>
+      <p>Twenty-three countries name femicide as a crime, and seven more define it or punish it more severely. The United States and New York State do not. <a href="numbers.html#whynot">Why the FBI and the others do not count it.</a></p>
     </div>
   </div>
 </section>
@@ -139,7 +140,7 @@
         <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
       </div>
       <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Version 2, October 2026. <a href="v1/index.html">Version 1</a> is archived.</p>
-      <p class="credits"><b>Credits.</b> Ethical Tech CoLab at NYU: Carolina Moron and Yorke Rhodes. Coalition Against Trafficking in Women: Taina Bien-Aimé, Nora Hennick, Giorgia Piantanida, Catherine Hidalgo Jara and Mia. Method and memorial: Elly, Die Unsichtbaren Männer and Sex Industry Kills. Definitions of femicide: Sanctuary for Families and the New York City Coalition to End Femicide. Data: UNODC and UN Women, ECLAC, the World Bank, EIGE, NYS DCJS, NYC ENDGBV, Women Count USA by Dawn Wilcox, and the public record cited on the <a href="sources.html">Sources</a> page. Maps and charts: Leaflet, D3, Natural Earth. Built with Claude Code.</p>
+      <p class="credits"><b>Credits.</b> Ethical Tech CoLab at NYU: Carolina Moron and Yorke Rhodes. Coalition Against Trafficking in Women: Taina Bien-Aimé, Nora Hennick, Giorgia Piantanida, Catherine Hidalgo Jara and Mia. Method and memorial: Elly, Die Unsichtbaren Männer and Sex Industry Kills. Definitions of femicide: Sanctuary for Families and the New York City Coalition to End Femicide. Data: UNODC and UN Women, ECLAC, the World Bank, EIGE, NYS DCJS, NYC ENDGBV, Women Count USA by Dawn Wilcox, and the public record cited on the <a href="sources.html">Sources</a> page. Maps and charts: Leaflet, D3, Natural Earth. Built with Claude Code. Press P on any page to present.</p>
     </div>
     <div>
       <h4>On this site</h4>
@@ -170,7 +171,7 @@
     const byId={};laws.countries.forEach(c=>byId[c.id]=c);
     document.getElementById('lawN').textContent=laws.count_total||laws.count_crime;
     const proj=d3.geoNaturalEarth1().fitExtent([[0,0],[960,500]],{type:'Sphere'}),path=d3.geoPath(proj);
-    const defs=svg.append('defs');defs.append('pattern').attr('id','lawDots').attr('width',5).attr('height',5).attr('patternUnits','userSpaceOnUse').append('circle').attr('cx',2.5).attr('cy',2.5).attr('r',1.1).attr('fill',getComputedStyle(document.documentElement).getPropertyValue('--fg').trim());defs.append('pattern').attr('id','lawHatch').attr('width',5).attr('height',5).attr('patternUnits','userSpaceOnUse').attr('patternTransform','rotate(45)').append('rect').attr('width',2).attr('height',5).attr('fill',getComputedStyle(document.documentElement).getPropertyValue('--accent').trim());
+    const defs=svg.append('defs');defs.append('pattern').attr('id','lawDots').attr('width',5).attr('height',5).attr('patternUnits','userSpaceOnUse').append('circle').attr('cx',2.5).attr('cy',2.5).attr('r',1.1).style('fill','var(--fg)');defs.append('pattern').attr('id','lawHatch').attr('width',5).attr('height',5).attr('patternUnits','userSpaceOnUse').attr('patternTransform','rotate(45)').append('rect').attr('width',2).attr('height',5).style('fill','var(--accent)');
     const countries=topojson.feature(world,world.objects.countries).features;
     const tip=document.getElementById('lawTip'),box=document.getElementById('lawmap');let pinned=false;
     const unpin=()=>{pinned=false;tip.classList.remove('pinned');tip.hidden=true};

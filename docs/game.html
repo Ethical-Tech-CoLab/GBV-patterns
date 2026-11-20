@@ -33,6 +33,8 @@ body{overflow-x:hidden}
 .corr .key i{width:12px;height:12px;border-radius:2px;display:inline-block}
 .corr .key .k-named{background:#8a1c1c}
 .corr .key .k-jane{background:#2b2b33;border:1px solid #555}
+.corr .key .k-man{background:#000;border:1px solid #333}
+.ghost.m svg{fill:#050505;opacity:.9}
 .story .srcs a{display:block;color:var(--fg)}
 .obs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem}
 @media (max-width:700px){.obs-grid{grid-template-columns:1fr}}
@@ -136,13 +138,14 @@ body{overflow-x:hidden}
     <a href="what-if.html">What if…?</a>
     <a href="about-catw.html">About CATW</a>
     <a href="game.html" aria-current="page">Connecting the Dots</a>
+    <a href="sources.html">Sources</a>
   </nav>
   <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
 </header>
 <main>
 <section class="corr" id="corr" aria-label="A corridor. Women walk toward you. Each one carries a story, or stands for a woman whose story is not known.">
   <div class="floor"></div><div class="vp"></div><div class="fog"></div>
-  <div class="lede"><h1>Learn their stories</h1><p>Each silhouette represents a woman who was killed by a sex buyer or in the sex trade. Click on her to learn her story.</p><div class="key" aria-label="Key"><span><i class="k-named"></i>Click for her story</span><span><i class="k-jane"></i>Jane Doe: an estimate, no public story</span></div></div>
+  <div class="lede"><h1>Learn their stories</h1><p>Each silhouette represents a woman who was killed by a sex buyer or in the sex trade. Click on her to learn her story.</p><div class="key" aria-label="Key"><span><i class="k-named"></i>Click for her story</span><span><i class="k-jane"></i>Jane Doe: an estimate, no public story</span><span><i class="k-man"></i>A shadow: a sex-buyer region, what the record shows</span></div></div>
   <div id="ghosts"></div>
   <aside class="story" id="story" aria-live="polite"><button class="close" id="storyClose" aria-label="Close">×</button><div id="storyBody"></div></aside>
   <div class="hint" id="hint">click a woman for her story</div>
@@ -185,6 +188,14 @@ body{overflow-x:hidden}
   </div>
 </section>
 
+<section class="block" id="ask">
+  <div class="wrap">
+    <div class="ask-card">
+      <div><h2>What New York can do</h2><ol><li>Name and codify femicide in state law, so that every killing of a woman because she is female is counted as one.</li><li>Pass the Sex Trade Survivors Justice and Equality Act: decriminalize the women, hold buyers, pimps and traffickers accountable, and fund exit services.</li></ol><p class="src" style="margin-top:1rem">The two asks as CATW lists them on <a href="about-catw.html">About CATW</a>. Bill records on the <a href="new-york.html#asks">New York</a> page.</p></div>
+      <div class="bill"><b>S2005 / A1465</b>2025 to 2026 session. Last action: referred to the Codes committee, 7 January 2026.<br><a href="https://www.nysenate.gov/legislation/bills/2025/S2005">Senate record</a> · <a href="https://www.nysenate.gov/legislation/bills/2025/A1465">Assembly record</a></div>
+    </div>
+  </div>
+</section>
 <section class="block">
   <div class="wrap">
     <p class="src">Stories: <a href="new-york.html#memoriam">In memoriam: New York</a> (Sex Industry Kills), the entries for women who were killed. Data: <a href="data/corridor_stories.json">corridor_stories.json</a>. Figures are silhouettes, the same ones used across the site; no image of a person is generated. How buyer quotes will be collected: <a href="invisible-men.html">the method</a>. Public-record stories: the Queens District Attorney, QNS, NBC, FOX 5, ABC7 and the Wikipedia record for Arthur Shawcross, listed on the <a href="sources.html#stories">Sources</a> page. The Swiss cheese model that shaped the first version: <a href="https://southerncalifornialawreview.com/2025/07/05/mind-the-gaps-mitigating-harassment-in-a-post-metoo-workplace/">Mind the Gaps</a> (Southern California Law Review, 2025).</p>
@@ -200,7 +211,7 @@ body{overflow-x:hidden}
         <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
       </div>
       <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Version 2, October 2026. <a href="v1/index.html">Version 1</a> is archived.</p>
-      <p class="credits"><b>Credits.</b> Ethical Tech CoLab at NYU: Carolina Moron and Yorke Rhodes. Coalition Against Trafficking in Women: Taina Bien-Aimé, Nora Hennick, Giorgia Piantanida, Catherine Hidalgo Jara and Mia. Method and memorial: Elly, Die Unsichtbaren Männer and Sex Industry Kills. Definitions of femicide: Sanctuary for Families and the New York City Coalition to End Femicide. Data: UNODC and UN Women, ECLAC, the World Bank, EIGE, NYS DCJS, NYC ENDGBV, Women Count USA by Dawn Wilcox, and the public record cited on the <a href="sources.html">Sources</a> page. Maps and charts: Leaflet, D3, Natural Earth. Built with Claude Code.</p>
+      <p class="credits"><b>Credits.</b> Ethical Tech CoLab at NYU: Carolina Moron and Yorke Rhodes. Coalition Against Trafficking in Women: Taina Bien-Aimé, Nora Hennick, Giorgia Piantanida, Catherine Hidalgo Jara and Mia. Method and memorial: Elly, Die Unsichtbaren Männer and Sex Industry Kills. Definitions of femicide: Sanctuary for Families and the New York City Coalition to End Femicide. Data: UNODC and UN Women, ECLAC, the World Bank, EIGE, NYS DCJS, NYC ENDGBV, Women Count USA by Dawn Wilcox, and the public record cited on the <a href="sources.html">Sources</a> page. Maps and charts: Leaflet, D3, Natural Earth. Built with Claude Code. Press P on any page to present.</p>
     </div>
     <div>
       <h4>On this site</h4>
@@ -223,22 +234,24 @@ body{overflow-x:hidden}
 (async function(){
   const [D,SIL]=await Promise.all([fetch('data/corridor_stories.json?v=4').then(r=>r.json()),fetch('data/silhouettes.json?v=2').then(r=>r.json())]);
   const svgOf=k=>'<svg viewBox="0 0 40 100"><path d="'+SIL[k]+'"/></svg>';
-  const WK=['w1'];
+  const WK=['w1'],MK=['m1'];
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const host=document.getElementById('ghosts'),story=document.getElementById('story'),body=document.getElementById('storyBody'),hint=document.getElementById('hint');
   const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
   // CATW, Round 4: biographies of women killed by men; overdose deaths and the case cards are not in this deck
   const WOMEN=D.women.filter(w=>w.kind==='record'||(w.kind==='memorial'&&/killed/i.test(w.cause||'')));
+  const MEN=(D.men||[]);let deckM=shuffle(MEN);function drawM(){if(!deckM.length)deckM=shuffle(MEN);return deckM.pop();}
+  const pick=()=>{const r=Math.random();return r<.4?'w':r<.75?'j':'m'};
   let deckW=shuffle(WOMEN);
   function drawW(){if(!deckW.length)deckW=shuffle(WOMEN);return deckW.pop();}
   const OBS=D.observations||{ladders:[],chutes:[]};
   document.getElementById('obsLadders').innerHTML=OBS.ladders.map(x=>'<li>'+x+'</li>').join('');document.getElementById('obsChutes').innerHTML=OBS.chutes.map(x=>'<li>'+x+'</li>').join('');
   // ---- women walking from the light: named (a story) or Jane Doe (an estimate)
   const P=[],NP=Math.max(10,Math.min(18,Math.round((innerWidth||1200)/80))),DUR=[18,30];
-  function dress(g){g.el.className='ghost '+g.sex;const k=WK[0];g.el.innerHTML=svgOf(k)+'<span class="sh" aria-hidden="true">'+svgOf(k)+'</span>';g.el.setAttribute('aria-label',g.sex==='w'?'A woman. Click for her story.':'Jane Doe. Click: an estimate.');g.el.style.pointerEvents='auto';}
-  function mk(){const el=document.createElement('button');const g={el,sex:Math.random()<.5?'w':'j',lane:(Math.random()*2-1)*1.3,t:Math.random()*1.1-.1,dur:DUR[0]+Math.random()*(DUR[1]-DUR[0]),next:0,dead:0};dress(g);el.addEventListener('click',()=>{showStory(g.sex==='w'?drawW():{kind:'jane'})});host.appendChild(el);return g;}
+  function dress(g){g.el.className='ghost '+g.sex;const k=g.sex==='m'?MK[0]:WK[0];g.el.innerHTML=svgOf(k)+'<span class="sh" aria-hidden="true">'+svgOf(k)+'</span>';g.el.setAttribute('aria-label',g.sex==='w'?'A woman. Click for her story.':g.sex==='m'?'A shadow. Click: a sex-buyer region and its record.':'Jane Doe. Click: an estimate.');g.el.style.pointerEvents='auto';}
+  function mk(){const el=document.createElement('button');const g={el,sex:pick(),lane:(Math.random()*2-1)*1.3,t:Math.random()*1.1-.1,dur:DUR[0]+Math.random()*(DUR[1]-DUR[0]),next:0,dead:0};dress(g);el.addEventListener('click',()=>{showStory(g.sex==='w'?drawW():g.sex==='m'?drawM():{kind:'jane'})});host.appendChild(el);return g;}
   for(let i=0;i<NP;i++)P.push(mk());
-  function reset(g){g.sex=Math.random()<.5?'w':'j';dress(g);g.lane=(Math.random()*2-1)*1.3;g.t=-.05-Math.random()*.4;g.next=0;g.dead=0;g.el.style.opacity=0;}
+  function reset(g){g.sex=pick();dress(g);g.lane=(Math.random()*2-1)*1.3;g.t=-.05-Math.random()*.4;g.next=0;g.dead=0;g.el.style.opacity=0;}
   function place(g){const p=Math.max(0,g.t),z=p*p,scale=.06+z*2.4,x=g.lane*z*46,y=z*60;g.el.style.transform='translate('+x+'vw,'+y+'vh) scale('+scale+')';
     const fade=g.dead?Math.max(0,1-(performance.now()-g.dead)/900):1;g.el.style.opacity=(p<0?0:Math.min(1,p*6)*(1-Math.max(0,(p-.85)/.15))*.95)*fade;g.el.style.zIndex=Math.round(z*100);g.el.style.filter='blur('+(3.5*(1-z)).toFixed(2)+'px)';
     const sh=g.el.querySelector('.sh');if(sh)sh.style.transform='scaleY('+(-1.2-z*1.4).toFixed(2)+') skewX('+(-g.lane*22).toFixed(1)+'deg)';}
@@ -253,6 +266,7 @@ body{overflow-x:hidden}
   function showStory(s){hint.style.display='none';let h='';
     if(s.kind==='memorial'){h='<div class="kind">In memoriam · New York</div>'+(s.img?'<img src="'+s.img+'" alt="">':'')+'<h2>'+s.name+'</h2><div class="meta">'+s.meta+'</div><div class="cause">'+s.cause+'</div><p>'+s.text+'</p><p><a href="'+s.url+'" rel="noopener">Her page on Sex Industry Kills</a></p>';}
     else if(s.kind==='jane'){h='<div class="kind">Jane Doe · an estimate</div><h2>Jane Doe</h2><p>'+D.jane+'</p><p><a href="numbers.html#uncounted">The uncounted, on By the Numbers</a></p>';}
+    else if(s.kind==='buyer'){h='<div class="kind">A shadow · the record for '+s.region+'</div><h2>'+s.region+'</h2><p>'+s.text+'</p><p><a href="'+s.url+'">The region on the buyers map</a> · <a href="invisible-men.html">How buyer quotes would be collected</a></p>';}
     else if(s.kind==='record'){h='<div class="kind">From the public record'+(s.group?' · '+s.group:'')+'</div><h2>'+s.name+'</h2><div class="meta">'+s.meta+'</div><p>'+s.text+'</p><div class="srcs">'+s.sources.map(x=>'<a href="'+x[1]+'" rel="noopener">'+x[0]+'</a>').join('')+'</div>';}
     else{h='<div class="kind">From the public record</div><h2>'+s.title+'</h2><div class="meta">'+s.place+'</div><p>'+s.text+'</p><p class="cause">'+s.named+'</p><p><a href="'+s.url+'">The case on the New York page</a></p>';}
     body.innerHTML=h;story.classList.add('on');}

@@ -1,4 +1,4 @@
-:root{
+:root{--penalty:#e0652a;--penalty:#e0652a;
   --bg:#0b0b0b; --bg-alt:#151515; --deep:#f2f2f2;
   --fg:#f2f2f2; --fg-muted:#b3b3b3; --fg-subtle:#777;
   --border:#2a2a2a; --accent:#a3261d; --accent-ink:#fff;
@@ -256,8 +256,8 @@ body.present .src{font-size:.75em}
 /* Round 4: zoomable law map, pinned notes, World Bank additions */
 #lawSvg{cursor:grab;touch-action:pan-y}
 #lawSvg:active{cursor:grabbing}
-#lawSvg .land.penalty{fill:color-mix(in srgb,var(--accent) 55%,transparent)}
-.lawmap-legend .sw.penalty{background:color-mix(in srgb,var(--accent) 55%,transparent)}
+#lawSvg .land.penalty{fill:var(--penalty)}
+.lawmap-legend .sw.penalty{background:var(--penalty)}
 .lawmap-modes{flex-wrap:wrap}
 .lawmap-zoom{display:inline-flex;gap:6px;margin-left:auto}
 .lawmap-zoom button{min-width:34px}
@@ -275,3 +275,25 @@ body.present .src{font-size:.75em}
 #lawSvg .land{cursor:pointer}#lawSvg .land.dim{opacity:.18}
 footer .credits{font-size:13px;color:var(--fg-subtle);max-width:60ch;margin-top:1rem;line-height:1.55}
 footer .credits a{color:inherit}
+/* Round 6: cases layer on the buyers map; why no one counts; closing ask */
+.leaflet-marker-icon .case{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--penalty);color:#fff;font:600 12px var(--mono);border:2px solid #fff;box-shadow:0 1px 6px rgba(0,0,0,.5)}
+.whynot{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin-top:2rem}
+@media (max-width:760px){.whynot{grid-template-columns:1fr}}
+.whynot>div{border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;background:var(--bg-alt)}
+.whynot h3{margin:0 0 .5rem;font-size:1.1rem}.whynot p{margin:0;color:var(--fg-muted);font-size:15px;line-height:1.55}
+.ask-card{border:1px solid var(--accent);border-radius:var(--radius);padding:26px 28px;margin-top:2rem;display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center}
+@media (max-width:760px){.ask-card{grid-template-columns:1fr}}
+.ask-card h2{margin:0 0 .6rem}.ask-card ol{margin:.4rem 0 0;padding-left:1.2rem;line-height:1.6}
+.ask-card .bill{font-family:var(--mono);font-size:14px;color:var(--fg-muted)}
+.ask-card .bill b{display:block;font-size:1.6rem;color:var(--fg);font-weight:500;letter-spacing:-.02em}
+/* Round 6: cases layer on the buyers map; why no one counts; closing ask */
+.leaflet-marker-icon .case{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--penalty);color:#fff;font:600 12px var(--mono);border:2px solid #fff;box-shadow:0 1px 6px rgba(0,0,0,.5)}
+.whynot{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin-top:2rem}
+@media (max-width:760px){.whynot{grid-template-columns:1fr}}
+.whynot>div{border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;background:var(--bg-alt)}
+.whynot h3{margin:0 0 .5rem;font-size:1.1rem}.whynot p{margin:0;color:var(--fg-muted);font-size:15px;line-height:1.55}
+.ask-card{border:1px solid var(--accent);border-radius:var(--radius);padding:26px 28px;margin-top:2rem;display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center}
+@media (max-width:760px){.ask-card{grid-template-columns:1fr}}
+.ask-card h2{margin:0 0 .6rem}.ask-card ol{margin:.4rem 0 0;padding-left:1.2rem;line-height:1.6}
+.ask-card .bill{font-family:var(--mono);font-size:14px;color:var(--fg-muted)}
+.ask-card .bill b{display:block;font-size:1.6rem;color:var(--fg);font-weight:500;letter-spacing:-.02em}

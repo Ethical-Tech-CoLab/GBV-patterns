@@ -45,7 +45,7 @@ Then **What the health record says**: women in prostitution murdered at nearly e
 
 **In memoriam.** Seven women from Sex Industry Kills. Do not linger; the point is that a German volunteer memorial holds New York deaths that no New York agency records.
 
-**The buyers.** The map of 141 reviews across ten regions from CATW's 2022 report. Say what it is not: no review text, no addresses, no usernames; only counts by region.
+**The buyers.** The map of 141 reviews across ten regions from CATW's 2022 report, with the three 2026 cases as orange markers at the region. Say what it is not: no review text, no addresses, no usernames; only counts by region.
 
 **The bill, session by session.** Three sessions, three referrals to the Codes committee, no vote.
 
@@ -63,7 +63,7 @@ Who CATW is, what it does, the legacy timeline 1988 to 2026, and the two asks of
 
 ## 7. Connecting the Dots (3 minutes, the close)
 
-**Learn their stories.** Women walk toward you from the light. Two colours, with a key under the heading. Dark red: click for her story. Grey: Jane Doe, an estimate.
+**Learn their stories.** Figures walk toward you from the light. Three kinds, with a key under the heading. Dark red: click for her story. Grey: Jane Doe, an estimate. Black shadows: a sex-buyer region and what the arrest record shows there.
 - Click a dark red figure. You will get a woman from the memorial or the public record: Shao Ling Huang, killed in a Flushing massage parlor two weeks ago; one of the Gilgo Beach women; one of the ten women Arthur Shawcross killed in Rochester. Each card links its sources.
 - Click a grey figure. Read the Jane Doe card aloud: her figure is an estimate; no one counts, so we might never actually know who she was, or how many there are.
 - Press Esc to close the card. Click one more, then stop. Three is enough.
@@ -78,7 +78,8 @@ End there. Do not go back to Home.
 
 - "Where do the numbers come from?" Every figure has a source line beneath it and an entry on the Sources page with a Verify link.
 - "Why 30 countries when the World Bank says 29?" The World Bank does not publish its list. The 30 are the ones this site could name from ECLAC, UN Women and the World Bank blog; the caption under the map says so.
-- "Did you scrape the buyer forums?" No. Index-level counts only, from CATW's published report; the method page explains the protocol and what is never collected.
+- "Did you scrape the buyer forums?" No. Index-level counts only, from CATW's published report; the method page explains the protocol and what is never collected. The shadows carry the arrest record by region, not forum text.
+- "Why doesn't the FBI count this?" By the Numbers has the answer in four boxes: the UN framework's eight indicators, the FBI's voluntary and thinning data, the CDC's system without a femicide field, and New York's missing definition.
 - "Are the silhouettes real women?" The figures are drawings. The stories behind the dark red ones are real and sourced; the grey ones stand for women no one counted.
 
 ## What is missing, as a presenter would feel it
@@ -87,13 +88,13 @@ End there. Do not go back to Home.
 1. **A New York number.** The headline tile says "?". The site argues that the absence is the finding, but a room wants one sourced count, even a floor: the seven women in the memorial, the eight Gilgo Beach women, the ten in Rochester, Shao Ling Huang. A single line "at least 26 women we can name, from three cases and one memorial" would carry the argument. Needs CATW's agreement on wording.
 2. **The five steps.** The New York page lost its placeholder grid today. What New York can do now lives only on About CATW as two asks. The audience will ask "so what do you want Albany to do" and the answer has to be on the New York page in CATW's words.
 3. **The memorial photographs.** The seven memorial cards reproduce photographs from Sex Industry Kills with attribution; the line under them says permission is still to be confirmed with the project. Confirm it or remove the images before the talk.
-4. **The county view.** The regions block on Home still says data pending for everything outside New York City. The DCJS request is on the backlog. Either send the request this week or hide the block before the talk.
+4. **The county view.** Only New York City has regional numbers. The DCJS request is on the backlog.
 5. **Sound and motion on a projector.** The hero, the pace dots and the corridor all animate. On a weak projector the grey Jane Doe figures may vanish into the background. Test on the room's screen; the figure colours are two lines of CSS in game.html.
 
 **Things that are built but not visible enough**
-6. **The Sources page** is the credibility of the whole site and it is only in the footer. A "Sources" link in the main nav costs nothing.
+6. Done: Sources is in the main nav.
 7. **The Invisible Men method page** (how buyer quotes would be collected under a protocol) is reachable only from a footer line on Connecting the Dots. If Elly is in the room, it deserves a mention.
-8. **Presenter mode** exists but nothing on the page says so. A line in the footer, "Press P to present", would help whoever presents next.
+8. Done: the footer says "Press P on any page to present".
 
 **Things that could not be verified, and have to be said as such**
 9. Operation Flush the Johns: the lawsuit is now verified (Louis DiMaria, News 12, March 2014). The age range 17 to 79 is not on any readable page and is not on the site.
@@ -105,4 +106,4 @@ End there. Do not go back to Home.
 **Things a decision-maker will want next**
 14. A cost. The health section has the medical cost of one assault; nothing yet says what one femicide costs a county. The WISQARS run is on the backlog.
 15. A comparison. Sweden's two points (1996, 2014) stand alone. Norway, France and Ireland would make the demand argument a trend, but no primary series has been found.
-16. A way to act. The site ends on a story. A final card with the bill number, the committee it sits in and the two asks would give the room something to carry out.
+16. Done: Connecting the Dots now ends on a card with the two asks and S2005/A1465.

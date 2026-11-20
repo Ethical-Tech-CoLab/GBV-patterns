@@ -63,6 +63,7 @@ table.forums td:first-child{font-weight:600;white-space:nowrap}
     <a href="what-if.html">What if…?</a>
     <a href="about-catw.html">About CATW</a>
     <a href="game.html">Connecting the Dots</a>
+    <a href="sources.html">Sources</a>
   </nav>
   <button class="theme" id="themeBtn" aria-label="Toggle dark mode">◐</button>
 </header>
@@ -78,7 +79,7 @@ table.forums td:first-child{font-weight:600;white-space:nowrap}
 
 <section class="block" id="mapsec">
   <div class="wrap">
-    <div class="lede"><h2>Where the reviews come from</h2><p>Ten regions, 141 geolocated reviews. Click a region to see its count and what the report found about enforcement there. Click a figure to see its region.</p></div>
+    <div class="lede"><h2>Where the reviews come from</h2><p>Ten regions, 141 geolocated reviews from 2022, and the three New York cases of 2026 as orange markers, placed at the region. Click a region to see its count and what the report found about enforcement there. Click a figure to see its region.</p></div>
     <div class="mapwrap">
       <div id="map" role="application" aria-label="Map of sex buyer review locations across New York State"></div>
       <div class="panel" id="panel">
@@ -185,7 +186,7 @@ table.forums td:first-child{font-weight:600;white-space:nowrap}
         <img class="catw-dark" src="assets/catw-logo-white.png" alt="Coalition Against Trafficking in Women">
       </div>
       <p>A collaboration between the <a href="https://github.com/Ethical-Tech-CoLab">Ethical Tech CoLab</a> at NYU and the <a href="https://www.catwinternational.org/">Coalition Against Trafficking in Women</a>. Version 2, October 2026. <a href="v1/index.html">Version 1</a> is archived.</p>
-      <p class="credits"><b>Credits.</b> Ethical Tech CoLab at NYU: Carolina Moron and Yorke Rhodes. Coalition Against Trafficking in Women: Taina Bien-Aimé, Nora Hennick, Giorgia Piantanida, Catherine Hidalgo Jara and Mia. Method and memorial: Elly, Die Unsichtbaren Männer and Sex Industry Kills. Definitions of femicide: Sanctuary for Families and the New York City Coalition to End Femicide. Data: UNODC and UN Women, ECLAC, the World Bank, EIGE, NYS DCJS, NYC ENDGBV, Women Count USA by Dawn Wilcox, and the public record cited on the <a href="sources.html">Sources</a> page. Maps and charts: Leaflet, D3, Natural Earth. Built with Claude Code.</p>
+      <p class="credits"><b>Credits.</b> Ethical Tech CoLab at NYU: Carolina Moron and Yorke Rhodes. Coalition Against Trafficking in Women: Taina Bien-Aimé, Nora Hennick, Giorgia Piantanida, Catherine Hidalgo Jara and Mia. Method and memorial: Elly, Die Unsichtbaren Männer and Sex Industry Kills. Definitions of femicide: Sanctuary for Families and the New York City Coalition to End Femicide. Data: UNODC and UN Women, ECLAC, the World Bank, EIGE, NYS DCJS, NYC ENDGBV, Women Count USA by Dawn Wilcox, and the public record cited on the <a href="sources.html">Sources</a> page. Maps and charts: Leaflet, D3, Natural Earth. Built with Claude Code. Press P on any page to present.</p>
     </div>
     <div>
       <h4>On this site</h4>
@@ -221,6 +222,7 @@ table.forums td:first-child{font-weight:600;white-space:nowrap}
     'North Country':'Interstate 87 between Montreal and New York City raises trafficking risk. State police arrested 5 buyers in Calcium in 2014 and 10 men for solicitation in 2016. Plattsburgh officials reported rising child exploitation tied to the opiate crisis.',
     'Southern Tier':'Binghamton and Elmira. Few reviews, and the report finds few enforcement actions to set against them.',
   };
+  const QDA_URL='https://queensda.org/defendant-charged-with-first-degree-murder-in-killing-of-39-year-old-woman-in-massage-parlor/',CBS_URL='https://www.cbsnews.com/newyork/news/rex-heuermann-gilgo-beach-serial-killer-sentencing-long-island/',DOJ_URL='https://www.justice.gov/usao-edny/pr/defendant-sentenced-22-years-imprisonment-sex-trafficking-women-sayville';
   const gj=await (await fetch('data/catw_sex_buyers_map.geojson')).json();
   const pts=gj.features.filter(f=>f.properties.kind==='review'), polys=gj.features.filter(f=>f.properties.kind==='region');
   const counts={};pts.forEach(p=>counts[p.properties.region]=(counts[p.properties.region]||0)+1);
@@ -232,6 +234,14 @@ table.forums td:first-child{font-weight:600;white-space:nowrap}
   L.geoJSON(polys,{style:()=>({color:'#f2f2f2',weight:1,opacity:.6,fillColor:'#f2f2f2',fillOpacity:.06}),onEachFeature:(f,l)=>{const r=f.properties.region;(layers[r]=layers[r]||[]).push(l);l.on('click',()=>select(r));l.bindTooltip(r+': '+(counts[r]||0)+' reviews',{sticky:true});}}).addTo(map);
   const icon=L.divIcon({className:'',html:'<span class="fig"><svg viewBox="0 0 40 100"><circle cx="20" cy="11" r="8"/><path d="M13 23h14l6 40h-6l-1 34h-12l-1-34h-6z"/></svg></span>',iconSize:[18,28],iconAnchor:[9,28]});
   L.geoJSON(pts,{pointToLayer:(f,ll)=>L.marker(ll,{icon}),onEachFeature:(f,l)=>{l.bindPopup('<b>'+f.properties.region+'</b><br>'+(f.properties.name||'')+'<br><span style="color:#999">One sex-buyer review, geolocated by CATW</span>');l.on('click',()=>select(f.properties.region,false));}}).addTo(map);
+  // Cases in 2026, placed at the region, not at an address
+  const CASES=[
+    {region:'New York City',ll:[40.70,-73.93],n:'1',title:'Shao Ling Huang, 39',text:'Killed inside the Flushing massage parlor where she worked, 6 November 2026. First-degree murder and sexual abuse charged; the defendant was remanded on 11 November. The Department of Buildings had a complaint about the premises the day before.',url:'game.html',src:QDA_URL},
+    {region:'Long Island',ll:[40.80,-73.30],n:'8',title:'Gilgo Beach: plea and sentence',text:'Rex Heuermann pleaded guilty on 8 April 2026 to murdering seven women and admitted killing an eighth, Karen Vergata. On 17 June 2026 he was sentenced to life without parole. Several of the women had advertised online.',url:'game.html#timeline',src:CBS_URL},
+    {region:'Long Island',ll:[40.72,-73.08],n:'22y',title:'Sayville Motor Lodge',text:'Michael Johnson, convicted in October 2025 and sentenced in April 2026 to 22 years for trafficking women out of a Suffolk County motel.',url:'new-york.html#cases',src:DOJ_URL}];
+  const caseIcon=t=>L.divIcon({className:'',html:'<span class="case">'+t+'</span>',iconSize:[26,26],iconAnchor:[13,13]});
+  const caseLayer=L.layerGroup(CASES.map(k=>L.marker(k.ll,{icon:caseIcon(k.n)}).bindPopup('<b>'+k.title+'</b><br><span style="color:#999">'+k.region+' · 2026 · placed at the region, not the address</span><br>'+k.text+'<br><a href="'+k.url+'">The story</a> · <a href="'+k.src+'" rel="noopener">Source</a>'))).addTo(map);
+  L.control.layers(null,{'Cases in 2026':caseLayer},{collapsed:false,position:'topright'}).addTo(map);
   const pT=document.getElementById('pTitle'),pN=document.getElementById('pN'),pK=document.getElementById('pK'),pX=document.getElementById('pText'),pR=document.getElementById('pRegions');
   function select(r,fit=true){Object.entries(layers).forEach(([k,ls])=>ls.forEach(l=>l.setStyle({fillOpacity:k===r?.22:.06,color:k===r?accent:'#f2f2f2',weight:k===r?2:1,opacity:k===r?1:.6})));
     pT.textContent=r;pN.textContent=counts[r];pK.textContent='reviews geolocated in '+r+', '+Math.round(counts[r]/pts.length*100)+'% of the state';pX.textContent=NOTES[r]||'';
