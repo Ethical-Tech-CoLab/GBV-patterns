@@ -1,0 +1,854 @@
+{
+ "title": "NYC map of impunity: buyer posts, named areas, enforcement and cases, 2020 to 2026",
+ "built": "2026-11-20",
+ "note": "Compiled from a dataset brief supplied by CATW on 20 November 2026 and checked by the agent where the source could be read: the UNCO 2025 report (read page by page), the Queens DA, 1010 WINS, QNS and Queens Daily Eagle pages (read). The CATW 2022 report quotes are reproduced as the report prints them, with its redactions, and were not re-read by the agent (verified_by_agent false). Nothing here was collected from a buyer forum by this project. Pins are at neighbourhood level; no street address is stored. The forum layer ends in mid-2023; 2024 to 2026 is enforcement and case records only.",
+ "citations": [
+  {
+   "layer": "citation",
+   "date": "December 2020",
+   "year": 2020,
+   "area": "South Brooklyn",
+   "ll": [
+    40.6,
+    -73.98
+   ],
+   "excerpt": "\"Girls alternate daily, are not accurate, [tell me] I can't do this or that, no extras, rushing through the session, and not being able to even pretend that they are friendly.\"",
+   "theme": "Objectification; commodification",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "December 2020",
+   "year": 2020,
+   "area": "Chinatown, Manhattan",
+   "ll": [
+    40.7158,
+    -73.997
+   ],
+   "excerpt": "\"I have a thing for natural mature Asian p***y… Chinatown is more likely to have what you are looking for.\"",
+   "theme": "Racist fetishization",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "February 2021",
+   "year": 2021,
+   "area": "Chinatown, Manhattan",
+   "ll": [
+    40.7158,
+    -73.997
+   ],
+   "excerpt": "\"Her face looks like something you pull out of a dumpster… I know all the body features of an AIDS sufferer… she's the only one there who offers uncovered everything.\"",
+   "theme": "Disregard for visible illness; abuse of vulnerability",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "September 2021",
+   "year": 2021,
+   "area": "Kensington, Brooklyn",
+   "ll": [
+    40.6425,
+    -73.98
+   ],
+   "excerpt": "\"Hungarian, very thin petite gypsy looking girl… Her poor English skills made communication difficult…\"",
+   "theme": "Ethnic fetishization; misogyny",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "September 2021",
+   "year": 2021,
+   "area": "Bay Parkway, Brooklyn",
+   "ll": [
+    40.607,
+    -73.993
+   ],
+   "excerpt": "\"Russian spot… noticed baby bump…\" (the buyer describes sex with a visibly pregnant woman)",
+   "theme": "Abuse of a pregnant woman; sexual violence",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "October 2021",
+   "year": 2021,
+   "area": "Astoria, Queens",
+   "ll": [
+    40.7644,
+    -73.9235
+   ],
+   "excerpt": "\"Pretty blonde… not remotely happy to be here, but Germany is still shut down because of Covid, and a girl's gotta eat.\"",
+   "theme": "Abuse of vulnerability; objectification",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "October 2021",
+   "year": 2021,
+   "area": "Jamaica Avenue, Queens",
+   "ll": [
+    40.703,
+    -73.795
+   ],
+   "excerpt": "\"As soon as I paid I can see girl was not into doing what was paid for.\"",
+   "theme": "Sexual coercion; objectification",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "November 2021",
+   "year": 2021,
+   "area": "Flushing, Queens",
+   "ll": [
+    40.759,
+    -73.83
+   ],
+   "excerpt": "\"Flushing: Asian P***y central. That's my go-to spot… you can take your pick and they take you upstairs.\"",
+   "theme": "Racist fetishization; commodification",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "December 2021",
+   "year": 2021,
+   "area": "Jackson Heights, Queens",
+   "ll": [
+    40.7557,
+    -73.8831
+   ],
+   "excerpt": "\"Tall, very skinny, not my type… It's the McDonald's of mongering experience.\"",
+   "theme": "Objectification; commodification",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "December 2021",
+   "year": 2021,
+   "area": "Queens",
+   "ll": [
+    40.7282,
+    -73.7949
+   ],
+   "excerpt": "\"She is definitely a user… I'm pushing her head down and she just keeps going, no complaints.\"",
+   "theme": "Indifference to drug use; sexual coercion",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "December 2021",
+   "year": 2021,
+   "area": "Sunset Park, Brooklyn",
+   "ll": [
+    40.6453,
+    -74.012
+   ],
+   "excerpt": "\"The Chinese have houses where they rotate girls often… sometimes they have Japanese girls at premium price.\"",
+   "theme": "Ethnic fetishization; awareness of trafficking",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "December 2021",
+   "year": 2021,
+   "area": "Farmingdale, Long Island",
+   "ll": [
+    40.7326,
+    -73.4454
+   ],
+   "excerpt": "\"She started texting her pimp. Her 'boyfriend' pushes her around a bit and she runs out with my money.\"",
+   "theme": "Awareness of trafficking; abuse of vulnerability",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "December 2021",
+   "year": 2021,
+   "area": "Farmingdale, Long Island",
+   "ll": [
+    40.7326,
+    -73.4454
+   ],
+   "excerpt": "\"I know she does [drugs] even though she tries to hide it.\"",
+   "theme": "Indifference to substance abuse",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "January 2022",
+   "year": 2022,
+   "area": "Bronx",
+   "ll": [
+    40.8448,
+    -73.8648
+   ],
+   "excerpt": "\"Bronx is a predominantly Black/Hispanic borough. White people make up 0.85%, not even 1%… people just settle for her.\"",
+   "theme": "White supremacist ideology; racist fetishization",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "January 2022",
+   "year": 2022,
+   "area": "Bronx",
+   "ll": [
+    40.8448,
+    -73.8648
+   ],
+   "excerpt": "\"Queens actually has the most diverse amount of providers… not like Bronx where a lot of groups are non-exist…\"",
+   "theme": "Dehumanizing; othering",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "January 2022",
+   "year": 2022,
+   "area": "Middle Village, Queens",
+   "ll": [
+    40.7177,
+    -73.8807
+   ],
+   "excerpt": "\"You can get a car BJ from a skanky crack whore for less if money is your concern.\"",
+   "theme": "Misogyny; class contempt",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "February 2022",
+   "year": 2022,
+   "area": "Manhattan",
+   "ll": [
+    40.7831,
+    -73.9712
+   ],
+   "excerpt": "\"Where would I find a f**kable (most female passing) t-girl in this city? 99% of what I've seen are old men in lipstick.\"",
+   "theme": "Transphobia; objectification",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "March 2022",
+   "year": 2022,
+   "area": "Bronx",
+   "ll": [
+    40.8448,
+    -73.8648
+   ],
+   "excerpt": "\"The crew rents out hotel rooms, have the providers host in one room and the crew and other girls are in another… The crew usually take a cut.\"",
+   "theme": "Awareness of pimping and trafficking",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "March 2022",
+   "year": 2022,
+   "area": "Manhattan",
+   "ll": [
+    40.7831,
+    -73.9712
+   ],
+   "excerpt": "\"Anyone know any real Japanese providers? Not half-Japanese or whatever those Korean girls say they are…\"",
+   "theme": "Racist fetishization",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "March 2022",
+   "year": 2022,
+   "area": "Midtown East, Manhattan",
+   "ll": [
+    40.7549,
+    -73.971
+   ],
+   "excerpt": "\"Be warned [she] speaks next to no English…\"",
+   "theme": "Objectification; abuse of vulnerability",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "March 2022",
+   "year": 2022,
+   "area": "Midtown East, Manhattan",
+   "ll": [
+    40.7549,
+    -73.971
+   ],
+   "excerpt": "\"Latina, late 20s, very plain face, no English… Honestly, I did not find the girl attractive in any sense.\"",
+   "theme": "Objectification; ethnic fetishization",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "March 2022",
+   "year": 2022,
+   "area": "Queens",
+   "ll": [
+    40.7282,
+    -73.7949
+   ],
+   "excerpt": "\"Need some ebony providers as a break from the usual white girls, latinas, and asians. Any idea where to find the chocolate?\"",
+   "theme": "Racist fetishization; misogyny",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "March 2022",
+   "year": 2022,
+   "area": "Port Jefferson, Long Island",
+   "ll": [
+    40.9465,
+    -73.0693
+   ],
+   "excerpt": "\"I take a closer look at [her] and see track marks all over her arms… Finished quick and was out the door fast as I could.\"",
+   "theme": "Indifference to substance abuse; abuse of vulnerability",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "May 2022",
+   "year": 2022,
+   "area": "Bronx",
+   "ll": [
+    40.8448,
+    -73.8648
+   ],
+   "excerpt": "\"Pandemic killed off all my connections… all that is left these days are career escorts who make ads every day. And sex trafficked women.\"",
+   "theme": "Awareness of trafficking",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  },
+  {
+   "layer": "citation",
+   "date": "May 2021",
+   "year": 2021,
+   "area": "Bellport, Long Island",
+   "ll": [
+    40.7568,
+    -72.9393
+   ],
+   "excerpt": "Entry listed in the report by theme only; no text.",
+   "theme": "Abuse of vulnerability; misogyny; objectification; indifference to substance abuse",
+   "source": "CATW, From Impunity to Accountability (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "redaction": "as in the source"
+  }
+ ],
+ "decoy": [
+  {
+   "layer": "decoy",
+   "date": "March to June 2023",
+   "year": 2023,
+   "area": "Statewide, 32 areas",
+   "ll": null,
+   "excerpt": "\"Too white for you black bitch?\"; \"I don't care for dark meat anyways\"; \"No dark meat;)\" (texts to the Black decoy, Chyna)",
+   "theme": "Anti-Black racism; misogynoir",
+   "source": "Henderson, Impunity, Ignorance and Racism in the Sex Trade (University of Northern Colorado, 2025)",
+   "url": "https://www.unco.edu/app/uploads/2025/10/ny-equality-model-report.pdf",
+   "verified_by_agent": true,
+   "page": 9
+  },
+  {
+   "layer": "decoy",
+   "date": "March to June 2023",
+   "year": 2023,
+   "area": "Statewide, 32 areas",
+   "ll": null,
+   "excerpt": "\"Gagging choking anal gaping cum swallowing slapping fisting\" (a white buyer's request to the Black decoy)",
+   "theme": "Sexual violence; dehumanization",
+   "source": "Henderson, Impunity, Ignorance and Racism in the Sex Trade (University of Northern Colorado, 2025)",
+   "url": "https://www.unco.edu/app/uploads/2025/10/ny-equality-model-report.pdf",
+   "verified_by_agent": true,
+   "page": 9
+  },
+  {
+   "layer": "decoy",
+   "date": "March to June 2023",
+   "year": 2023,
+   "area": "Statewide, 32 areas",
+   "ll": null,
+   "excerpt": "\"I'm not wild about you sounding down but maybe we can perk you up with a smile on your face\" (after the voicemail said she was controlled by a third party)",
+   "theme": "Indifference to trafficking",
+   "source": "Henderson, Impunity, Ignorance and Racism in the Sex Trade (University of Northern Colorado, 2025)",
+   "url": "https://www.unco.edu/app/uploads/2025/10/ny-equality-model-report.pdf",
+   "verified_by_agent": true,
+   "page": 9
+  }
+ ],
+ "venues": [
+  {
+   "layer": "venue",
+   "area": "Jackson Heights, Queens",
+   "ll": [
+    40.7557,
+    -73.8831
+   ],
+   "text": "Roosevelt Avenue. A trafficking indictment describes a woman brought from Mexico forced to earn $800 a night on the avenue (Queens DA, 2025). Advocates mapped 14 alleged brothels between 77th and 111th Streets (QNS, January 2025); the NYPD counted more than 20 court-ordered closures along the avenue in the previous 12 months.",
+   "dates": "2021 to 2026",
+   "source": "Queens DA (8 Sept 2025); QNS (8 Jan 2025)",
+   "url": "https://queensda.org/queens-woman-indicted-for-sex-trafficking-woman-extorting-another-on-roosevelt-avenue",
+   "verified_by_agent": true
+  },
+  {
+   "layer": "venue",
+   "area": "Hunts Point, Bronx",
+   "ll": [
+    40.8126,
+    -73.884
+   ],
+   "text": "\"Prostitution and sex trafficking have been persistent and visible in the borough for decades, with most reports coming from Hunts Point and Wakefield.\" Undercover female officers used; many vehicles seized.",
+   "dates": "2020 to 2022",
+   "source": "CATW report (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false
+  },
+  {
+   "layer": "venue",
+   "area": "Wakefield, Bronx",
+   "ll": [
+    40.899,
+    -73.852
+   ],
+   "text": "Named with Hunts Point as the source of most reports in the Bronx.",
+   "dates": "2020 to 2022",
+   "source": "CATW report (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false
+  },
+  {
+   "layer": "venue",
+   "area": "East New York, Brooklyn",
+   "ll": [
+    40.659,
+    -73.883
+   ],
+   "text": "Reports of an \"exponential increase of prostitution\"; a July 2021 sting arrested 11 patronizers and seized 9 vehicles.",
+   "dates": "July 2021",
+   "source": "CATW report (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false
+  },
+  {
+   "layer": "venue",
+   "area": "Flushing, Queens",
+   "ll": [
+    40.759,
+    -73.83
+   ],
+   "text": "2022 arrest of nine traffickers running a Flushing-based ring recruiting Chinese women in hotels around the U.S. Queens holds at least 269 of the city's 629 illicit massage parlors. Shao Ling Huang was killed in a Flushing massage parlor in November 2026.",
+   "dates": "2022 to 2026",
+   "source": "CATW report (June 2022); Queens DA (Nov 2026)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false
+  },
+  {
+   "layer": "venue",
+   "area": "Chinatown, Manhattan",
+   "ll": [
+    40.7158,
+    -73.997
+   ],
+   "text": "Two buyer posts directing or reporting purchase in Chinatown.",
+   "dates": "December 2020 to February 2021",
+   "source": "CATW report (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false
+  },
+  {
+   "layer": "venue",
+   "area": "Sunset Park, Brooklyn",
+   "ll": [
+    40.6453,
+    -74.012
+   ],
+   "text": "Buyer post on houses \"where they rotate girls often\".",
+   "dates": "December 2021",
+   "source": "CATW report (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false
+  },
+  {
+   "layer": "venue",
+   "area": "Midtown East, Manhattan",
+   "ll": [
+    40.7549,
+    -73.971
+   ],
+   "text": "Two separate March 2022 reviews of purchases.",
+   "dates": "March 2022",
+   "source": "CATW report (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false
+  },
+  {
+   "layer": "venue",
+   "area": "Farmingdale, Long Island",
+   "ll": [
+    40.7326,
+    -73.4454
+   ],
+   "text": "Two reviews; one describes a pimp present and violence.",
+   "dates": "December 2021",
+   "source": "CATW report (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false
+  },
+  {
+   "layer": "venue",
+   "area": "Port Jefferson, Long Island",
+   "ll": [
+    40.9465,
+    -73.0693
+   ],
+   "text": "Review describing a woman with track marks on her arms.",
+   "dates": "March 2022",
+   "source": "CATW report (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false
+  }
+ ],
+ "cases": [
+  {
+   "layer": "case",
+   "title": "Somorie Moses: murder in the course of sex trafficking",
+   "date": "24 May 2022",
+   "year": 2022,
+   "area": "Brooklyn",
+   "ll": [
+    40.65,
+    -73.95
+   ],
+   "text": "Indicted on 10 charges including sex trafficking and the January 2017 murder of Leondra Foster, beaten to death. Court documents say he pimped women from 2003. Believed to be the first use of the federal statute criminalizing murder in the course of sex trafficking. Leondra Foster is in the memorial on the New York page.",
+   "source": "1010 WINS (24 May 2022)",
+   "url": "https://www.audacy.com/1010wins/news/local/bk-man-charged-with-decades-long-sex-trafficking-murder",
+   "verified_by_agent": true,
+   "status": "Indicted, EDNY"
+  },
+  {
+   "layer": "case",
+   "title": "Valezka Echeverrias: trafficking on Roosevelt Avenue",
+   "date": "8 September 2025",
+   "year": 2025,
+   "area": "Jackson Heights, Queens",
+   "ll": [
+    40.7557,
+    -73.8831
+   ],
+   "text": "Eleven-count indictment: three counts of sex trafficking, grand larceny, promoting prostitution. A woman brought from Mexico around November 2022 was forced to pay $800 a night from sex with men on Roosevelt Avenue; a second victim $100 a day in 2023. Prior indictment November 2024. Up to 25 years on the top count.",
+   "source": "Queens District Attorney (8 Sept 2025)",
+   "url": "https://queensda.org/queens-woman-indicted-for-sex-trafficking-woman-extorting-another-on-roosevelt-avenue",
+   "verified_by_agent": true,
+   "status": "Indicted, Queens"
+  },
+  {
+   "layer": "case",
+   "title": "Operation Restore Roosevelt",
+   "date": "October 2024 to January 2025",
+   "year": 2024,
+   "area": "Jackson Heights, Queens",
+   "ll": [
+    40.7557,
+    -73.8831
+   ],
+   "text": "A 90-day multi-agency action on the Roosevelt Avenue corridor: more than 2,500 arrests (Queens Eagle, Nov 2026) and more than 6,700 summonses; a dozen illegal sex shops and brothels closed since October (City Hall, Jan 2025). Advocates said the trade returned when it ended.",
+   "source": "QNS (8 Jan 2025); Queens Daily Eagle (2 Nov 2026)",
+   "url": "https://qns.com/2025/01/advocates-crackdown-prostitution-hotspots-jackson-heights",
+   "verified_by_agent": true,
+   "status": "Completed"
+  },
+  {
+   "layer": "case",
+   "title": "Jackson Heights brothel closed; 13 buyers arrested",
+   "date": "28 October 2026",
+   "year": 2026,
+   "area": "Jackson Heights, Queens",
+   "ll": [
+    40.7557,
+    -73.8831
+   ],
+   "text": "Police shuttered an alleged brothel on 75th Street on 28 October 2026. The next day 13 people were arrested for patronizing near Roosevelt Avenue and 87th Street.",
+   "source": "Queens Daily Eagle (2 Nov 2026)",
+   "url": "https://queenseagle.com/all/2026/11/2/police-shutter-alleged-jackson-heights-brothel",
+   "verified_by_agent": true,
+   "status": "Closure"
+  },
+  {
+   "layer": "case",
+   "title": "NYPD prostitution arrests, 2020",
+   "date": "2020",
+   "year": 2020,
+   "area": "Citywide",
+   "ll": [
+    40.73,
+    -73.93
+   ],
+   "text": "61.5% of people arrested in prostitution cases were buyers and 24% were people in prostitution; 96 people in prostitution arrested in 2020 against 1,790 in 2014; 246 patrons arrested. The page could not be read by the agent; figures as compiled in the brief.",
+   "source": "PIX11",
+   "url": "https://pix11.com/news/local-news/prostitution-busts-drop-sharply-as-nypd-sends-targeted-messages-to-johns",
+   "verified_by_agent": false,
+   "status": "Aggregate"
+  },
+  {
+   "layer": "case",
+   "title": "Bronx hotel and motel ring targeting teenage girls",
+   "date": "December 2020",
+   "year": 2020,
+   "area": "Bronx",
+   "ll": [
+    40.8448,
+    -73.8648
+   ],
+   "text": "Six men arrested for a ring that reached teenage girls through social media. No reports of buyers being apprehended.",
+   "source": "CATW report (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "status": "Arrests"
+  },
+  {
+   "layer": "case",
+   "title": "Bronx child sex trafficking indictment",
+   "date": "March 2021",
+   "year": 2021,
+   "area": "Bronx",
+   "ll": [
+    40.8448,
+    -73.8648
+   ],
+   "text": "A registered sex offender indicted for bringing girls as young as 12 to his apartment, 2018 to 2020: the first use of the Attorney General's Sex Trafficking of a Child charge. No reports of buyers apprehended.",
+   "source": "CATW report (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "status": "Indicted"
+  },
+  {
+   "layer": "case",
+   "title": "Flushing trafficking ring",
+   "date": "2022",
+   "year": 2022,
+   "area": "Flushing, Queens",
+   "ll": [
+    40.759,
+    -73.83
+   ],
+   "text": "Nine traffickers arrested for a ring recruiting and exploiting Chinese women in hotels around the U.S.",
+   "source": "CATW report (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "status": "Arrests"
+  },
+  {
+   "layer": "case",
+   "title": "East New York sting",
+   "date": "July 2021",
+   "year": 2021,
+   "area": "East New York, Brooklyn",
+   "ll": [
+    40.659,
+    -73.883
+   ],
+   "text": "11 patronizers arrested, 9 vehicles seized.",
+   "source": "CATW report (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "status": "Arrests"
+  },
+  {
+   "layer": "case",
+   "title": "Borough prosecution policy shifts",
+   "date": "2021",
+   "year": 2021,
+   "area": "Citywide",
+   "ll": [
+    40.73,
+    -73.93
+   ],
+   "text": "The Bronx DA dismissed hundreds of prostitution charges; the Brooklyn DA stopped prosecuting people in prostitution while keeping patronizing; the Manhattan DA ended prosecution of prostitution and unlicensed massage and dismissed thousands of loitering cases.",
+   "source": "CATW report (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf",
+   "verified_by_agent": false,
+   "status": "Policy"
+  },
+  {
+   "layer": "case",
+   "title": "John stings as overtime",
+   "date": "undated",
+   "year": 2021,
+   "area": "Citywide",
+   "ll": [
+    40.73,
+    -73.93
+   ],
+   "text": "A retired officer describes john stings as overtime work; since 2014 the city paid over $1 million to at least 20 people claiming false arrest in prostitution or john stings, including $150,000 to five young Latino men. Not read by the agent; as compiled in the brief.",
+   "source": "ProPublica",
+   "url": "https://www.propublica.org/article/nypd-cops-cash-in-on-sex-trade-arrests-with-little-evidence-while-black-and-brown-new-yorkers-pay-the-price",
+   "verified_by_agent": false,
+   "status": "Investigation"
+  }
+ ],
+ "aggregates": {
+  "source": "Henderson, Impunity, Ignorance and Racism in the Sex Trade (University of Northern Colorado, 2025)",
+  "url": "https://www.unco.edu/app/uploads/2025/10/ny-equality-model-report.pdf",
+  "verified_by_agent": true,
+  "pages": "3 to 9",
+  "rows": [
+   [
+    "Online commercial sex ads, New York State",
+    "744,524",
+    "1,553,473",
+    "2021 to 2022"
+   ],
+   [
+    "Individuals advertised for sex (profiles)",
+    "68,891",
+    "243,721",
+    "2021 to 2022"
+   ],
+   [
+    "Third-party controllers (pimps, traffickers, brothel and massage managers)",
+    "16,814",
+    "59,407",
+    "2021 to 2022"
+   ],
+   [
+    "Estimated sex buyers",
+    "445,594",
+    "442,028",
+    "2021 to 2022"
+   ],
+   [
+    "Basis: adult men in the state, and the share who buy sex in 12 months",
+    "7,426,566",
+    "6%",
+    "Demand Abolition, 2018"
+   ],
+   [
+    "Decoy ads: contacts received, March to June 2023, 32 areas",
+    "733",
+    "375 calls, 61 voicemails, 297 texts",
+    "2023"
+   ],
+   [
+    "Contacts to the Black decoy against the white decoy",
+    "446",
+    "287",
+    "2023"
+   ],
+   [
+    "Voicemails with no acknowledgement that the decoy said she was controlled by a third party",
+    "97%",
+    "",
+    "2023"
+   ],
+   [
+    "Buyers by race (N=733) against a state population 62% white",
+    "White 79%",
+    "Black 9%, Other 8%, Hispanic 4%",
+    "2023"
+   ]
+  ]
+ },
+ "sources": [
+  {
+   "name": "CATW, From Impunity to Accountability: Deterring Sex Buyers in New York State and Beyond (June 2022)",
+   "url": "https://catwinternational.org/wp-content/uploads/2022/06/CATW-NY-Sex-Buyer-Report.pdf"
+  },
+  {
+   "name": "Henderson, Impunity, Ignorance and Racism in the Sex Trade (University of Northern Colorado, 2025)",
+   "url": "https://www.unco.edu/app/uploads/2025/10/ny-equality-model-report.pdf"
+  },
+  {
+   "name": "Queens DA, Echeverrias indictment (8 Sept 2025)",
+   "url": "https://queensda.org/queens-woman-indicted-for-sex-trafficking-woman-extorting-another-on-roosevelt-avenue"
+  },
+  {
+   "name": "1010 WINS, Somorie Moses (24 May 2022)",
+   "url": "https://www.audacy.com/1010wins/news/local/bk-man-charged-with-decades-long-sex-trafficking-murder"
+  },
+  {
+   "name": "QNS, advocates on Roosevelt Avenue (8 Jan 2025)",
+   "url": "https://qns.com/2025/01/advocates-crackdown-prostitution-hotspots-jackson-heights"
+  },
+  {
+   "name": "Queens Daily Eagle, brothel shuttered (2 Nov 2026)",
+   "url": "https://queenseagle.com/all/2026/11/2/police-shutter-alleged-jackson-heights-brothel"
+  },
+  {
+   "name": "PIX11 (not readable by the agent)",
+   "url": "https://pix11.com/news/local-news/prostitution-busts-drop-sharply-as-nypd-sends-targeted-messages-to-johns"
+  },
+  {
+   "name": "ProPublica (not read by the agent)",
+   "url": "https://www.propublica.org/article/nypd-cops-cash-in-on-sex-trade-arrests-with-little-evidence-while-black-and-brown-new-yorkers-pay-the-price"
+  }
+ ]
+}

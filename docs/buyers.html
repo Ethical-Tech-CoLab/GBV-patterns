@@ -79,7 +79,7 @@ table.forums td:first-child{font-weight:600;white-space:nowrap}
 
 <section class="block" id="mapsec">
   <div class="wrap">
-    <div class="lede"><h2>Where the reviews come from</h2><p>Ten regions, 141 geolocated reviews from 2022, and the three New York cases of 2026 as orange markers, placed at the region. Click a region to see its count and what the report found about enforcement there. Click a figure to see its region.</p></div>
+    <div class="lede"><h2>Where the reviews come from</h2><p>Ten regions, 141 geolocated reviews from 2022, and the three New York cases of 2026 as orange markers, placed at the region. Switch on the other layers for the 2020 to 2026 record: buyer posts as quoted in CATW's 2022 report and the 2025 UNCO study, the areas they name, and the enforcement and case record. Pins sit at the neighbourhood, never at an address; no post was collected by this project. Click a region to see its count and what the report found about enforcement there. Click a figure to see its region.</p></div>
     <div class="mapwrap">
       <div id="map" role="application" aria-label="Map of sex buyer review locations across New York State"></div>
       <div class="panel" id="panel">
@@ -108,6 +108,9 @@ table.forums td:first-child{font-weight:600;white-space:nowrap}
         <div><div class="n num">156 in 3 days</div><div class="k">buyers arrested in Operation Losing Proposition, 30 May to 1 June 2013, with 32 vehicles seized. Over 900 arrests and 200 vehicles since 2013. Proof the arrests are possible when ordered.</div></div>
       </div>
     </div>
+    <div class="lede" style="margin-top:3.5rem"><h2>The market, measured: New York State 2021 to 2023</h2><p>From the University of Northern Colorado study for the Equality Model (Henderson, 2025): web-scraped ad counts and a prevalence model, and two decoy ads posted in 32 areas between March and June 2023. Read by the agent page by page.</p></div>
+    <table class="agg"><thead><tr><th>Indicator</th><th>2021 or value</th><th>2022 or detail</th><th>Period</th></tr></thead><tbody id="aggBody"></tbody></table>
+    <p class="src">Source: Angie Henderson, <a href="https://www.unco.edu/app/uploads/2025/10/ny-equality-model-report.pdf">Impunity, Ignorance and Racism in the Sex Trade: a multi-method study in New York State</a> (University of Northern Colorado, 2025), pages 3 to 9. The decoy texts quoted on the map are on page 9. Dataset: <a href="data/nyc_impunity_2020_2026.json">nyc_impunity_2020_2026.json</a>.</p>
     <p class="src">All figures from the CATW report, chapter on New York City. For the women's side of the same market, see the <a href="new-york.html#cases">Penn Track cases</a> on the New York page.</p>
     <div class="lede" style="margin-top:3.5rem"><h2>Time served: sex crimes against white-collar crimes</h2><p>The comparison people expect is that rapists get off lightly against tax evaders. The federal numbers say the opposite, and that is the point: when a sexual abuser is sentenced, the sentence is long. He is almost never sentenced. Impunity is not in the courtroom; it is in the thousand cases that never reach one.</p></div>
     <div class="ledger2">
@@ -241,7 +244,15 @@ table.forums td:first-child{font-weight:600;white-space:nowrap}
     {region:'Long Island',ll:[40.72,-73.08],n:'22y',title:'Sayville Motor Lodge',text:'Michael Johnson, convicted in October 2025 and sentenced in April 2026 to 22 years for trafficking women out of a Suffolk County motel.',url:'new-york.html#cases',src:DOJ_URL}];
   const caseIcon=t=>L.divIcon({className:'',html:'<span class="case">'+t+'</span>',iconSize:[26,26],iconAnchor:[13,13]});
   const caseLayer=L.layerGroup(CASES.map(k=>L.marker(k.ll,{icon:caseIcon(k.n)}).bindPopup('<b>'+k.title+'</b><br><span style="color:#999">'+k.region+' · 2026 · placed at the region, not the address</span><br>'+k.text+'<br><a href="'+k.url+'">The story</a> · <a href="'+k.src+'" rel="noopener">Source</a>'))).addTo(map);
-  L.control.layers(null,{'Cases in 2026':caseLayer},{collapsed:false,position:'topright'}).addTo(map);
+  const IMP=await (await fetch('data/nyc_impunity_2020_2026.json?v=1')).json();
+  const ico=(cls,t)=>L.divIcon({className:'',html:'<span class="imp '+cls+'">'+t+'</span>',iconSize:[22,22],iconAnchor:[11,11]});
+  const vflag=r=>r.verified_by_agent?'':' · <span class="unv">as compiled; not re-read by the agent</span>';
+  const jit=(ll,i)=>[ll[0]+((i*7)%5-2)*0.004,ll[1]+((i*11)%5-2)*0.004];
+  const postLayer=L.layerGroup(IMP.citations.map((r,i)=>L.marker(jit(r.ll,i),{icon:ico('post',r.year%100)}).bindPopup('<b>'+r.area+' · '+r.date+'</b><br><span style="color:#999">Buyer post, as quoted in published research, redacted as in the source. '+r.theme+'</span><br>'+r.excerpt+'<br><a href="'+r.url+'" rel="noopener">'+r.source+'</a>'+vflag(r))));
+  const venueLayer=L.layerGroup(IMP.venues.map((r,i)=>L.marker(jit(r.ll,i+3),{icon:ico('venue','●')}).bindPopup('<b>'+r.area+'</b><br><span style="color:#999">Named area · '+r.dates+'</span><br>'+r.text+'<br><a href="'+r.url+'" rel="noopener">'+r.source+'</a>'+vflag(r))));
+  const impCaseLayer=L.layerGroup(IMP.cases.map((r,i)=>L.marker(jit(r.ll,i+5),{icon:ico('law',r.year%100)}).bindPopup('<b>'+r.title+'</b><br><span style="color:#999">'+r.area+' · '+r.date+(r.status?' · '+r.status:'')+'</span><br>'+r.text+'<br><a href="'+r.url+'" rel="noopener">'+r.source+'</a>'+vflag(r))));
+  L.control.layers(null,{'Cases in 2026':caseLayer,'Buyer posts 2020 to 2022, quoted in published research':postLayer,'Named areas':venueLayer,'Enforcement and cases 2020 to 2026':impCaseLayer},{collapsed:false,position:'topright'}).addTo(map);
+  const ag=document.getElementById('aggBody');if(ag){ag.innerHTML=IMP.aggregates.rows.map(r=>'<tr><td>'+r[0]+'</td><td class="num">'+r[1]+'</td><td class="num">'+r[2]+'</td><td>'+r[3]+'</td></tr>').join('');}
   const pT=document.getElementById('pTitle'),pN=document.getElementById('pN'),pK=document.getElementById('pK'),pX=document.getElementById('pText'),pR=document.getElementById('pRegions');
   function select(r,fit=true){Object.entries(layers).forEach(([k,ls])=>ls.forEach(l=>l.setStyle({fillOpacity:k===r?.22:.06,color:k===r?accent:'#f2f2f2',weight:k===r?2:1,opacity:k===r?1:.6})));
     pT.textContent=r;pN.textContent=counts[r];pK.textContent='reviews geolocated in '+r+', '+Math.round(counts[r]/pts.length*100)+'% of the state';pX.textContent=NOTES[r]||'';
