@@ -273,3 +273,5 @@ body.present .src{font-size:.75em}
 .lawmap-tip .tt{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--fg-muted)}
 .lawmap-tip .obs{display:block;margin-top:6px;color:var(--fg-muted)}
 #lawSvg .land{cursor:pointer}#lawSvg .land.dim{opacity:.18}
+footer .credits{font-size:13px;color:var(--fg-subtle);max-width:60ch;margin-top:1rem;line-height:1.55}
+footer .credits a{color:inherit}

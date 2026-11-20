@@ -56,6 +56,6 @@ BACKLOG.md     everything not yet built, and what it needs
 
 ## Team
 
-Ethical Tech CoLab at NYU: Carolina Moron, Yorke Rhodes. CATW: Taina Bien-Aimé, Nora Hennick, Giorgia Piantanida, Catherine Hidalgo Jara, Mia.
+Ethical Tech CoLab at NYU: Carolina Moron, Yorke Rhodes. CATW: Taina Bien-Aimé, Nora Hennick, Giorgia Piantanida, Catherine Hidalgo Jara, Mia. Method and memorial: Elly (Die Unsichtbaren Männer, Sex Industry Kills). The same credits appear in the footer of every page.
 
 If you or someone you know needs help: New York City 24-hour HOPE hotline 1-800-621-4673; National Domestic Violence Hotline 1-800-799-7233; [CATW's global resource list](https://catwinternational.org/get-help/).
