@@ -25,6 +25,8 @@ First shown at the Ethical Tech Summit, 20 November 2026.
 
 Presenter mode for talks: press P on any page, or open it with `?present=1`. The header and footer hide, each section fills the screen with larger type, the arrow keys step through the sections and Esc exits.
 
+Presenting it: [WALKTHROUGH.md](WALKTHROUGH.md) walks a presenter through the pages in order, with what to click, the questions to expect and what is still missing.
+
 ## Data
 
 - `docs/data/nypd_dv_snapshot.json`: aggregates from NYC Open Data dataset [2rb7-7eqa](https://data.cityofnewyork.us/Public-Safety/ENDGBV-The-Intersection-of-Domestic-Violence-Race-/2rb7-7eqa), used as a fallback when the city API is unavailable. The New York page queries the API live first.
