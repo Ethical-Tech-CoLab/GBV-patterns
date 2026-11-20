@@ -79,7 +79,7 @@
       <div>
         <div class="bignum"><span id="pulseN" class="num">0</span><small id="pulseL">killed by a partner or relative since you opened this page</small></div>
       </div>
-      <div class="tally" id="tally" aria-hidden="true"></div>
+      <div><div class="tally" id="tally" aria-hidden="true"></div><p class="src" style="margin-top:.9rem">Each dot is one woman or girl; 137 dots are one day. The ringed dot is filling now. At the 2024 pace one fills about every ten and a half minutes, so the first takes that long after you open the page.</p></div>
     </div>
     <p class="src">Source: UNODC and UN Women, <a href="https://www.unwomen.org/en/digital-library/publications/2025/11/femicides-in-2024-global-estimates-of-intimate-partner-family-member-femicides">Femicides in 2024: global estimates of intimate partner and family member femicides</a> (November 2025), based on data from 117 countries.</p>
   </div>
@@ -309,8 +309,11 @@ requestAnimationFrame(()=>document.querySelectorAll('.reveal').forEach((el,i)=>s
       [...tally.children].forEach((d,i)=>d.classList.toggle('on',i<Math.min(c,DOTS)));}
     l.textContent=label;
   }
+  let cur=null;
+  function nextDot(v){const d=tally.children[Math.floor(v)]||null;if(cur&&cur!==d){cur.classList.remove('next');cur.style.background=''}cur=d;if(d){d.classList.add('next');d.style.background='conic-gradient(var(--accent) '+((v%1)*360).toFixed(1)+'deg, color-mix(in srgb,var(--fg) 28%,transparent) 0)'}}
   function tick(now){
-    render(((now-start)/1000)*perSec,'killed by a partner or relative since you opened this page, at the 2024 global rate');
+    const v=((now-start)/1000)*perSec;
+    render(v,'killed by a partner or relative since you opened this page, at the 2024 global rate');nextDot(v);
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
